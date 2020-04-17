@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%80%9D%E8%80%83/</loc>
+    <lastmod>2020-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2020-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/</loc>
+    <lastmod>2020-04-17T11:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%80%9D%E8%80%83/my-first-post/</loc>
+    <lastmod>2020-04-17T11:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/my-first-post/</loc>
+    <lastmod>2020-04-17T11:00:22+08:00</lastmod>
+  </url>
+  
+</urlset>
