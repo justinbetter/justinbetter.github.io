@@ -64,7 +64,7 @@ pre-planning for temptations
       <pubDate>Mon, 15 Jul 2019 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/leetcode/</guid>
-      <description>两数相加 public ListNode addTwoNumbers(ListNode l1, ListNode l2) { //思路：  //新建两个辅助node，保存倒序排列的l1 l2，不需要；因为题目本身就是逆序的  //循环两个node 直到最后一个节点  ListNode left = l1; ListNode right = l2; int carry = 0; ListNode tmp = new ListNode(0); ListNode res = tmp; while(left != null || right != null) { int x = (left == null) ? 0 : left.val; int y = (right == null) ? 0 : right.val; int sum = x + y +carry; carry = sum / 10; ListNode now = new ListNode(sum%10); res.</description>
+      <description>归并排序 public class MergeSort { public static void merge(int[] a, int low, int mid, int high) { int[] temp = new int[high - low + 1]; int i = low;// 左指针  int j = mid + 1;// 右指针  int k = 0; // 把较小的数先移到新数组中  while (i &amp;lt;= mid &amp;amp;&amp;amp; j &amp;lt;= high) { if (a[i] &amp;lt; a[j]) { temp[k++] = a[i++]; } else { temp[k++] = a[j++]; } } // 把左边剩余的数移入数组  while (i &amp;lt;= mid) { temp[k++] = a[i++]; } // 把右边边剩余的数移入数组  while (j &amp;lt;= high) { temp[k++] = a[j++]; } // 把新数组中的数覆盖nums数组  for (int k2 = 0; k2 &amp;lt; temp.</description>
     </item>
     
     <item>

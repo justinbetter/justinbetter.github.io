@@ -139,7 +139,161 @@
   <h2>算法题目汇总</h2>
   <span style="display: block">2019-07-15</span><br/>
   <div class="rounded">
-    <h2 id="两数相加">两数相加</h2>
+    <h2 id="归并排序">归并排序</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MergeSort</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">merge</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> low<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> mid<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> temp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>high <span style="color:#f92672">-</span> low <span style="color:#f92672">+</span> 1<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> low<span style="color:#f92672">;</span><span style="color:#75715e">// 左指针
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> mid <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span><span style="color:#75715e">// 右指针
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#75715e">// 把较小的数先移到新数组中
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">&lt;=</span> mid <span style="color:#f92672">&amp;&amp;</span> j <span style="color:#f92672">&lt;=</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>a<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> a<span style="color:#f92672">[</span>j<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+                temp<span style="color:#f92672">[</span>k<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>i<span style="color:#f92672">++];</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                temp<span style="color:#f92672">[</span>k<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>j<span style="color:#f92672">++];</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">// 把左边剩余的数移入数组
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">&lt;=</span> mid<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            temp<span style="color:#f92672">[</span>k<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>i<span style="color:#f92672">++];</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">// 把右边边剩余的数移入数组
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>j <span style="color:#f92672">&lt;=</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            temp<span style="color:#f92672">[</span>k<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>j<span style="color:#f92672">++];</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">// 把新数组中的数覆盖nums数组
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> k2 <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> k2 <span style="color:#f92672">&lt;</span> temp<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> k2<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            a<span style="color:#f92672">[</span>k2 <span style="color:#f92672">+</span> low<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> temp<span style="color:#f92672">[</span>k2<span style="color:#f92672">];</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mergeSort</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> low<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>low <span style="color:#f92672">+</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">/</span> 2<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>low <span style="color:#f92672">&lt;</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">// 左边
+</span><span style="color:#75715e"></span>            mergeSort<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> low<span style="color:#f92672">,</span> mid<span style="color:#f92672">);</span>
+            <span style="color:#75715e">// 右边
+</span><span style="color:#75715e"></span>            mergeSort<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> mid <span style="color:#f92672">+</span> 1<span style="color:#f92672">,</span> high<span style="color:#f92672">);</span>
+            <span style="color:#75715e">// 左右归并
+</span><span style="color:#75715e"></span>            merge<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> low<span style="color:#f92672">,</span> mid<span style="color:#f92672">,</span> high<span style="color:#f92672">);</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>a<span style="color:#f92672">));</span>
+        <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> a<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> 51<span style="color:#f92672">,</span> 46<span style="color:#f92672">,</span> 20<span style="color:#f92672">,</span> 18<span style="color:#f92672">,</span> 65<span style="color:#f92672">,</span> 97<span style="color:#f92672">,</span> 82<span style="color:#f92672">,</span> 30<span style="color:#f92672">,</span> 77<span style="color:#f92672">,</span> 50 <span style="color:#f92672">};</span>
+        mergeSort<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;排序结果：&#34;</span> <span style="color:#f92672">+</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>a<span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="快速排序">快速排序</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">QuickSort</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 将数组的某一段元素进行划分，小的在左边，大的在右边
+</span><span style="color:#75715e">	 * @param a
+</span><span style="color:#75715e">	 * @param start
+</span><span style="color:#75715e">	 * @param end
+</span><span style="color:#75715e">	 * @return
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">divide</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> start<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> end<span style="color:#f92672">){</span>
+		<span style="color:#75715e">//每次都以最右边的元素作为基准值
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">int</span> base <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>end<span style="color:#f92672">];</span>
+		<span style="color:#75715e">//start一旦等于end，就说明左右两个指针合并到了同一位置，可以结束此轮循环。
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>start <span style="color:#f92672">&lt;</span> end<span style="color:#f92672">){</span>
+			<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>start <span style="color:#f92672">&lt;</span> end <span style="color:#f92672">&amp;&amp;</span> a<span style="color:#f92672">[</span>start<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> base<span style="color:#f92672">)</span>
+				<span style="color:#75715e">//从左边开始遍历，如果比基准值小，就继续向右走
+</span><span style="color:#75715e"></span>				start<span style="color:#f92672">++;</span>
+			<span style="color:#75715e">//上面的while循环结束时，就说明当前的a[start]的值比基准值大，应与基准值进行交换
+</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>start <span style="color:#f92672">&lt;</span> end<span style="color:#f92672">){</span>
+				<span style="color:#75715e">//交换
+</span><span style="color:#75715e"></span>				<span style="color:#66d9ef">int</span> temp <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>start<span style="color:#f92672">];</span>
+				a<span style="color:#f92672">[</span>start<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>end<span style="color:#f92672">];</span>
+				a<span style="color:#f92672">[</span>end<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> temp<span style="color:#f92672">;</span>
+				<span style="color:#75715e">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值右边)，因此右边也要同时向前移动一位
+</span><span style="color:#75715e"></span>				end<span style="color:#f92672">--;</span>
+			<span style="color:#f92672">}</span>	
+			<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>start <span style="color:#f92672">&lt;</span> end <span style="color:#f92672">&amp;&amp;</span> a<span style="color:#f92672">[</span>end<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;=</span> base<span style="color:#f92672">)</span>
+				<span style="color:#75715e">//从右边开始遍历，如果比基准值大，就继续向左走
+</span><span style="color:#75715e"></span>				end<span style="color:#f92672">--;</span>
+			<span style="color:#75715e">//上面的while循环结束时，就说明当前的a[end]的值比基准值小，应与基准值进行交换
+</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>start <span style="color:#f92672">&lt;</span> end<span style="color:#f92672">){</span>
+				<span style="color:#75715e">//交换
+</span><span style="color:#75715e"></span>				<span style="color:#66d9ef">int</span> temp <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>start<span style="color:#f92672">];</span>
+				a<span style="color:#f92672">[</span>start<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>end<span style="color:#f92672">];</span>
+				a<span style="color:#f92672">[</span>end<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> temp<span style="color:#f92672">;</span>
+				<span style="color:#75715e">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值左边)，因此左边也要同时向后移动一位
+</span><span style="color:#75715e"></span>				start<span style="color:#f92672">++;</span>
+			<span style="color:#f92672">}</span>	
+			
+		<span style="color:#f92672">}</span>
+		<span style="color:#75715e">//这里返回start或者end皆可，此时的start和end都为基准值所在的位置
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">return</span> end<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+ 
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 排序
+</span><span style="color:#75715e">	 * @param a
+</span><span style="color:#75715e">	 * @param start
+</span><span style="color:#75715e">	 * @param end
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> start<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> end<span style="color:#f92672">){</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>start <span style="color:#f92672">&gt;</span> end<span style="color:#f92672">){</span>
+			<span style="color:#75715e">//如果只有一个元素，就不用再排下去了
+</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span> 
+		<span style="color:#66d9ef">else</span><span style="color:#f92672">{</span>
+			<span style="color:#75715e">//如果不止一个元素，继续划分两边递归排序下去
+</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">int</span> partition <span style="color:#f92672">=</span> divide<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> start<span style="color:#f92672">,</span> end<span style="color:#f92672">);</span>
+			sort<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> start<span style="color:#f92672">,</span> partition<span style="color:#f92672">-</span>1<span style="color:#f92672">);</span>
+			sort<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> partition<span style="color:#f92672">+</span>1<span style="color:#f92672">,</span> end<span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+			
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="链表排序">链表排序</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> ListNode <span style="color:#a6e22e">sortList</span><span style="color:#f92672">(</span>ListNode head<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>head <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> head<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">//递归归并排序
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//找到中点，递归中点分割，归并合并
+</span><span style="color:#75715e"></span>        ListNode slow <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+        ListNode fast <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">//fast走完 slow就是中点
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>fast <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>  <span style="color:#f92672">&amp;&amp;</span>  fast<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            slow <span style="color:#f92672">=</span> slow<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+            fast <span style="color:#f92672">=</span> fast<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        ListNode center<span style="color:#f92672">=</span>  slow<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+        slow<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        ListNode left <span style="color:#f92672">=</span> sortList<span style="color:#f92672">(</span>head<span style="color:#f92672">);</span>
+        ListNode right <span style="color:#f92672">=</span> sortList<span style="color:#f92672">(</span>center<span style="color:#f92672">);</span>
+        ListNode tmp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ListNode<span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+        ListNode res <span style="color:#f92672">=</span> tmp<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>left <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> right <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>left<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">&lt;</span> right<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                tmp<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> left<span style="color:#f92672">;</span>
+                left <span style="color:#f92672">=</span> left<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                tmp<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> right<span style="color:#f92672">;</span>
+                right <span style="color:#f92672">=</span> right<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+            tmp <span style="color:#f92672">=</span> tmp<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">//添加尾点
+</span><span style="color:#75715e"></span>        tmp<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> left <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> right <span style="color:#f92672">:</span> left<span style="color:#f92672">;</span>
+        <span style="color:#75715e">//返回头部
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> res<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">//-----
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//从底至顶 归并排序
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//获取链表长度，根据每一步，循环断链合并，最后合并的链表超越链表长度即返回结果
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+</code></pre></div><h2 id="两数相加">两数相加</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#66d9ef">public</span> ListNode <span style="color:#a6e22e">addTwoNumbers</span><span style="color:#f92672">(</span>ListNode l1<span style="color:#f92672">,</span> ListNode l2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         <span style="color:#75715e">//思路：
 </span><span style="color:#75715e"></span>        <span style="color:#75715e">//新建两个辅助node，保存倒序排列的l1 l2，不需要；因为题目本身就是逆序的
