@@ -12,12 +12,14 @@
     
     
     <item>
-      <title>占位文章</title>
+      <title>Linux笔记</title>
       <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/my-first-post/</link>
-      <pubDate>Fri, 17 Apr 2020 11:00:22 +0800</pubDate>
+      <pubDate>Sat, 15 Jun 2019 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/my-first-post/</guid>
-      <description>技术 一行占位</description>
+      <description>[TOC]
+帮助手册命令 man man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。  ##Linux 下修改 root 密码方法 passwd root
+权限 chgrp ：改变文件所属群组 chown -R：改变文件拥有者 chmod ：改变文件的权限, SUID, SGID, SBIT等等的特性	su - user1 切换身份user1  查看服务  /etc/services /etc/init.d/ 启动脚本处	/etc/* ：各服务各自的配置文件 service --status-all 查看所有服务  常用目录 /etc 主要配置文件 /bin 常用执行文件 /sbin 重要的系统执行文件 /dev 存放设备文件 /dev/null 垃圾桶 /home 用户目录 /media /mnt 挂载外部装置 /opt 第三方协议软件 习惯放/usr/local /proc 虚拟文件，存放内存数据:系统cpu、网络.. / (root, 根目录)： 与开机系统有关； /usr (unix software resource)：与软件安装/执行有关； /usr/local/ 自己下载的软件安装目录 /var (variable)： 与系统运作过程有关的常态性变动的文件：缓存、log等。 /etc/issue 配置开机画面显示 /etc/motd 配置登录显示 /etc/ssh/sshd_config ssh配置 ~/.</description>
     </item>
     
   </channel>
