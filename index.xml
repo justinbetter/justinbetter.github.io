@@ -59,6 +59,15 @@ pre-planning for temptations
     </item>
     
     <item>
+      <title>算法题目汇总</title>
+      <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/leetcode/</link>
+      <pubDate>Mon, 15 Jul 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/leetcode/</guid>
+      <description>两数相加 public ListNode addTwoNumbers(ListNode l1, ListNode l2) { //思路：  //新建两个辅助node，保存倒序排列的l1 l2，不需要；因为题目本身就是逆序的  //循环两个node 直到最后一个节点  ListNode left = l1; ListNode right = l2; int carry = 0; ListNode tmp = new ListNode(0); ListNode res = tmp; while(left != null || right != null) { int x = (left == null) ? 0 : left.val; int y = (right == null) ? 0 : right.val; int sum = x + y +carry; carry = sum / 10; ListNode now = new ListNode(sum%10); res.</description>
+    </item>
+    
+    <item>
       <title>Linux笔记</title>
       <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/linux-post/</link>
       <pubDate>Sat, 15 Jun 2019 20:00:22 +0800</pubDate>
