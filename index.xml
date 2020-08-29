@@ -50,6 +50,17 @@ pre-planning for temptations
     </item>
     
     <item>
+      <title>git常用规范</title>
+      <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/my-post2/</link>
+      <pubDate>Mon, 15 Jul 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/my-post2/</guid>
+      <description>分支规范
+ 分支命名规范：  master: 主线分支 feature/xxxx: 功能需求开发分支 hotfix/xxxx: bug 修复分支 refactor/xxxx: 重构分支   默认从主线分支 checkout 出功能需求 or bug 修复分支 分支合并需要写清本次开发的内容点    Commit Message 规范
+ 命名规则：func[(main)]: done something  其中 [ ] 中的内容可以省略   func 规则：  feat: 新功能开发 fix: bug 修复 refactor: 不影响现有功能的重构 test: 添加测试 chore: 构建工具改动 style: 格式改动   冒号（英文冒号，并空一格）后面写上这次 commit 提交的内容，最好一个小功能点一次提交 禁止类似 update 这样无意义的提交！  查看当前url git remote -v git remote set-url origin [url]</description>
+    </item>
+    
+    <item>
       <title>Linux笔记</title>
       <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/my-first-post/</link>
       <pubDate>Sat, 15 Jun 2019 20:00:22 +0800</pubDate>
