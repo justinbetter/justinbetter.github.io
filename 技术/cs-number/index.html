@@ -164,59 +164,54 @@
   >
     技术
   </small>
-  <h2>git常用规范</h2>
-  <span style="display: block;opacity: 0.5">2019-07-15</span><br/>
+  <h2>【cs基础】浮点数的存储</h2>
+  <span style="display: block;opacity: 0.5">2017-03-29</span><br/>
   <div class="rounded">
-    <h1 id="分支规范">分支规范</h1>
-<pre><code>- 分支规范
-    1. 分支命名规范：
-        - master: 主线分支
-        - feature/xxxx: 功能需求开发分支
-        - hotfix/xxxx: bug 修复分支
-        - refactor/xxxx: 重构分支
-    2. 默认从主线分支 checkout 出功能需求 or bug 修复分支
-    3. 分支合并需要写清本次开发的内容点
-- Commit Message 规范
-    1. 命名规则：func[(main)]: done something
-        - 其中 `[ ]` 中的内容可以省略
-    2. func 规则：
-        1. feat: 新功能开发
-        2. fix: bug 修复
-        3. refactor: 不影响现有功能的重构
-        4. test: 添加测试
-        5. chore: 构建工具改动
-        6. style: 格式改动
-    3. 冒号（英文冒号，并空一格）后面写上这次 commit 提交的内容，最好一个小功能点一次提交
-    4. 禁止类似 `update` 这样无意义的提交！
-
-
-查看当前url
-git remote -v
-git remote set-url origin [url]
-
-git remote rm origin
-git remote add origin [url]
-
-
-
-
-git config user.name &quot;xxx&quot;
-
-git push origin --tags 推送tag
-
-回退版本
-git reset --hard 版本号  
-git push -f -u origin master
-
-查看项目的分支们(包括本地和远程) 
-命令行 : $ git branch -a     例如，$ git branch -a 
-
-删除本地分支 
-命令行 : $ git branch -d &lt;BranchName&gt;
-
-ssh
-ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot; 
-</code></pre>
+    <p>#浮点数的存储
+##为什么讨论浮点数</p>
+<ul>
+<li>计算机只能识别二进制，整数转化为二进制没有任何问题。</li>
+<li>但是！浮点数有小数点, 计算机怎么识别！必然要有个规范来规定计算机怎么识别吧！这个规范就是国际标准IEEE 754.</li>
+</ul>
+<p>##浮点数的识别规范</p>
+<ul>
+<li>
+<p>标准规定，任何浮点数的表现形式为</p>
+<ul>
+<li>V= （-1）^S x M x 2^E</li>
+<li>符号位S</li>
+<li>尾数位M</li>
+<li>指数位E</li>
+</ul>
+</li>
+<li>
+<p>32bit : 符号位1，指数位8，尾数位23</p>
+</li>
+<li>
+<p>64bit : 符号位1，指数位11，尾数位52</p>
+</li>
+<li>
+<p>尾数位 M 默认总是1.xxx的形式，秉着优化的概念，标准规定保存的时候可以舍弃，读取的时候再加上，这样尾数范围也增加了 1 位</p>
+</li>
+<li>
+<p>指数位2^E , E为8，指数范围0~255; E为11，指数范围 0~2047</p>
+</li>
+<li>
+<p>但是！指数E可能为负数 也就是说指数范围可能为-127-128了，为了不出现负数，标准规定采用移位存储，保存的E数据就要+127或者+1023；</p>
+</li>
+<li>
+<p>比如E = 10，必须保存成10+127=137，即10001001</p>
+</li>
+</ul>
+<blockquote>
+<p>（1）E不全为0或不全为1。这时，浮点数就采用上面的规则表示，即指数E的计算值减去127（或1023），得到真实值，再将有效数字M前加上第一位的1。
+（2）E全为0。这时，浮点数的指数E等于1-127（或者1-1023），有效数字M不再加上第一位的1，而是还原为0.xxxxxx的小数。这样做是为了表示±0，以及接近于0的很小的数字。
+（3）E全为1。这时，如果有效数字M全为0，表示±无穷大（正负取决于符号位s）；如果有效数字M不全为0，表示这个数不是一个数（NaN）。</p>
+</blockquote>
+<p>##单精度和双精度误差</p>
+<ul>
+<li>十进制转化为二进制的时候，要是永远除不尽，单精度转换为双精度的时候，位数变少，多余的值被省忽略了，就会产生误差的问题</li>
+</ul>
 
   </div>
 </div>
@@ -226,19 +221,14 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
   
   <p class="mb-1 mt-1 text-left">
   
-  <a
-    href="/%E6%8A%80%E6%9C%AF/linux-post/"
-    title="Linux笔记"
-  >
-    <i class="nav-menu fas fa-chevron-circle-right"></i>
-  </a>
+  <i class="nav-menu-disabled fas fa-chevron-circle-right"></i>
   
 </p>
 <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/%E6%8A%80%E6%9C%AF/python-learn/"
-    title="python基础"
+    href="/%E6%8A%80%E6%9C%AF/cs-algorithm/"
+    title="【cs基础】如何判断算法的好坏"
   >
     <i class="nav-menu fas fa-chevron-circle-left"></i>
   </a>
@@ -290,7 +280,7 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "https:\/\/justinbetter.github.io\/%E6%8A%80%E6%9C%AF\/git-common\/";
+      return "https:\/\/justinbetter.github.io\/%E6%8A%80%E6%9C%AF\/cs-number\/";
     }
   });
 

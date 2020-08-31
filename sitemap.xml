@@ -33,8 +33,18 @@
   </url>
   
   <url>
+    <loc>https://justinbetter.github.io/%E6%80%9D%E8%80%83/readday/</loc>
+    <lastmod>2020-04-23T20:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://justinbetter.github.io/%E6%80%9D%E8%80%83/my-first-post/</loc>
     <lastmod>2020-04-17T11:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/python-learn2/</loc>
+    <lastmod>2019-08-09T20:00:22+08:00</lastmod>
   </url>
   
   <url>
@@ -55,6 +65,31 @@
   <url>
     <loc>https://justinbetter.github.io/%E6%80%9D%E8%80%83/readtime/</loc>
     <lastmod>2019-03-03T20:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/shell/</loc>
+    <lastmod>2018-03-01T20:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/kotlin/</loc>
+    <lastmod>2017-07-18T20:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/designpattern/</loc>
+    <lastmod>2017-05-28T20:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/cs-algorithm/</loc>
+    <lastmod>2017-04-01T20:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/cs-number/</loc>
+    <lastmod>2017-03-29T20:00:22+08:00</lastmod>
   </url>
   
 </urlset>

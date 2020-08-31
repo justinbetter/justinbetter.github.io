@@ -80,62 +80,121 @@
 </div>
 
     
+    <div class="position-relative">
+  <i
+    class="nav-menu hover-menu ml-2 mr-2 mt-1 fas fa-bars"
+    onclick="expandMenu(this)"
+    title = "Show Chapters"
+  ></i>
+  <div
+    class="show bg-light shadow mt-2"
+    style="
+      position: absolute;
+      min-width: 280px;
+      max-width: 75%;
+      z-index: 1;
+      max-height: 0px;
+      overflow: hidden;"
+  >
+    <div class="p-2 rounded">
+      <strong class="mt-3">
+        
+        
+        思考
+        
+      </strong>
+      <ul class="list-unstyled ml-1">
+        
+        
+        <li class="hanging">
+          <a href="https://justinbetter.github.io/%E6%80%9D%E8%80%83/20hours/">20个小时</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="https://justinbetter.github.io/%E6%80%9D%E8%80%83/practise-self-discipline/">如何自律</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="https://justinbetter.github.io/%E6%80%9D%E8%80%83/readday/">世界读书日</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="https://justinbetter.github.io/%E6%80%9D%E8%80%83/my-first-post/">优化自己的写作方式</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="https://justinbetter.github.io/%E6%80%9D%E8%80%83/readtime/">读和时间作朋友</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+    
   </div>
 </nav>
 
     <main class="mt-3" style="margin-left: 32px;">
       
-<div class="row mb-2 no-gutters">
-  
-  
+<div class="mb-2 p-3 shadow position-relative">
+  <small
+    class="bg-white pl-1 pr-1 rounded border border-secondary"
+    style="background-color: #f3f3ef !important; position: absolute; top: -0.75em; left: 0.5em"
+  >
+    思考
+  </small>
+  <h2>世界读书日</h2>
+  <span style="display: block;opacity: 0.5">2020-04-23</span><br/>
+  <div class="rounded">
+    <pre><code>今天是世界读书日，希望大家象征性地读点书。
 
-  <div class="col-md-12 p-2 mt-2 rounded shadow">
-    
-    <h2>思考</h2>
-    
-    <hr>
-    
-    <h5>
-      文章
-    </h5>
-    <ul class="list-unstyled">
-      
-      <li>
-        <a href="https://justinbetter.github.io/%E6%80%9D%E8%80%83/20hours/">
-          20个小时
-        </a>
-      </li>
-      
-      <li>
-        <a href="https://justinbetter.github.io/%E6%80%9D%E8%80%83/practise-self-discipline/">
-          如何自律
-        </a>
-      </li>
-      
-      <li>
-        <a href="https://justinbetter.github.io/%E6%80%9D%E8%80%83/readday/">
-          世界读书日
-        </a>
-      </li>
-      
-      <li>
-        <a href="https://justinbetter.github.io/%E6%80%9D%E8%80%83/my-first-post/">
-          优化自己的写作方式
-        </a>
-      </li>
-      
-      <li>
-        <a href="https://justinbetter.github.io/%E6%80%9D%E8%80%83/readtime/">
-          读和时间作朋友
-        </a>
-      </li>
-      
-    </ul>
+我最近发现我的生活里少了很多深度系统的思考，因为我没时间。
+
+我的时间去哪了？
+
+在王者荣耀、在抖音、在各种新闻论坛里。
+
+这里存在着一种恶性循环：
+
+我越浮躁越看不进书，我就越想放空大脑，将自己投入到无脑的娱乐通俗中；
+越是进行这些娱乐活动，我就越浮躁；
+
+娱乐并不可怕，可怕的是总想着娱乐。
+
+养成好的习惯，趋势很重要。
+
+
+至少在今天这个日子，开卷有益一下。
+</code></pre>
+
   </div>
 </div>
 
     </main>
     <div class="side-bar">
+  
+  <p class="mb-1 mt-1 text-left">
+  
+  <a
+    href="/%E6%80%9D%E8%80%83/my-first-post/"
+    title="优化自己的写作方式"
+  >
+    <i class="nav-menu fas fa-chevron-circle-right"></i>
+  </a>
+  
+</p>
+<p class="mb-1 mt-1 text-left">
+  
+  <a
+    href="/%E6%80%9D%E8%80%83/practise-self-discipline/"
+    title="如何自律"
+  >
+    <i class="nav-menu fas fa-chevron-circle-left"></i>
+  </a>
+  
+</p>
+
   
   <p class="mb-1 mt-1 text-left">
     <i
@@ -181,7 +240,7 @@
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "https:\/\/justinbetter.github.io\/%E6%80%9D%E8%80%83\/";
+      return "https:\/\/justinbetter.github.io\/%E6%80%9D%E8%80%83\/readday\/";
     }
   });
 

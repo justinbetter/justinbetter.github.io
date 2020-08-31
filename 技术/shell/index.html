@@ -164,59 +164,197 @@
   >
     技术
   </small>
-  <h2>git常用规范</h2>
-  <span style="display: block;opacity: 0.5">2019-07-15</span><br/>
+  <h2>学会写shell脚本</h2>
+  <span style="display: block;opacity: 0.5">2018-03-01</span><br/>
   <div class="rounded">
-    <h1 id="分支规范">分支规范</h1>
-<pre><code>- 分支规范
-    1. 分支命名规范：
-        - master: 主线分支
-        - feature/xxxx: 功能需求开发分支
-        - hotfix/xxxx: bug 修复分支
-        - refactor/xxxx: 重构分支
-    2. 默认从主线分支 checkout 出功能需求 or bug 修复分支
-    3. 分支合并需要写清本次开发的内容点
-- Commit Message 规范
-    1. 命名规则：func[(main)]: done something
-        - 其中 `[ ]` 中的内容可以省略
-    2. func 规则：
-        1. feat: 新功能开发
-        2. fix: bug 修复
-        3. refactor: 不影响现有功能的重构
-        4. test: 添加测试
-        5. chore: 构建工具改动
-        6. style: 格式改动
-    3. 冒号（英文冒号，并空一格）后面写上这次 commit 提交的内容，最好一个小功能点一次提交
-    4. 禁止类似 `update` 这样无意义的提交！
-
-
-查看当前url
-git remote -v
-git remote set-url origin [url]
-
-git remote rm origin
-git remote add origin [url]
-
-
-
-
-git config user.name &quot;xxx&quot;
-
-git push origin --tags 推送tag
-
-回退版本
-git reset --hard 版本号  
-git push -f -u origin master
-
-查看项目的分支们(包括本地和远程) 
-命令行 : $ git branch -a     例如，$ git branch -a 
-
-删除本地分支 
-命令行 : $ git branch -d &lt;BranchName&gt;
-
-ssh
-ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot; 
+    <p>##shell是什么</p>
+<pre><code>    Shell 是一个用C语言编写的程序，它是用户使用Linux的桥梁。
+    Shell既是一种命令语言，又是一种程序设计语言，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。
 </code></pre>
+<p>##shell脚本是什么</p>
+<ul>
+<li>
+<p>shell是为shell编写的脚本程序。</p>
+</li>
+<li>
+<p>Bash是大多数Linux系统默认的Shell。</p>
+<pre><code>  #! 告诉系统其后路径所指定的程序即是解释此脚本文件的Shell程序。
+  如： #!/bin/bash
+</code></pre>
+</li>
+<li>
+<p>运行方法</p>
+<pre><code>  第一种： 
+  chmod +x ./test.sh  #使脚本具有执行
+  ./test.sh  #执行脚本
+  第二种：
+  /bin/sh test.sh #运行解释器
+</code></pre>
+</li>
+</ul>
+<p>##变量</p>
+<ul>
+<li>
+<p>使用变量</p>
+<pre><code>  your_name=&quot;qinjx&quot;
+  echo $your_name
+  echo ${your_name} #花括号可加可不加
+</code></pre>
+</li>
+<li>
+<p>设置只读变量</p>
+<pre><code>  myUrl=&quot;http://www.w3cschool.cc&quot;
+  readonly myUrl
+</code></pre>
+</li>
+<li>
+<p>删除变量 unset</p>
+</li>
+</ul>
+<p>##字符串</p>
+<ul>
+<li>
+<p>获取长度</p>
+<pre><code>  string=&quot;abcd&quot;
+  echo ${#string} #输出 长度4
+</code></pre>
+</li>
+<li>
+<p>提取字符串</p>
+<pre><code>  echo ${string:1:4}
+</code></pre>
+</li>
+<li>
+<p>查找index</p>
+<pre><code>  string=&quot;runoob is a great company&quot;
+  echo `expr index &quot;$string&quot; is`  # 输出 8
+</code></pre>
+</li>
+</ul>
+<p>##数组</p>
+<ul>
+<li>
+<p>定义</p>
+<pre><code>  array_name=(value0 value1 value2 value3)
+</code></pre>
+</li>
+<li>
+<p>读取</p>
+<pre><code>  valuen=${array_name[n]}
+  echo ${array_name[@]} #获取所有元素
+</code></pre>
+</li>
+<li>
+<p>获取长度</p>
+<pre><code>  length=${#array_name[@]}	
+  lengthn=${#array_name[n]}
+</code></pre>
+</li>
+</ul>
+<p>##脚本参数</p>
+<ul>
+<li>
+<p>获取参数</p>
+<pre><code>  脚本内获取参数的格式为：$n
+
+  $#	传递到脚本的参数个数
+	
+  $*	以一个单字符串显示所有向脚本传递的参数。
+	
+  如&quot;$*&quot;用「&quot;」括起来的情况、以&quot;$1 $2 … $n&quot;的形式输出所有参数。
+	
+
+  如&quot;$@&quot;用「&quot;」括起来的情况、以&quot;$1&quot; &quot;$2&quot; … &quot;$n&quot; 的形式输出所有参数。
+</code></pre>
+</li>
+</ul>
+<h2 id="运算符">运算符</h2>
+<ul>
+<li>
+<p>原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。
+expr 是一款表达式计算工具，使用它能完成表达式的求值。例如，两个数相加(注意使用的是反引号 ` 而不是单引号 &lsquo;)：</p>
+<pre><code>  #!/bin/bash
+	
+  val=`expr 2 + 2`
+  echo &quot;两数之和为 : $val&quot;
+</code></pre>
+</li>
+</ul>
+<p>##echo
+。。。没啥说的，就是显示
+##printf</p>
+<pre><code>printf &quot;%-10s %-8s %-4.2f\n&quot; 郭靖 男 66.1234 
+</code></pre>
+<p>##if
+if condition1
+then
+command1
+elif condition2
+then
+command2
+else
+commandN
+fi</p>
+<p>##for
+for var in item1 item2 &hellip; itemN
+do
+command1
+command2
+&hellip;
+commandN
+done
+##while
+while condition
+do
+command
+done</p>
+<p>##函数</p>
+<ul>
+<li>
+<p>使用</p>
+</li>
+<li>
+<p>funWithReturn(){
+echo &ldquo;这个函数会对输入的两个数字进行相加运算&hellip;&rdquo;
+echo &ldquo;输入第一个数字: &quot;
+read aNum
+echo &ldquo;输入第二个数字: &quot;
+read anotherNum
+echo &ldquo;两个数字分别为 $aNum 和 $anotherNum !&rdquo;
+return $(($aNum+$anotherNum))
+}
+funWithReturn
+echo &ldquo;输入的两个数字之和为 $? !&rdquo;
+#函数返回值在调用该函数后通过 $? 来获得</p>
+</li>
+<li>
+<p>函数参数</p>
+</li>
+<li>
+<p>funWithParam(){
+echo &ldquo;第一个参数为 $1 !&rdquo;
+echo &ldquo;第二个参数为 $2 !&rdquo;
+echo &ldquo;第十个参数为 $10 !&rdquo;
+echo &ldquo;第十个参数为 ${10} !&rdquo;
+echo &ldquo;第十一个参数为 ${11} !&rdquo;
+echo &ldquo;参数总数有 $# 个!&rdquo;
+echo &ldquo;作为一个字符串输出所有参数 $* !&rdquo;
+}
+funWithParam 1 2 3 4 5 6 7 8 9 34 73</p>
+</li>
+</ul>
+<p>##包含外部脚本，以便独立使用</p>
+<ul>
+<li>
+<p>source 或者 .</p>
+<pre><code>  #使用 . 号来引用test1.sh 文件
+  . ./test1.sh
+	
+  # 或者使用以下包含文件代码
+  # source ./test1.sh
+</code></pre>
+</li>
+</ul>
 
   </div>
 </div>
@@ -227,8 +365,8 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
   <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/%E6%8A%80%E6%9C%AF/linux-post/"
-    title="Linux笔记"
+    href="/%E6%8A%80%E6%9C%AF/kotlin/"
+    title="记录一些kotlin的用法"
   >
     <i class="nav-menu fas fa-chevron-circle-right"></i>
   </a>
@@ -237,8 +375,8 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
 <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/%E6%8A%80%E6%9C%AF/python-learn/"
-    title="python基础"
+    href="/%E6%8A%80%E6%9C%AF/linux-post/"
+    title="Linux笔记"
   >
     <i class="nav-menu fas fa-chevron-circle-left"></i>
   </a>
@@ -290,7 +428,7 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "https:\/\/justinbetter.github.io\/%E6%8A%80%E6%9C%AF\/git-common\/";
+      return "https:\/\/justinbetter.github.io\/%E6%8A%80%E6%9C%AF\/shell\/";
     }
   });
 

@@ -164,59 +164,92 @@
   >
     技术
   </small>
-  <h2>git常用规范</h2>
-  <span style="display: block;opacity: 0.5">2019-07-15</span><br/>
+  <h2>写python脚本常用的函数</h2>
+  <span style="display: block;opacity: 0.5">2019-08-09</span><br/>
   <div class="rounded">
-    <h1 id="分支规范">分支规范</h1>
-<pre><code>- 分支规范
-    1. 分支命名规范：
-        - master: 主线分支
-        - feature/xxxx: 功能需求开发分支
-        - hotfix/xxxx: bug 修复分支
-        - refactor/xxxx: 重构分支
-    2. 默认从主线分支 checkout 出功能需求 or bug 修复分支
-    3. 分支合并需要写清本次开发的内容点
-- Commit Message 规范
-    1. 命名规则：func[(main)]: done something
-        - 其中 `[ ]` 中的内容可以省略
-    2. func 规则：
-        1. feat: 新功能开发
-        2. fix: bug 修复
-        3. refactor: 不影响现有功能的重构
-        4. test: 添加测试
-        5. chore: 构建工具改动
-        6. style: 格式改动
-    3. 冒号（英文冒号，并空一格）后面写上这次 commit 提交的内容，最好一个小功能点一次提交
-    4. 禁止类似 `update` 这样无意义的提交！
+    <p>@[toc]
+#python 脚本常用函数</p>
+<p>这里记录一些脚本常用的函数</p>
+<p>##文件操作</p>
+<ul>
+<li>路径相关</li>
+</ul>
+<pre><code>os.chdir(dst_dir)							#改变当前目录
+os.listdir()								#遍历文件夹
+for root, dirs, files in os.walk(rootDir):  #遍历文件夹
+os.path.basename()  						#去掉目录路径, 返回文件名 
+os.path.splitext()  						#返回 (filename, extension) 元组 
+os.path.exists()							#文件存在	
+shutil.rmtree(zip_comoress_dir) 			#删除目录
+shutil.copy(source_dir, dst_dir)			#复制文件
+os.path.dirname(os.path.realpath(__file__)) #获取当前目录
+</code></pre><ul>
+<li>文件信息</li>
+</ul>
+<pre><code>json.dumps(mock_config, indent=5)	 	#获取json数据
+os.path.getsize()  						#获取文件大小
+with open(zip_url,'rb') as f_zip:  		#解压zip
+     zip_file = zipfile.ZipFile(f_zip)
+     zip_file.extractall('./zip')
+----------------------------------------
+def get_file_md5(f): 					#获取MD5
+    m = hashlib.md5()
+
+    while True:
+        data = f.read(10240)
+        if not data:
+            break
+
+        m.update(data)
+    return m.hexdigest()
 
 
-查看当前url
-git remote -v
-git remote set-url origin [url]
+with open(YOUR_FILE, 'rb')as f:
+    file_md5 = get_file_md5(f)
+--------------------------------------
 
-git remote rm origin
-git remote add origin [url]
+</code></pre><p>##字符串操作</p>
+<ul>
+<li>命令行</li>
+</ul>
+<pre><code>    p = subprocess.Popen(COMMAND, stdout=subprocess.PIPE, stderr=None, shell=True)
+    p_communicate = p.communicate()   #返回命令行输出
+-----------
+apk_old = raw_input('old_path: ') 	  #获取命令
+os.system(&quot;cd test&quot;)
+
+    
+</code></pre><ul>
+<li>字符串包含</li>
+</ul>
+<pre><code>if &quot;123&quot;  in &quot;da123dfd&quot;:
+
+s = &quot;This be a string&quot;
+if s.find(&quot;is&quot;) == -1:
+    print &quot;No 'is' here!&quot;
+else:
+    print &quot;Found 'is' in the string.&quot;
+</code></pre><ul>
+<li>正则匹配</li>
+</ul>
+<pre><code> pattern = re.compile(r'package: name=\'(\S+)\'')
+ search  = pattern.search(data)
+ result  = search.group(1)  
+</code></pre><p>##列表操作</p>
+<pre><code>map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])		#循环操作每一个元素
 
 
 
-
-git config user.name &quot;xxx&quot;
-
-git push origin --tags 推送tag
-
-回退版本
-git reset --hard 版本号  
-git push -f -u origin master
-
-查看项目的分支们(包括本地和远程) 
-命令行 : $ git branch -a     例如，$ git branch -a 
-
-删除本地分支 
-命令行 : $ git branch -d &lt;BranchName&gt;
-
-ssh
-ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot; 
-</code></pre>
+</code></pre><p>##ps</p>
+<ul>
+<li>json.dumps输出中文指定ensure_ascii参数为False</li>
+</ul>
+<p>##转化为exe执行</p>
+<ul>
+<li>pip install pyinstaller</li>
+<li>pyinstaller -F demo.py</li>
+<li>cx_freeze: <a href="http://www.cnblogs.com/renzo/archive/2012/01/01/2309260.html">http://www.cnblogs.com/renzo/archive/2012/01/01/2309260.html</a></li>
+</ul>
 
   </div>
 </div>
@@ -227,8 +260,8 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
   <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/%E6%8A%80%E6%9C%AF/linux-post/"
-    title="Linux笔记"
+    href="/%E6%8A%80%E6%9C%AF/python-learn/"
+    title="python基础"
   >
     <i class="nav-menu fas fa-chevron-circle-right"></i>
   </a>
@@ -237,8 +270,8 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
 <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/%E6%8A%80%E6%9C%AF/python-learn/"
-    title="python基础"
+    href="/%E6%8A%80%E6%9C%AF/leetcode/"
+    title="算法题目汇总"
   >
     <i class="nav-menu fas fa-chevron-circle-left"></i>
   </a>
@@ -290,7 +323,7 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "https:\/\/justinbetter.github.io\/%E6%8A%80%E6%9C%AF\/git-common\/";
+      return "https:\/\/justinbetter.github.io\/%E6%8A%80%E6%9C%AF\/python-learn2\/";
     }
   });
 
