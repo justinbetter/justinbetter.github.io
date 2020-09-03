@@ -172,53 +172,66 @@
   >
     技术
   </small>
-  <h2>【cs基础】如何判断算法的好坏</h2>
-  <span style="display: block;opacity: 0.5">2017-04-01</span><br/>
+  <h2>【cs基础】编译器的普及</h2>
+  <span style="display: block;opacity: 0.5">2017-04-02</span><br/>
   <div class="rounded">
-    <p>@[toc]
-#算法复杂度</p>
-<ul>
-<li>
-<p>平时我们说算法的好坏，排除一些软件和硬件上的限制，怎么去衡量这个算法运行的更快呢？这就是Big O notation的作用啦！
-##Big O notation</p>
-</li>
-<li>
-<p>Big O notation是一种描述述函数渐进行为的理论，说白了，表达算法的增长趋势，一个算法会渐渐走向快速还是缓慢的表达方式。</p>
-</li>
-<li>
-<p>这种渐进表达有三种记号来表示：O、 Θ 和 Ω 记号法。Θ 记号渐进地给出了一个函数的上界和下界，当只有渐近上界时使用 O 记号，当只有渐近下界时使用 Ω 记号。</p>
-</li>
-<li>
-<p>譬如：</p>
-<p>$T(n)=4n^2+2n+2$</p>
-<p>当 n 增大到非常大时，$n^2$ 项将开始占主导地位 , 一般就用$O(n^2)$表示该算法的上界表示算法复杂度。</p>
-</li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwNDAxMTUxNTExMzM2?x-oss-process=image/format,png" alt="算法复杂度趋势一览"></p>
-<hr>
-<p>##算法的衡量从两个方向出发：时间复杂度和空间复杂度
-###1. 时间复杂度</p>
-<ul>
-<li>算法完成其执行所需的总时间量</li>
-<li>但是！算法执行的时间我们很难真实的估计，只能比较算法语句的执行次数，以此比较时间复杂度</li>
-</ul>
-<p>###2. 空间复杂度</p>
-<ul>
-<li>算法完成其执行所需的计算机存储器的总量</li>
-<li>说白了，就是程序执行所需要的内存空间：
+    <p>##编译器是什么
+编译器就是一种翻译程序，一般是将高级语言编写的源代码转化成汇编或者机器码。说白了就是把我们用python,java等各种语言写的程序,翻译成计算机能看懂的二进制指令数据,以便运行.</p>
+<p>##编译流程</p>
+<blockquote>
+<p>source &ndash;&gt; 词法分析 == 各种记号Token stream
+&ndash;&gt; 语法分析 == 语法树
+&ndash;&gt; 语义分析 == 优化后的语法树
+&ndash;&gt; 中间代码生成 == 中间代码
+&ndash;&gt; 中间代码优化 == 优化后的中间代码
+&ndash;&gt; 目标代码生成 == 目标代码
+&ndash;&gt; 目标代码优化 == target program</p>
+</blockquote>
+<p>##流程详解</p>
 <ol>
-<li>指令空间：用于存储已编译版本指令的内存量。</li>
-<li>环境堆栈：在函数调用时存储部分执行函数信息的内存量。</li>
-<li>数据空间：用于存储所有变量和常量的内存量。
-##怎么做</li>
-</ol>
+<li>
+<p>词法分析</p>
+<pre><code>  将源代码的标识符、运算符等分割成一个个记号
+</code></pre>
 </li>
-<li>书读百遍，其义自见。</li>
-</ul>
+<li>
+<p>语法分析</p>
+<pre><code> 解析得到的一个个记号，根据语法规则生成一种抽象语法树
+</code></pre>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-kaiAzFVr-1598890932828)(http://pandolia.net/tinyc/images/syntax_tree-2.png)]</p>
+</li>
+<li>
+<p>语义分析</p>
+<pre><code> 编译器开始对语法树进行一次或多次的遍历，检查程序的语义规则：变量声明、类型匹配..等
+</code></pre>
+</li>
+<li>
+<p>IR生成（中间代码，intermediate Representation）</p>
+<pre><code> 一般生成的算法是一个递归的算法，递归的遍历语法树，将语法树上的一些节点替换成中间代码块，再根据特定的规则和顺序将这些中间代码块拼装起来。
+    
+ 为什么不直接生成目标代码？增加编译器的开发扩展性；便于对代码优化，中间代码的优化要比直接在目标代码优化难度低得多。
+</code></pre>
+</li>
+<li>
+<p>IR优化</p>
+<pre><code> 各种优化：
+ 去除冗余代码
+ 优化循环、算术表达式等
+</code></pre>
+</li>
+<li>
+<p>目标代码生成</p>
+<pre><code> 编译器根据中间代码和目标机器架构生成目标代码。
+</code></pre>
+</li>
+<li>
+<p>目标代码优化</p>
+<pre><code> 利用目标机器的提供的特性对目标代码做进一步的优化，如利用 CPU 的流水线，利用 CPU 的多核等，生成最终的目标代码
+</code></pre>
+</li>
+</ol>
 <hr>
-<p>参考：
-<a href="http://www.cnblogs.com/gaochundong/p/complexity_of_algorithms.html">http://www.cnblogs.com/gaochundong/p/complexity_of_algorithms.html</a>
-<a href="http://www.ehcoo.com/complexity.html">http://www.ehcoo.com/complexity.html</a></p>
+<p>参考：http://pandolia.net/tinyc/ch6_compiler_overview.html</p>
 
   </div>
 </div>
@@ -229,8 +242,8 @@
   <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/%E6%8A%80%E6%9C%AF/cs-number/"
-    title="【cs基础】浮点数的存储"
+    href="/%E6%8A%80%E6%9C%AF/cs-algorithm/"
+    title="【cs基础】如何判断算法的好坏"
   >
     <i class="nav-menu fas fa-chevron-circle-right"></i>
   </a>
@@ -239,8 +252,8 @@
 <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/%E6%8A%80%E6%9C%AF/cs-code2/"
-    title="【cs基础】编译器的普及"
+    href="/%E6%8A%80%E6%9C%AF/designpattern/"
+    title="常用的设计模式"
   >
     <i class="nav-menu fas fa-chevron-circle-left"></i>
   </a>
@@ -292,7 +305,7 @@
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "https:\/\/justinbetter.github.io\/%E6%8A%80%E6%9C%AF\/cs-algorithm\/";
+      return "https:\/\/justinbetter.github.io\/%E6%8A%80%E6%9C%AF\/cs-code2\/";
     }
   });
 

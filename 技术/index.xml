@@ -112,6 +112,25 @@
     </item>
     
     <item>
+      <title>【cs基础】编译器的普及</title>
+      <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/cs-code2/</link>
+      <pubDate>Sun, 02 Apr 2017 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/cs-code2/</guid>
+      <description>##编译器是什么 编译器就是一种翻译程序，一般是将高级语言编写的源代码转化成汇编或者机器码。说白了就是把我们用python,java等各种语言写的程序,翻译成计算机能看懂的二进制指令数据,以便运行.
+##编译流程
+ source &amp;ndash;&amp;gt; 词法分析 == 各种记号Token stream &amp;ndash;&amp;gt; 语法分析 == 语法树 &amp;ndash;&amp;gt; 语义分析 == 优化后的语法树 &amp;ndash;&amp;gt; 中间代码生成 == 中间代码 &amp;ndash;&amp;gt; 中间代码优化 == 优化后的中间代码 &amp;ndash;&amp;gt; 目标代码生成 == 目标代码 &amp;ndash;&amp;gt; 目标代码优化 == target program
+ ##流程详解
+  词法分析
+ 将源代码的标识符、运算符等分割成一个个记号    语法分析
+ 解析得到的一个个记号，根据语法规则生成一种抽象语法树  [外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-kaiAzFVr-1598890932828)(http://pandolia.net/tinyc/images/syntax_tree-2.png)]
+  语义分析
+ 编译器开始对语法树进行一次或多次的遍历，检查程序的语义规则：变量声明、类型匹配..等    IR生成（中间代码，intermediate Representation）
+ 一般生成的算法是一个递归的算法，递归的遍历语法树，将语法树上的一些节点替换成中间代码块，再根据特定的规则和顺序将这些中间代码块拼装起来。 为什么不直接生成目标代码？增加编译器的开发扩展性；便于对代码优化，中间代码的优化要比直接在目标代码优化难度低得多。    IR优化
+ 各种优化： 去除冗余代码 优化循环、算术表达式等    目标代码生成</description>
+    </item>
+    
+    <item>
       <title>【cs基础】如何判断算法的好坏</title>
       <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/cs-algorithm/</link>
       <pubDate>Sat, 01 Apr 2017 20:00:22 +0800</pubDate>
@@ -147,6 +166,21 @@ $T(n)=4n^2+2n+2$
    （1）E不全为0或不全为1。这时，浮点数就采用上面的规则表示，即指数E的计算值减去127（或1023），得到真实值，再将有效数字M前加上第一位的1。 （2）E全为0。这时，浮点数的指数E等于1-127（或者1-1023），有效数字M不再加上第一位的1，而是还原为0.xxxxxx的小数。这样做是为了表示±0，以及接近于0的很小的数字。 （3）E全为1。这时，如果有效数字M全为0，表示±无穷大（正负取决于符号位s）；如果有效数字M不全为0，表示这个数不是一个数（NaN）。
  ##单精度和双精度误差
  十进制转化为二进制的时候，要是永远除不尽，单精度转换为双精度的时候，位数变少，多余的值被省忽略了，就会产生误差的问题  </description>
+    </item>
+    
+    <item>
+      <title>【cs基础】CPU是怎样执行代码的</title>
+      <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/cs-code/</link>
+      <pubDate>Fri, 17 Mar 2017 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/cs-code/</guid>
+      <description>##基础概念
+ 程序是指令和数据的组合体，被复制到内存才能运行。 内存地址是保存指令和数据的场所，通过地址标记。 CPU 能识别和执行的只有机器语言。  ##CPU 结构 CPU 内部由寄存器、控制器、运算器和时钟四个部分构成，由电流信号相互连通
+ 寄存器： 保存指令、数据 控制器： 读取内存输入寄存器，控制指令流转 运算器： 运算寄存器中的数据 时钟：发出计时信号，代表运算速度  ##寄存器 程序是把寄存器作为对象来描述的，程序运行就是依赖寄存器的控制。
+ 存储的内容既可以是指令也可以是数据 数据分为“用于运算的数值”和“表示内存地址的数值”两种。数据种类不同，存储该数值的寄存器也不同   累加寄存器 &amp;ndash;&amp;gt; 运算的数值 基址寄存器和变址寄存器 &amp;ndash;&amp;gt; 表示内存地址的数值 标志寄存器 &amp;ndash;&amp;gt; 运算处理后的CPU的状态 程序计数器 &amp;ndash;&amp;gt; 下一条指令所在内存的地址 栈寄存器 &amp;ndash;&amp;gt; 栈区域的起始地址
+ ##程序函数的处理
+ 机器语言的 call 指令和 return 指令能够解决这个问题。函数调用使用的是 call 指令，而不是跳转指令。在将函数的入口地址设定到程序计数器之前，call 指令会把调用函数后要执行的指令地址存储在名为栈的主存内。函数处理完毕后，再通过函数的出口来执行 return 命令。return 命令的功能是把保存在栈中的地址设定到程序计数器中  ##CPU 处理 CPU 能执行的主要机器语言指令
+   数据转送指令 &amp;ndash;&amp;gt; 寄存器和内存、内存和内存、寄存器和外围设备之间的数据读写操作 运算指令 &amp;ndash;&amp;gt; 用累加寄存器执行算术运算、逻辑运算、比较运算和移位运算 跳转指令 &amp;ndash;&amp;gt; 实现条件分支、循环、强制跳转等 call/return指令 &amp;ndash;&amp;gt; 函数的调用/返回调用前的地址  参考： 《程序是怎样跑起来的》一书 http://cs.</description>
     </item>
     
   </channel>
