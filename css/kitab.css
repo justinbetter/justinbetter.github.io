@@ -4,7 +4,7 @@ body {
   overflow-y: scroll;
 }
 nav {
-  height: 40px;
+  /*height: 40px;*/
 }
 main {
   min-height: calc(100vh - 100px);
