@@ -14,7 +14,12 @@
   
   <url>
     <loc>https://justinbetter.github.io/</loc>
-    <lastmod>2020-08-15T20:00:22+08:00</lastmod>
+    <lastmod>2020-09-05T20:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/redis/</loc>
+    <lastmod>2020-09-05T20:00:22+08:00</lastmod>
   </url>
   
   <url>
@@ -70,6 +75,11 @@
   <url>
     <loc>https://justinbetter.github.io/%E6%80%9D%E8%80%83/readtime/</loc>
     <lastmod>2019-03-03T20:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/regexpression/</loc>
+    <lastmod>2018-07-18T20:00:22+08:00</lastmod>
   </url>
   
   <url>

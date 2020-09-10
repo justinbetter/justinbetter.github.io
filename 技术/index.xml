@@ -12,6 +12,29 @@
     
     
     <item>
+      <title>redis连招</title>
+      <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/redis/</link>
+      <pubDate>Sat, 05 Sep 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/redis/</guid>
+      <description>[TOC]
+关键字 单线程，epoll，cluster，sentinel，gossip，raft， 分布式锁，穿透，击穿，雪崩，数据一致性， sds，ziplist，skiplist，rehash，hyperloglog， 热key，大key，过期清理，淘汰策略，主从复制，rdb，aof，aof rewrite string,hash,set,zset的底层数据结构实现，hash的渐进式扩容 hyperloglog标准误差多少，原理是啥 再加上 6.0之后的加入的多线程 工作机制 缓存过期重置。锁刷新 一致性哈希算法  分布式锁 setnx讲起，最后慢慢引出set命令的可以加参数， setnx 是SET if Not eXists(如果不存在，则 SET)的简写。万一set value 成功 set time失败 setex是一个原子性(atomic)操作，关联值和设置生存时间两个动作会在同一时间内完成。 redisson的锁，就实现了可重入，他使用了LUA的Hash数据结构。
+cluster Redis集群是Redis提供的分布式数据库方案，集群通过分片（sharding）来进行数据共享，并提供复制和故障转移功能。
+自动将数据进行分片，每个 master 上放一部分slot数据 提供内置的高可用支持，部分 master 不可用时，还是可以继续工作的 维护数据采用的是gossip协议
+节点发现原理： 发送CLUSTER MEET命令握手，meet-pong-ping 握手完成 节点A会将节点B的信息通过Gossip协议传播给集群中的其他节点，让其他节点也与节点B进行握手，
+最终，经过一段时间之后，节点B会被集群中的所有节点认识。 gossip 协议，Gossip协议由MEET、PING、PONG，FAIL种消息实现 每次发送MEET、PING、PONG消息时，发送者都从自己的已知节点列表中随机选出几个节点（可以是主节点或者从节点），并将这两个被选中节点的信息分别保存到两个clusterMsgDataGossip结构里面。
+所有节点都持有一份元数据，不同的节点如果出现了元数据的变更，就不断将元数据发送给其它的节点，让其它节点也进行元数据的变更。 gossip有一定延迟，因为节点是逐步传播的
+Redis集群通过分片的方式来保存数据库中的键值对：集群的整个数据库被分为16384个槽（slot）
+数据库中的每个键都属于这16384个槽的其中一个，集群中的每个节点可以处理0个或最多16384个槽。 当每个slot 都有节点处理的时候，集群才算上线；CRC16（key），MOVED错误重定向到正确节点 跳跃表来保存槽和键之间的关系
+主从复制：主节点用于处理槽，而从节点则用于复制某个主节点，替补上线；
+（复制：slaveof命令，发送地址-socket连接-ping-pong-replconf-psync） 原理：master负责写，异步同步slave；，从服务器将向主服务器发送PSYNC命令，执行同步操作，
+PSYNC命令具有完整重同步（full resynchronization）和部分重同步（partialresynchronization）两种模式： 开启后台线程生成RDB，同时将从客户端收到的所有写命令缓存在内存（内存缓冲区），
+RDB完成后 master发送给slave，slave写入本地磁盘，再从本地磁盘加载到内存中。然后master会将内存中缓存的写命令发送给slave，slave也会同步这些数据。
+故障转移： 检测：定期发送ping检测在线，没有在规定时间返回pong消息，标记为pfail，超过半数节点标记，标记fail 转移：选择从节点，选举主节点，转移slot，集群广播自己为主节点 选举：选举新主节点和Sentinel的方法非常相似，两者都是基于Raft算法
+哨兵 Redis的高可用性（high availability）解决方案 监视主从节点，执行故障转移</description>
+    </item>
+    
+    <item>
       <title>算法题目汇总</title>
       <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/leetcode/</link>
       <pubDate>Sat, 15 Aug 2020 20:00:22 +0800</pubDate>
@@ -66,6 +89,18 @@
       <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/linux-post/</guid>
       <description>帮助手册命令 man man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。  ##Linux 下修改 root 密码方法 passwd root
 权限 chgrp ：改变文件所属群组 chown -R：改变文件拥有者 chmod ：改变文件的权限, SUID, SGID, SBIT等等的特性	su - user1 切换身份user1  查看服务  /etc/services /etc/init.d/ 启动脚本处	/etc/* ：各服务各自的配置文件 service --status-all 查看所有服务  常用目录 /etc 主要配置文件 /bin 常用执行文件 /sbin 重要的系统执行文件 /dev 存放设备文件 /dev/null 垃圾桶 /home 用户目录 /media /mnt 挂载外部装置 /opt 第三方协议软件 习惯放/usr/local /proc 虚拟文件，存放内存数据:系统cpu、网络.. / (root, 根目录)： 与开机系统有关； /usr (unix software resource)：与软件安装/执行有关； /usr/local/ 自己下载的软件安装目录 /var (variable)： 与系统运作过程有关的常态性变动的文件：缓存、log等。 /etc/issue 配置开机画面显示 /etc/motd 配置登录显示 /etc/ssh/sshd_config ssh配置 ~/.</description>
+    </item>
+    
+    <item>
+      <title>正则</title>
+      <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/regexpression/</link>
+      <pubDate>Wed, 18 Jul 2018 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/regexpression/</guid>
+      <description>[TOC]
+正则 正则表达式(regular expression)描述了一种字符串匹配的模式（pattern）  元字符 一些有特殊含义的字符，帮助建立匹配规则
+\ 转义字符 ^ 匹配开始位置 ps：当在一组方括号里使用^是，它表示&amp;quot;非&amp;quot;或&amp;quot;排除&amp;quot;的意思，常常用来剔除某个字符。 $ 匹配结束位置	ps：字符^和$同时使用时，表示精确匹配（字符串与模式一样），分开使用，只匹配字符串首或尾 + 一次或多次 * 0次或多次  ps：
+？0次或1次,也可以将默认的贪婪模式转变为非贪婪，例如，对于字符串 &amp;quot;oooo&amp;quot;，&#39;o+?&#39; 将匹配单个 &amp;quot;o&amp;quot;，而 &#39;o+&#39; 将匹配所有 &#39;o&#39;。 （?:pattern) 获取匹配结果，但是不需要存储为分组结果	（?=pattern) 例如，&amp;quot;Windows(?=95|98|NT|2000)&amp;quot;能匹配&amp;quot;Windows2000&amp;quot;中的&amp;quot;Windows&amp;quot;，但不能匹配&amp;quot;Windows3.1&amp;quot;中的&amp;quot;Windows&amp;quot;。 (?!pattern) 例如&amp;quot;Windows(?!95|98|NT|2000)&amp;quot;能匹配&amp;quot;Windows3.1&amp;quot;中的&amp;quot;Windows&amp;quot;，但不能匹配&amp;quot;Windows2000&amp;quot;中的&amp;quot;Windows&amp;quot;。 {n,m} 限定出现次数 *、+限定符都是贪婪的，因为它们会尽可能多的匹配文字，只有在它们的后面加上一个?就可以实现非贪婪或最小匹配。 [^指定字符串] 指的是除指定字符串以外的其他字符串 [] 匹配其中之一，可匹配字符组的一个列表， （） 可作为子匹配进行分组缓存，分组获取的结果可以通过组编号（从1开始）拿出， **\n访问分组的引用**，可以用来去重 x|y 匹配 x 或 y \s 匹配任何空白字符，包括空格、制表符、换页符等 \S 匹配任何非空白字符 \n 匹配一个换行符 \r 匹配一个回车符 . 匹配除换行符 \n 之外的任何单字符 \b 匹配一个单词边界，是不是在单词的首尾；\B 相反 \d 匹配一个数字字符。等价于 [0-9]。 \D 匹配一个非数字字符。等价于 [^0-9]。 \w 匹配字母、数字、下划线。等价于&#39;[A-Za-z0-9_]&#39;。 [a-z] //匹配所有的小写字母 [A-Z] //匹配所有的大写字母 [a-zA-Z] //匹配所有的字母 [0-9] //匹配所有的数字 [0-9\.</description>
     </item>
     
     <item>
