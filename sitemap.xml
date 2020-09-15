@@ -18,6 +18,11 @@
   </url>
   
   <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/mysql/</loc>
+    <lastmod>2020-09-05T20:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/redis/</loc>
     <lastmod>2020-09-05T20:00:22+08:00</lastmod>
   </url>
@@ -70,6 +75,11 @@
   <url>
     <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/linux-post/</loc>
     <lastmod>2019-06-15T20:00:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/kafka/</loc>
+    <lastmod>2019-06-05T20:00:22+08:00</lastmod>
   </url>
   
   <url>

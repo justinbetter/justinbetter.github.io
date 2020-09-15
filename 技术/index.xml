@@ -12,6 +12,32 @@
     
     
     <item>
+      <title>mysql连招</title>
+      <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/mysql/</link>
+      <pubDate>Sat, 05 Sep 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/mysql/</guid>
+      <description>[TOC]
+关键词 B树，B+树，红黑树，联合索引存储 主从复制，宕机恢复，8.0相比5.0的改进 事务，隔离级别，实现原理，MVCC 在线改表原理，redolog,undolog,binlog，group commit原理问题解决 零拷贝的场景，主键自增id而不是uuid 什么场景使用索引不使用更慢， 锁的数据结构 分库分表扩容，当nosql，开发mysql引擎如何接口对接 死锁，  谈谈主从复制 复制（replication）是MySQL数据库提供的一种高可用高性能的解决方案，一般用来建立大型的应用。 replication的工作原理分为以下3个步骤：
+1）主服务器（master）把数据更改记录到二进制日志（binlog）中。
+2）从服务器（slave）把主服务器的二进制日志复制到自己的中继日志（relay log）中。
+从服务器有2个线程，一个是I/O线程，负责读取主服务器的二进制日志，并将其保存为中继日志；另一个是SQL线程，复制执行中继日志  3）从服务器重做中继日志中的日志，把更改应用到自己的数据库上，以达到数据的最终一致性
+异步实时 中间存在主从服务器之间的执行延时，如果主服务器的压力很大，则可能导致主从服务器延时较大
+事务 在事务中的操作，要么都做修改，要么都不做 分类：扁平、带有保存点、链事务、嵌套事务、分布式事务
+原子性、一致性、持久性通过数据库的redo log和undo log来完成。 redo log称为重做日志，用来保证事务的原子性和持久性。 undo log用来保证事务的一致性
+redo log：两部分组成 一是内存中的重做日志缓冲（redo log buffer），其是易失的；
+二是重做日志文件（redo log file），其是持久的
+binlog
+二进制日志（binlog），其用来进行POINT-IN-TIME（PIT）的恢复及主从复制（Replication）环境的建 redo 区别： 产生：redo是在innodb，binlog是在mysql上层 内容：redo是物理格式日志，记录页修改；binlog是逻辑日志，记录SQL语句 写入时间：redo事务中不断写入，binlog事务提交时写入
+恢复：
+innodb每次启动都会恢复重做日志 redolog，checkpoint表示已经刷新到磁盘页上的LSN，从checkpoint中开始部分即可
+undo：
+回滚日志，数据修改时会产生，存放在共享表空间的一个段中 MVCC控制，当用户读取一行记录时，若该记录已经被其他事务占用，当前事务可以通过undo读取之前的行版本信息，以此实现非锁定读取 undo log会产生redo log，也就是undo log的产生会伴随着redo log的产生，这是因为undo log也需要持久性的保护
+purge：
+因为存在MVCC，决定最终是否删除，如果没被任何事务引用，可以删除，之前的删除只是改了个标志 执行清理时，historyList 找undo log 然后再从undo page中找undo log，避免大量随机读写 太长了通过延时操作解决</description>
+    </item>
+    
+    <item>
       <title>redis连招</title>
       <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/redis/</link>
       <pubDate>Sat, 05 Sep 2020 20:00:22 +0800</pubDate>
@@ -89,6 +115,25 @@ RDB完成后 master发送给slave，slave写入本地磁盘，再从本地磁盘
       <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/linux-post/</guid>
       <description>帮助手册命令 man man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。  ##Linux 下修改 root 密码方法 passwd root
 权限 chgrp ：改变文件所属群组 chown -R：改变文件拥有者 chmod ：改变文件的权限, SUID, SGID, SBIT等等的特性	su - user1 切换身份user1  查看服务  /etc/services /etc/init.d/ 启动脚本处	/etc/* ：各服务各自的配置文件 service --status-all 查看所有服务  常用目录 /etc 主要配置文件 /bin 常用执行文件 /sbin 重要的系统执行文件 /dev 存放设备文件 /dev/null 垃圾桶 /home 用户目录 /media /mnt 挂载外部装置 /opt 第三方协议软件 习惯放/usr/local /proc 虚拟文件，存放内存数据:系统cpu、网络.. / (root, 根目录)： 与开机系统有关； /usr (unix software resource)：与软件安装/执行有关； /usr/local/ 自己下载的软件安装目录 /var (variable)： 与系统运作过程有关的常态性变动的文件：缓存、log等。 /etc/issue 配置开机画面显示 /etc/motd 配置登录显示 /etc/ssh/sshd_config ssh配置 ~/.</description>
+    </item>
+    
+    <item>
+      <title>Kafka机制一览</title>
+      <link>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/kafka/</link>
+      <pubDate>Wed, 05 Jun 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/%E6%8A%80%E6%9C%AF/kafka/</guid>
+      <description>Kafka： topic、producer、consumer、broker
+topic本质就是一个目录,由一些Partition Logs(分区日志)组成（便于集群拓展、提高并发） Kafka需要维持的元数据只有一个–消费消息在Partition中的offset值，Consumer每消费一个消息，offset就会加1。 其实消息的状态完全是由Consumer控制的，Consumer可以跟踪和重设这个offset值，这样的话Consumer就可以读取任意位置的消息
+允许用户为每个topic设置副本数量，副本数量决定了有几个broker来存放写入的数据；副本都是以partition为单位的，不过只有一个partition的副本会被选举成leader作为读写用
+从Producer端看：Kafka是这么处理的，当一个消息被发送后，Producer会等待broker成功接收到消息的反馈（可通过参数控制等待时间），如果消息在途中丢失或是其中一个broker挂掉，Producer会重新发送（我们知道Kafka有备份机制，可以通过参数控制是否等待所有备份节点都收到消息）。 从Consumer端看：前面讲到过partition，broker端记录了partition中的一个offset值，这个值指向Consumer下一个即将消费message。当Consumer收到了消息，但却在处理过程中挂掉，此时Consumer可以通过这个offset值重新找到上一个消息再进行处理。Consumer还有权限控制这个offset值，对持久化到broker端的消息做任意处理。
+为什么快？ 顺序读写、分区、零拷贝、批量发送、数据压缩； 如何提高？生产端调整 batch.size、linger.ms（最多等待时间） 参数，以及主题分区数合理分配等。
+存储？ 在Kafka文件存储中，同一个topic下有多个不同partition，每个partition为一个目录，partiton命名规则为topic名称+有序序号 partition目录下Segment file组成：由2大部分组成，分别为index file和data file，此2个文件一一对应，成对出现，后缀”.index”和“.log”分别表示为segment索引文件、数据文件。
+生产者机制？ 生产的流程主要就是一个producer线程和一个sender线程，它们之间通过BatchQueue来获取数据，它们的关系是一一对应的，所以kafka的生产过程都是异步过程， 数据最终是放在BatchQueue，像是将水流入了一个蓄水池的场景，这就是蓄水池机制 每条消息先从MetaData里面获取分区信息，再申请一段buffer空间形成一个批接收空间，RecordAccumulator 会将收到的每条消息append到这个buffer中，最后将每个批次压入到队列当中，等待Sender线程来获取发送。 buffer空间 ： BufferPool（缓冲池）对象，整个KafkaProducer实例中只有一个BufferPool对象。内存池总大小，它是已使用空间和可使用空间的总和，内存缓冲池的设计，让整个发送过程中的存储空间循环利用，有效减少JVM GC造成的影响 Sender 是一个发送线程，负责读取记录收集器中缓存的批量消息，经过一些中间转换操作，将要发送的数据准备好，然后交由 Selector 进行网络传输。 https://zhuanlan.zhihu.com/p/137811719
+消息是kafka中最基本的数据单元，一条消息由key,value组成，producer往broker中的指定topic中发送一条消息，producer会根据这条消息的key的hashcode值%分区数取模，来确定这个消息分配到那个Partition分区； acks参数指定了必须要有多少个分区副本收到消息，生产者才认为该消息是写入成功的 acks=0，表示生产者在成功写入消息之前不会等待任何来自服务器的响应. acks=1，表示只要集群的leader分区副本接收到了消息，就会向生产者发送一个成功响应的ack， acks =all,表示只有所有参与复制的节点(ISR列表的副本)全部收到消息时，生产者才会接收到来自服务器的响应；延迟高
+消费者机制？ Kafka有两种模式消费数据：队列 和发布订阅 ；在队列模式下，一条数据只会发 送给 customer group中的一个 customer 进行消费；在发布订阅模式下，一条数据会发送给多个 customer进行消费。 消费者组，那自然是由消费者组成的，组内可以有一个或多个消费者实例，而这些消费者实例共享一个id，称为group id 一个消费者组中，每一个分区只能由组内的一消费者订阅；消费者组大于分区数多的会空闲 重平衡（Rebalance）其实就是一个协议，它规定了如何让消费者组下的所有消费者来分配topic中的每一个分区；kafka基本处于不可用状态 Kafka的数据是按照分区进行排序(插入的顺序 )，也就是每个分区中的数据有序的，但是多个分区之间做不到全局有序
+零拷贝原理： 传统拷贝涉及到用户空间和内核空间的切换，使用DMA可以直接存取内存，不需要CPU调度； 通过DMA直接网卡访问内存，实现零拷贝； 操作系统提供 了一个优化的代码路径，页缓存到socket，linux上是通过 sendfile 系统调用来 Kafka在文件传输的过程中正是使用了零拷贝技术对文件进行拷贝
+选举？ quorum（法定人数） quorum是一种在分布式系统中常用的算法，主要用来通过数据冗余来保证数据一致性的投票算法。在kafka中该算法的实现就是ISR，在ISR中就是可以被选举为leader的法定人数。 ISR（in-sync replicas）列表。每个分区的 leader 会维护一个 ISR 列表，ISR 列表里面就是 follower 副本的 Borker 编号，只有跟得上 Leader 的 follower 副本才能加入到 ISR 里面 当 Leader 挂掉了，而且 unclean.</description>
     </item>
     
     <item>
