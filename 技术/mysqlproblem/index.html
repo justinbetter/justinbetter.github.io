@@ -192,144 +192,21 @@
   >
     技术
   </small>
-  <h2>记录一些kotlin的用法</h2>
-  <span style="display: block;opacity: 0.5">2017-07-18</span><br/>
+  <h2>记录类型转换引起的索引失效</h2>
+  <span style="display: block;opacity: 0.5">2018-05-05</span><br/>
   <div>
-      <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#elvis-操作符-">Elvis 操作符 ?:</a></li>
-        <li><a href="#安全转换-as">安全转换 as？</a></li>
-        <li><a href="#null-safety">null safety</a></li>
-        <li><a href="#类型判断符-is">类型判断符 is</a></li>
-        <li><a href="#范围操作符--in">范围操作符 : in</a></li>
-        <li><a href="#多行输入符--">多行输入符  &quot;&rdquo;&rdquo;</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li><a href="#run">run</a></li>
-    <li><a href="#apply">apply</a></li>
-    <li><a href="#let">let</a></li>
-    <li><a href="#also">also</a></li>
-    <li><a href="#with">with</a></li>
-    <li><a href="#修饰符">修饰符</a></li>
-    <li><a href="#委托属性">委托属性</a></li>
-  </ul>
-</nav>
+      <nav id="TableOfContents"></nav>
   </div>
   <div class="rounded">
-    <h1 id="操作符">操作符</h1>
-<h3 id="elvis-操作符-">Elvis 操作符 ?:</h3>
-<pre><code>val a = b?.length ?: -1
-</code></pre><h3 id="安全转换-as">安全转换 as？</h3>
-<ul>
-<li>转型不成功返回 null</li>
-</ul>
-<h3 id="null-safety">null safety</h3>
-<pre><code>var a : String? = null
-a?.length //a 为null 则pass，不为null 则调用
-a!!.length// 抛异常
-
-</code></pre><h3 id="类型判断符-is">类型判断符 is</h3>
-<h3 id="范围操作符--in">范围操作符 : in</h3>
-<pre><code>for(i in 1..5 step 1){}
-for (i in 5 downTo 1 step 2){}
-
-</code></pre><h3 id="多行输入符--">多行输入符  &quot;&rdquo;&rdquo;</h3>
-<ul>
-<li>三个双引号之间的内容将被原样保留</li>
-</ul>
-<h1 id="扩展函数">扩展函数</h1>
-<hr>
-<h2 id="run">run</h2>
-<ul>
-<li>调用函数块，块内 this指代调用对象</li>
-<li>返回值为最后一行</li>
-</ul>
-<pre><code>val result = &quot;haha&quot;.run{
-	println(this)
-	&quot;I'm result&quot;
-}
-println(result)
-</code></pre><h2 id="apply">apply</h2>
-<ul>
-<li>同run，函数块内this 指代该对象</li>
-<li>返回值为对象自己</li>
-</ul>
-<h2 id="let">let</h2>
-<ul>
-<li>函数块内 it 指代该对象</li>
-<li>返回值最后一行</li>
-</ul>
-<h2 id="also">also</h2>
-<ul>
-<li>函数块内it 指代该对象</li>
-<li>返回值为对象自己</li>
-</ul>
-<h2 id="with">with</h2>
-<ul>
-<li>将该对象作为函数参数</li>
-<li>this 指代该对象</li>
-<li>返回值为最后一行</li>
-</ul>
-<pre><code>val result = with（&quot;haha&quot;）{
-	println(this)
-	&quot;result&quot;
-}
-println(result)
-</code></pre><h2 id="修饰符">修饰符</h2>
-<ul>
-<li>private 只能被自己所在的文件可见，不能在定义这个类之外的文件中使用</li>
-<li>protected 可以被成员自己和继承它的成员可见（比如，类和它的子类）</li>
-<li>internal 对所在的整个module可见</li>
-<li>public 最没有限制的修饰符。这是默认的修饰符</li>
-</ul>
-<h2 id="委托属性">委托属性</h2>
-<ul>
-<li>
-<p>一个属性具有一些相同的行为，使用lazy或者observable可以被很有趣地实现重用。而不是一次又一次地去声明那些相同的代码</p>
-</li>
-<li>
-<p><a href="https://wangjiegulu.gitbooks.io/kotlin-for-android-developers-zh/content/biao_zhun_wei_tuo.html">https://wangjiegulu.gitbooks.io/kotlin-for-android-developers-zh/content/biao_zhun_wei_tuo.html</a></p>
-</li>
-<li>
-<p>标准委托</p>
-<pre><code>  by lazy
-  by observable
-  by Delegates.notNull()
-  by map 
-</code></pre>
-</li>
-<li>
-<p>自定义委托 ：</p>
-<pre><code>      继承ReadWriteProperty
-  by DelegatesExt.notNullSingleValue()
-</code></pre>
-</li>
-<li>
-<p>操作符</p>
-</li>
-<li>
-<p>密封类 sealed</p>
-<ul>
-<li>
-<p>类似枚举，不同之处在于枚举的实例是唯一的，而密封类可以有很多实例，它们可以有不同的状态。</p>
-<pre><code>  sealed class Option&lt;out T&gt; {
-      class Some&lt;out T&gt; : Option&lt;T&gt;()
-      object None : Option&lt;Nothing&gt;()
-  }		
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<p>参考：</p>
-<ul>
-<li><a href="https://wangjiegulu.gitbooks.io/kotlin-for-android-developers-zh/content/biao_zhun_wei_tuo.html">https://wangjiegulu.gitbooks.io/kotlin-for-android-developers-zh/content/biao_zhun_wei_tuo.html</a></li>
-</ul>
+    <p>mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。
+可以在sql中进行显示转换，或者在执行时自动进行隐式转换（应该避免，效率低且容易出错）。</p>
+<p>比如对于字符的查询，如果传入数字，则不能用索引，用单引号括起来才能用上索引。
+原因是对于数字的1， 字符串‘1’， ‘01’，‘0001’都和它相等。从而就没法使用索引；
+而反过来可以看出对于数字的查询传入字符串和数字都能用上索引；</p>
+<p>string与number的类型进行对比为什么会导致索引失效以至于全表扫描呢。
+原来对于column为string类型的索引，如果有三个值分别为&rdquo; 1&rdquo;,&rdquo; 1&rdquo;,“1a”。
+在进行隐式转换成number后的值都为1。这种情况下索引自然就不可用。
+mysql便不会通过索引进行快速查询，而是将对对应column全部进行类型转换后通过全表扫描来进行查询。</p>
 
   </div>
 </div>
@@ -340,8 +217,8 @@ println(result)
   <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/%E6%8A%80%E6%9C%AF/designpattern/"
-    title="常用的设计模式"
+    href="/%E6%8A%80%E6%9C%AF/shell/"
+    title="学会写shell脚本"
   >
     <i class="nav-menu fas fa-chevron-circle-right"></i>
   </a>
@@ -350,8 +227,8 @@ println(result)
 <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/%E6%8A%80%E6%9C%AF/shell/"
-    title="学会写shell脚本"
+    href="/%E6%8A%80%E6%9C%AF/regexpression/"
+    title="正则"
   >
     <i class="nav-menu fas fa-chevron-circle-left"></i>
   </a>
@@ -403,7 +280,7 @@ println(result)
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "https:\/\/justinbetter.github.io\/%E6%8A%80%E6%9C%AF\/kotlin\/";
+      return "https:\/\/justinbetter.github.io\/%E6%8A%80%E6%9C%AF\/mysqlproblem\/";
     }
   });
 
