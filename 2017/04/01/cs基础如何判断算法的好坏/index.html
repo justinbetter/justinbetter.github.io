@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="@[toc] #算法复杂度 平时我们说算法的好坏，排除一些软件和硬件上的限制，怎么去衡量这个算法运行的更快呢？这就是Big O notation的作用啦！ ##Big O" />
 
-  <meta name="keywords" content="Hugo, theme, den" />
 
 <link rel="canonical" href="https://justinbetter.github.io/2017/04/01/cs%E5%9F%BA%E7%A1%80%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95%E7%9A%84%E5%A5%BD%E5%9D%8F/" />
 
@@ -38,7 +37,7 @@
 </head>
 <body>
   
-  <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://justinbetter.github.io/images/background.jpg'); background-position: center; background-size: cover;">
+  <div class="header-container gradient">
   <div class="container">
   <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
     <div class="header-logo navbar-brand">
@@ -46,10 +45,8 @@
         <a class="float-left" href="https://justinbetter.github.io/">
       
         
-        <img class="mr20 header-logo-image" src="https://justinbetter.github.io/images/globe.svg" alt="logo">
         
-        
-          HelloJ
+          helloj
          
       </a>
     </div>
@@ -93,7 +90,7 @@
       <div class="header-content">
         <h1 class="header-title">【cs基础】如何判断算法的好坏</h1>
         <p class="header-date">
-        2017-04-01
+        Sat 01 April 2017
         <div class="header-underline"></div>
         
         
@@ -156,9 +153,31 @@
 
   
   
-    
   
+
+
   
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '29027f13b37b8831bea4',
+        clientSecret: '5a25a3157abdda86a35db8a6fcb67273bec66f17',
+        repo: 'justinbetter.github.io',
+        owner: '16359219',
+        admin: ['16359219'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
 
 
 </div>

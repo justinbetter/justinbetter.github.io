@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行" />
 
-  <meta name="keywords" content="Hugo, theme, den" />
 
 <link rel="canonical" href="https://justinbetter.github.io/2018/05/05/%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/" />
 
@@ -38,7 +37,7 @@
 </head>
 <body>
   
-  <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://justinbetter.github.io/images/background.jpg'); background-position: center; background-size: cover;">
+  <div class="header-container gradient">
   <div class="container">
   <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
     <div class="header-logo navbar-brand">
@@ -46,10 +45,8 @@
         <a class="float-left" href="https://justinbetter.github.io/">
       
         
-        <img class="mr20 header-logo-image" src="https://justinbetter.github.io/images/globe.svg" alt="logo">
         
-        
-          HelloJ
+          helloj
          
       </a>
     </div>
@@ -93,7 +90,7 @@
       <div class="header-content">
         <h1 class="header-title">记录类型转换引起的索引失效</h1>
         <p class="header-date">
-        2018-05-05
+        Sat 05 May 2018
         <div class="header-underline"></div>
         
         
@@ -121,9 +118,31 @@ mysql便不会通过索引进行快速查询，而是将对对应column全部进
 
   
   
-    
   
+
+
   
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '29027f13b37b8831bea4',
+        clientSecret: '5a25a3157abdda86a35db8a6fcb67273bec66f17',
+        repo: 'justinbetter.github.io',
+        owner: '16359219',
+        admin: ['16359219'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
 
 
 </div>

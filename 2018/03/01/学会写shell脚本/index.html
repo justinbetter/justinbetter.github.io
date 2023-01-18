@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="##shell是什么 Shell 是一个用C语言编写的程序，它是用户使用Linux的桥梁。 Shell既是一种命令语言，又是一种程序设计语言，这个应用程序" />
 
-  <meta name="keywords" content="Hugo, theme, den" />
 
 <link rel="canonical" href="https://justinbetter.github.io/2018/03/01/%E5%AD%A6%E4%BC%9A%E5%86%99shell%E8%84%9A%E6%9C%AC/" />
 
@@ -38,7 +37,7 @@
 </head>
 <body>
   
-  <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://justinbetter.github.io/images/background.jpg'); background-position: center; background-size: cover;">
+  <div class="header-container gradient">
   <div class="container">
   <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
     <div class="header-logo navbar-brand">
@@ -46,10 +45,8 @@
         <a class="float-left" href="https://justinbetter.github.io/">
       
         
-        <img class="mr20 header-logo-image" src="https://justinbetter.github.io/images/globe.svg" alt="logo">
         
-        
-          HelloJ
+          helloj
          
       </a>
     </div>
@@ -93,7 +90,7 @@
       <div class="header-content">
         <h1 class="header-title">学会写shell脚本</h1>
         <p class="header-date">
-        2018-03-01
+        Thu 01 March 2018
         <div class="header-underline"></div>
         
         
@@ -300,9 +297,31 @@ funWithParam 1 2 3 4 5 6 7 8 9 34 73</p>
 
   
   
-    
   
+
+
   
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '29027f13b37b8831bea4',
+        clientSecret: '5a25a3157abdda86a35db8a6fcb67273bec66f17',
+        repo: 'justinbetter.github.io',
+        owner: '16359219',
+        admin: ['16359219'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
 
 
 </div>
