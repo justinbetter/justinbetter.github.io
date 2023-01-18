@@ -3,12 +3,13 @@
 <head>
   <meta name="generator" content="Hugo 0.69.0" />
   <meta charset="utf-8">
-  <title>Error 404 - Page Not Found · helloj</title>
+  <title>写python脚本常用的函数 · helloj</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Just do better" />
+  <meta name="description" content="@[toc] #python 脚本常用函数 这里记录一些脚本常用的函数 ##文件操作 路径相关 os.chdir(dst_dir) #改变当前目录 os.listdir() #遍历文件夹 for root, dirs, files in os.walk(rootDir): #遍历文件夹 os.path.basename() #去掉目录路径, 返回文" />
+
   <meta name="keywords" content="Hugo, theme, den" />
 
-<link rel="canonical" href="https://justinbetter.github.io/404.html" />
+<link rel="canonical" href="https://justinbetter.github.io/2019/08/09/%E5%86%99python%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/" />
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -17,15 +18,23 @@
 
 
 
-<meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="Just do better" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://justinbetter.github.io/404.html" />
+<meta property="og:title" content="写python脚本常用的函数" />
+<meta property="og:description" content="@[toc] #python 脚本常用函数 这里记录一些脚本常用的函数 ##文件操作 路径相关 os.chdir(dst_dir) #改变当前目录 os.listdir() #遍历文件夹 for root, dirs, files in os.walk(rootDir): #遍历文件夹 os.path.basename() #去掉目录路径, 返回文" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://justinbetter.github.io/2019/08/09/%E5%86%99python%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/" />
+<meta property="article:published_time" content="2019-08-09T20:00:22+08:00" />
+<meta property="article:modified_time" content="2019-08-09T20:00:22+08:00" />
+<meta itemprop="name" content="写python脚本常用的函数">
+<meta itemprop="description" content="@[toc] #python 脚本常用函数 这里记录一些脚本常用的函数 ##文件操作 路径相关 os.chdir(dst_dir) #改变当前目录 os.listdir() #遍历文件夹 for root, dirs, files in os.walk(rootDir): #遍历文件夹 os.path.basename() #去掉目录路径, 返回文">
+<meta itemprop="datePublished" content="2019-08-09T20:00:22&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-09T20:00:22&#43;08:00" />
+<meta itemprop="wordCount" content="340">
 
-<meta itemprop="name" content="404 Page not found">
-<meta itemprop="description" content="Just do better"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content="Just do better"/>
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="写python脚本常用的函数"/>
+<meta name="twitter:description" content="@[toc] #python 脚本常用函数 这里记录一些脚本常用的函数 ##文件操作 路径相关 os.chdir(dst_dir) #改变当前目录 os.listdir() #遍历文件夹 for root, dirs, files in os.walk(rootDir): #遍历文件夹 os.path.basename() #去掉目录路径, 返回文"/>
 </head>
 <body>
   
@@ -82,10 +91,13 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="header-content">
-        <h1 class="header-title">
-          Error 404 - Page Not Found
-        </h1>
+        <h1 class="header-title">写python脚本常用的函数</h1>
+        <p class="header-date">
+        2019-08-09
         <div class="header-underline"></div>
+        
+        
+
       </div>
     </div>
   </div>
@@ -93,10 +105,101 @@
 
   </div>
   <main>
-<div class="archive-container">
-    <div class="container content archive">
-      <p>Error 404 - Page Not Found</p>
-    </div>
+<div class="container content">
+  <article>
+  <p>@[toc]
+#python 脚本常用函数</p>
+<p>这里记录一些脚本常用的函数</p>
+<p>##文件操作</p>
+<ul>
+<li>路径相关</li>
+</ul>
+<pre><code>os.chdir(dst_dir)							#改变当前目录
+os.listdir()								#遍历文件夹
+for root, dirs, files in os.walk(rootDir):  #遍历文件夹
+os.path.basename()  						#去掉目录路径, 返回文件名 
+os.path.splitext()  						#返回 (filename, extension) 元组 
+os.path.exists()							#文件存在	
+shutil.rmtree(zip_comoress_dir) 			#删除目录
+shutil.copy(source_dir, dst_dir)			#复制文件
+os.path.dirname(os.path.realpath(__file__)) #获取当前目录
+</code></pre><ul>
+<li>文件信息</li>
+</ul>
+<pre><code>json.dumps(mock_config, indent=5)	 	#获取json数据
+os.path.getsize()  						#获取文件大小
+with open(zip_url,'rb') as f_zip:  		#解压zip
+     zip_file = zipfile.ZipFile(f_zip)
+     zip_file.extractall('./zip')
+----------------------------------------
+def get_file_md5(f): 					#获取MD5
+    m = hashlib.md5()
+
+    while True:
+        data = f.read(10240)
+        if not data:
+            break
+
+        m.update(data)
+    return m.hexdigest()
+
+
+with open(YOUR_FILE, 'rb')as f:
+    file_md5 = get_file_md5(f)
+--------------------------------------
+
+</code></pre><p>##字符串操作</p>
+<ul>
+<li>命令行</li>
+</ul>
+<pre><code>    p = subprocess.Popen(COMMAND, stdout=subprocess.PIPE, stderr=None, shell=True)
+    p_communicate = p.communicate()   #返回命令行输出
+-----------
+apk_old = raw_input('old_path: ') 	  #获取命令
+os.system(&quot;cd test&quot;)
+
+    
+</code></pre><ul>
+<li>字符串包含</li>
+</ul>
+<pre><code>if &quot;123&quot;  in &quot;da123dfd&quot;:
+
+s = &quot;This be a string&quot;
+if s.find(&quot;is&quot;) == -1:
+    print &quot;No 'is' here!&quot;
+else:
+    print &quot;Found 'is' in the string.&quot;
+</code></pre><ul>
+<li>正则匹配</li>
+</ul>
+<pre><code> pattern = re.compile(r'package: name=\'(\S+)\'')
+ search  = pattern.search(data)
+ result  = search.group(1)  
+</code></pre><p>##列表操作</p>
+<pre><code>map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])		#循环操作每一个元素
+
+
+
+</code></pre><p>##ps</p>
+<ul>
+<li>json.dumps输出中文指定ensure_ascii参数为False</li>
+</ul>
+<p>##转化为exe执行</p>
+<ul>
+<li>pip install pyinstaller</li>
+<li>pyinstaller -F demo.py</li>
+<li>cx_freeze: <a href="http://www.cnblogs.com/renzo/archive/2012/01/01/2309260.html">http://www.cnblogs.com/renzo/archive/2012/01/01/2309260.html</a></li>
+</ul>
+
+  </article>
+
+  
+  
+    
+  
+  
+
+
 </div>
 
   </main><div class="footer gradient-2">

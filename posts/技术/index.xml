@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术 on helloj</title>
+    <link>https://justinbetter.github.io/posts/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on helloj</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 15 Jul 2019 20:00:22 +0800</lastBuildDate>
+    
+	<atom:link href="https://justinbetter.github.io/posts/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mysql连招</title>
+      <link>https://justinbetter.github.io/2020/09/05/mysql%E8%BF%9E%E6%8B%9B/</link>
+      <pubDate>Sat, 05 Sep 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/09/05/mysql%E8%BF%9E%E6%8B%9B/</guid>
+      <description>[TOC] 关键词 B树，B+树，红黑树，联合索引存储 主从复制，宕机恢复，8.0相比5.0的改进 事务，隔离级别，实现原理，MVCC 在线改表原理，redo</description>
+    </item>
+    
+    <item>
+      <title>redis连招</title>
+      <link>https://justinbetter.github.io/2020/09/05/redis%E8%BF%9E%E6%8B%9B/</link>
+      <pubDate>Sat, 05 Sep 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/09/05/redis%E8%BF%9E%E6%8B%9B/</guid>
+      <description>[TOC] 关键字 单线程，epoll，cluster，sentinel，gossip，raft， 分布式锁，穿透，击穿，雪崩，数据一致性， sds，zip</description>
+    </item>
+    
+    <item>
+      <title>算法题目汇总</title>
+      <link>https://justinbetter.github.io/2020/08/15/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Sat, 15 Aug 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/08/15/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/</guid>
+      <description>归并排序 public class MergeSort { public static void merge(int[] a, int low, int mid, int high) { int[] temp = new int[high - low + 1]; int i = low;// 左指针 int j = mid + 1;// 右指针 int k = 0; // 把较小的数先移到新数组中 while (i &amp;lt;= mid &amp;amp;&amp;amp; j &amp;lt;= high)</description>
+    </item>
+    
+    <item>
+      <title>写python脚本常用的函数</title>
+      <link>https://justinbetter.github.io/2019/08/09/%E5%86%99python%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 09 Aug 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/08/09/%E5%86%99python%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/</guid>
+      <description>@[toc] #python 脚本常用函数 这里记录一些脚本常用的函数 ##文件操作 路径相关 os.chdir(dst_dir) #改变当前目录 os.listdir() #遍历文件夹 for root, dirs, files in os.walk(rootDir): #遍历文件夹 os.path.basename() #去掉目录路径, 返回文</description>
+    </item>
+    
+    <item>
+      <title>python基础</title>
+      <link>https://justinbetter.github.io/2019/08/08/python%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Thu, 08 Aug 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/08/08/python%E5%9F%BA%E7%A1%80/</guid>
+      <description>[TOC] 基础 继承： “定义子类时，必须在括号内指定父类的名称。” class ElectricCar(Car): “类名应采用驼峰命名法 ，即将类名中的每个单词的首字母都大写，而不使用下划线。实例</description>
+    </item>
+    
+    <item>
+      <title>git常用规范</title>
+      <link>https://justinbetter.github.io/2019/07/15/git%E5%B8%B8%E7%94%A8%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Mon, 15 Jul 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/07/15/git%E5%B8%B8%E7%94%A8%E8%A7%84%E8%8C%83/</guid>
+      <description>分支规范 - 分支规范 1. 分支命名规范： - master: 主线分支 - feature/xxxx: 功能需求开发分支 - hotfix/xxxx: bug 修复分支 - refactor/xxxx: 重构分支 2. 默认从主线分支 checkout 出功能需求 or bug 修复分支 3. 分支合</description>
+    </item>
+    
+    <item>
+      <title>Linux笔记</title>
+      <link>https://justinbetter.github.io/2019/06/15/linux%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 15 Jun 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/06/15/linux%E7%AC%94%E8%AE%B0/</guid>
+      <description>帮助手册命令 man man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。 ##Linux 下修改 root 密码方法 passwd root 权限 chgrp ：改变文件所属群组 chown -R</description>
+    </item>
+    
+    <item>
+      <title>Kafka机制一览</title>
+      <link>https://justinbetter.github.io/2019/06/05/kafka%E6%9C%BA%E5%88%B6%E4%B8%80%E8%A7%88/</link>
+      <pubDate>Wed, 05 Jun 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/06/05/kafka%E6%9C%BA%E5%88%B6%E4%B8%80%E8%A7%88/</guid>
+      <description>Kafka： topic、producer、consumer、broker topic本质就是一个目录,由一些Partition Logs(分区日</description>
+    </item>
+    
+    <item>
+      <title>正则</title>
+      <link>https://justinbetter.github.io/2018/07/18/%E6%AD%A3%E5%88%99/</link>
+      <pubDate>Wed, 18 Jul 2018 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2018/07/18/%E6%AD%A3%E5%88%99/</guid>
+      <description>[TOC] 正则 正则表达式(regular expression)描述了一种字符串匹配的模式（pattern） 元字符 一些有特殊含义的字符，帮助建立匹配规</description>
+    </item>
+    
+    <item>
+      <title>记录类型转换引起的索引失效</title>
+      <link>https://justinbetter.github.io/2018/05/05/%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/</link>
+      <pubDate>Sat, 05 May 2018 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2018/05/05/%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/</guid>
+      <description>mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行</description>
+    </item>
+    
+    <item>
+      <title>学会写shell脚本</title>
+      <link>https://justinbetter.github.io/2018/03/01/%E5%AD%A6%E4%BC%9A%E5%86%99shell%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Thu, 01 Mar 2018 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2018/03/01/%E5%AD%A6%E4%BC%9A%E5%86%99shell%E8%84%9A%E6%9C%AC/</guid>
+      <description>##shell是什么 Shell 是一个用C语言编写的程序，它是用户使用Linux的桥梁。 Shell既是一种命令语言，又是一种程序设计语言，这个应用程序</description>
+    </item>
+    
+    <item>
+      <title>记录一些kotlin的用法</title>
+      <link>https://justinbetter.github.io/2017/07/18/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9Bkotlin%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Tue, 18 Jul 2017 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2017/07/18/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9Bkotlin%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description>操作符 Elvis 操作符 ?: val a = b?.length ?: -1 安全转换 as？ 转型不成功返回 null null safety var a : String? = null a?.length //a 为null 则pass，不为null 则调用 a!!.length// 抛异常 类型判断符 is 范</description>
+    </item>
+    
+    <item>
+      <title>常用的设计模式</title>
+      <link>https://justinbetter.github.io/2017/05/28/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 28 May 2017 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2017/05/28/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>@[toc] #设计模式 ##单例模式 Double Check Lock public static Singleton getInstance(){ if(mInstance == null){ synchronized(Singleton.class){ if(mInstance == null){ mInstance = new Singleton(); } } } retuen mInstance; } 静态内部类 public static Singleton getInstance(){ retuen SingletonHolder.sInstance; } private static class SingletonHolder{ private static final Singleton sInstance = new Singleton(); } ​ ##Builde</description>
+    </item>
+    
+    <item>
+      <title>【cs基础】编译器的普及</title>
+      <link>https://justinbetter.github.io/2017/04/02/cs%E5%9F%BA%E7%A1%80%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E6%99%AE%E5%8F%8A/</link>
+      <pubDate>Sun, 02 Apr 2017 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2017/04/02/cs%E5%9F%BA%E7%A1%80%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E6%99%AE%E5%8F%8A/</guid>
+      <description>##编译器是什么 编译器就是一种翻译程序，一般是将高级语言编写的源代码转化成汇编或者机器码。说白了就是把我们用python,java等各种语言</description>
+    </item>
+    
+    <item>
+      <title>【cs基础】如何判断算法的好坏</title>
+      <link>https://justinbetter.github.io/2017/04/01/cs%E5%9F%BA%E7%A1%80%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95%E7%9A%84%E5%A5%BD%E5%9D%8F/</link>
+      <pubDate>Sat, 01 Apr 2017 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2017/04/01/cs%E5%9F%BA%E7%A1%80%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95%E7%9A%84%E5%A5%BD%E5%9D%8F/</guid>
+      <description>@[toc] #算法复杂度 平时我们说算法的好坏，排除一些软件和硬件上的限制，怎么去衡量这个算法运行的更快呢？这就是Big O notation的作用啦！ ##Big O</description>
+    </item>
+    
+    <item>
+      <title>【cs基础】浮点数的存储</title>
+      <link>https://justinbetter.github.io/2017/03/29/cs%E5%9F%BA%E7%A1%80%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Wed, 29 Mar 2017 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2017/03/29/cs%E5%9F%BA%E7%A1%80%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%AD%98%E5%82%A8/</guid>
+      <description>#浮点数的存储 ##为什么讨论浮点数 计算机只能识别二进制，整数转化为二进制没有任何问题。 但是！浮点数有小数点, 计算机怎么识别！必然要有个规范来</description>
+    </item>
+    
+    <item>
+      <title>【cs基础】CPU是怎样执行代码的</title>
+      <link>https://justinbetter.github.io/2017/03/17/cs%E5%9F%BA%E7%A1%80cpu%E6%98%AF%E6%80%8E%E6%A0%B7%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81%E7%9A%84/</link>
+      <pubDate>Fri, 17 Mar 2017 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2017/03/17/cs%E5%9F%BA%E7%A1%80cpu%E6%98%AF%E6%80%8E%E6%A0%B7%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81%E7%9A%84/</guid>
+      <description>##基础概念 程序是指令和数据的组合体，被复制到内存才能运行。 内存地址是保存指令和数据的场所，通过地址标记。 CPU 能识别和执行的只有机器语言。 ##CPU 结</description>
+    </item>
+    
+  </channel>
+</rss>
