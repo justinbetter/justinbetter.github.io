@@ -23,14 +23,21 @@
   </url>
   
   <url>
-    <loc>https://justinbetter.github.io/2020/09/05/mysql%E8%BF%9E%E6%8B%9B/</loc>
-    <lastmod>2020-09-05T20:00:22+08:00</lastmod>
+    <loc>https://justinbetter.github.io/posts/</loc>
+    <lastmod>2023-01-18T20:00:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://justinbetter.github.io/posts/</loc>
+    <loc>https://justinbetter.github.io/2023/01/18/%E4%BD%BF%E7%94%A8obsidian%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2023-01-18T20:00:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/2020/09/05/mysql%E8%BF%9E%E6%8B%9B/</loc>
     <lastmod>2020-09-05T20:00:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

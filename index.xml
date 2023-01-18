@@ -33,6 +33,17 @@ It makes use of a variety of open source projects including:
     </item>
     
     <item>
+      <title>使用obsidian发布博客</title>
+      <link>https://justinbetter.github.io/2023/01/18/%E4%BD%BF%E7%94%A8obsidian%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Wed, 18 Jan 2023 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2023/01/18/%E4%BD%BF%E7%94%A8obsidian%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2/</guid>
+      <description>✍内容</description>
+      <content:encoded><![CDATA[<h2 id="内容">✍内容</h2>
+]]></content:encoded>
+    </item>
+    
+    <item>
       <title>mysql连招</title>
       <link>https://justinbetter.github.io/2020/09/05/mysql%E8%BF%9E%E6%8B%9B/</link>
       <pubDate>Sat, 05 Sep 2020 20:00:22 +0800</pubDate>
@@ -3314,17 +3325,6 @@ text code blocks
       <pubDate>Mon, 05 Mar 2018 16:01:23 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2018/03/05/header-image/</guid>
-      <description>This is a simple note.</description>
-      <content:encoded><![CDATA[<p>This is a simple note.</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Note 2</title>
-      <link>https://justinbetter.github.io/2018/03/04/note-2/</link>
-      <pubDate>Sun, 04 Mar 2018 16:01:23 +0800</pubDate>
-      
-      <guid>https://justinbetter.github.io/2018/03/04/note-2/</guid>
       <description>This is a simple note.</description>
       <content:encoded><![CDATA[<p>This is a simple note.</p>
 ]]></content:encoded>
