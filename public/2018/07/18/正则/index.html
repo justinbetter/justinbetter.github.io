@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta name="generator" content="Hugo 0.69.0" />
+  <meta charset="utf-8">
+  <title>正则 · helloj</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="[TOC] 正则 正则表达式(regular expression)描述了一种字符串匹配的模式（pattern） 元字符 一些有特殊含义的字符，帮助建立匹配规" />
+
+
+<link rel="canonical" href="https://justinbetter.github.io/2018/07/18/%E6%AD%A3%E5%88%99/" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://justinbetter.github.io/css/den.css">
+
+
+
+
+<meta property="og:title" content="正则" />
+<meta property="og:description" content="[TOC] 正则 正则表达式(regular expression)描述了一种字符串匹配的模式（pattern） 元字符 一些有特殊含义的字符，帮助建立匹配规" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://justinbetter.github.io/2018/07/18/%E6%AD%A3%E5%88%99/" />
+<meta property="article:published_time" content="2018-07-18T20:00:22+08:00" />
+<meta property="article:modified_time" content="2018-07-18T20:00:22+08:00" />
+<meta itemprop="name" content="正则">
+<meta itemprop="description" content="[TOC] 正则 正则表达式(regular expression)描述了一种字符串匹配的模式（pattern） 元字符 一些有特殊含义的字符，帮助建立匹配规">
+<meta itemprop="datePublished" content="2018-07-18T20:00:22&#43;08:00" />
+<meta itemprop="dateModified" content="2018-07-18T20:00:22&#43;08:00" />
+<meta itemprop="wordCount" content="1012">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="正则"/>
+<meta name="twitter:description" content="[TOC] 正则 正则表达式(regular expression)描述了一种字符串匹配的模式（pattern） 元字符 一些有特殊含义的字符，帮助建立匹配规"/>
+</head>
+<body>
+  
+  <div class="header-container gradient">
+  <div class="container">
+  <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
+    <div class="header-logo navbar-brand">
+      
+        <a class="float-left" href="https://justinbetter.github.io/">
+      
+        
+        
+          helloj
+         
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav-menu collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            
+              
+                <a class="nav-link" href="https://justinbetter.github.io/category/notes/">Notes</a>
+              
+            
+          </li>
+        
+          <li class="nav-item">
+            
+              
+                <a class="nav-link" href="https://justinbetter.github.io/category/demos/">Demos</a>
+              
+            
+          </li>
+        
+          <li class="nav-item">
+            
+              <a class="nav-link" href="https://justinbetter.github.io/about/">About</a>
+            
+          </li>
+        
+        
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container header-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header-content">
+        <h1 class="header-title">正则</h1>
+        <p class="header-date">
+        Wed 18 July 2018
+        <div class="header-underline"></div>
+        
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <main>
+<div class="container content">
+  <article>
+  <p>[TOC]</p>
+<h1 id="正则">正则</h1>
+<pre><code>正则表达式(regular expression)描述了一种字符串匹配的模式（pattern）
+</code></pre>
+<h2 id="元字符">元字符</h2>
+<p>一些有特殊含义的字符，帮助建立匹配规则</p>
+<pre><code>\ 转义字符
+^ 匹配开始位置 ps：当在一组方括号里使用^是，它表示&quot;非&quot;或&quot;排除&quot;的意思，常常用来剔除某个字符。
+$ 匹配结束位置	
+    ps：字符^和$同时使用时，表示精确匹配（字符串与模式一样），分开使用，只匹配字符串首或尾
+
++ 一次或多次
+* 0次或多次
+</code></pre>
+<p>ps：</p>
+<pre><code>？0次或1次,也可以将默认的贪婪模式转变为非贪婪，例如，对于字符串 &quot;oooo&quot;，'o+?' 将匹配单个 &quot;o&quot;，而 'o+' 将匹配所有 'o'。
+    （?:pattern) 获取匹配结果，但是不需要存储为分组结果	
+    （?=pattern) 例如，&quot;Windows(?=95|98|NT|2000)&quot;能匹配&quot;Windows2000&quot;中的&quot;Windows&quot;，但不能匹配&quot;Windows3.1&quot;中的&quot;Windows&quot;。
+     (?!pattern) 例如&quot;Windows(?!95|98|NT|2000)&quot;能匹配&quot;Windows3.1&quot;中的&quot;Windows&quot;，但不能匹配&quot;Windows2000&quot;中的&quot;Windows&quot;。
+
+
+{n,m} 限定出现次数
+
+*、+限定符都是贪婪的，因为它们会尽可能多的匹配文字，只有在它们的后面加上一个?就可以实现非贪婪或最小匹配。
+
+[^指定字符串] 指的是除指定字符串以外的其他字符串
+[] 匹配其中之一，可匹配字符组的一个列表，
+（） 可作为子匹配进行分组缓存，分组获取的结果可以通过组编号（从1开始）拿出，
+    **\n访问分组的引用**，可以用来去重
+
+x|y 匹配 x 或 y
+\s 匹配任何空白字符，包括空格、制表符、换页符等
+\S 匹配任何非空白字符
+\n 匹配一个换行符
+\r 匹配一个回车符
+. 匹配除换行符 \n 之外的任何单字符
+\b 匹配一个单词边界，是不是在单词的首尾；\B 相反
+\d 匹配一个数字字符。等价于 [0-9]。
+\D 匹配一个非数字字符。等价于 [^0-9]。
+\w 匹配字母、数字、下划线。等价于'[A-Za-z0-9_]'。
+[a-z]  //匹配所有的小写字母
+[A-Z]  //匹配所有的大写字母
+[a-zA-Z]  //匹配所有的字母
+[0-9]  //匹配所有的数字
+[0-9\.\-]  //匹配所有的数字，句号和减号
+[ \f\r\t\n]  //匹配所有的白字符
+</code></pre>
+
+  </article>
+
+  
+  
+  
+
+
+  
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '29027f13b37b8831bea4',
+        clientSecret: '5a25a3157abdda86a35db8a6fcb67273bec66f17',
+        repo: 'justinbetter.github.io',
+        owner: '16359219',
+        admin: ['16359219'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+
+</div>
+
+  </main><div class="footer gradient-2">
+  <div class="container footer-container ">
+    <div class="row">
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        <div class="footer-title">Sitemap</div>
+        <ul class="list-unstyled">
+            
+              
+                <li><a href="https://justinbetter.github.io/tags/">Tags</a></li>
+              
+              
+                <li><a href="https://justinbetter.github.io/categories/">Categories</a></li>
+              
+            
+            
+            
+            <li><a rel="alternate" type="application/rss&#43;xml" href="https://justinbetter.github.io/index.xml"><i class="fas fa-rss-square"></i> RSS Feed</a></li>
+            
+            
+            
+        </ul>
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        
+        <div class="footer-title">Social</div>
+        <ul class="list-unstyled">
+          
+          <li><a href="https://github.com/shaform/hugo-theme-den/" rel="noopener" target="_blank">GitHub</a></li>
+          
+        </ul>
+        
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        
+        <div class="footer-title">Links</div>
+        <ul class="list-unstyled">
+          
+          <li><a href="https://github.com/shaform/hugo-theme-den/" rel="noopener" target="_blank">About Me</a></li>
+          
+        </ul>
+        
+      </div> 
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <p class="pull-right text-right">
+          <small><em>Proudly powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a></em></small><br/>
+          <small><em>Theme - <a href="https://github.com/shaform/hugo-theme-den" rel="noopener" target="_blank">Den</a></em></small><br/>
+          <small>
+            &copy; 
+            Jane Doe
+            
+              2017 -
+            2023
+          </small>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta name="generator" content="Hugo 0.69.0" />
+  <meta charset="utf-8">
+  <title>学会写shell脚本 · helloj</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="##shell是什么 Shell 是一个用C语言编写的程序，它是用户使用Linux的桥梁。 Shell既是一种命令语言，又是一种程序设计语言，这个应用程序" />
+
+
+<link rel="canonical" href="https://justinbetter.github.io/2018/03/01/%E5%AD%A6%E4%BC%9A%E5%86%99shell%E8%84%9A%E6%9C%AC/" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://justinbetter.github.io/css/den.css">
+
+
+
+
+<meta property="og:title" content="学会写shell脚本" />
+<meta property="og:description" content="##shell是什么 Shell 是一个用C语言编写的程序，它是用户使用Linux的桥梁。 Shell既是一种命令语言，又是一种程序设计语言，这个应用程序" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://justinbetter.github.io/2018/03/01/%E5%AD%A6%E4%BC%9A%E5%86%99shell%E8%84%9A%E6%9C%AC/" />
+<meta property="article:published_time" content="2018-03-01T20:00:22+08:00" />
+<meta property="article:modified_time" content="2018-03-01T20:00:22+08:00" />
+<meta itemprop="name" content="学会写shell脚本">
+<meta itemprop="description" content="##shell是什么 Shell 是一个用C语言编写的程序，它是用户使用Linux的桥梁。 Shell既是一种命令语言，又是一种程序设计语言，这个应用程序">
+<meta itemprop="datePublished" content="2018-03-01T20:00:22&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-01T20:00:22&#43;08:00" />
+<meta itemprop="wordCount" content="1044">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="学会写shell脚本"/>
+<meta name="twitter:description" content="##shell是什么 Shell 是一个用C语言编写的程序，它是用户使用Linux的桥梁。 Shell既是一种命令语言，又是一种程序设计语言，这个应用程序"/>
+</head>
+<body>
+  
+  <div class="header-container gradient">
+  <div class="container">
+  <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
+    <div class="header-logo navbar-brand">
+      
+        <a class="float-left" href="https://justinbetter.github.io/">
+      
+        
+        
+          helloj
+         
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav-menu collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            
+              
+                <a class="nav-link" href="https://justinbetter.github.io/category/notes/">Notes</a>
+              
+            
+          </li>
+        
+          <li class="nav-item">
+            
+              
+                <a class="nav-link" href="https://justinbetter.github.io/category/demos/">Demos</a>
+              
+            
+          </li>
+        
+          <li class="nav-item">
+            
+              <a class="nav-link" href="https://justinbetter.github.io/about/">About</a>
+            
+          </li>
+        
+        
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container header-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header-content">
+        <h1 class="header-title">学会写shell脚本</h1>
+        <p class="header-date">
+        Thu 01 March 2018
+        <div class="header-underline"></div>
+        
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <main>
+<div class="container content">
+  <article>
+  <p>##shell是什么</p>
+<pre><code>    Shell 是一个用C语言编写的程序，它是用户使用Linux的桥梁。
+    Shell既是一种命令语言，又是一种程序设计语言，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。
+</code></pre>
+<p>##shell脚本是什么</p>
+<ul>
+<li>
+<p>shell是为shell编写的脚本程序。</p>
+</li>
+<li>
+<p>Bash是大多数Linux系统默认的Shell。</p>
+<pre><code>  #! 告诉系统其后路径所指定的程序即是解释此脚本文件的Shell程序。
+  如： #!/bin/bash
+</code></pre>
+</li>
+<li>
+<p>运行方法</p>
+<pre><code>  第一种： 
+  chmod +x ./test.sh  #使脚本具有执行
+  ./test.sh  #执行脚本
+  第二种：
+  /bin/sh test.sh #运行解释器
+</code></pre>
+</li>
+</ul>
+<p>##变量</p>
+<ul>
+<li>
+<p>使用变量</p>
+<pre><code>  your_name=&quot;qinjx&quot;
+  echo $your_name
+  echo ${your_name} #花括号可加可不加
+</code></pre>
+</li>
+<li>
+<p>设置只读变量</p>
+<pre><code>  myUrl=&quot;http://www.w3cschool.cc&quot;
+  readonly myUrl
+</code></pre>
+</li>
+<li>
+<p>删除变量 unset</p>
+</li>
+</ul>
+<p>##字符串</p>
+<ul>
+<li>
+<p>获取长度</p>
+<pre><code>  string=&quot;abcd&quot;
+  echo ${#string} #输出 长度4
+</code></pre>
+</li>
+<li>
+<p>提取字符串</p>
+<pre><code>  echo ${string:1:4}
+</code></pre>
+</li>
+<li>
+<p>查找index</p>
+<pre><code>  string=&quot;runoob is a great company&quot;
+  echo `expr index &quot;$string&quot; is`  # 输出 8
+</code></pre>
+</li>
+</ul>
+<p>##数组</p>
+<ul>
+<li>
+<p>定义</p>
+<pre><code>  array_name=(value0 value1 value2 value3)
+</code></pre>
+</li>
+<li>
+<p>读取</p>
+<pre><code>  valuen=${array_name[n]}
+  echo ${array_name[@]} #获取所有元素
+</code></pre>
+</li>
+<li>
+<p>获取长度</p>
+<pre><code>  length=${#array_name[@]}	
+  lengthn=${#array_name[n]}
+</code></pre>
+</li>
+</ul>
+<p>##脚本参数</p>
+<ul>
+<li>
+<p>获取参数</p>
+<pre><code>  脚本内获取参数的格式为：$n
+
+  $#	传递到脚本的参数个数
+	
+  $*	以一个单字符串显示所有向脚本传递的参数。
+	
+  如&quot;$*&quot;用「&quot;」括起来的情况、以&quot;$1 $2 … $n&quot;的形式输出所有参数。
+	
+
+  如&quot;$@&quot;用「&quot;」括起来的情况、以&quot;$1&quot; &quot;$2&quot; … &quot;$n&quot; 的形式输出所有参数。
+</code></pre>
+</li>
+</ul>
+<h2 id="运算符">运算符</h2>
+<ul>
+<li>
+<p>原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。
+expr 是一款表达式计算工具，使用它能完成表达式的求值。例如，两个数相加(注意使用的是反引号 ` 而不是单引号 &lsquo;)：</p>
+<pre><code>  #!/bin/bash
+	
+  val=`expr 2 + 2`
+  echo &quot;两数之和为 : $val&quot;
+</code></pre>
+</li>
+</ul>
+<p>##echo
+。。。没啥说的，就是显示
+##printf</p>
+<pre><code>printf &quot;%-10s %-8s %-4.2f\n&quot; 郭靖 男 66.1234 
+</code></pre>
+<p>##if
+if condition1
+then
+command1
+elif condition2
+then
+command2
+else
+commandN
+fi</p>
+<p>##for
+for var in item1 item2 &hellip; itemN
+do
+command1
+command2
+&hellip;
+commandN
+done
+##while
+while condition
+do
+command
+done</p>
+<p>##函数</p>
+<ul>
+<li>
+<p>使用</p>
+</li>
+<li>
+<p>funWithReturn(){
+echo &ldquo;这个函数会对输入的两个数字进行相加运算&hellip;&rdquo;
+echo &ldquo;输入第一个数字: &quot;
+read aNum
+echo &ldquo;输入第二个数字: &quot;
+read anotherNum
+echo &ldquo;两个数字分别为 $aNum 和 $anotherNum !&rdquo;
+return $(($aNum+$anotherNum))
+}
+funWithReturn
+echo &ldquo;输入的两个数字之和为 $? !&rdquo;
+#函数返回值在调用该函数后通过 $? 来获得</p>
+</li>
+<li>
+<p>函数参数</p>
+</li>
+<li>
+<p>funWithParam(){
+echo &ldquo;第一个参数为 $1 !&rdquo;
+echo &ldquo;第二个参数为 $2 !&rdquo;
+echo &ldquo;第十个参数为 $10 !&rdquo;
+echo &ldquo;第十个参数为 ${10} !&rdquo;
+echo &ldquo;第十一个参数为 ${11} !&rdquo;
+echo &ldquo;参数总数有 $# 个!&rdquo;
+echo &ldquo;作为一个字符串输出所有参数 $* !&rdquo;
+}
+funWithParam 1 2 3 4 5 6 7 8 9 34 73</p>
+</li>
+</ul>
+<p>##包含外部脚本，以便独立使用</p>
+<ul>
+<li>
+<p>source 或者 .</p>
+<pre><code>  #使用 . 号来引用test1.sh 文件
+  . ./test1.sh
+	
+  # 或者使用以下包含文件代码
+  # source ./test1.sh
+</code></pre>
+</li>
+</ul>
+
+  </article>
+
+  
+  
+  
+
+
+  
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '29027f13b37b8831bea4',
+        clientSecret: '5a25a3157abdda86a35db8a6fcb67273bec66f17',
+        repo: 'justinbetter.github.io',
+        owner: '16359219',
+        admin: ['16359219'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+
+</div>
+
+  </main><div class="footer gradient-2">
+  <div class="container footer-container ">
+    <div class="row">
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        <div class="footer-title">Sitemap</div>
+        <ul class="list-unstyled">
+            
+              
+                <li><a href="https://justinbetter.github.io/tags/">Tags</a></li>
+              
+              
+                <li><a href="https://justinbetter.github.io/categories/">Categories</a></li>
+              
+            
+            
+            
+            <li><a rel="alternate" type="application/rss&#43;xml" href="https://justinbetter.github.io/index.xml"><i class="fas fa-rss-square"></i> RSS Feed</a></li>
+            
+            
+            
+        </ul>
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        
+        <div class="footer-title">Social</div>
+        <ul class="list-unstyled">
+          
+          <li><a href="https://github.com/shaform/hugo-theme-den/" rel="noopener" target="_blank">GitHub</a></li>
+          
+        </ul>
+        
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        
+        <div class="footer-title">Links</div>
+        <ul class="list-unstyled">
+          
+          <li><a href="https://github.com/shaform/hugo-theme-den/" rel="noopener" target="_blank">About Me</a></li>
+          
+        </ul>
+        
+      </div> 
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <p class="pull-right text-right">
+          <small><em>Proudly powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a></em></small><br/>
+          <small><em>Theme - <a href="https://github.com/shaform/hugo-theme-den" rel="noopener" target="_blank">Den</a></em></small><br/>
+          <small>
+            &copy; 
+            Jane Doe
+            
+              2017 -
+            2023
+          </small>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

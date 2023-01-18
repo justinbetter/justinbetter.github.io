@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta name="generator" content="Hugo 0.69.0" />
+  <meta charset="utf-8">
+  <title>记录一些kotlin的用法 · helloj</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="操作符 Elvis 操作符 ?: val a = b?.length ?: -1 安全转换 as？ 转型不成功返回 null null safety var a : String? = null a?.length //a 为null 则pass，不为null 则调用 a!!.length// 抛异常 类型判断符 is 范" />
+
+
+<link rel="canonical" href="https://justinbetter.github.io/2017/07/18/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9Bkotlin%E7%9A%84%E7%94%A8%E6%B3%95/" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://justinbetter.github.io/css/den.css">
+
+
+
+
+<meta property="og:title" content="记录一些kotlin的用法" />
+<meta property="og:description" content="操作符 Elvis 操作符 ?: val a = b?.length ?: -1 安全转换 as？ 转型不成功返回 null null safety var a : String? = null a?.length //a 为null 则pass，不为null 则调用 a!!.length// 抛异常 类型判断符 is 范" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://justinbetter.github.io/2017/07/18/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9Bkotlin%E7%9A%84%E7%94%A8%E6%B3%95/" />
+<meta property="article:published_time" content="2017-07-18T20:00:22+08:00" />
+<meta property="article:modified_time" content="2017-07-18T20:00:22+08:00" />
+<meta itemprop="name" content="记录一些kotlin的用法">
+<meta itemprop="description" content="操作符 Elvis 操作符 ?: val a = b?.length ?: -1 安全转换 as？ 转型不成功返回 null null safety var a : String? = null a?.length //a 为null 则pass，不为null 则调用 a!!.length// 抛异常 类型判断符 is 范">
+<meta itemprop="datePublished" content="2017-07-18T20:00:22&#43;08:00" />
+<meta itemprop="dateModified" content="2017-07-18T20:00:22&#43;08:00" />
+<meta itemprop="wordCount" content="543">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="记录一些kotlin的用法"/>
+<meta name="twitter:description" content="操作符 Elvis 操作符 ?: val a = b?.length ?: -1 安全转换 as？ 转型不成功返回 null null safety var a : String? = null a?.length //a 为null 则pass，不为null 则调用 a!!.length// 抛异常 类型判断符 is 范"/>
+</head>
+<body>
+  
+  <div class="header-container gradient">
+  <div class="container">
+  <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
+    <div class="header-logo navbar-brand">
+      
+        <a class="float-left" href="https://justinbetter.github.io/">
+      
+        
+        
+          helloj
+         
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav-menu collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            
+              
+                <a class="nav-link" href="https://justinbetter.github.io/category/notes/">Notes</a>
+              
+            
+          </li>
+        
+          <li class="nav-item">
+            
+              
+                <a class="nav-link" href="https://justinbetter.github.io/category/demos/">Demos</a>
+              
+            
+          </li>
+        
+          <li class="nav-item">
+            
+              <a class="nav-link" href="https://justinbetter.github.io/about/">About</a>
+            
+          </li>
+        
+        
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container header-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header-content">
+        <h1 class="header-title">记录一些kotlin的用法</h1>
+        <p class="header-date">
+        Tue 18 July 2017
+        <div class="header-underline"></div>
+        
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <main>
+<div class="container content">
+  <article>
+  <h1 id="操作符">操作符</h1>
+<h3 id="elvis-操作符-">Elvis 操作符 ?:</h3>
+<pre><code>val a = b?.length ?: -1
+</code></pre><h3 id="安全转换-as">安全转换 as？</h3>
+<ul>
+<li>转型不成功返回 null</li>
+</ul>
+<h3 id="null-safety">null safety</h3>
+<pre><code>var a : String? = null
+a?.length //a 为null 则pass，不为null 则调用
+a!!.length// 抛异常
+
+</code></pre><h3 id="类型判断符-is">类型判断符 is</h3>
+<h3 id="范围操作符--in">范围操作符 : in</h3>
+<pre><code>for(i in 1..5 step 1){}
+for (i in 5 downTo 1 step 2){}
+
+</code></pre><h3 id="多行输入符--">多行输入符  &quot;&rdquo;&rdquo;</h3>
+<ul>
+<li>三个双引号之间的内容将被原样保留</li>
+</ul>
+<h1 id="扩展函数">扩展函数</h1>
+<hr>
+<h2 id="run">run</h2>
+<ul>
+<li>调用函数块，块内 this指代调用对象</li>
+<li>返回值为最后一行</li>
+</ul>
+<pre><code>val result = &quot;haha&quot;.run{
+	println(this)
+	&quot;I'm result&quot;
+}
+println(result)
+</code></pre><h2 id="apply">apply</h2>
+<ul>
+<li>同run，函数块内this 指代该对象</li>
+<li>返回值为对象自己</li>
+</ul>
+<h2 id="let">let</h2>
+<ul>
+<li>函数块内 it 指代该对象</li>
+<li>返回值最后一行</li>
+</ul>
+<h2 id="also">also</h2>
+<ul>
+<li>函数块内it 指代该对象</li>
+<li>返回值为对象自己</li>
+</ul>
+<h2 id="with">with</h2>
+<ul>
+<li>将该对象作为函数参数</li>
+<li>this 指代该对象</li>
+<li>返回值为最后一行</li>
+</ul>
+<pre><code>val result = with（&quot;haha&quot;）{
+	println(this)
+	&quot;result&quot;
+}
+println(result)
+</code></pre><h2 id="修饰符">修饰符</h2>
+<ul>
+<li>private 只能被自己所在的文件可见，不能在定义这个类之外的文件中使用</li>
+<li>protected 可以被成员自己和继承它的成员可见（比如，类和它的子类）</li>
+<li>internal 对所在的整个module可见</li>
+<li>public 最没有限制的修饰符。这是默认的修饰符</li>
+</ul>
+<h2 id="委托属性">委托属性</h2>
+<ul>
+<li>
+<p>一个属性具有一些相同的行为，使用lazy或者observable可以被很有趣地实现重用。而不是一次又一次地去声明那些相同的代码</p>
+</li>
+<li>
+<p><a href="https://wangjiegulu.gitbooks.io/kotlin-for-android-developers-zh/content/biao_zhun_wei_tuo.html">https://wangjiegulu.gitbooks.io/kotlin-for-android-developers-zh/content/biao_zhun_wei_tuo.html</a></p>
+</li>
+<li>
+<p>标准委托</p>
+<pre><code>  by lazy
+  by observable
+  by Delegates.notNull()
+  by map 
+</code></pre>
+</li>
+<li>
+<p>自定义委托 ：</p>
+<pre><code>      继承ReadWriteProperty
+  by DelegatesExt.notNullSingleValue()
+</code></pre>
+</li>
+<li>
+<p>操作符</p>
+</li>
+<li>
+<p>密封类 sealed</p>
+<ul>
+<li>
+<p>类似枚举，不同之处在于枚举的实例是唯一的，而密封类可以有很多实例，它们可以有不同的状态。</p>
+<pre><code>  sealed class Option&lt;out T&gt; {
+      class Some&lt;out T&gt; : Option&lt;T&gt;()
+      object None : Option&lt;Nothing&gt;()
+  }		
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="https://wangjiegulu.gitbooks.io/kotlin-for-android-developers-zh/content/biao_zhun_wei_tuo.html">https://wangjiegulu.gitbooks.io/kotlin-for-android-developers-zh/content/biao_zhun_wei_tuo.html</a></li>
+</ul>
+
+  </article>
+
+  
+  
+  
+
+
+  
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '29027f13b37b8831bea4',
+        clientSecret: '5a25a3157abdda86a35db8a6fcb67273bec66f17',
+        repo: 'justinbetter.github.io',
+        owner: '16359219',
+        admin: ['16359219'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+
+</div>
+
+  </main><div class="footer gradient-2">
+  <div class="container footer-container ">
+    <div class="row">
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        <div class="footer-title">Sitemap</div>
+        <ul class="list-unstyled">
+            
+              
+                <li><a href="https://justinbetter.github.io/tags/">Tags</a></li>
+              
+              
+                <li><a href="https://justinbetter.github.io/categories/">Categories</a></li>
+              
+            
+            
+            
+            <li><a rel="alternate" type="application/rss&#43;xml" href="https://justinbetter.github.io/index.xml"><i class="fas fa-rss-square"></i> RSS Feed</a></li>
+            
+            
+            
+        </ul>
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        
+        <div class="footer-title">Social</div>
+        <ul class="list-unstyled">
+          
+          <li><a href="https://github.com/shaform/hugo-theme-den/" rel="noopener" target="_blank">GitHub</a></li>
+          
+        </ul>
+        
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        
+        <div class="footer-title">Links</div>
+        <ul class="list-unstyled">
+          
+          <li><a href="https://github.com/shaform/hugo-theme-den/" rel="noopener" target="_blank">About Me</a></li>
+          
+        </ul>
+        
+      </div> 
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <p class="pull-right text-right">
+          <small><em>Proudly powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a></em></small><br/>
+          <small><em>Theme - <a href="https://github.com/shaform/hugo-theme-den" rel="noopener" target="_blank">Den</a></em></small><br/>
+          <small>
+            &copy; 
+            Jane Doe
+            
+              2017 -
+            2023
+          </small>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta name="generator" content="Hugo 0.69.0" />
+  <meta charset="utf-8">
+  <title>Linux笔记 · helloj</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="帮助手册命令 man man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。 ##Linux 下修改 root 密码方法 passwd root 权限 chgrp ：改变文件所属群组 chown -R" />
+
+
+<link rel="canonical" href="https://justinbetter.github.io/2019/06/15/linux%E7%AC%94%E8%AE%B0/" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://justinbetter.github.io/css/den.css">
+
+
+
+
+<meta property="og:title" content="Linux笔记" />
+<meta property="og:description" content="帮助手册命令 man man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。 ##Linux 下修改 root 密码方法 passwd root 权限 chgrp ：改变文件所属群组 chown -R" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://justinbetter.github.io/2019/06/15/linux%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2019-06-15T20:00:22+08:00" />
+<meta property="article:modified_time" content="2019-06-15T20:00:22+08:00" />
+<meta itemprop="name" content="Linux笔记">
+<meta itemprop="description" content="帮助手册命令 man man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。 ##Linux 下修改 root 密码方法 passwd root 权限 chgrp ：改变文件所属群组 chown -R">
+<meta itemprop="datePublished" content="2019-06-15T20:00:22&#43;08:00" />
+<meta itemprop="dateModified" content="2019-06-15T20:00:22&#43;08:00" />
+<meta itemprop="wordCount" content="8110">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux笔记"/>
+<meta name="twitter:description" content="帮助手册命令 man man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。 ##Linux 下修改 root 密码方法 passwd root 权限 chgrp ：改变文件所属群组 chown -R"/>
+</head>
+<body>
+  
+  <div class="header-container gradient">
+  <div class="container">
+  <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
+    <div class="header-logo navbar-brand">
+      
+        <a class="float-left" href="https://justinbetter.github.io/">
+      
+        
+        
+          helloj
+         
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav-menu collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            
+              
+                <a class="nav-link" href="https://justinbetter.github.io/category/notes/">Notes</a>
+              
+            
+          </li>
+        
+          <li class="nav-item">
+            
+              
+                <a class="nav-link" href="https://justinbetter.github.io/category/demos/">Demos</a>
+              
+            
+          </li>
+        
+          <li class="nav-item">
+            
+              <a class="nav-link" href="https://justinbetter.github.io/about/">About</a>
+            
+          </li>
+        
+        
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container header-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header-content">
+        <h1 class="header-title">Linux笔记</h1>
+        <p class="header-date">
+        Sat 15 June 2019
+        <div class="header-underline"></div>
+        
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <main>
+<div class="container content">
+  <article>
+  <h2 id="帮助手册命令-man">帮助手册命令 man</h2>
+<pre><code>man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。
+</code></pre>
+<p>##Linux 下修改 root 密码方法
+passwd root</p>
+<h2 id="权限">权限</h2>
+<pre><code>chgrp ：改变文件所属群组
+chown -R：改变文件拥有者
+chmod ：改变文件的权限, SUID, SGID, SBIT等等的特性	
+su - user1  切换身份user1
+</code></pre>
+<h2 id="查看服务">查看服务</h2>
+<pre><code> /etc/services 
+ /etc/init.d/  启动脚本处	
+ /etc/* ：各服务各自的配置文件
+ service --status-all 查看所有服务
+</code></pre>
+<h2 id="常用目录">常用目录</h2>
+<pre><code>/etc                主要配置文件
+/bin                常用执行文件
+/sbin               重要的系统执行文件
+/dev                存放设备文件
+/dev/null           垃圾桶
+/home               用户目录
+/media /mnt         挂载外部装置
+/opt                第三方协议软件 习惯放/usr/local
+/proc               虚拟文件，存放内存数据:系统cpu、网络..
+
+/ (root, 根目录)：   与开机系统有关；
+/usr (unix software resource)：与软件安装/执行有关；
+/usr/local/        自己下载的软件安装目录
+/var (variable)：  与系统运作过程有关的常态性变动的文件：缓存、log等。
+
+/etc/issue         配置开机画面显示
+/etc/motd          配置登录显示
+/etc/ssh/sshd_config ssh配置
+~/.ssh/authorized_keys 加入ssh公钥,免密码登录
+</code></pre>
+<h2 id="英文全称">英文全称</h2>
+<pre><code>df: Disk free  空余硬盘
+du: Disk usage 硬盘使用率
+su：Swith user  切换用户，切换到root用户
+</code></pre>
+<h2 id="常用命令">常用命令</h2>
+<pre><code>du -s * | sort -nr | head 选出排在前面的10个 文件夹大小排序
+ctrl+r 搜索历史记录
+lsb_release -a    系统版本
+双击tab            获取所有可能的命令,极其方便!
+ls -alh           list所有文件包括隐藏文件
+ls -l --sort=time -r 升序展示
+set               获取所有变量,包含bash接口配置相关
+echo $$           当前shell的PID
+echo $?           返回上个命令的执行结果
+env/export        显示所有环境变量
+echo $PATH        显示环境变量中的PATH
+PATH=$PATH:/home/dmtsai/bin  增加目录到变量
+export var1 	  使其变为环境变量,可以让子shell使用
+
+echo $(uname -r)  显示系统版本
+uname -a          显示系统架构
+grub2-editenv list 查看默认内核
+    grub2-set-default &quot;CentOS Linux (3.10.0-327.el7.x86_64) 7 (Core)&quot;
+
+
+设置变量           name=justin
+取消变量           unset name
+命令中使用其他命令   $(command)
+创建目录：          mkdir /tmp/chapter7_1
+修改属性：          chown -R dmtsai:users /tmp/chapter7_1
+修改权限：          chmod -R 755 /tmp/chapter7_1
+//SUID/SGID/SBIT 权限配置--&gt; 要有x权限   
+        4 为 SUID       暂时将具有该程序拥有者 (owner) 的权限；
+        2 为 SGID       暂时获得得该程序群组的支持
+        1 为 SBIT       wx权限下,仅有自己与 root 才有权力删除该文件
+		
+观察文件类型：       file
+搜索命令完整路径：    which
+搜索文件： 
+    whereis       whereis 与 locate 是利用数据库来搜寻数据
+    updatedb      手动更新数据库
+    find          强大的搜寻命令，但时间花用的很大！ 因为 find 是直接搜寻硬盘
+        find / -perm /6000   查询具有suid、sgid的文件
+
+df -h             获取目前挂载的设备，整体磁盘使用量
+du -sh            获取文件所占容量
+    bug 卡住了
+    strace df -h
+    systemctl restart proc-sys-fs-binfmt_misc.automount
+
+
+dumpe2fs          查询每个区段与 superblock 的信息
+ln -s /etc/crontab crontab2 创建符号链接，类似windows 的快捷方式
+
+
+read -p &quot;Please keyin your name: &quot; -t 30 named  读取键盘输入
+declare                   声明变量
+ulimit -a                 显示当前用户的数据限制值
+last                      显示登陆者信息
+alias                     显示当前所有的命令别名,设置别名
+unalias                   取消别名
+history                   使用过的命令历史
+type -a                   获取命令搜寻顺序
+!comand                   运行最近命令开头为command的命令
+source/.                  读入环境配置文件，可以直接在父程序运行脚本
+chattr (配置文件隐藏属性)
+lsattr (显示文件隐藏属性)
+pwd 显示当前目录
+		
+//输入输出
+标准输入　　(stdin) ：代码为 0 ，使用 &lt; 或 &lt;&lt; ；
+标准输出　　(stdout)：代码为 1 ，使用 &gt; 或 &gt;&gt; ；
+标准错误输出(stderr)：代码为 2 ，使用 2&gt; 或 2&gt;&gt; ；
+重定向操作符（&amp;&gt;）将标准输出和错误输出同时送到同一文件
+
+//pipe
+|grep|cut|sort|uniq|wc
+|tee test.txt            双向重导向,分送到文件去与屏幕stdout,可以让下个命令继续使用      
+ - 减号                   可以取用前一个命令的 stdout
+
+    //正则
+find .| xargs grep -ri &quot;18616504954&quot; -l  目录下的所有文件中查找字符串,并且只打印出含有该字符串的文件名
+
+grep '^ha' test.txt -n    单引号中使用正则
+sed                       将数据 standard input 进行取代、删除、新增、撷取特定行等
+                          e.g: nl test.txt |sed '2,3d'
+                               sed 's/要被取代的字串/新的字串/g'
+
+printf                    格式化输出
+awk '条件类型1{动作1} 条件类型2{动作2} ...' filename   处理数据
+	
+        $NF代表：最后一个Field(列)
+
+
+diff/cmp                  比对两个文件
+test                      检查工具, 判断文件属性等
+tail -cf 			      循环读取文件末尾日志   
+
+less test.log  打开文件，按大写实时刷新
+		
+        - F 实时刷新
+        - N 显示行号
+
+dig xxx +short            查看域名                 
+
+//切换
+
+&amp;                       直接将命令丢到背景中『运行』的 &amp;
+[ctrl]+z                 将『目前』的工作丢到背景中『暂停
+jobs                    观察目前的背景工作状态： jobs
+                用jobs查看进程的jobnumber，然后用命令：kill %n 来结束。
+			
+fg                      将背景工作拿到前景来处理：fg
+bg                      让工作在背景下的状态变成运行中： bg
+kill                    管理背景当中的工作： kill
+         killall -9 httpd       强制终止所有以 httpd 启动的程序
+         killall -1 syslogd       给予 syslogd 这个命令启动的 PID 一个 SIGHUP 的讯号
+         killall -i -9 bash      依次询问每个 bash 程序是否需要被终止运行！
+
+//服务管理
+ service --status-all  显示出目前系统上面所有服务的运行状态
+ chkconfig： 管理系统服务默认启动启动与否
+             chkconfig --list [服务名称]
+             chkconfig [--level [0123456]] [服务名称] [on|off]		 
+              *启动 Linux 系统时，可以进入不同的模式喔，这模式我们称为运行等级, 正常的运行等级有两个，一个是具有 X 窗口接口的 run level 5 ，另一个则是纯文本界面的 run level 3。* 
+
+logrotate [-vf] logfile       显示 logrotate 运行过程
+
+tar czvf my.tar.gz dir1 单个目录压缩打包 
+    tar czvf shell30.tar.gz  /usr/local/system/bin
+tar xzvf my.tar.gz 解包至当前目录
+
+ls -l | grep &quot;^-&quot; | wc -l 统计文件个数
+	
+curl -H &quot;Sign:#f93Uc31K24()_@&quot; -d &quot;fatherId=10155&quot; http://dbt.lego.iqiyi.com/api/program/find
+</code></pre>
+<h2 id="文件系统">文件系统</h2>
+<ul>
+<li>
+<p>Linux 的正统文件系统则为 Ext2 (Linux second extended file system, ext2fs)这一个。此外，在默认的情况下，windows 操作系统是不会认识 Linux 的 Ext2 的。</p>
+</li>
+<li>
+<p>inode 表 每个文件都仅会占用一个 inode 而已,记录文件的属性及该文件实际数据是放置在哪几号 block 内；</p>
+</li>
+<li>
+<p>data block是用来放置文件内容数据地方，在 Ext2 文件系统中所支持的 block 大小有 1K, 2K 及 4K 三种而已</p>
+</li>
+<li>
+<p>一般来说，我们将 inode table 与 data block 称为数据存放区域，至于其他例如 superblock、 block bitmap 与 inode bitmap 等区段就被称为 metadata (中介数据) 啰，因为 superblock, inode bitmap 及 block bitmap 的数据是经常变动的，每次新增、移除、编辑时都可能会影响到这三个部分的数据</p>
+</li>
+</ul>
+<h2 id="swap">Swap</h2>
+<ul>
+<li>swap 的功能就是在应付物理内存不足的情况下所造成的内存延伸记录的功能。</li>
+<li>当物理内存不够时，则某些在内存当中所占的程序会暂时被移动到 swap 当中，让物理内存可以被需要的程序来使用。另外，如果你的主机支持电源管理模式， 也就是说，你的 Linux 主机系统可以进入『休眠』模式的话，那么， 运行当中的程序状态则会被纪录到 swap 去，以作为『唤醒』主机的状态依据！ 另外，有某些程序在运行时，本来就会利用 swap 的特性来存放一些数据段， 所以， swap 来是需要创建的！只是不需要太大！</li>
+</ul>
+<h2 id="vi">vi</h2>
+<pre><code>全部复制：按esc键后，先按gg，然后ggyG
+：set number 显示行号
+0/Home 移动到行前
+$/End  移动到行尾
+[Ctrl] + [f] 向下移动一页
+[Ctrl] + [b] 向上移动一页
+G	移动到这个档案的最后一行
+gg/1G  移动到第一行
+
+u 撤销
+o 当前位置下创建一行
+O 当前位置上创建一行
+dd 删除光标所在行
+x 删除光标后字符
+X 删除光标前字符
+yy 复制当前行
+p  粘贴
+J 当前行连接下一行
+
+v 字符选择
+V 行选择
+ctrl+v 区块选择
+y 复制选择
+d 删除选择
+
+/word  搜寻字符串	，光标之上
+?word  搜寻字符串，光标之下
+加入`\c`表示大小写不敏感查找，`\C`表示大小写敏感查找
+搜索A与B /.*A\&amp;.*B
+
+n      继续搜索
+N      反向搜索
+
+多行编辑
+ctrl+v j按多次 esc 
+
+vim 后面同时接好几个档案可同时开启 
+:n	编辑下一个档案
+:N	编辑上一个档案
+:files	列出目前这个 vim 的开启的所有档案
+
+//多窗口
+:sp [filename] 开启一个新窗口
+[ctrl]+w 放开+↓	 移到下方窗口
+[ctrl]+w 放开+↑	 移到上方窗口	
+</code></pre>
+<h2 id="bash">Bash</h2>
+<pre><code>/etc/shells 	查看可用的shell
+/etc/passwd     查看不同用户取得的默认shell
+/.bash_history  这个隐藏目录保存了使用的命令历史
+\+[Enter]       避免命令太长,多行使用
+</code></pre>
+<h2 id="scripts">scripts</h2>
+<ul>
+<li>
+<p>date +%Y%m%d 获取今天日期</p>
+<pre><code>   echo $(date '+%Y-%m-%d %H:%M:%S') &gt;&gt; $LOG_DIR/$LOG_NAME
+</code></pre>
+</li>
+<li>
+<p>script 的运行方式差异 (source, sh script, ./script)</p>
+</li>
+<li>
+<p>善用判断式</p>
+<ul>
+<li>
+<p>test</p>
+</li>
+<li>
+<p>[ &ldquo;VBird Tsai&rdquo; == &ldquo;VBird&rdquo; ]</p>
+<pre><code>  -e	该『档名』是否存在？(常用)
+  -f 该『档名』是否存在且为文件(file)？(常用)
+  -d	该『档名』是否存在且为目录(directory)？(常用)
+  -a	(and)两状况同时成立。
+  -o	(or)两状况任何一个成立。
+  !	反相状态，如 test ! -x file ，当 file 不具有 x 时，回传 true
+		
+  -eq	两数值相等 (equal)
+  -ne	两数值不等 (not equal)
+  -gt	n1 大於 n2 (greater than)
+  -lt	n1 小於 n2 (less than)
+  -ge	n1 大於等於 n2 (greater than or equal)
+  -le	n1 小於等於 n2 (less than or equal)	
+  $# ：代表后接的参数『个数』
+  ll ：代表『 &quot;$1c$2c$3c$4&quot; 』，其中 c 为分隔字节，默认为空白键， 所以本例中代表『 &quot;$1 $2 $3 $4&quot; 』之意。
+  $!  Shell最后运行的后台Process的PID
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Shell script 的默认变量($0, $1&hellip;)</p>
+<pre><code>  运行的脚本档名为 $0 这个变量，第一个接的参数就是 $1 啊
+</code></pre>
+</li>
+<li>
+<p>条件判断式</p>
+<pre><code>  //单条件
+  if [ 条件判断式 ]; then
+      当条件判断式成立时，可以进行的命令工作内容；
+  fi  
+	
+  //多条件
+  if [ 条件判断式一 ]; then
+      当条件判断式一成立时，可以进行的命令工作内容；
+  elif [ 条件判断式二 ]; then
+      当条件判断式二成立时，可以进行的命令工作内容；
+  else
+      当条件判断式一与二均不成立时，可以进行的命令工作内容；
+  fi
+	
+  //case
+  case  $变量名称 in   
+    &quot;第一个变量内容&quot;)   
+      程序段
+      ;;            
+    &quot;第二个变量内容&quot;)
+      程序段
+      ;;
+    *)                  
+      不包含第一个变量内容与第二个变量内容的其他程序运行段
+      exit 1
+      ;;
+  esac     
+</code></pre>
+</li>
+<li>
+<p>循环</p>
+<pre><code>  //满足条件才开始循环
+  while [ condition ] 
+  do            
+      程序段落
+  done          
+	
+  //满足才结束
+  until [ condition ]
+  do
+      程序段落
+  done
+
+  //固定循环
+  for var in con1 con2 con3 ...
+  do
+      程序段
+  done
+
+
+  for (( 初始值; 限制值; 运行步阶 ))
+  do
+      程序段
+  done
+</code></pre>
+</li>
+<li>
+<p>函数</p>
+<pre><code>  function fname() {
+      程序段
+  }
+</code></pre>
+</li>
+<li>
+<p>检查语法错误</p>
+<pre><code>   sh [-nvx] scripts.sh
+</code></pre>
+</li>
+<li>
+<p>sleep 3 #等3秒后执行下一条</p>
+<pre><code>  # 語法：sleep NUMBER[SUFFIX]
+  # SUFFIX 可以是:
+
+  # s for seconds (the default)
+  # m for minutes.
+  # h for hours.
+  # d for days.
+</code></pre>
+</li>
+</ul>
+<h2 id="账号管理">账号管理</h2>
+<ul>
+<li>
+<p>uid和gid</p>
+</li>
+<li>
+<p>涉及目录</p>
+<pre><code>  /etc/passwd
+  /etc/group
+  /etc/shadow
+	
+  groups            查看所有支持的群组
+  newgrp            有效群组的切换
+	
+  w/who             查询已登录的用户
+  useradd           增加用户
+                  参考:
+                      /etc/default/useradd
+                      /etc/login.defs
+                      /etc/skel/*
+
+  passwd  [用户]       修改用户密码
+                   echo &quot;abc543CC&quot; | passwd --stdin vbird2
+  userdel -r home     删除用户
+  id  [username]		            查询uid和gid
+  groupadd
+  groupmod                        group 相关参数的修改
+  groupdel
+  gpasswd                         群组管理员功能
+
+  //acl 权限
+  setfacl 
+  getfacl filename
+	
+  //切换
+  su - username 或 su -l username    切换用户
+  su - -c &quot;命令串&quot;                   只运行一次root命令
+  sudo                               以其他用户的身份运行命令( /etc/sudoers 内的用户才能够运行 sudo 这个命令)
+                                  e.g:
+                                  sudo -u sshd touch /tmp/mysshd
+  visudo                           修改sudo配置
+
+  //使用者对话
+  write 使用者账号 [用户所在终端接口]   指定用户发送信息
+  wall [message]                   对所有系统上面的用户传送简讯
+</code></pre>
+</li>
+<li>
+<p>PAM（Pluggable Authentication Modules 嵌入式授权模块）</p>
+<ul>
+<li>
+<p>用户输入指令，呼叫 PAM 模块进行验证</p>
+</li>
+<li>
+<p>PAM 模块会到 /etc/pam.d/ 找寻与程序 (passwd) 同名的配置文件</p>
+</li>
+<li>
+<p>将验证结果 (成功、失败以及其他信息) 回传给用户指令程序</p>
+</li>
+<li>
+<p>程序会根据 PAM 回传的结果决定下一个动作</p>
+<p><img src="http://cn.linux.vbird.org/linux_basic/0410accountmanager_files/pam-2.gif" alt="控制标准"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>检查工具</p>
+<pre><code>  pwck          检查用户配置信息
+  grpck         检查用户组配置信息
+  pwconv	  用户同步化将 /etc/passwd 内的账号与口令，移动到 /etc/shadow 
+</code></pre>
+</li>
+</ul>
+<h2 id="配额-quota">配额 Quota</h2>
+<ul>
+<li>
+<p>限制 filesystem的 容量等</p>
+</li>
+<li>
+<p>涉及目录,命令</p>
+<pre><code>  /etc/fstab
+  /etc/mtab                   文件系统是否支持配额
+  /etc/warnquota.conf         警告信息设置
+  quotaon -auvg               开启服务
+  quotaoff                    关闭服务
+  edquota                     编辑限制额度
+          -t      宽限时间
+          -u      用户
+          -g      用户组
+			
+  quota -uvs myuser &amp;&amp; quota -gvs myuser   查看配额
+  repquota -auvs                查看整个文件系统的配额
+</code></pre>
+</li>
+</ul>
+<h2 id="raid-磁盘阵列">Raid 磁盘阵列</h2>
+<ul>
+<li>一个磁盘容量不够时,这种机制将多个较小的磁碟整合成为一个较大的磁碟装置, 便于使用</li>
+<li>fdisk 命令</li>
+</ul>
+<h2 id="定时任务">定时任务</h2>
+<ul>
+<li>
+<p>单次任务 at</p>
+<pre><code>  /etc/init.d/atd restart
+  chkconfig atd on           配置自动启动
+  /var/spool/at/            日志记录
+  /etc/at.allow              使用者配置
+  /etc/at.deny               不能使用者配置
+
+  at -c n       查询第n个任务
+  at now + 5 minutes        创建任务
+  batch 23:00 2009-3-17    系统空间时开始任务
+	 
+  atq       查询所有单次任务
+  atrm  n   将第n个任务删除
+</code></pre>
+</li>
+<li>
+<p>循环任务 crontab</p>
+<pre><code>  /etc/crontab               系统任务
+  /usr/bin/crontab         用户任务
+  /etc/cron.allow
+  /etc/cron.deny
+  /var/spool/cron/[user]        任务创建日志记录
+  /var/log/cron                      任务运行日志记录
+
+  crontab -e              编辑任务
+          e.g: 59 23 1 5 * mail kiki &lt; /home/dmtsai/lover.txt
+  crontab -l              查看所有任务
+  run-parts               遍历目录中所有文件运行
+	
+  anacron               运行crontab 关机期间没有运行的任务
+	
+
+  minute   hour   day   month   week   command
+  星号（*）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。
+
+  逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”
+
+  中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
+
+  正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。
+	
+  前面五个*号代表五个数字，数字的取值范围和含义如下：
+
+  分钟　（0-59）  
+  小時　（0-23）  
+  日期　（1-31）  
+  月份　（1-12）  
+  星期　（0-6）//0代表星期天		
+  5 * * * *每小时第5分钟执行  
+  */5 * * * *每5分钟执行  
+  0 2 * * * 每天凌晨2点执行
+</code></pre>
+</li>
+</ul>
+<h2 id="程序管理">程序管理</h2>
+<pre><code> ps aux  &lt;==观察系统所有的程序数据
+ ps -l   仅观察自己的 bash 相关程序：
+ pstree  查看程序树,程序之间的关联性  ⇒ ps axjf
+ 
+ free    观察内存使用情况
+ top     查看程序运行状态 cpu,mem...
+     top -d 5 -p 13639
+     在 top 运行过程当中可以使用的按键命令：
+        ? ：显示在 top 当中可以输入的按键命令；
+        P ：以 CPU 的使用资源排序显示；
+        M ：以 Memory 的使用资源排序显示；
+        N ：以 PID 来排序喔！
+        T ：由该 Process 使用的 CPU 时间累积 (TIME+) 排序。
+        k ：给予某个 PID 一个讯号  (signal)
+        r ：给予某个 PID 重新制订一个 nice 值。
+        q ：离开 top 软件的按键。
+nice  新运行的命令即给予新的 nice 值
+            nice -n -5 vi &amp;
+renice [number] PID  已存在程序的 nice 重新调整
+uname [-asrmpi] 查阅系统与核心相关资讯
+uptime          观察系统启动时间与工作负载
+netstat -tlunp   追踪网络或插槽档
+vmstat          侦测系统资源变化
+fuser -uv [filename]  查看文件使用者
+lsof       读取程序使用的文件
+         lsof -u root -a -U
+         lsof +d /dev
+pidof ：找出某支正在运行的程序的 PID
+
+sestatus /getenforce  获取; 状态
+semanage fcontext -l [file] 查询SELinux安全配置
+		 
+rpm -qa | grep ssh          可以看到系统中ssh安装包
+rpm -ql openssh-3.5p1-6     查看该安装包安装信息(如安装路径,配置文件等)
+ps -e | grep ssh            查看ssh服务有没有运行,如果有,可以看到类似以下内容:
+</code></pre>
+<h2 id="daemon-服务">daemon 服务</h2>
+<ul>
+<li>
+<p>启动 daemon 的程序通常最末会加上一个 d ，例如 sshd, vsftpd, httpd 等</p>
+<pre><code>  /etc/services
+  /etc/init.d/* ：启动脚本放置处
+  /etc/sysconfig/* ：各服务的初始化环境配置文件
+  /etc/xinetd.conf, /etc/xinetd.d/* ：super daemon 配置文件
+  /etc/* ：各服务各自的配置文件
+  /var/lib/* ：各服务产生的数据库
+  /var/run/* ：各服务的程序之 PID 记录处
+
+   service --status-all  显示出目前系统上面所有服务的运行状态
+</code></pre>
+</li>
+<li>
+<p>配置demo</p>
+<pre><code>  # 先针对对内的较为松散的限制来配置：
+  service rsync
+  {
+          disable = no                        &lt;==要启动才行啊！
+          bind            = 127.0.0.1         &lt;==服务绑在这个接口上！
+          only_from       = 127.0.0.0/8       &lt;==只开放这个网域的来源登陆
+          no_access       = 127.0.0.{100,200} &lt;==限制这两个不可登陆
+          instances       = UNLIMITED         &lt;==取代 /etc/xinetd.conf 的配置值
+          socket_type     = stream            &lt;==底下的配置则保留
+          wait            = no
+          user            = root
+          server          = /usr/bin/rsync
+          server_args     = --daemon
+          log_on_failure  += USERID
+  }
+	
+  # 再针对外部的联机来进行限制呢！
+  service rsync
+  {
+          disable = no
+          bind            = 192.168.1.100
+          only_from       = 140.116.0.0/16
+          only_from      += .edu.tw           &lt;==因为累加，所以利用 += 配置
+          access_times    = 01:00-9:00 20:00-23:59 &lt;==时间有两时段，有空格隔开
+          instances       = 10                &lt;==只有 10 条联机
+          socket_type     = stream
+          wait            = no
+          user            = root
+          server          = /usr/bin/rsync
+          server_args     = --daemon
+          log_on_failure  += USERID
+  }		
+</code></pre>
+</li>
+</ul>
+<h2 id="防火墙">防火墙</h2>
+<ul>
+<li>
+<p>涉及</p>
+<pre><code>   /etc/hosts.{allow,deny}   进行类似防火墙的抵挡机制
+</code></pre>
+</li>
+</ul>
+<h2 id="log">log</h2>
+<ul>
+<li>
+<p>设计目录</p>
+<pre><code>  /etc/syslog.conf
+</code></pre>
+</li>
+</ul>
+<h2 id="linux-启动">Linux 启动</h2>
+<ul>
+<li>
+<p>Loader 的最主要功能是要认识操作系统的文件格式并据以加载核心到主内存中去运行</p>
+<pre><code>   /etc/inittab
+   /etc/rc.d/rc.sysinit     init 处理系统初始化流程 
+   /etc/sysconfig/         启动过程中存放的默认配置档
+   /etc/rc.d/rc N           不同的 run level 服务启动的各个 shell script 
+   /etc/rc.d/rc.local 		 自定义启动shell script
+	
+   runlevel                目前的 run level
+        init 3                   将目前的 runlevel 切换成为 3 
+       『 init 0 』就能够关机， 而『 init 6 』就能够重新启动
+</code></pre>
+</li>
+<li>
+<p>核心模块</p>
+<pre><code>  核心： /boot/vmlinuz 或 /boot/vmlinuz-version；
+  核心解压缩所需 RAM Disk： /boot/initrd (/boot/initrd-version)；
+  核心模块： /lib/modules/version/kernel 或 /lib/modules/$(uname -r)/kernel；
+  核心原始码： /usr/src/linux 或 /usr/src/kernels/ (要安装才会有，默认不安装)
+</code></pre>
+</li>
+</ul>
+<h2 id="网络">网络</h2>
+<ul>
+<li>
+<p>涉及</p>
+<pre><code>   /etc/resolv.conf
+   /etc/init.d/network restart
+   /etc/sysconfig/iptables
+</code></pre>
+</li>
+</ul>
+<h2 id="gcc">gcc</h2>
+<pre><code># 会自动的产生 hello.o 这个文件，并且进行最佳化喔！
+gcc -O hello.c -c
+# 进行 binary file 制作时，将连结的函式库与相关的路径填入
+gcc sin.c -lm -L/usr/lib -I/usr/include
+# 在编译的时候，输出较多的信息说明
+gcc -o hello hello.c -Wall
+</code></pre>
+<h2 id="make">make</h2>
+<ul>
+<li>
+<p>makefile</p>
+<pre><code>  最终目标(target): 目标档1 目标档2
+  &lt;tab&gt;   gcc -o 欲创建的运行档 目标档1 目标档2	
+  # vi makefile
+  LIBS = -lm
+  OBJS = main.o haha.o sin_value.o cos_value.o
+  main: ${OBJS}
+          gcc -o main ${OBJS} ${LIBS}
+  clean:
+          rm -f main ${OBJS}		
+</code></pre>
+</li>
+<li>
+<p>使用</p>
+<pre><code>   make clean main
+</code></pre>
+</li>
+</ul>
+<h2 id="软件安装">软件安装</h2>
+<pre><code> /usr/local  自行安装的软件一般放置处
+        /usr/local/xx/etc      配置
+        /usr/local/xx/bin      运行
+        /usr/local/xx/lib      函数库
+        /usr/local/xx/man		说明	
+</code></pre>
+<h2 id="函数库">函数库</h2>
+<pre><code> /etc/ld.so.conf  想要读入高速缓存当中的动态函式库所在的目录
+ ldconfig -p      列出目前有的所有函式库数据内容 (在 /etc/ld.so.cache 内的数据！)
+ ldd /usr/bin/passwd  找出 /usr/bin/passwd 这个文件的函式库数据
+  md5sum CentOS-5.3-i386-netinstall.iso
+  sha1sum CentOS-5.3-i386-netinstall.iso  查看加密码
+</code></pre>
+<h2 id="rpm-管理">rpm 管理</h2>
+<ul>
+<li>
+<p>RPM 全名是『 RedHat Package Manager 』简称则为 RPM 啦！顾名思义，当初这个软件管理的机制是由 Red Hat 这家公司发展出来的。 RPM 是以一种数据库记录的方式来将你所需要的软件安装到你的 Linux 系统的一套管理机制。</p>
+<ul>
+<li>软件文件安装的环境必须与打包时的环境需求一致或相当；</li>
+<li>需要满足软件的相依属性需求；</li>
+<li>反安装时需要特别小心，最底层的软件不可先移除，否则可能造成整个系统的问题！</li>
+</ul>
+</li>
+<li>
+<p>SRPM  Source RPM 的意思，这个 SRPM 所提供的软件内容『并没有经过编译』， 他提供的是原始码</p>
+<ul>
+<li>先将该软件以 RPM 管理的方式编译，此时 SRPM 会被编译成为 RPM 文件；</li>
+<li>然后将编译完成的 RPM 文件安装到 Linux 系统当中</li>
+</ul>
+</li>
+<li>
+<p>涉及目录命令</p>
+<pre><code>  /var/lib/rpm/    软件相关信息的数据库放置处
+  rpm -ivh package_name    安装
+  rpm -Fvh package_name    rpm升级
+	
+  //查询安装
+  rpm -qa                           查询全部已安装软件
+  rpm -q[licdR] 已安装的软件名称       已安装软件
+	
+              -q  ：仅查询，后面接的软件名称是否有安装；
+              -qa ：列出所有的，已经安装在本机 Linux 系统上面的所有软件名称；
+              -qi ：列出该软件的详细资讯 (information)，包含开发商、版本与说明等；
+              -ql ：列出该软件所有的文件与目录所在完整档名 (list)；
+              -qc ：列出该软件的所有配置档 (找出在 /etc/ 底下的档名而已)
+              -qd ：列出该软件的所有说明档 (找出与 man 有关的文件而已)
+              -qR ：列出与该软件有关的相依软件所含的文件 (Required 的意思)
+              -qf ：由后面接的文件名称，找出该文件属於哪一个已安装的软件；				
+
+  rpm -qf 存在於系统上面的某个档名      已安装软件
+  rpm -qp[licdR] 未安装的某个文件名称   查阅RPM文件		
+	
+  //查询修改
+  rpm -Va       
+  rpm -V  已安装的软件名称
+  rpm -Vp 某个 RPM 文件的档名
+  rpm -Vf 在系统上面的某个文件
+	
+  //卸载
+   rpm -e package_name    卸载
+   rpm --rebuilddb        重置rpm数据库
+</code></pre>
+</li>
+</ul>
+<h2 id="yum-管理">yum 管理</h2>
+<ul>
+<li>
+<p>Yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装</p>
+</li>
+<li>
+<p>命令</p>
+<pre><code>  vi /etc/yum.repos.d/CentOS-Base.repo   配置yum
+  yum repolist all
+  yum list updates  	列出目前服务器上可供本机进行升级的软件有哪些
+  yum info mdadm    找出 mdadm 这个软件的功能为何
+  yum search raid       查找相关软件
+	
+  yum [install|update] 软件
+  yum [remove] 软件
+  yum clean
+</code></pre>
+</li>
+</ul>
+<h1 id="服务器">服务器</h1>
+<h2 id="网络-1">网络</h2>
+<ul>
+<li>
+<p>ip</p>
+<pre><code>  Public IP : 公共 IP ，经由 INTERNIC 所统一规划的 IP，有这种 IP 才可以连上 Internet ；
+	
+  Private IP : 私有 IP 或保留 IP，不能直接连上 Internet 的 IP ， 主要用于局域网络内的主机联机规划。
+
+  Netmask, (子网掩码)，达成子网的切分
+  Network/Netmask
+  192.168.0.0/255.255.255.0
+  192.168.0.0/24    &lt;==因为 Net_ID 共有 24 个 bits	
+
+  Class A, B, C 三个等级的 Netmask 表示方式：
+  Class A : 11111111.00000000.00000000.00000000 ==&gt; 255.  0.  0.  0
+  Class B : 11111111.11111111.00000000.00000000 ==&gt; 255.255.  0.  0
+  Class C : 11111111.11111111.11111111.00000000 ==&gt; 255.255.255.  0
+			
+  要是给予 Net_ID 是 26 位时，总共分为几段呢？ 因为 26-24=2 ，所以总共用掉两个位，因此有 2 的 2 次方，得到 4 个网段。再将 256 个 IP 平均分配到 4 个网段去
+
+  网关/路由器的功能就是在负责不同网域之间的封包转递 (IP Forwarding) 如192.168.0.1 、192.168.1.1
+  route  查看路由表 
+</code></pre>
+</li>
+<li>
+<p>cmd</p>
+<pre><code>   MTU (Maximum Transmission Unit, 最大传输单位)
+
+  ifconfig interface {options} 	  	 查看ip网络参数
+          选项与参数：
+          interface：网络卡接口代号，包括 eth0, eth1, ppp0 等等
+          options  ：可以接的参数，包括如下：
+              up, down ：启动 (up) 或关闭 (down) 该网络接口(不涉及任何参数)
+              mtu      ：可以设定不同的 MTU 数值，例如 mtu 1500 (单位为 byte)
+              netmask  ：就是子屏蔽网络；
+              broadcast：就是广播地址啊！
+			
+			
+  /etc/init.d/network restart  重启网络
+  route -n   网络路由状态
+
+  ip link show  显示所有接口信息
+  ip link set [device] [动作与参数]
+  ip address show	  显示所有ip地址
+  ip address [add|del] [IP参数] [dev 装置名] [相关参数]
+  netstat -tlunp   追踪网络或插槽档
+</code></pre>
+</li>
+</ul>
+<h2 id="服务">服务</h2>
+<ul>
+<li>
+<p>共 65536 个 port</p>
+<ul>
+<li>root 身份才能启动小于1024的端口</li>
+<li>大于1024 的端口为client 端的软件激活的 port</li>
+</ul>
+</li>
+<li>
+<p>命令</p>
+<pre><code>  netstat：在本机上面以自己的程序监测自己的 port；	
+      netstat -tlunp 
+  nmap：透过网络的侦测软件辅助，可侦测非本机上的其他网络。
+	
+  /etc/supervisor/conf.d  设置服务处
+  /etc/resolv.conf   DNS 主机 IP 的设定
+</code></pre>
+</li>
+</ul>
+<h2 id="防火墙-1">防火墙</h2>
+<pre><code> iptables-save 观察防火墙规则
+ iptables [-t nat] -P [INPUT,OUTPUT,FORWARD] [ACCEPT,DROP]  定义预设政策 (policy)
+ 
+ iptables [-AI 链名] [-io 网络接口] [-p 协议] [-s 来源IP/网域] [-d 目标IP/网域] -j [ACCEPT|DROP|REJECT|LOG]
+     iptables -A INPUT -i eth1 -s 192.168.100.0/24 -j ACCEPT
+     iptables -A INPUT -i eth0 -p tcp --dport 139 -j ACCEPT
+
+    选项与参数：
+    -AI 链名：针对某的链进行规则的 &quot;插入&quot; 或 &quot;累加&quot;
+        -A ：新增加一条规则，该规则增加在原本规则的最后面。例如原本已经有四条规则，
+             使用 -A 就可以加上第五条规则！
+        -I ：插入一条规则。如果没有指定此规则的顺序，默认是插入变成第一条规则。
+             例如原本有四条规则，使用 -I 则该规则变成第一条，而原本四条变成 2~5 号
+        链 ：有 INPUT, OUTPUT, FORWARD 等，此链名称又与 -io 有关，请看底下。
+	
+    -io 网络接口：设定封包进出的接口规范
+        -i ：封包所进入的那个网络接口，例如 eth0, lo 等接口。需与 INPUT 链配合；
+        -o ：封包所传出的那个网络接口，需与 OUTPUT 链配合；
+	
+    -p 协定：设定此规则适用于哪种封包格式
+       主要的封包格式有： tcp, udp, icmp 及 all 。
+	
+    -s 来源 IP/网域：设定此规则之封包的来源项目，可指定单纯的 IP 或包括网域，例如：
+       IP  ：192.168.0.100
+       网域：192.168.0.0/24, 192.168.0.0/255.255.255.0 均可。
+       若规范为『不许』时，则加上 ! 即可，例如：
+       -s ! 192.168.100.0/24 表示不许 192.168.100.0/24 之封包来源；
+	
+    -d 目标 IP/网域：同 -s ，只不过这里指的是目标的 IP 或网域。
+	
+    -j ：后面接动作，主要的动作有接受(ACCEPT)、丢弃(DROP)、拒绝(REJECT)及记录(LOG)
+    --sport 埠口范围：限制来源的端口号码，端口号码可以是连续的，例如 1024:65535
+    --dport 埠口范围：限制目标的端口号码。
+
+    -m ：一些 iptables 的外挂模块，主要常见的有：
+         state ：状态模块
+         mac   ：网络卡硬件地址 (hardware address)
+    --state ：一些封包的状态，主要有：
+         INVALID    ：无效的封包，例如数据破损的封包状态
+         ESTABLISHED：已经联机成功的联机状态；
+         NEW        ：想要新建立联机的封包状态；
+         RELATED    ：这个最常用！表示这个封包是与我们主机发送出去的封包有关
+</code></pre>
+<h2 id="tmux">tmux</h2>
+<ul>
+<li>
+<p>窗口神器</p>
+<pre><code>  打开新窗格 
+       ctrl+b %   竖直
+       ctrl+b &quot;     水平
+      切换 ctrl+b 方向	 
+  打开新窗口      ctrl+b c
+      切换 ctrl+b 数字
+</code></pre>
+</li>
+</ul>
+<h2 id="ssh">ssh</h2>
+<blockquote>
+<p>目前 SSH 的协议版本有两种，分别是 version 1 与 version 2 ，其中 V2 由于加上了联机检测的机制， 可以避免联机期间被插入恶意的攻击码，因此比 V1 还要更加的安全</p>
+</blockquote>
+<h2 id="dns">DNS</h2>
+<blockquote>
+<p>Domain Name System，域名系统</p>
+</blockquote>
+<p>##参考</p>
+<ul>
+<li>鸟哥的私房菜</li>
+</ul>
+
+  </article>
+
+  
+  
+  
+
+
+  
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '29027f13b37b8831bea4',
+        clientSecret: '5a25a3157abdda86a35db8a6fcb67273bec66f17',
+        repo: 'justinbetter.github.io',
+        owner: '16359219',
+        admin: ['16359219'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+
+</div>
+
+  </main><div class="footer gradient-2">
+  <div class="container footer-container ">
+    <div class="row">
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        <div class="footer-title">Sitemap</div>
+        <ul class="list-unstyled">
+            
+              
+                <li><a href="https://justinbetter.github.io/tags/">Tags</a></li>
+              
+              
+                <li><a href="https://justinbetter.github.io/categories/">Categories</a></li>
+              
+            
+            
+            
+            <li><a rel="alternate" type="application/rss&#43;xml" href="https://justinbetter.github.io/index.xml"><i class="fas fa-rss-square"></i> RSS Feed</a></li>
+            
+            
+            
+        </ul>
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        
+        <div class="footer-title">Social</div>
+        <ul class="list-unstyled">
+          
+          <li><a href="https://github.com/shaform/hugo-theme-den/" rel="noopener" target="_blank">GitHub</a></li>
+          
+        </ul>
+        
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        
+        <div class="footer-title">Links</div>
+        <ul class="list-unstyled">
+          
+          <li><a href="https://github.com/shaform/hugo-theme-den/" rel="noopener" target="_blank">About Me</a></li>
+          
+        </ul>
+        
+      </div> 
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <p class="pull-right text-right">
+          <small><em>Proudly powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a></em></small><br/>
+          <small><em>Theme - <a href="https://github.com/shaform/hugo-theme-den" rel="noopener" target="_blank">Den</a></em></small><br/>
+          <small>
+            &copy; 
+            Jane Doe
+            
+              2017 -
+            2023
+          </small>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

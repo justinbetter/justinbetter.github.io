@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta name="generator" content="Hugo 0.69.0" />
+  <meta charset="utf-8">
+  <title>记录类型转换引起的索引失效 · helloj</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行" />
+
+
+<link rel="canonical" href="https://justinbetter.github.io/2018/05/05/%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://justinbetter.github.io/css/den.css">
+
+
+
+
+<meta property="og:title" content="记录类型转换引起的索引失效" />
+<meta property="og:description" content="mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://justinbetter.github.io/2018/05/05/%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/" />
+<meta property="article:published_time" content="2018-05-05T20:00:22+08:00" />
+<meta property="article:modified_time" content="2018-05-05T20:00:22+08:00" />
+<meta itemprop="name" content="记录类型转换引起的索引失效">
+<meta itemprop="description" content="mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行">
+<meta itemprop="datePublished" content="2018-05-05T20:00:22&#43;08:00" />
+<meta itemprop="dateModified" content="2018-05-05T20:00:22&#43;08:00" />
+<meta itemprop="wordCount" content="382">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="记录类型转换引起的索引失效"/>
+<meta name="twitter:description" content="mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行"/>
+</head>
+<body>
+  
+  <div class="header-container gradient">
+  <div class="container">
+  <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
+    <div class="header-logo navbar-brand">
+      
+        <a class="float-left" href="https://justinbetter.github.io/">
+      
+        
+        
+          helloj
+         
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav-menu collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            
+              
+                <a class="nav-link" href="https://justinbetter.github.io/category/notes/">Notes</a>
+              
+            
+          </li>
+        
+          <li class="nav-item">
+            
+              
+                <a class="nav-link" href="https://justinbetter.github.io/category/demos/">Demos</a>
+              
+            
+          </li>
+        
+          <li class="nav-item">
+            
+              <a class="nav-link" href="https://justinbetter.github.io/about/">About</a>
+            
+          </li>
+        
+        
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container header-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header-content">
+        <h1 class="header-title">记录类型转换引起的索引失效</h1>
+        <p class="header-date">
+        Sat 05 May 2018
+        <div class="header-underline"></div>
+        
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <main>
+<div class="container content">
+  <article>
+  <p>mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。
+可以在sql中进行显示转换，或者在执行时自动进行隐式转换（应该避免，效率低且容易出错）。</p>
+<p>比如对于字符的查询，如果传入数字，则不能用索引，用单引号括起来才能用上索引。
+原因是对于数字的1， 字符串‘1’， ‘01’，‘0001’都和它相等。从而就没法使用索引；
+而反过来可以看出对于数字的查询传入字符串和数字都能用上索引；</p>
+<p>string与number的类型进行对比为什么会导致索引失效以至于全表扫描呢。
+原来对于column为string类型的索引，如果有三个值分别为&rdquo; 1&rdquo;,&rdquo; 1&rdquo;,“1a”。
+在进行隐式转换成number后的值都为1。这种情况下索引自然就不可用。
+mysql便不会通过索引进行快速查询，而是将对对应column全部进行类型转换后通过全表扫描来进行查询。</p>
+
+  </article>
+
+  
+  
+  
+
+
+  
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '29027f13b37b8831bea4',
+        clientSecret: '5a25a3157abdda86a35db8a6fcb67273bec66f17',
+        repo: 'justinbetter.github.io',
+        owner: '16359219',
+        admin: ['16359219'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+
+</div>
+
+  </main><div class="footer gradient-2">
+  <div class="container footer-container ">
+    <div class="row">
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        <div class="footer-title">Sitemap</div>
+        <ul class="list-unstyled">
+            
+              
+                <li><a href="https://justinbetter.github.io/tags/">Tags</a></li>
+              
+              
+                <li><a href="https://justinbetter.github.io/categories/">Categories</a></li>
+              
+            
+            
+            
+            <li><a rel="alternate" type="application/rss&#43;xml" href="https://justinbetter.github.io/index.xml"><i class="fas fa-rss-square"></i> RSS Feed</a></li>
+            
+            
+            
+        </ul>
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        
+        <div class="footer-title">Social</div>
+        <ul class="list-unstyled">
+          
+          <li><a href="https://github.com/shaform/hugo-theme-den/" rel="noopener" target="_blank">GitHub</a></li>
+          
+        </ul>
+        
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        
+        <div class="footer-title">Links</div>
+        <ul class="list-unstyled">
+          
+          <li><a href="https://github.com/shaform/hugo-theme-den/" rel="noopener" target="_blank">About Me</a></li>
+          
+        </ul>
+        
+      </div> 
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <p class="pull-right text-right">
+          <small><em>Proudly powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a></em></small><br/>
+          <small><em>Theme - <a href="https://github.com/shaform/hugo-theme-den" rel="noopener" target="_blank">Den</a></em></small><br/>
+          <small>
+            &copy; 
+            Jane Doe
+            
+              2017 -
+            2023
+          </small>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

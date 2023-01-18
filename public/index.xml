@@ -1,0 +1,3334 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>helloj</title>
+    <link>https://justinbetter.github.io/</link>
+    <description>Recent content on helloj</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
+    
+    <atom:link href="https://justinbetter.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://justinbetter.github.io/about/</link>
+      <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/about/</guid>
+      <description>Hugo is a static site engine written in Go.
+It makes use of a variety of open source projects including:
+ Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.</description>
+      <content:encoded><![CDATA[<p>Hugo is a static site engine written in Go.</p>
+<p>It makes use of a variety of open source projects including:</p>
+<ul>
+<li><a href="https://github.com/spf13/cobra">Cobra</a></li>
+<li><a href="https://github.com/spf13/viper">Viper</a></li>
+<li><a href="https://github.com/spf13/jWalterWeatherman">J Walter Weatherman</a></li>
+<li><a href="https://github.com/spf13/cast">Cast</a></li>
+</ul>
+<p>Learn more and contribute on <a href="https://github.com/gohugoio">GitHub</a>.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>mysql连招</title>
+      <link>https://justinbetter.github.io/2020/09/05/mysql%E8%BF%9E%E6%8B%9B/</link>
+      <pubDate>Sat, 05 Sep 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/09/05/mysql%E8%BF%9E%E6%8B%9B/</guid>
+      <description>[TOC] 关键词 B树，B+树，红黑树，联合索引存储 主从复制，宕机恢复，8.0相比5.0的改进 事务，隔离级别，实现原理，MVCC 在线改表原理，redo</description>
+      <content:encoded><![CDATA[<p>[TOC]</p>
+<h2 id="关键词">关键词</h2>
+<pre><code>B树，B+树，红黑树，联合索引存储
+主从复制，宕机恢复，8.0相比5.0的改进
+事务，隔离级别，实现原理，MVCC
+在线改表原理，redolog,undolog,binlog，group commit原理问题解决
+零拷贝的场景，主键自增id而不是uuid
+什么场景使用索引不使用更慢，
+锁的数据结构
+分库分表扩容，当nosql，开发mysql引擎如何接口对接
+死锁，
+</code></pre>
+<h2 id="谈谈主从复制">谈谈主从复制</h2>
+<p>复制（replication）是MySQL数据库提供的一种高可用高性能的解决方案，一般用来建立大型的应用。
+replication的工作原理分为以下3个步骤：<br>
+1）主服务器（master）把数据更改记录到二进制日志（binlog）中。<br>
+2）从服务器（slave）把主服务器的二进制日志复制到自己的中继日志（relay log）中。</p>
+<pre><code>从服务器有2个线程，一个是I/O线程，负责读取主服务器的二进制日志，并将其保存为中继日志；另一个是SQL线程，复制执行中继日志
+</code></pre>
+<p>3）从服务器重做中继日志中的日志，把更改应用到自己的数据库上，以达到数据的最终一致性</p>
+<p>异步实时
+中间存在主从服务器之间的执行延时，如果主服务器的压力很大，则可能导致主从服务器延时较大</p>
+<h2 id="事务">事务</h2>
+<p>在事务中的操作，要么都做修改，要么都不做
+分类：扁平、带有保存点、链事务、嵌套事务、分布式事务</p>
+<p>原子性、一致性、持久性通过数据库的redo log和undo log来完成。
+redo log称为重做日志，用来保证事务的原子性和持久性。
+undo log用来保证事务的一致性</p>
+<p>redo log：两部分组成 <br>
+一是内存中的重做日志缓冲（redo log buffer），其是易失的；<br>
+二是重做日志文件（redo log file），其是持久的</p>
+<p>binlog<br>
+二进制日志（binlog），其用来进行POINT-IN-TIME（PIT）的恢复及主从复制（Replication）环境的建
+redo 区别：
+产生：redo是在innodb，binlog是在mysql上层
+内容：redo是物理格式日志，记录页修改；binlog是逻辑日志，记录SQL语句
+写入时间：redo事务中不断写入，binlog事务提交时写入</p>
+<p>恢复：<br>
+innodb每次启动都会恢复重做日志 redolog，checkpoint表示已经刷新到磁盘页上的LSN，从checkpoint中开始部分即可</p>
+<p>undo：<br>
+回滚日志，数据修改时会产生，存放在共享表空间的一个段中
+MVCC控制，当用户读取一行记录时，若该记录已经被其他事务占用，当前事务可以通过undo读取之前的行版本信息，以此实现非锁定读取
+undo log会产生redo log，也就是undo log的产生会伴随着redo log的产生，这是因为undo log也需要持久性的保护</p>
+<p>purge：<br>
+因为存在MVCC，决定最终是否删除，如果没被任何事务引用，可以删除，之前的删除只是改了个标志
+执行清理时，historyList 找undo log 然后再从undo page中找undo log，避免大量随机读写
+太长了通过延时操作解决</p>
+<p>group commit：<br>
+数据库都提供了group commit的功能，即一次fsync可以刷新确保多个事务日志被写入文件
+为保证MySQL数据库上层二进制日志的写入顺序和InnoDB层的事务提交顺序一致，MySQL数据库内部使用了prepare_commit_mutex这个锁，会失效<br>
+解决：Binary Log Group Commit（BLGC）<br>
+binlog放入队列，多个事务可以一次fsync写入，然后直接调用引擎层的group commit即可</p>
+<h3 id="隔离级别">隔离级别</h3>
+<p>READ UNCOMMITTED
+READ COMMITTED
+REPEATABLE READ
+SERIALIZABLE</p>
+<p>InnoDB存储引擎在RR事务隔离级别下，使用Next-Key Lock锁的算法，因此避免幻读的产生。<br>
+InnoDB存储引擎在默认的REPEATABLE READ的事务隔离级别下已经能完全保证事务的隔离性要求</p>
+<h2 id="锁机制">锁机制</h2>
+<h3 id="锁命令">锁命令</h3>
+<pre><code>SHOW ENGINE INNODB STATUS
+</code></pre>
+<h3 id="锁原理">锁原理</h3>
+<p>两种标准的行级锁：
+共享锁（S Lock），允许事务读一行数据。
+排他锁（X Lock），允许事务删除或更新一行数据。</p>
+<p>支持在不同粒度上进行加锁操作，InnoDB存储引擎支持一种额外的锁方式，称之为意向锁（Intention Lock）
+InnoDB存储引擎支持意向锁设计比较简练，其意向锁即为表级别的
+1）意向共享锁（IS Lock），事务想要获得一张表中某几行的共享锁
+2）意向排他锁（IX Lock），事务想要获得一张表中某几行的排他锁</p>
+<p>意向锁之间是互相兼容的，emmm&hellip;&hellip;那你存在的意义是啥？
+但是它会与普通的排他 / 共享锁互斥：
+这里的排他 / 共享锁指的都是表锁！！！意向锁不会与行级的共享 / 排他锁互斥！！！</p>
+<p>意向锁是有数据引擎自己维护的，用户无法手动操作意向锁，在为数据行加共享 / 排他锁之前，InooDB 会先获取该数据行所在在数据表的对应意向锁</p>
+<p>3种行锁的算法，其分别是：<br>
+Record Lock：单个行记录上的锁，总锁住索引
+Gap Lock：间隙锁，锁定一个范围，但不包含记录本身<br>
+Next-Key Lock∶ <br>
+Gap Lock+Record Lock，锁定一个范围，并且锁定记录本身；
+在查询列是唯一索引下降级为record lock</p>
+<h3 id="锁问题">锁问题</h3>
+<p>幻读问题：（同一事务读到之前不存在的行）
+幻读指在同一事务下，连续执行两次同样的SQL语句可能导致不同的结果，<br>
+第二次的SQL语句可能会返回之前不存在的行</p>
+<pre><code>SELECT…FOR UPDATE对读取的行记录加一个X锁，其他事务不能对已锁定的行加上任何锁。  
+SELECT…LOCK IN SHARE MODE对读取的行记录加一个S锁，其他事务可以向被锁定的行加S锁，但是如果加X锁，则会被阻塞。
+</code></pre>
+<p>Next-Key Lock解决，锁住范围的插入， 通过对事务加X锁，就避免了这个问题</p>
+<p>脏读：（不同事务读到没提交的行）
+脏读指的就是在不同的事务下，当前事务可以读到另外事务未提交的数据，简单来说就是可以读到脏数据</p>
+<p>不可重复读：（一个事务内两次读到的数据不一样）
+脏读是读到未提交的数据，而不可重复读读到的却是已经提交的数据，但是其违反了数据库事务一致性的要求
+默认事务隔离级别是READ REPEATABLE，采用Next-Key Lock算法，通过对事务加X锁，避免了不可重复读的现象</p>
+<p>死锁:
+死锁是指两个或两个以上的事务在执行过程中，因争夺锁资源而造成的一种互相等待的现象
+除了超时机制，当前数据库还都普遍采用wait-for graph（等待图）的方式来进行死锁检测。</p>
+<p>innodb不存在锁升级带来的性能问题。
+因为其不是根据每个记录来产生行锁的，相反，其根据每个事务访问的每个页对锁进行管理的，采用的是位图的方式。
+因此不管一个事务锁住页中一个记录还是多个记录，其开销通常都是一致的。</p>
+<h2 id="mysql中联合索引的存储方式">mysql中联合索引的存储方式</h2>
+<p>联合索引：
+多个列索引，也是B+树，键值大于等于2；
+键值都是排序的，通过叶子节点可以逻辑上顺序地读出所有数据，
+对第二个键值也进行了排序处理，有时可以避免多一次的排序操作，比如某个用户的购买时间</p>
+<p>覆盖索引：
+从辅助索引就可以查到的记录，不需要查询聚集索引；
+比如查主键，查联合索引的（a，b）中的b</p>
+<p>聚集索引：
+b+树，索引节点和叶子节点，数据都在叶子节点上，顺序排列，相邻页双向链表连接
+按照整张表主键构造B+树，叶子节点存放行记录，也称数据页，页间双向链表连接
+因为按照主键，每张表只有一个聚集索引
+聚集索引与辅助索引不同的是，叶子节点存放的是否是一整行的信息。</p>
+<p>辅助索引：
+叶子节点不包含行数据，包含的是键值和书签（行数据的聚集索引键）
+非主键索引树搜索回到主键索引树搜索的过程称为：回表，</p>
+<p>何时使用索引经验：
+取值范围广，没有什么重复，适合使用B+树索引；性别、地区这种低选择性的没必要；
+SHOW INDEX结果中的列Cardinality来观察。</p>
+<h2 id="innodb引擎">innodb引擎</h2>
+<p>InnoDB存储引擎表是索引组织表，即表中数据按照主键顺序存放
+索引组织的表，数据段即为B+树的叶子节点，索引段即为B+树的非索引节点
+B+树索引本身并不能找到具体的一条记录，能找到只是该记录所在的页。数据库把页载入到内存，然后通过Page Directory再进行二叉查找</p>
+<p>区别：
+事务
+外键
+聚集索引
+行锁
+没有保存具体行数</p>
+<h2 id="关键特性">关键特性：</h2>
+<p>后台线程+内存（缓冲池，LRU列表，FREE，FLUSH，重做日志buff，checkpoint）
+插入缓存：判断缓冲池不在则仿佛缓冲对象合并，慢慢插入到Insert BufferB+树
+两次写：页的副本还原页，分为内存和共享表空间磁盘，脏页写到buff，到共享表空间磁盘,再同步磁盘
+自适应哈希索引:AHI是通过缓冲池的B+树页构造而来,自动根据访问的频率和模式来自动地为某些热点页建立哈希索引
+异步IO：优化IO
+刷新邻居页：检测该页所在区页的脏页一起刷新</p>
+<h2 id="脏页">脏页</h2>
+<p>Update或Delete改变页中的记录，此时页是脏的，缓冲池中的页的版本要比磁盘的新
+先写重做日志，再修改页记录，便于宕机恢复</p>
+<h4 id="检查点">检查点</h4>
+<p>Checkpoint之前的页已经刷新回磁盘。数据库只需对Checkpoint后的重做日志进行恢复。这样就大大缩短了恢复的时间。</p>
+<h2 id="b树">B+树</h2>
+<p>若想最大性能地构造一棵二叉查找树，需要这棵二叉查找树是平衡</p>
+<p>平衡二叉树的定义如下：<br>
+首先符合二叉查找树的定义，其次必须满足任何节点的两个子树的高度最大差为1 <br>
+查询快，维护有时需要多次旋转</p>
+<p>B树，减少磁盘IO次数的多叉自平衡树，一个节点可以有多个孩子，顺序排列</p>
+<p>B+树是一种特殊的AVL，中间节点不保存数据，只用来索引（b树是每个关键字都保存数据），各叶子节点顺序排列指针连接  <br>
+B+树的查找次数，取决于B+树的高度</p>
+<h2 id="红黑树">红黑树</h2>
+<p>红黑树是在普通二叉树上，节点添加一个颜色属性形成的，同时需要同时满足一些性质：<br>
+性质一：节点是红色或者是黑色；<br>
+性质二：根节点是黑色；<br>
+性质三：每个叶节点（NIL或空节点）是黑色；<br>
+性质四：每个红色节点的两个子节点都是黑色的（也就是说不存在两个连续的红色节点）；<br>
+性质五：从任一节点到其没个叶节点的所有路径都包含相同数目的黑色节点；</p>
+<h2 id="什么场景索引更慢">什么场景索引更慢</h2>
+<p>查询中很少使用或者参考的列
+只有很少数据值的列
+text, image和bit数据类型的
+表记录太少，不需要创建索引
+频繁更新的字段不适合创建索引，修改性能远远大于检索性能时
+某些数据包含大量重复数据，因此他建立索引就没有太大的效果（性别）</p>
+<h2 id="mvcc">MVCC</h2>
+<p>涉及到一致性非锁定读。
+一致性的非锁定读指InnoDB存储引擎通过行多版本控制的方式来读取当前执行时间数据库中行的数据
+读取操作不会因此去等待行上锁的释放。相反地，InnoDB存储引擎会去读取行的一个快照数据
+快照数据是指该行的之前版本的数据，该实现是通过undo段来完成</p>
+<p>RC下非一致性读总是读取被锁定行的最新一份快照数据
+RR下非一致性读总是读取事务开始时的行数据版本</p>
+<p>根据比较版本号来处理数据的是否显示，从而达到读取数据的时候不需要加锁</p>
+<p>RC、RR 两种隔离级别的事务在执行普通的读操作时，通过访问版本链的方法，使得事务间的读写操作得以并发执行，从而提升系统性能。RC、RR 这两个隔离级别的一个很大不同就是生成 ReadView 的时间点不同，RC 在每一次 SELECT 语句前都会生成一个 ReadView，事务期间会更新，因此在其他事务提交前后所得到的 m_ids 列表可能发生变化，使得先前不可见的版本后续又突然可见了。而 RR 只在事务的第一个 SELECT 语句时生成一个 ReadView，事务操作期间不更新。</p>
+<h2 id="80相比50的改进">8.0相比5.0的改进</h2>
+<p><a href="https://blog.csdn.net/ren6370/article/details/88414463">https://blog.csdn.net/ren6370/article/details/88414463</a></p>
+<p>##全文索引
+全文检索通常使用倒排索引来实现
+倒排索引同B+树索引一样，也是一种索引结构。它在辅助表（auxiliary table）中存储了单词与单词自身在一个或多个文档中所在位置之间的映射。
+其拥有两种表现形式：
+inverted file index，其表现形式为{单词，单词所在文档的ID}
+full inverted index，其表现形式为{单词，（单词所在文档的ID，在具体文档中的位置）}</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>redis连招</title>
+      <link>https://justinbetter.github.io/2020/09/05/redis%E8%BF%9E%E6%8B%9B/</link>
+      <pubDate>Sat, 05 Sep 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/09/05/redis%E8%BF%9E%E6%8B%9B/</guid>
+      <description>[TOC] 关键字 单线程，epoll，cluster，sentinel，gossip，raft， 分布式锁，穿透，击穿，雪崩，数据一致性， sds，zip</description>
+      <content:encoded><![CDATA[<p>[TOC]</p>
+<h2 id="关键字">关键字</h2>
+<pre><code>单线程，epoll，cluster，sentinel，gossip，raft，  
+分布式锁，穿透，击穿，雪崩，数据一致性，  
+sds，ziplist，skiplist，rehash，hyperloglog，  
+热key，大key，过期清理，淘汰策略，主从复制，rdb，aof，aof rewrite
+string,hash,set,zset的底层数据结构实现，hash的渐进式扩容  
+hyperloglog标准误差多少，原理是啥
+再加上 6.0之后的加入的多线程 工作机制
+缓存过期重置。锁刷新
+一致性哈希算法
+</code></pre>
+<h2 id="分布式锁">分布式锁</h2>
+<p>setnx讲起，最后慢慢引出set命令的可以加参数， <br>
+setnx 是SET if Not eXists(如果不存在，则 SET)的简写。万一set value 成功 set time失败
+setex是一个原子性(atomic)操作，关联值和设置生存时间两个动作会在同一时间内完成。
+redisson的锁，就实现了可重入，他使用了LUA的Hash数据结构。</p>
+<h2 id="cluster">cluster</h2>
+<p>Redis集群是Redis提供的分布式数据库方案，集群通过分片（sharding）来进行数据共享，并提供复制和故障转移功能。</p>
+<p>自动将数据进行分片，每个 master 上放一部分slot数据
+提供内置的高可用支持，部分 master 不可用时，还是可以继续工作的
+维护数据采用的是gossip协议</p>
+<p>节点发现原理：
+发送CLUSTER MEET命令握手，meet-pong-ping 握手完成
+节点A会将节点B的信息通过Gossip协议传播给集群中的其他节点，让其他节点也与节点B进行握手，<br>
+最终，经过一段时间之后，节点B会被集群中的所有节点认识。
+gossip 协议，Gossip协议由MEET、PING、PONG，FAIL种消息实现
+每次发送MEET、PING、PONG消息时，发送者都从自己的已知节点列表中随机选出几个节点（可以是主节点或者从节点），并将这两个被选中节点的信息分别保存到两个clusterMsgDataGossip结构里面。<br>
+所有节点都持有一份元数据，不同的节点如果出现了元数据的变更，就不断将元数据发送给其它的节点，让其它节点也进行元数据的变更。
+gossip有一定延迟，因为节点是逐步传播的</p>
+<p>Redis集群通过分片的方式来保存数据库中的键值对：集群的整个数据库被分为16384个槽（slot）<br>
+数据库中的每个键都属于这16384个槽的其中一个，集群中的每个节点可以处理0个或最多16384个槽。
+当每个slot 都有节点处理的时候，集群才算上线；CRC16（key），MOVED错误重定向到正确节点
+跳跃表来保存槽和键之间的关系</p>
+<p>主从复制：主节点用于处理槽，而从节点则用于复制某个主节点，替补上线；<br>
+（复制：slaveof命令，发送地址-socket连接-ping-pong-replconf-psync）
+原理：master负责写，异步同步slave；，从服务器将向主服务器发送PSYNC命令，执行同步操作，<br>
+PSYNC命令具有完整重同步（full resynchronization）和部分重同步（partialresynchronization）两种模式：
+开启后台线程生成RDB，同时将从客户端收到的所有写命令缓存在内存（内存缓冲区），<br>
+RDB完成后 master发送给slave，slave写入本地磁盘，再从本地磁盘加载到内存中。然后master会将内存中缓存的写命令发送给slave，slave也会同步这些数据。</p>
+<p>故障转移：
+检测：定期发送ping检测在线，没有在规定时间返回pong消息，标记为pfail，超过半数节点标记，标记fail
+转移：选择从节点，选举主节点，转移slot，集群广播自己为主节点
+选举：选举新主节点和Sentinel的方法非常相似，两者都是基于Raft算法</p>
+<h2 id="哨兵">哨兵</h2>
+<p>Redis的高可用性（high availability）解决方案
+监视主从节点，执行故障转移</p>
+<p>原理：
+大部分的哨兵都同意才能判断下线，开始raft选举master
+哨兵作用是监控、通知、故障转移
+info 获取主从信息
+发布订阅功能获取其他哨兵节点的信息
+通过向其他节点发送 ping 命令进行心跳检测，判断是否下线。
+Raft 算法选举负责故障转移的哨兵，从节点替换，slaveOf通知更新</p>
+<p>问题：
+主备切换数据丢失：一种是异步复制，一种是脑裂导致的数据丢失</p>
+<h2 id="单线程">单线程</h2>
+<p>执行 Redis 命令的核心模块是单线程的，而不是整个 Redis 实例就一个线程，Redis 其他模块还有各自模块的线程的。</p>
+<p>Redis基于Reactor模式开发了网络事件处理器，这个处理器被称为文件事件处理器。它的组成结构为4部分：多个套接字、IO多路复用程序、文件事件分派器。</p>
+<p>因为文件事件分派器队列的消费是单线程的，所以Redis才叫单线程模型。</p>
+<p>文件事件处理器以单线程方式运行，但通过使用I/O多路复用程序来监听多个套接字，</p>
+<p>文件事件处理器既实现了高性能的网络通信模型，又可以很好地与Redis服务器中其他同样以单线程方式运行的模块进行对接，这保持了Redis内部单线程设计的简单性</p>
+<hr>
+<p>IO多路复用：I/O多路复用 (单个线程，通过记录跟踪每个I/O流(sock)的状态，来同时管理多个I/O流）</p>
+<p>内部实现采用epoll，采用了epoll+自己实现的简单的事件框架。<br>
+epoll中的读、写、关闭、连接都转化成了事件，然后利用epoll的多路复用特性，绝不在io上浪费一点时间</p>
+<p>epoll：<br>
+epoll内部使用了mmap共享了用户和内核的部分空间，避免了数据的来回拷贝；<br>
+epoll基于事件驱动，避免了像select和poll对事件的整个轮询操作</p>
+<h2 id="hyperloglog标准误差多少原理是啥">hyperloglog标准误差多少，原理是啥</h2>
+<p>如果允许统计在巨量数据面前的误差率在可接受的范围内，<br>
+1000万浏览量允许最终统计出少了一两万这样子，可采用HyperLogLog算法来解决上面的计数类似问题
+计数存在一定的误差，误差率整体较低。标准误差为 0.81% 。<br>
+能够使用极少的内存来统计巨量的数据，只需要12K内存就能统计2^64个数据。</p>
+<p>原理：
+抛硬币的伯努利实验：无论抛了多少次，只要出现了正面，就记录为一次试验，推导出n和k_max中存在估算关联：n = 2^(k_max)</p>
+<p>HyperLogLog是这样做的。对于输入的数据：</p>
+<p>通过hash函数，将数据转为比特串，根据存入数据中，转化后的出现了 1 的最大的位置 k_max 来估算存入了多少数据。</p>
+<p>分桶就是分多少轮。抽象到计算机存储为单位是比特(bit)，长度为 L 的大数组 S ，<br>
+将 S 平均分为 m 组，然后每组所占有的比特个数是平均的，设为 P</p>
+<p>在 Redis 中，HyperLogLog设置为：m=16834，p=6，L=16834 * 6。占用内存为=16834 * 6 / 8 / 1024 = 12K）
+对应：代入指定的估算公式中即可</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>算法题目汇总</title>
+      <link>https://justinbetter.github.io/2020/08/15/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Sat, 15 Aug 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/08/15/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/</guid>
+      <description>归并排序 public class MergeSort { public static void merge(int[] a, int low, int mid, int high) { int[] temp = new int[high - low + 1]; int i = low;// 左指针 int j = mid + 1;// 右指针 int k = 0; // 把较小的数先移到新数组中 while (i &amp;lt;= mid &amp;amp;&amp;amp; j &amp;lt;= high)</description>
+      <content:encoded><![CDATA[<h2 id="归并排序">归并排序</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MergeSort</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">merge</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">low</span><span class="o">,</span> <span class="kt">int</span> <span class="n">mid</span><span class="o">,</span> <span class="kt">int</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">temp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">high</span> <span class="o">-</span> <span class="n">low</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">low</span><span class="o">;</span><span class="c1">// 左指针
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span><span class="c1">// 右指针
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="c1">// 把较小的数先移到新数组中
+</span><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mid</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">++];</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">++];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="c1">// 把左边剩余的数移入数组
+</span><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">++];</span>
+        <span class="o">}</span>
+        <span class="c1">// 把右边边剩余的数移入数组
+</span><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">++];</span>
+        <span class="o">}</span>
+        <span class="c1">// 把新数组中的数覆盖nums数组
+</span><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k2</span> <span class="o">&lt;</span> <span class="n">temp</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">k2</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">a</span><span class="o">[</span><span class="n">k2</span> <span class="o">+</span> <span class="n">low</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="n">k2</span><span class="o">];</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">mergeSort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">low</span><span class="o">,</span> <span class="kt">int</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="o">)</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// 左边
+</span><span class="c1"></span>            <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">low</span><span class="o">,</span> <span class="n">mid</span><span class="o">);</span>
+            <span class="c1">// 右边
+</span><span class="c1"></span>            <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="n">1</span><span class="o">,</span> <span class="n">high</span><span class="o">);</span>
+            <span class="c1">// 左右归并
+</span><span class="c1"></span>            <span class="n">merge</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">low</span><span class="o">,</span> <span class="n">mid</span><span class="o">,</span> <span class="n">high</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">a</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span> <span class="n">51</span><span class="o">,</span> <span class="n">46</span><span class="o">,</span> <span class="n">20</span><span class="o">,</span> <span class="n">18</span><span class="o">,</span> <span class="n">65</span><span class="o">,</span> <span class="n">97</span><span class="o">,</span> <span class="n">82</span><span class="o">,</span> <span class="n">30</span><span class="o">,</span> <span class="n">77</span><span class="o">,</span> <span class="n">50</span> <span class="o">};</span>
+        <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;排序结果：&#34;</span> <span class="o">+</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="快速排序">快速排序</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">QuickSort</span> <span class="o">{</span>
+	
+	<span class="cm">/**
+</span><span class="cm">	 * 将数组的某一段元素进行划分，小的在左边，大的在右边
+</span><span class="cm">	 * @param a
+</span><span class="cm">	 * @param start
+</span><span class="cm">	 * @param end
+</span><span class="cm">	 * @return
+</span><span class="cm">	 */</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">divide</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">){</span>
+		<span class="c1">//每次都以最右边的元素作为基准值
+</span><span class="c1"></span>		<span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
+		<span class="c1">//start一旦等于end，就说明左右两个指针合并到了同一位置，可以结束此轮循环。
+</span><span class="c1"></span>		<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
+			<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">base</span><span class="o">)</span>
+				<span class="c1">//从左边开始遍历，如果比基准值小，就继续向右走
+</span><span class="c1"></span>				<span class="n">start</span><span class="o">++;</span>
+			<span class="c1">//上面的while循环结束时，就说明当前的a[start]的值比基准值大，应与基准值进行交换
+</span><span class="c1"></span>			<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
+				<span class="c1">//交换
+</span><span class="c1"></span>				<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+				<span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
+				<span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+				<span class="c1">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值右边)，因此右边也要同时向前移动一位
+</span><span class="c1"></span>				<span class="n">end</span><span class="o">--;</span>
+			<span class="o">}</span>	
+			<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">base</span><span class="o">)</span>
+				<span class="c1">//从右边开始遍历，如果比基准值大，就继续向左走
+</span><span class="c1"></span>				<span class="n">end</span><span class="o">--;</span>
+			<span class="c1">//上面的while循环结束时，就说明当前的a[end]的值比基准值小，应与基准值进行交换
+</span><span class="c1"></span>			<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
+				<span class="c1">//交换
+</span><span class="c1"></span>				<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+				<span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
+				<span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+				<span class="c1">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值左边)，因此左边也要同时向后移动一位
+</span><span class="c1"></span>				<span class="n">start</span><span class="o">++;</span>
+			<span class="o">}</span>	
+			
+		<span class="o">}</span>
+		<span class="c1">//这里返回start或者end皆可，此时的start和end都为基准值所在的位置
+</span><span class="c1"></span>		<span class="k">return</span> <span class="n">end</span><span class="o">;</span>
+	<span class="o">}</span>
+ 
+	<span class="cm">/**
+</span><span class="cm">	 * 排序
+</span><span class="cm">	 * @param a
+</span><span class="cm">	 * @param start
+</span><span class="cm">	 * @param end
+</span><span class="cm">	 */</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="o">){</span>
+			<span class="c1">//如果只有一个元素，就不用再排下去了
+</span><span class="c1"></span>			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span> 
+		<span class="k">else</span><span class="o">{</span>
+			<span class="c1">//如果不止一个元素，继续划分两边递归排序下去
+</span><span class="c1"></span>			<span class="kt">int</span> <span class="n">partition</span> <span class="o">=</span> <span class="n">divide</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+			<span class="n">sort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">partition</span><span class="o">-</span><span class="n">1</span><span class="o">);</span>
+			<span class="n">sort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">partition</span><span class="o">+</span><span class="n">1</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+		<span class="o">}</span>
+			
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="链表排序">链表排序</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">sortList</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">//递归归并排序
+</span><span class="c1"></span>        <span class="c1">//找到中点，递归中点分割，归并合并
+</span><span class="c1"></span>        <span class="n">ListNode</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+        <span class="n">ListNode</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="c1">//fast走完 slow就是中点
+</span><span class="c1"></span>        <span class="k">while</span><span class="o">(</span><span class="n">fast</span> <span class="o">!=</span> <span class="kc">null</span>  <span class="o">&amp;&amp;</span>  <span class="n">fast</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">ListNode</span> <span class="n">center</span><span class="o">=</span>  <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="n">slow</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="n">ListNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">sortList</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
+        <span class="n">ListNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">sortList</span><span class="o">(</span><span class="n">center</span><span class="o">);</span>
+        <span class="n">ListNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
+        <span class="n">ListNode</span> <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">val</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+                <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">//添加尾点
+</span><span class="c1"></span>        <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">right</span> <span class="o">:</span> <span class="n">left</span><span class="o">;</span>
+        <span class="c1">//返回头部
+</span><span class="c1"></span>        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="c1">//-----
+</span><span class="c1"></span>        <span class="c1">//从底至顶 归并排序
+</span><span class="c1"></span>        <span class="c1">//获取链表长度，根据每一步，循环断链合并，最后合并的链表超越链表长度即返回结果
+</span><span class="c1"></span>    <span class="o">}</span>
+
+</code></pre></div><h2 id="两数相加">两数相加</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"> <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">l1</span><span class="o">,</span> <span class="n">ListNode</span> <span class="n">l2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//思路：
+</span><span class="c1"></span>        <span class="c1">//新建两个辅助node，保存倒序排列的l1 l2，不需要；因为题目本身就是逆序的
+</span><span class="c1"></span>        <span class="c1">//循环两个node 直到最后一个节点
+</span><span class="c1"></span>        <span class="n">ListNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">l1</span><span class="o">;</span>
+        <span class="n">ListNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">l2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">carry</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="n">ListNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
+        <span class="n">ListNode</span> <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">0</span> <span class="o">:</span> <span class="n">left</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">0</span> <span class="o">:</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span><span class="n">carry</span><span class="o">;</span>
+            <span class="n">carry</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">10</span><span class="o">;</span>
+            <span class="n">ListNode</span> <span class="n">now</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">sum</span><span class="o">%</span><span class="n">10</span><span class="o">);</span>
+            <span class="n">res</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">now</span><span class="o">;</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">next</span><span class="o">;}</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">next</span><span class="o">;}</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">carry</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">res</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">carry</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>至少20个小时</title>
+      <link>https://justinbetter.github.io/2020/07/01/%E8%87%B3%E5%B0%9120%E4%B8%AA%E5%B0%8F%E6%97%B6/</link>
+      <pubDate>Wed, 01 Jul 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/07/01/%E8%87%B3%E5%B0%9120%E4%B8%AA%E5%B0%8F%E6%97%B6/</guid>
+      <description>至少20个小时 20个小时而已。即使你一开始完全不懂。 只要投入20个小时的时间专心学习某件事，就能提升到让你自己惊讶的水准。 20个小时就够了，</description>
+      <content:encoded><![CDATA[<h2 id="至少20个小时">至少20个小时</h2>
+<p>20个小时而已。即使你一开始完全不懂。 <br>
+只要投入20个小时的时间专心学习某件事，就能提升到让你自己惊讶的水准。<br>
+20个小时就够了，大约就是每天45分钟，坚持上一个月，就能学会一项技能。</p>
+<h3 id="具体步骤">具体步骤</h3>
+<pre><code>1. 技能分解
+2. 自我纠正
+3. 远离导致分心的障碍
+4. 至少20小时
+</code></pre>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>我的健身指南</title>
+      <link>https://justinbetter.github.io/2020/06/06/%E6%88%91%E7%9A%84%E5%81%A5%E8%BA%AB%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sat, 06 Jun 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/06/06/%E6%88%91%E7%9A%84%E5%81%A5%E8%BA%AB%E6%8C%87%E5%8D%97/</guid>
+      <description>大纲： 是什么？健身的概念 为什么？健身的好处 怎么做？ 健身的原则 健身的方式 健身的时间 最近的八个月在我86小时13分钟的健身统计中，我的身体健康有</description>
+      <content:encoded><![CDATA[<p>大纲：
+是什么？健身的概念
+为什么？健身的好处
+怎么做？
+健身的原则
+健身的方式
+健身的时间</p>
+<p>最近的八个月在我86小时13分钟的健身统计中，我的身体健康有了显著的提高，在这里写下一些关于健身的心得。</p>
+<p>了解健身，拒绝概念模糊</p>
+<p>健身是一种系统的锻炼方式，可以最有效地让肌肉发达、结实起来，直到获得富有美感的体形。
+健身是一种渐进式过程，这种渐进式训练之所以有效，是因为只要身体所承受的压力比它习惯的大，它就会去适应，从而变得强壮起来”</p>
+<p>“不想变得块头太大。怎么办？”我会这样回答他们：“你想成为网球高手，你是否能说你只想学学网球，但是不想打得太好，你不是冲着温布尔顿冠军去的？或者你会让一个职业高尔夫选手教你打高尔夫，但是告诫他说不要把你教得像老虎·伍兹（Tiger Woods）那样棒”</p>
+<p>“当我们不去用肌肉，肌肉就开始萎缩和减少。我们不用它们，也就失去了它们。在我们20多岁的时候，这还不明显；到我们30多岁的时候，肌肉萎缩的速度就更快了；而且，随着岁数的增长会越来越快。恩斯特·约克尔（Ernst Jokl）博士说：“一般人在18岁到65岁之间失去了50％的肌肉。”
+“健身正是抵制肌肉退化的最有效的方式”</p>
+<p>“不要担心会变得“过分发达”。你应该担忧的是你现在还剩多少肌肉”</p>
+<p>健身训练也可以起到稳定和降低血压的作用（不要使用过重的重量训练，可以使用持续的、大量的训练）；可以增强背部，减少背部问题的出现；同时还可以促使血液流向皮肤，让皮肤活力四射，更有弹性。锻炼可以解压，而压力低的好处不言而喻：既可以提升免疫系统的能力，又可以降低患上癌症和心脏病的风险。</p>
+<p>“健身训练还是一种让你的生活变得规律、有节制的好方法，“当你通过训练让你的体质得到增强的时候，你就会变得更加注重饮食习惯”</p>
+<p>“千万不要熬夜，浪费太多时间在深夜档的电视节目上。如果你用健身运动来规范你的生活，它不仅会对你的身体和精神产生影响，也会改变你的所作所为，改变你身边的人”</p>
+<p>摘录来自: 阿诺德•施瓦辛格. “施瓦辛格健身全书。” Apple Books. 健身正是抵制肌肉退化的最有效的方式 健身正是抵制肌肉退化的最有效的方式</p>
+<p>吃的艺术
+练习过程
+训练感觉</p>
+<p>“其实对于有经验的健身者来说，大家知道的技巧都差不多，只是大家运用自己的直觉和感觉的水平造成了人与人之间的差异”</p>
+<p>“运动生理学已经确认了健身训练的原理。一般而言，让肌肉最大化发展的方式是，使用单次能举起的最大重量的75％进行训练”</p>
+<p>“对于多数人，使用这种重量，可以针对上半身做8～12次反复动作，针对腿部做12～15次反复动作”</p>
+<p>“光刺激肌肉增长还是不够的。为了让肌肉增长，还需要让肌肉得到休息，同时吸收足够的营养，这样肌肉才能复原和修复”</p>
+<p>“泵感之所以产生，是因为肌肉的运动和心血管系统的压力导致血液流入特定的肌肉区域，可是又不存在同等的压力将血液排出肌肉”
+“多余的血液将逗留在肌肉内一段时间，这样就会导致肌肉的膨胀”</p>
+<p>“训练和随之产生的泵感会产生一系列荷尔蒙反应，其中包括内啡肽和脑啡肽的释放，这两种物质是天然的止痛剂”</p>
+<p>“有时，你可能拖着疲惫和懒洋洋的身躯走向健身房，但是只要你训练几分钟之后，就会获得一种奇妙的泵感，突然间就会觉得自己无比强大，精力充沛，能轻而易举地举起眼前的任何重量”</p>
+<p>“训练强度大，持续的时间就难以长；即便你状态良好，也是如此。这就是为什么现代的健身者大都分开锻炼身体的各部位，每次训练只着重于少数肌肉，绝不一次针对所有的肌肉进行锻炼”</p>
+<p>“高强度的训练之后出现肌肉酸痛是很平常的事情。这种酸痛感是由对肌肉、韧带和肌腱造成的微小损伤的结果”</p>
+<p>“造成酸痛还有一个常见的原因，就是在肌肉内堆积了乳酸”</p>
+<p>“造成酸痛还有一个常见的原因，就是在肌肉内堆积了乳酸。当肌肉活动产生乳酸的速度比循环系统将其带走的速度快时，乳酸就会堆积起来。当你进行大量的高强度训练之时，乳酸的量就会超过一定的范围，这会给你一种灼伤感，也会在训练后给你一定的酸痛感”</p>
+<p>“如果你不好意思给自己的身体拍照，因为你不想见到自己的身材，那么这也就意味着你多么需要进行健身了”</p>
+<p>“健身者总是互相询问：“你训练了多长时间？”或者“我要多长时间才能变得那么‘大’？”在他们看来，一个人的肌肉比另外一个发达，只是因为他或者她训练的时间更长。但事实是，并非每个人获得肌肉的速度都是一样快的；也并非每个人都有同样的基因让肌肉同等地生长。</p>
+<p>你的基因很大程度上决定了你的身体对训练会怎样反应”</p>
+<p>“你的进步速度是被你的基因限定的，但最终的结果则要看你的投入和毅力——那才是最重要的”</p>
+<pre><code>训练氛围
+</code></pre>
+<p>非常重要！
+“如果你生活在成功的、乐观向上的人中间，你自己就有可能变得成功，变得乐观；如果生长在赤贫的环境中，你身边的人对生活不抱多大希望，精神萎靡，那么你一生都要克服这种环境对你产生的负面影响”</p>
+<p>“那些在你身边训练的人也会对你产生影响。如果你身边是一群认真的人，而且训练强度都很大，那么你也会很容易去认真、艰苦地训练。不过，如果你身边的人只是装模作样地做几个动作，那么你也就很难去真正地轰炸你的肌肉。这就是为什么职业的健美运动员总是集结在特定的健身房内”</p>
+<p>“对于大多数人来说，在家训练不是为了要取得健身房里的训练效果，只是作为去健身房训练的补充。”</p>
+<pre><code>训练技巧
+</code></pre>
+<p>“使用什么方法可以增加强度呢？比如说，你可以：</p>
+<p>增加训练重量；
+增加每一组中的反复次数；
+减少组之间的休息时间；
+一次性不间断做两组或者更多组（超级组）。”</p>
+<p>“我建议大多数健身者赤手握着重量，让双手变得越来越结实，长出茧来。总之，不要为这些所谓的纱布、手套和其他辅助工具而烦恼了”</p>
+<p>“我个人的体验来说，使用这种辅助工具会阻碍手部力量的自然发展”</p>
+<p>记录，记忆会骗人，但是客观的信息不会。</p>
+<p>“研究和经验都显示，如果一个健身者在每个练习中使用的重量是他能承受的最大重量——也就是说，是他全力以赴完成一次反复时所能达到的最大重量——的70％～75％时，那么效果是最好的”</p>
+<p>“上半身肌肉，8～12次反复；
+腿部肌肉，12～16次反复”</p>
+<p>练到力竭，抛物线式的重量组，热身-活跃，“通过这种训练，可以让你达到最佳的训练效果：从相对较轻的重量开始，这可以让你的肌肉做好充分的热身准备；然后，再使用较重的重量，稍微减少反复次数，这样可以迫使更多的血液流入肌肉中，让你体验到奇妙的泵感；最后，再增加重量，这样训练强度增大，有利于力量和体能的增加”</p>
+<p>“健身者们50年的训练经验证明，你能承受的、可以让你完成4组训练的最大重量可以刺激肌肉，让它们生长”</p>
+<p>不要借力</p>
+<p>热身，心肺训练，简单运动，使用重量
+“永远注意，热身要全面彻底。如果你准备用大重量做肩上推举，那么你应该记住，该动作不但会牵涉到三角肌和肱三头肌，还会让颈部肌肉和斜方肌也猛烈收缩，所以也应该给它们以时间去做准备”</p>
+<p>受伤：
+“在健身房训练受伤的原因主要有两个：用了不合适的技巧（使用的重量过重或者不能完全控制重量），或没有进行恰当的拉伸和热身练习”</p>
+<pre><code>时间安排
+训练日志
+</code></pre>
+<p>“需要至少做4组动作，才能使得训练量足以刺激所有可用的肌纤维。如果每种动作的组数过多，那么你的总训练量太大，有训练过度的风险”
+热身方式：心肺训练 简单拉伸运动 使用重量本身
+“你的训练强度越大，身体需要的修复和复原的时间就越长。休息和恢复非常重要，因为虽然说训练可以刺激肌肉增长，但是肌肉的真正增长和适应是在训练之后的休养期间发生的”
+“剧烈的肌肉收缩伴随着许多复杂的生物化学反应。为肌肉收缩补给能量的过程会导致有毒废品的产生，比如说乳酸就是其中一种；而且，在锻炼的过程中，以糖原形式储存在肌肉中的能量也会消耗殆尽”
+“细胞本身需要一定的时间，以适应运动的刺激，从而增长。毕竟，健身运动的首要目的就是让肌肉发达起来，如果你让某块肌肉训练过度，在刚完成了一次训练之后，马上强加更剧烈的压力于其上，那么该块肌肉就没有时间来增长，你的进步速度也就必然放缓”
+“多数情况下，让肌肉休息48小时就足够了。也就是说，在训练了某块肌肉之后，隔上一天再训练它。”</p>
+<p>呼吸
+“了一个简单的法则：用力时呼气”
+“记住，这时不要屏住呼吸。”
+“肌肉在强力收缩时常常伴随着隔膜的收缩，特别是当进行腿举或者深蹲时，这会增加胸腔的压力。如果你屏住呼吸，可能会导致受伤”</p>
+<p>“分化训练就是将你的训练分割开，也就是说在每个训练期中只对一部分肌肉进行训练，而不是一次性训练整个身体”
+“如果你只能在晚上训练，或者这是你的个人喜好，毫无疑问，你同样能取得锻炼效果。只是要问问自己，你是否认为那样是最好的安排？你晚些时间训练是因为那样对于你来说效果最好，还是因为你没有动力早早爬起来进行有规律的晨练？”</p>
+<p>“时间是增加训练强度的一个重要因素。通过控制时间，你可以通过两条基本的路径增加强度：（1）在更少的时间内完成相同的训练量；（2）在相同的时间内进行更多的训练”
+“增加训练负荷的最直接的方式是使用更大的重量进行训练”</p>
+<p>“冲击原则”字面上指的是对身体进行冲击，通过变换不同的训练方式，对身体进行“突袭”。身体的适应能力让人惊异，它能够调整自己以承受足以压垮一匹马的负荷。然而，如果你对身体一直施加同一种压力，身体会渐渐适应这种压力，从而对强度再大的训练也不做太多反应”
+“你可以使用比平常重的重量进行训练；做更多的反复次数或组数；加快你的训练节奏，减少两组之间的休息时间；尝试新的动作；打破以往的动作顺序；或者使用此处列举的任意或者全部强度技巧”
+“。我偏爱的一种强迫次数训练，有时候也称为停息训练。你使用一个非常重的重量，进行一组练习，直到力竭状态；这时你停下来，握住重量数秒钟，然后再强迫进行一次反复；休息几秒钟，再进行一次强迫性的反复”
+“将重量放得更低一些，从那个位置开始做一些局部次数的反复；然后再放低一些……这样重复下去，直到你的肌肉燃烧、精疲力竭为止”
+“要想在日常训练中，充分发挥负功训练的效果，应该总是缓慢地、有控制地将重量放下，而不是随便让它们落下去”</p>
+<p>补充：
+“在艰苦的训练和良好的精神状态之外，丰富的营养知识和优秀的营养补充是健身的第三个因素”
+“碳水化合物对大强度训练的能量供应如此重要，是因为大多数的强度训练都是无氧运动——也就是瞬间发生的强烈运动，超过了身体提供充足氧分来维持运动的能力”
+“事实上，如果你能在训练结束的20分钟内摄入必需的碳水化合物，你就能得到最好的训练结果”
+“三种基础营养物，即宏量营养素：
+蛋白质，由多种氨基酸构成，为肌肉组织提供构造单元。它也是所有器官的组成成分，包括在皮肤、骨骼和肌腱的构成中，而且与很多机体功能相关（所有的酶都是蛋白质）；
+碳水化合物，机体的供能燃料，包括各种单糖、寡糖、多糖和淀粉分子；
+脂肪（或油），这种营养物有最高的能量密度。”
+“水也是一种不可或缺的营养物。肌肉中的72％都是水，大多数健身者每天都要喝几升水”
+“其余的营养物，称为微量营养素，包括：
+维生素——促进多种生化反应的重要化学物质；
+矿物质——在许多至关重要的生理功能，包括在肌肉收缩中起关键作用；
+必需氨基酸——我们从食物中获取的蛋白质的部分；
+必需脂肪酸——从植物油或鱼油中获取。”</p>
+<p>“当你训练时，假设你没有超出自己的供氧能力（没有喘不过气），身体会以1∶1的比例燃烧脂肪和碳水化合物来供能。但是随着你训练时间的延长，脂肪的耗用比例也随之增多。在大约训练了3个小时后，体内所消耗的能量80％都是从脂肪中获取的。”
+“虽然维生素不提供能量，也不能显著增加肌肉体积，但是它们却可以起到催化剂的作用，在体内帮助引发其他一些反应。”
+“卡路里是热量单位，之所以用这种单位，因为细胞中因肌肉收缩而发生的能量生成是一种形式的氧化过程”
+“卡路里，是衡量肌肉细胞中能量“缓慢燃烧”产生的热量的。”
+“蛋白质。普通人的平均饮食中，推荐的蛋白质摄入量为每公斤体重摄入1克”
+“许多被告知避免摄入过多碳水化合物的人会问，为什么我会推荐碳水化合物作为一种很好的营养和能量来源。首先，不管哪一种东西，我从来不推荐“过度”。碳水化合物是好的饮食计划中不可或缺的部分，但要与其他主要食物搭配得合理、平衡。但还有一点也是真的，即人们经常把有营养的含碳水化合物的食物与那些含加工糖的食物——蛋糕、糖果、软饮料以及添加了糖的加工食品——弄混。这些快餐的问题是它们仅仅提供了热量，含有非常多的卡路里，但是营养物却少得可怜。这显然与你吃水果、蔬菜、米饭或土豆一类的食物是不同的。”
+“当你的饮食搭配合理、均衡时，你的身体才会达到最佳状态。健身者所需要的均衡饮食与其他人的几乎是一样的。根据麦戈文营养和人体需求专责委员会的研究，目前推荐的平衡饮食大概比例是：蛋白质，12％；碳水化合物，58％；脂肪，30％”
+“有一些健身者只在最后吃很少的食物——金枪鱼、鸡肉、水果和沙拉，如此持续几个月。
+这样的确可以帮助他们减少脂肪，但是导致他们没有获得足够的营养物，来满足他们的能量和生长需求”
+“放弃食物中的任何一个类别都会让你承受维生素和矿物质缺乏的风险。如果不合比例地大量吃水果，像曾经风靡一时的饮食方法那样，就会很难获得足够的蛋白质和足够多种类的维生素和矿物质。对想要达到肌肉重量最大化的健身者来说，全素食或者特别多碳水化合物的饮食，可能不能提供足够的蛋白质。同样，如果饮食中蛋白质的比例过大，会对肾脏和肝脏造成不健康的负担，导致身体内钙质的流失，还会使你变胖”</p>
+<p>“在训练中，肌肉需要足够的血液供应，你体验到的泵感是血液隆起肌肉的结果”
+“消化系统也需要大量的血液来消化一顿大餐，循环中的血液就远远不足了，肌肉的供血就会出现问题。如果你在训练前吃得过饱，就在身体内制造了一个争抢血液的矛盾，一时间很多地方都需要额外的供血”
+“不要在一顿大餐后去游泳，他们是对的，肌肉没有足量供血的情况下去为游泳，很容易出现问题，比如严重的痉挛”
+“身体对不同食物的代谢速度不同。胃需要2～6个小时排空里面的东西。富含碳水化合物的食物先被消耗，随后消化的是含蛋白质的食物，最后排空脂肪食物”
+“当你早晨醒来，8～12个小时没有吃任何东西了，身体就开始缺少碳水化合物了。因为碳水化合物可以产生肌肉紧张收缩所需的糖原，所以在早晨去健身房训练前吃一顿富含碳水化合物的早餐是很有必要的”
+“在训练前，你可以吃一顿含有水果、果汁或者烤面包的清淡早餐，这顿早餐会为你提供能量并且不会拖你的后腿。然而，如果早餐中包括了鸡蛋、肉、或者奶酪——高脂肪、高蛋白质——就需要更长的消化时间，所以在你训练前最好不要吃这类食物”
+“在训练结束后立即吃一顿大餐也是不明智的。当你训练时，你的身体承担着很大的压力，你需要等一段时间使身体系统恢复至正常的水平，让血液流出肌肉，让压力反应减弱”
+“在训练后，蛋白质或者蛋白质/碳水化合物的补充饮料可以提供身体需要的营养素，来弥补训练造成的营养缺失，而且对于消化系统来说也是轻松的。在你训练后，洗个澡、换好衣服，然后离开健身房，你的身体系统恢复到更平稳的状态，这时你可以坐下来享受一顿营养均衡的“真正饮食”
+“传说，认为消化系统需要“休息”，也就是说你不应该太频繁地吃东西，因为这超过了你有效消化食物的能力。实际上，恰恰相反。在人类进化过程的初期，人们经常在白天抓着什么吃什么——也就是说，他们吃东西是随机的，在任何时间，只要找到合适食物——植物和水果，或者碰巧有机会获得的动物蛋白质——就吃下”
+“让你的身体处理“少食多餐”，要比少数几次大餐要好得多”
+“在体重控制上，频繁饮食是很好的策略——假设你将每天的热量摄入控制在合理范围”</p>
+<p>“研究已经表明，成年人的代谢趋向于不断减慢，在30岁以后每年减少10卡路里/天。这个数字看起来不多，但是可以解释为什么很多年龄在40岁及40岁以上的人，即使没有改变健身和饮食习惯，体重还是在不断增长”
+“由于年龄而减慢的代谢问题不是不可逾越的难题。这只意味着需要更加注意自己的饮食，再每天增加大约10分钟的心肺训练。然而，有一个造成代谢率减慢的因素是慢性的，就是肌肉组织的逐渐减少。所以，如果你一直坚持健身训练并保持肌肉强壮坚实，那么随着年龄增长的发胖倾向对你就不是什么问题”</p>
+<p>“当你吃东西时，也将食物的热量带进体内。所有的食物热量——不管是来自于蛋白质、碳水化合物还是脂肪——如果你的身体没有特意去利用，都会让你发胖”
+2019年7月27日
+“有氧运动可以燃烧很多热量，并且大大消耗你身体中的糖原——身体活动中能量的主要来源。也就是说，你在一段耐力训练后摄入碳水化合物，身体会以最快的速度将其转化为替代的糖原，这些碳水化合物很少会被转化为脂肪储存于体内。
+另一方面，高强度的重量训练——让肌肉在大阻力下工作——造成了身体对替代蛋白质的大量需求。在训练后不久摄入的蛋白质，或者在高强度训练的同一天内摄入的蛋白质，会被身体利用来建造肌肉组织，这时蛋白质的利用率要远远高于没有做这种训练的日子。再说一遍，当身体处于这种高需求状态下，只要摄入的蛋白质不超量，就不会在多大程度上被转化为身体脂肪”
+“总的来看，如果你的目标是让蛋白质直接贡献于肌肉组织，你需要做的是重量训练；如果你的目标是消耗多余的能量，你需要做更多的有氧运动”</p>
+<p>“尽量不要在一进健身房开始训练之前立即就做心肺训练。一些人认为首先做有氧运动是很好的热身，但是这种运动会让你的身体疲劳，使你很难达到你本可以达到的训练强度”
+“1.通过大重量、高强度且持续的健身训练来刺激肌肉增长。
+2.摄取足够的蛋白质来满足由训练引起的机体对氨基酸的需求。
+3.从整体上增加碳水化合物的摄入，达到足够支持大强度训练的需要，但是不要过多摄入以免增长不必要的脂肪。
+4．将有氧运动控制在健康的限度内，不要超过每周4或5天、每天30分钟，像我们之前说到的。”
+“可以确定的是，你要让身体处于卡路里短缺的状态，也就是消耗能量比从饮食中摄入的能量更多”
+“你训练的日子里，坚持摄入充足的蛋白质（最少每磅体重1克蛋白质）——在你休息的日子蛋白质的摄入量要少一些。”</p>
+<p>“免疫系统的主要食物是谷氨酰胺。强度训练让身体承受着较大的压力，如果你还是继续训练，你也同时开始消耗体内的谷氨酰胺”
+“你可能发现自己变得更容易生病。几种自然物质（主要是植物来源的）可以帮助身体抵抗或者至少能更有效地处理致病原。不用多说，你需要增补的第一样物质就是谷氨酰胺。其他可以帮助你的东西是——紫锥菊、人参、维生素C以及多酚。”
+“训练中，受压的不仅是身体。精神对训练压力的反应和身体的一样剧烈。健身中，最重要的素质之一——虽然不容易量化——是你面对训练（和比赛）的正确精神状态。有几种补剂可以在这方面有所帮助，包括银杏、多酚以及磷脂酰丝氨酸（一种必需脂肪酸DHA）.这些东西帮助你保持思维敏捷。”
+笔记摘自: 阿诺德•施瓦辛格. “施瓦辛格健身全书。” Apple Books.</p>
+<p>最终效果</p>
+<p>“喜欢训练的感觉、训练时的泵感、训练之后那几近虚脱的放松感”</p>
+<p>“我误打误撞地得出这样一个被教育家和心理学家广泛接受的规律：人类在得到正确的反馈的时候，工作效果和学习效果最佳。”</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>如何自律</title>
+      <link>https://justinbetter.github.io/2020/05/10/%E5%A6%82%E4%BD%95%E8%87%AA%E5%BE%8B/</link>
+      <pubDate>Sun, 10 May 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/05/10/%E5%A6%82%E4%BD%95%E8%87%AA%E5%BE%8B/</guid>
+      <description>寻找强大动机 By finding his strong reason why 专注约束自己做好一件事 developing his discipline through singular activities 预先做好对付诱惑的计划 pre-planning for temptations</description>
+      <content:encoded><![CDATA[<ol>
+<li>
+<p>寻找强大动机</p>
+<p>By finding his strong reason why</p>
+</li>
+<li>
+<p>专注约束自己做好一件事</p>
+<p>developing his discipline through singular activities</p>
+</li>
+<li>
+<p>预先做好对付诱惑的计划</p>
+<p>pre-planning for temptations</p>
+</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>世界读书日</title>
+      <link>https://justinbetter.github.io/2020/04/23/%E4%B8%96%E7%95%8C%E8%AF%BB%E4%B9%A6%E6%97%A5/</link>
+      <pubDate>Thu, 23 Apr 2020 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/04/23/%E4%B8%96%E7%95%8C%E8%AF%BB%E4%B9%A6%E6%97%A5/</guid>
+      <description>今天是世界读书日，希望大家象征性地读点书。 我最近发现我的生活里少了很多深度系统的思考，因为我没时间。 我的时间去哪了？ 在王者荣耀、在抖音、在各</description>
+      <content:encoded><![CDATA[<pre><code>今天是世界读书日，希望大家象征性地读点书。
+
+我最近发现我的生活里少了很多深度系统的思考，因为我没时间。
+
+我的时间去哪了？
+
+在王者荣耀、在抖音、在各种新闻论坛里。
+
+这里存在着一种恶性循环：
+
+我越浮躁越看不进书，我就越想放空大脑，将自己投入到无脑的娱乐通俗中；
+越是进行这些娱乐活动，我就越浮躁；
+
+娱乐并不可怕，可怕的是总想着娱乐。
+
+养成好的习惯，趋势很重要。
+
+
+至少在今天这个日子，开卷有益一下。
+</code></pre>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>优化自己的写作方式</title>
+      <link>https://justinbetter.github.io/2020/04/17/%E4%BC%98%E5%8C%96%E8%87%AA%E5%B7%B1%E7%9A%84%E5%86%99%E4%BD%9C%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Fri, 17 Apr 2020 11:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2020/04/17/%E4%BC%98%E5%8C%96%E8%87%AA%E5%B7%B1%E7%9A%84%E5%86%99%E4%BD%9C%E6%96%B9%E5%BC%8F/</guid>
+      <description>发现没有什么动力去记录自己的思考。 纠结的地方有两点： 优雅的输出环境 适量的公众注意 一直以来，我的写作流程是： 在本地的印象笔记完整输出 -&amp;gt; 修正必要</description>
+      <content:encoded><![CDATA[<p>发现没有什么动力去记录自己的思考。</p>
+<p>纠结的地方有两点：</p>
+<ol>
+<li>
+<p>优雅的输出环境</p>
+</li>
+<li>
+<p>适量的公众注意</p>
+</li>
+</ol>
+<hr>
+<p>一直以来，我的写作流程是：</p>
+<p>在本地的印象笔记完整输出 -&gt;</p>
+<p>修正必要的文字格式-&gt;</p>
+<p>分别拷贝到微信公众号、简书、知乎专栏、个人博客中。</p>
+<hr>
+<p>如果是这样的流程，每次当我想要动笔写作的时候，心里就会有一种负担：</p>
+<pre><code> “呀？又要来这么一套复杂的工序？搞完以后还没几个人看，算了，没动力了，不写了！”
+</code></pre>
+<p><strong>写作这种事情有很好的正向反馈，作者的动力才能不断持续下去。</strong></p>
+<p> </p>
+<p>为了不让自己陷入困难的输出环境，我急需要简化自己的输出流程。</p>
+<p>目的是为了提升自己的记录动力，不用每次都整这些幺蛾子。</p>
+<p> </p>
+<p>在搜索一大圈以后，我的方式修改为：</p>
+<p><strong>长文章博客在 github 输出，以便于形成一个完整的思考，符合优雅的输出环境；</strong></p>
+<p><strong>短文章在微信上发布，吸取适量的公众注意。</strong></p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>写python脚本常用的函数</title>
+      <link>https://justinbetter.github.io/2019/08/09/%E5%86%99python%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 09 Aug 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/08/09/%E5%86%99python%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/</guid>
+      <description>@[toc] #python 脚本常用函数 这里记录一些脚本常用的函数 ##文件操作 路径相关 os.chdir(dst_dir) #改变当前目录 os.listdir() #遍历文件夹 for root, dirs, files in os.walk(rootDir): #遍历文件夹 os.path.basename() #去掉目录路径, 返回文</description>
+      <content:encoded><![CDATA[<p>@[toc]
+#python 脚本常用函数</p>
+<p>这里记录一些脚本常用的函数</p>
+<p>##文件操作</p>
+<ul>
+<li>路径相关</li>
+</ul>
+<pre><code>os.chdir(dst_dir)							#改变当前目录
+os.listdir()								#遍历文件夹
+for root, dirs, files in os.walk(rootDir):  #遍历文件夹
+os.path.basename()  						#去掉目录路径, 返回文件名 
+os.path.splitext()  						#返回 (filename, extension) 元组 
+os.path.exists()							#文件存在	
+shutil.rmtree(zip_comoress_dir) 			#删除目录
+shutil.copy(source_dir, dst_dir)			#复制文件
+os.path.dirname(os.path.realpath(__file__)) #获取当前目录
+</code></pre><ul>
+<li>文件信息</li>
+</ul>
+<pre><code>json.dumps(mock_config, indent=5)	 	#获取json数据
+os.path.getsize()  						#获取文件大小
+with open(zip_url,'rb') as f_zip:  		#解压zip
+     zip_file = zipfile.ZipFile(f_zip)
+     zip_file.extractall('./zip')
+----------------------------------------
+def get_file_md5(f): 					#获取MD5
+    m = hashlib.md5()
+
+    while True:
+        data = f.read(10240)
+        if not data:
+            break
+
+        m.update(data)
+    return m.hexdigest()
+
+
+with open(YOUR_FILE, 'rb')as f:
+    file_md5 = get_file_md5(f)
+--------------------------------------
+
+</code></pre><p>##字符串操作</p>
+<ul>
+<li>命令行</li>
+</ul>
+<pre><code>    p = subprocess.Popen(COMMAND, stdout=subprocess.PIPE, stderr=None, shell=True)
+    p_communicate = p.communicate()   #返回命令行输出
+-----------
+apk_old = raw_input('old_path: ') 	  #获取命令
+os.system(&quot;cd test&quot;)
+
+    
+</code></pre><ul>
+<li>字符串包含</li>
+</ul>
+<pre><code>if &quot;123&quot;  in &quot;da123dfd&quot;:
+
+s = &quot;This be a string&quot;
+if s.find(&quot;is&quot;) == -1:
+    print &quot;No 'is' here!&quot;
+else:
+    print &quot;Found 'is' in the string.&quot;
+</code></pre><ul>
+<li>正则匹配</li>
+</ul>
+<pre><code> pattern = re.compile(r'package: name=\'(\S+)\'')
+ search  = pattern.search(data)
+ result  = search.group(1)  
+</code></pre><p>##列表操作</p>
+<pre><code>map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])		#循环操作每一个元素
+
+
+
+</code></pre><p>##ps</p>
+<ul>
+<li>json.dumps输出中文指定ensure_ascii参数为False</li>
+</ul>
+<p>##转化为exe执行</p>
+<ul>
+<li>pip install pyinstaller</li>
+<li>pyinstaller -F demo.py</li>
+<li>cx_freeze: <a href="http://www.cnblogs.com/renzo/archive/2012/01/01/2309260.html">http://www.cnblogs.com/renzo/archive/2012/01/01/2309260.html</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>python基础</title>
+      <link>https://justinbetter.github.io/2019/08/08/python%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Thu, 08 Aug 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/08/08/python%E5%9F%BA%E7%A1%80/</guid>
+      <description>[TOC] 基础 继承： “定义子类时，必须在括号内指定父类的名称。” class ElectricCar(Car): “类名应采用驼峰命名法 ，即将类名中的每个单词的首字母都大写，而不使用下划线。实例</description>
+      <content:encoded><![CDATA[<p>[TOC]</p>
+<h2 id="基础">基础</h2>
+<p>继承： “定义子类时，必须在括号内指定父类的名称。”
+class ElectricCar(Car):</p>
+<p>“类名应采用驼峰命名法 ，即将类名中的每个单词的首字母都大写，而不使用下划线。实例名和模块名都采用小写格式，并在单词之间加上下划线。”</p>
+<h3 id="输出输入">输出输入</h3>
+<ul>
+<li>print()</li>
+<li>input()</li>
+</ul>
+<p>###数据类型</p>
+<ul>
+<li>整数</li>
+<li>浮点数</li>
+<li>字符串</li>
+<li>布尔值</li>
+<li>空值 None</li>
+<li>变量</li>
+<li>常量</li>
+</ul>
+<p>###字符编码</p>
+<ul>
+<li>UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间</li>
+<li>ord() 获取整数表示</li>
+<li>chr() 编码转化为字符</li>
+<li>encode(&lsquo;ascii&rsquo;) str编码为指定的byte作为网络传输</li>
+<li>decode(&lsquo;utf-8&rsquo;)  byte变为str读取网络字节流</li>
+<li>len()</li>
+<li>格式化 %d %f %s %x</li>
+</ul>
+<h3 id="list-和tuple">list 和tuple</h3>
+<ul>
+<li>
+<p>list  [1,3,2]</p>
+<ul>
+<li>len()</li>
+<li>append()</li>
+<li>insert()</li>
+<li>pop()</li>
+</ul>
+</li>
+<li>
+<p>tuple 另一种有序列表，一经初始化不能修改</p>
+<ul>
+<li>(1,)</li>
+<li>和list的区别就是不可变</li>
+</ul>
+</li>
+</ul>
+<p>###条件判断</p>
+<ul>
+<li>if : &hellip;elif:&hellip; else:&hellip;.
+###循环</li>
+<li>for..in..</li>
+<li>for x in &hellip;循环就是把每个元素代入变量x，然后执行缩进块的语句。</li>
+<li>range()</li>
+<li>while x&gt;0:&hellip;</li>
+<li>break 退出循环</li>
+<li>continue  跳过</li>
+</ul>
+<h3 id="dict和set">dict和set</h3>
+<ul>
+<li>
+<p>dict  {&lsquo;Michael&rsquo;: 95, &lsquo;Bob&rsquo;: 75, &lsquo;Tracy&rsquo;: 85}</p>
+<ul>
+<li>类似map，键值对</li>
+<li>判断key是否存在
+- ’a‘ in dict 通过in
+- d.get(&lsquo;Thomas&rsquo;, -1)</li>
+<li>pop(key) 删除指定键值对</li>
+</ul>
+</li>
+<li>
+<p>set 只包含key的集合{1,2，3}</p>
+<ul>
+<li>add()</li>
+<li>remove()</li>
+<li>两个set 可以做&amp; |</li>
+</ul>
+</li>
+</ul>
+<p>###函数</p>
+<ul>
+<li>
+<p>abs()</p>
+</li>
+<li>
+<p>max()</p>
+</li>
+<li>
+<p>数据类型转换</p>
+<ul>
+<li>int(&lsquo;123&rsquo;)</li>
+<li>float()</li>
+<li>str()</li>
+<li>bool()</li>
+</ul>
+</li>
+<li>
+<p>定义函数 def my_function(x):&hellip;</p>
+</li>
+<li>
+<p>导入函数 from demo1 import my_function</p>
+</li>
+<li>
+<p>pass 什么都不做</p>
+</li>
+<li>
+<p>isinstance(x,(int, float))</p>
+</li>
+<li>
+<p>参数</p>
+<ul>
+<li>位置参数</li>
+<li>默认参数 def power(x, n=2):..</li>
+<li>可变参数 def calc(*number):&hellip;return sum 在函数调用时自动组装为一个tuple</li>
+<li>关键字参数 def person(name,age,**kw):&hellip;传入任意dict</li>
+<li>命名关键字参数 def person(name,age,*,city,job):&hellip; 调用时必须写key参数名</li>
+</ul>
+</li>
+<li>
+<p>递归函数</p>
+<ul>
+<li>
+<p>尾递归优化（没做优化，也没啥用，依然可能栈溢出）</p>
+<pre><code> def fact(n):
+   return fact_iter(n,1)
+
+ def fact_iter(num,product):
+   if num == 1:
+       retutn 1
+   return fact_iter(num-1,num*product)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>###特性</p>
+<ul>
+<li>
+<p>切片</p>
+<ul>
+<li>L[0:10] 取0-9，0可以省略，指取10个</li>
+<li>L[-10:] 取倒数10个元素</li>
+<li>L[::5] 所有数每5个取一个</li>
+<li>list、tuple、str 都可以用切片操作</li>
+</ul>
+</li>
+<li>
+<p>迭代</p>
+<ul>
+<li>list、tuple 直接for&hellip;in..</li>
+<li>dict
+<ul>
+<li>for key in d</li>
+<li>for value in d.values()</li>
+<li>for k,v in d.items()</li>
+</ul>
+</li>
+<li>字符串 for ch in &lsquo;ABC&rsquo;:</li>
+<li>list 使用下标循环 for i,value in enumerate([&lsquo;A&rsquo;,&lsquo;B&rsquo;,&lsquo;C&rsquo;]):</li>
+</ul>
+</li>
+<li>
+<p>列表生成式</p>
+<ul>
+<li>创建list的生成式</li>
+<li>[x*x for x in range(1,11) if x % 2 ==0]</li>
+<li>还可以两层循环 [m + n for m in &lsquo;ABC for n in &lsquo;XYZ&rsquo;]</li>
+<li>也可以使用两个变量 [k +'='+v for k,v in d.items()]</li>
+</ul>
+</li>
+<li>
+<p>生成器</p>
+<ul>
+<li>generator 一边循环一边计算的机制</li>
+<li>创建方法：
+<ul>
+<li>
+<p>g = (x * x for x in range(10)) 把一个列表生成式的[]改成()</p>
+</li>
+<li>
+<p>next（g) 获得下一个返回值</p>
+</li>
+<li>
+<p>for n in g:&hellip; 可以迭代循环generator</p>
+</li>
+<li>
+<p>推算的算法比较复杂，用类似列表生成式的for循环无法实现的时候，还可以用函数来实现</p>
+<pre><code>  def fib(max) :
+      n,a,b = 0,0,1
+      while n&lt; max:
+          yield b
+          a,b = b,a+b
+          n = n + 1
+      return 'done'
+</code></pre>
+</li>
+<li>
+<p>yield 使函数变成一个generator</p>
+</li>
+<li>
+<p>for 循环调用generator时想拿到返回值必须捕获StopIteration</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>迭代器</p>
+<ul>
+<li>Iterable 可直接作用for循环的对象 list、tuple、dict、set、str、generator</li>
+<li>Iterator 迭代器，可以被next()函数调用并不断返回下一个值的对象</li>
+<li>isinstance</li>
+<li>from collections import Iterator</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数式编程">函数式编程</h3>
+<ul>
+<li>
+<p>高阶函数 一个函数可以接受另一个函数作为参数</p>
+<pre><code>  def add(a,b,f):
+      return  f(a) +ｆ（ｂ）
+</code></pre>
+<ul>
+<li>
+<p><strong>map()</strong> 接收函数和Iterable，返回Iterator</p>
+<pre><code>   list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+</code></pre>
+</li>
+<li>
+<p>**reduce()**接受函数和序列，函数必须接收两个参数，reduce把结果继续和序列的下一个元素做累积计算</p>
+<pre><code>  reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
+</code></pre>
+</li>
+<li>
+<p><strong>filter()</strong> 过滤序列</p>
+<pre><code>  list(filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15]))
+</code></pre>
+</li>
+<li>
+<p><strong>sorted()</strong> 可以对list排序，可以接收一个key函数来实现自定义的排序</p>
+<pre><code>   sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>返回函数</p>
+<ul>
+<li>
+<p>高阶函数除了可以接收函数作为参数还可以将函数作为结果值返回</p>
+<pre><code>  def lazy_sum(*args):
+      def sum():
+          ax = 0
+          for n in args:
+              ax = ax + n
+          return ax
+      return sum
+  f #返回函数
+  f() #调用函数
+</code></pre>
+</li>
+<li>
+<p>返回函数中不要引用任何可能会变化的变量。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>匿名函数 lambda x ： x*x</p>
+</li>
+<li>
+<p>装饰器 decorator</p>
+<ul>
+<li>
+<p>函数也是一个对象 也有属性 f.<em>name</em>  拿到f函数的名字</p>
+</li>
+<li>
+<p>decorator就是一个返回函数的高阶函数</p>
+<pre><code>  import functools
+
+  def log(func):
+      #把原始函数的__name__等属性复制到wrapper()函数
+      @functools.wrap(func) 
+
+      def wrapper(*args, **kw):
+          print('call %s():' % func.__name__)
+          return func(*args, **kw)
+      return wrapper
+
+  @log
+  def now():
+          print('2015-3-25')
+    
+  把@log放到now()函数的定义处，相当于执行了语句：now = log(now)
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>偏函数</p>
+<pre><code>      import functools
+      int2 = functools.partial(int ,base = 2)
+      int2('1010101')  #85
+</code></pre>
+</li>
+</ul>
+<p>###模块</p>
+<pre><code>    #!/usr/bin/env python3
+    # -*- coding: utf-8 -*-
+    
+    ' a test module '
+    
+    __author__ = 'Michael Liao'
+    
+    import sys
+    
+    def test():
+        args = sys.argv
+        if len(args)==1:
+                print('Hello, world!')
+        elif len(args)==2:
+            print('Hello, %s!' % args[1])
+        else:
+            print('Too many arguments!')
+    
+    if __name__=='__main__':
+        test()
+</code></pre>
+<ul>
+<li>
+<p>import sys 导入模块</p>
+</li>
+<li>
+<p>sys模块有一个argv变量，用list存储了命令行的所有参数</p>
+</li>
+<li>
+<p>命令行运行hello模块文件时，Python解释器把一个特殊变量__name__置为__main__，而如果在其他地方导入该hello模块时，if判断将失败，一般用于测试</p>
+</li>
+<li>
+<p>作用域</p>
+<ul>
+<li>正常函数变量名可以直接引用</li>
+<li>_xxx_特殊变量名</li>
+<li>_xxx和__xxx非公开的函数private</li>
+</ul>
+</li>
+<li>
+<p>安装模块 pip install Pillow</p>
+</li>
+<li>
+<p>模块搜索路径 存放在sys模块的path变量中</p>
+<ul>
+<li>一是直接修改sys.path，添加要搜索的目录： sys.path.append('/Users/michael/my_py_scripts&rsquo;)</li>
+<li>第二种方法是设置环境变量PYTHONPATH</li>
+</ul>
+</li>
+</ul>
+<h3 id="面向对象编程">面向对象编程</h3>
+<pre><code> class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
+</code></pre>
+<ul>
+<li>
+<p>创建实例直接 bart = Student()</p>
+</li>
+<li>
+<p>__name 双下划线 变成了私有变量，实质是Python解释器对外改成了_Student__name</p>
+</li>
+<li>
+<p>继承</p>
+<pre><code>   class Dog（Animal）:
+      def run(self):
+          print(Dog is running...)
+      def eat(self):
+          print(Dog is eating...)
+</code></pre>
+</li>
+<li>
+<p>获取对象信息</p>
+<ul>
+<li>type()</li>
+<li>isinstance(&lsquo;a&rsquo;,str)</li>
+<li>dir() 获得对象的所有属性和方法</li>
+<li>操作状态 getattr() 、setattr()、hasattr()</li>
+</ul>
+</li>
+<li>
+<p>类属性 相当于成员变量</p>
+</li>
+</ul>
+<p>###面向对象高级编程</p>
+<ul>
+<li>
+<p>限制实例的变量</p>
+<pre><code>  class Student(object):
+      __slot__ = ('name','age') # 用元组定义只允许绑定的属性
+</code></pre>
+</li>
+<li>
+<p>为了检查参数使用</p>
+<pre><code>  class Student(Object):
+            
+      @property
+      def score(self):
+          return self._score
+
+      @score.setter
+      def score(self,value):
+          if not isinstance(value,int):
+              raise ValueError('must be integer')
+          if value &lt; 0 or value &gt; 100:
+              raise ValueError('more than..')
+          self._score = value                
+</code></pre>
+<ul>
+<li>@property      把getter方法变成了属性</li>
+<li>@score.setter        @property本身又创建了另一个装饰器@score.setter，负责把一个setter方法变成属性赋值</li>
+<li>只定义getter方法@property，不定义setter方法就是一个只读属性：</li>
+</ul>
+</li>
+<li>
+<p>多重继承</p>
+<ul>
+<li>class Dog（Mammal，Runnable）</li>
+<li>让某个类除了继承自Bird外，再同时继承Runnable。这种设计通常称之为MixIn</li>
+</ul>
+</li>
+<li>
+<p>定制类</p>
+<pre><code>  __str__    #print 返回自定义字符串，直接敲变量本质调用__repr__
+  __iter__ #返回一个迭代对象 
+  __getitem__ # 像list一样可以按下标访问数列的任意一项
+  __getattr__  #在没有找到属性的情况下，才调用__getattr__
+  __call__     #可以对实例直接调用，callable()判断是否可调用
+</code></pre>
+</li>
+<li>
+<p>枚举类</p>
+<pre><code>  from enum import Enum
+  Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+    
+  for name,member in Month.__member__.items():
+      print(name,'==&gt;',member,',',member.value)
+
+  #value属性则是自动赋给成员的int常量，默认从1开始计数。
+</code></pre>
+</li>
+</ul>
+<hr>
+<pre><code>    from enum import Enum, unique
+    
+    @unique                  #检查没有重复值
+    class Weekday(Enum):    #从Enum派生出自定义类
+        Sun = 0 # Sun的value被设定为0
+        Mon = 1
+        Tue = 2
+        Wed = 3
+        Thu = 4
+        Fri = 5
+        Sat = 6
+</code></pre>
+<ul>
+<li>元类 metaclass
+<ul>
+<li>
+<p>type() 既可以返回对象的类型，又可以创建出新的类型</p>
+<pre><code>  def fn(self,name='world'):
+      print('Hello,%s!'%name)
+        
+  Hello = type('Hello',(object,),dict(hello=fn)) # 创建Hello.class
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="错误处理">错误处理</h3>
+<pre><code>    try:
+        10 / 0
+    except ZeroDivisionError:
+        raise ValueError('input error!')
+</code></pre>
+<ul>
+<li>
+<p>断言</p>
+<pre><code>  def foo(s):
+      n = int(s)
+      assert n != 0, 'n is zero!'
+      return 10 / n
+	
+  def main():
+      foo('0')	
+</code></pre>
+<ul>
+<li>
+<p>用-O参数来关闭assert:</p>
+<pre><code>  python3 -O err.py	
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>logging</p>
+<pre><code>  import logging
+  logging.basicConfig(level=logging.INFO)
+	
+  s = '0'
+  n = int(s)
+  logging.info('n = %d' % n)
+  print(10 / n)
+</code></pre>
+</li>
+</ul>
+<p>###读写文件</p>
+<ul>
+<li>
+<p>读</p>
+<pre><code>  with open('path','rb') as f :
+      print(f.read())
+		
+  #二进制 编码 编码错误
+   f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')
+</code></pre>
+</li>
+<li>
+<p>写</p>
+</li>
+</ul>
+<blockquote>
+</blockquote>
+<pre><code>    with open('/Users/michael/test.txt', 'w') as f:
+        f.write('Hello, world!')		
+</code></pre>
+<ul>
+<li>
+<p>IO流</p>
+<ul>
+<li>StringIO</li>
+<li>BytesIO</li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>参考：
+<a href="http://www.liaoxuefeng.com/##">http://www.liaoxuefeng.com/##</a>基础</p>
+</li>
+</ul>
+<h3 id="输出输入-1">输出输入</h3>
+<ul>
+<li>print()</li>
+<li>input()</li>
+</ul>
+<p>###数据类型</p>
+<ul>
+<li>整数</li>
+<li>浮点数</li>
+<li>字符串</li>
+<li>布尔值</li>
+<li>空值 None</li>
+<li>变量</li>
+<li>常量</li>
+</ul>
+<p>###字符编码</p>
+<ul>
+<li>UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间</li>
+<li>ord() 获取整数表示</li>
+<li>chr() 编码转化为字符</li>
+<li>encode(&lsquo;ascii&rsquo;) str编码为指定的byte作为网络传输</li>
+<li>decode(&lsquo;utf-8&rsquo;)  byte变为str读取网络字节流</li>
+<li>len()</li>
+<li>格式化 %d %f %s %x</li>
+</ul>
+<h3 id="list-和tuple-1">list 和tuple</h3>
+<ul>
+<li>
+<p>list  [1,3,2]</p>
+<ul>
+<li>len()</li>
+<li>append()</li>
+<li>insert()</li>
+<li>pop()</li>
+</ul>
+</li>
+<li>
+<p>tuple 另一种有序列表，一经初始化不能修改</p>
+<ul>
+<li>(1,)</li>
+<li>和list的区别就是不可变</li>
+</ul>
+</li>
+</ul>
+<p>###条件判断</p>
+<ul>
+<li>if : &hellip;elif:&hellip; else:&hellip;.
+###循环</li>
+<li>for..in..</li>
+<li>for x in &hellip;循环就是把每个元素代入变量x，然后执行缩进块的语句。</li>
+<li>range()</li>
+<li>while x&gt;0:&hellip;</li>
+<li>break 退出循环</li>
+<li>continue  跳过</li>
+</ul>
+<h3 id="dict和set-1">dict和set</h3>
+<ul>
+<li>
+<p>dict  {&lsquo;Michael&rsquo;: 95, &lsquo;Bob&rsquo;: 75, &lsquo;Tracy&rsquo;: 85}</p>
+<ul>
+<li>类似map，键值对</li>
+<li>判断key是否存在
+- ’a‘ in dict 通过in
+- d.get(&lsquo;Thomas&rsquo;, -1)</li>
+<li>pop(key) 删除指定键值对</li>
+</ul>
+</li>
+<li>
+<p>set 只包含key的集合{1,2，3}</p>
+<ul>
+<li>add()</li>
+<li>remove()</li>
+<li>两个set 可以做&amp; |</li>
+</ul>
+</li>
+</ul>
+<p>###函数</p>
+<ul>
+<li>
+<p>abs()</p>
+</li>
+<li>
+<p>max()</p>
+</li>
+<li>
+<p>数据类型转换</p>
+<ul>
+<li>int(&lsquo;123&rsquo;)</li>
+<li>float()</li>
+<li>str()</li>
+<li>bool()</li>
+</ul>
+</li>
+<li>
+<p>定义函数 def my_function(x):&hellip;</p>
+</li>
+<li>
+<p>导入函数 from demo1 import my_function</p>
+</li>
+<li>
+<p>pass 什么都不做</p>
+</li>
+<li>
+<p>isinstance(x,(int, float))</p>
+</li>
+<li>
+<p>参数</p>
+<ul>
+<li>位置参数</li>
+<li>默认参数 def power(x, n=2):..</li>
+<li>可变参数 def calc(*number):&hellip;return sum 在函数调用时自动组装为一个tuple</li>
+<li>关键字参数 def person(name,age,**kw):&hellip;传入任意dict</li>
+<li>命名关键字参数 def person(name,age,*,city,job):&hellip; 调用时必须写key参数名</li>
+</ul>
+</li>
+<li>
+<p>递归函数</p>
+<ul>
+<li>
+<p>尾递归优化（没做优化，也没啥用，依然可能栈溢出）</p>
+<pre><code> def fact(n):
+   return fact_iter(n,1)
+
+ def fact_iter(num,product):
+   if num == 1:
+       retutn 1
+   return fact_iter(num-1,num*product)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>###特性</p>
+<ul>
+<li>
+<p>切片</p>
+<ul>
+<li>L[0:10] 取0-9，0可以省略，指取10个</li>
+<li>L[-10:] 取倒数10个元素</li>
+<li>L[::5] 所有数每5个取一个</li>
+<li>list、tuple、str 都可以用切片操作</li>
+</ul>
+</li>
+<li>
+<p>迭代</p>
+<ul>
+<li>list、tuple 直接for&hellip;in..</li>
+<li>dict
+<ul>
+<li>for key in d</li>
+<li>for value in d.values()</li>
+<li>for k,v in d.items()</li>
+</ul>
+</li>
+<li>字符串 for ch in &lsquo;ABC&rsquo;:</li>
+<li>list 使用下标循环 for i,value in enumerate([&lsquo;A&rsquo;,&lsquo;B&rsquo;,&lsquo;C&rsquo;]):</li>
+</ul>
+</li>
+<li>
+<p>列表生成式</p>
+<ul>
+<li>创建list的生成式</li>
+<li>[x*x for x in range(1,11) if x % 2 ==0]</li>
+<li>还可以两层循环 [m + n for m in &lsquo;ABC for n in &lsquo;XYZ&rsquo;]</li>
+<li>也可以使用两个变量 [k +'='+v for k,v in d.items()]</li>
+</ul>
+</li>
+<li>
+<p>生成器</p>
+<ul>
+<li>generator 一边循环一边计算的机制</li>
+<li>创建方法：
+<ul>
+<li>
+<p>g = (x * x for x in range(10)) 把一个列表生成式的[]改成()</p>
+</li>
+<li>
+<p>next（g) 获得下一个返回值</p>
+</li>
+<li>
+<p>for n in g:&hellip; 可以迭代循环generator</p>
+</li>
+<li>
+<p>推算的算法比较复杂，用类似列表生成式的for循环无法实现的时候，还可以用函数来实现</p>
+<pre><code>  def fib(max) :
+      n,a,b = 0,0,1
+      while n&lt; max:
+          yield b
+          a,b = b,a+b
+          n = n + 1
+      return 'done'
+</code></pre>
+</li>
+<li>
+<p>yield 使函数变成一个generator</p>
+</li>
+<li>
+<p>for 循环调用generator时想拿到返回值必须捕获StopIteration</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>迭代器</p>
+<ul>
+<li>Iterable 可直接作用for循环的对象 list、tuple、dict、set、str、generator</li>
+<li>Iterator 迭代器，可以被next()函数调用并不断返回下一个值的对象</li>
+<li>isinstance</li>
+<li>from collections import Iterator</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数式编程-1">函数式编程</h3>
+<ul>
+<li>
+<p>高阶函数 一个函数可以接受另一个函数作为参数</p>
+<pre><code>  def add(a,b,f):
+      return  f(a) +ｆ（ｂ）
+</code></pre>
+<ul>
+<li>
+<p><strong>map()</strong> 接收函数和Iterable，返回Iterator</p>
+<pre><code>   list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+</code></pre>
+</li>
+<li>
+<p>**reduce()**接受函数和序列，函数必须接收两个参数，reduce把结果继续和序列的下一个元素做累积计算</p>
+<pre><code>  reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
+</code></pre>
+</li>
+<li>
+<p><strong>filter()</strong> 过滤序列</p>
+<pre><code>  list(filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15]))
+</code></pre>
+</li>
+<li>
+<p><strong>sorted()</strong> 可以对list排序，可以接收一个key函数来实现自定义的排序</p>
+<pre><code>   sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>返回函数</p>
+<ul>
+<li>
+<p>高阶函数除了可以接收函数作为参数还可以将函数作为结果值返回</p>
+<pre><code>  def lazy_sum(*args):
+      def sum():
+          ax = 0
+          for n in args:
+              ax = ax + n
+          return ax
+      return sum
+  f #返回函数
+  f() #调用函数
+</code></pre>
+</li>
+<li>
+<p>返回函数中不要引用任何可能会变化的变量。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>匿名函数 lambda x ： x*x</p>
+</li>
+<li>
+<p>装饰器 decorator</p>
+<ul>
+<li>
+<p>函数也是一个对象 也有属性 f.<em>name</em>  拿到f函数的名字</p>
+</li>
+<li>
+<p>decorator就是一个返回函数的高阶函数</p>
+<pre><code>  import functools
+
+  def log(func):
+      #把原始函数的__name__等属性复制到wrapper()函数
+      @functools.wrap(func) 
+
+      def wrapper(*args, **kw):
+          print('call %s():' % func.__name__)
+          return func(*args, **kw)
+      return wrapper
+
+  @log
+  def now():
+          print('2015-3-25')
+    
+  把@log放到now()函数的定义处，相当于执行了语句：now = log(now)
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>偏函数</p>
+<pre><code>      import functools
+      int2 = functools.partial(int ,base = 2)
+      int2('1010101')  #85
+</code></pre>
+</li>
+</ul>
+<p>###模块</p>
+<pre><code>    #!/usr/bin/env python3
+    # -*- coding: utf-8 -*-
+    
+    ' a test module '
+    
+    __author__ = 'Michael Liao'
+    
+    import sys
+    
+    def test():
+        args = sys.argv
+        if len(args)==1:
+                print('Hello, world!')
+        elif len(args)==2:
+            print('Hello, %s!' % args[1])
+        else:
+            print('Too many arguments!')
+    
+    if __name__=='__main__':
+        test()
+</code></pre>
+<ul>
+<li>
+<p>import sys 导入模块</p>
+</li>
+<li>
+<p>sys模块有一个argv变量，用list存储了命令行的所有参数</p>
+</li>
+<li>
+<p>命令行运行hello模块文件时，Python解释器把一个特殊变量__name__置为__main__，而如果在其他地方导入该hello模块时，if判断将失败，一般用于测试</p>
+</li>
+<li>
+<p>作用域</p>
+<ul>
+<li>正常函数变量名可以直接引用</li>
+<li>_xxx_特殊变量名</li>
+<li>_xxx和__xxx非公开的函数private</li>
+</ul>
+</li>
+<li>
+<p>安装模块 pip install Pillow</p>
+</li>
+<li>
+<p>模块搜索路径 存放在sys模块的path变量中</p>
+<ul>
+<li>一是直接修改sys.path，添加要搜索的目录： sys.path.append('/Users/michael/my_py_scripts&rsquo;)</li>
+<li>第二种方法是设置环境变量PYTHONPATH</li>
+</ul>
+</li>
+</ul>
+<h3 id="面向对象编程-1">面向对象编程</h3>
+<pre><code> class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
+</code></pre>
+<ul>
+<li>
+<p>创建实例直接 bart = Student()</p>
+</li>
+<li>
+<p>__name 双下划线 变成了私有变量，实质是Python解释器对外改成了_Student__name</p>
+</li>
+<li>
+<p>继承</p>
+<pre><code>   class Dog（Animal）:
+      def run(self):
+          print(Dog is running...)
+      def eat(self):
+          print(Dog is eating...)
+</code></pre>
+</li>
+<li>
+<p>获取对象信息</p>
+<ul>
+<li>type()</li>
+<li>isinstance(&lsquo;a&rsquo;,str)</li>
+<li>dir() 获得对象的所有属性和方法</li>
+<li>操作状态 getattr() 、setattr()、hasattr()</li>
+</ul>
+</li>
+<li>
+<p>类属性 相当于成员变量</p>
+</li>
+</ul>
+<p>###面向对象高级编程</p>
+<ul>
+<li>
+<p>限制实例的变量</p>
+<pre><code>  class Student(object):
+      __slot__ = ('name','age') # 用元组定义只允许绑定的属性
+</code></pre>
+</li>
+<li>
+<p>为了检查参数使用</p>
+<pre><code>  class Student(Object):
+            
+      @property
+      def score(self):
+          return self._score
+
+      @score.setter
+      def score(self,value):
+          if not isinstance(value,int):
+              raise ValueError('must be integer')
+          if value &lt; 0 or value &gt; 100:
+              raise ValueError('more than..')
+          self._score = value                
+</code></pre>
+<ul>
+<li>@property      把getter方法变成了属性</li>
+<li>@score.setter        @property本身又创建了另一个装饰器@score.setter，负责把一个setter方法变成属性赋值</li>
+<li>只定义getter方法@property，不定义setter方法就是一个只读属性：</li>
+</ul>
+</li>
+<li>
+<p>多重继承</p>
+<ul>
+<li>class Dog（Mammal，Runnable）</li>
+<li>让某个类除了继承自Bird外，再同时继承Runnable。这种设计通常称之为MixIn</li>
+</ul>
+</li>
+<li>
+<p>定制类</p>
+<pre><code>  __str__    #print 返回自定义字符串，直接敲变量本质调用__repr__
+  __iter__ #返回一个迭代对象 
+  __getitem__ # 像list一样可以按下标访问数列的任意一项
+  __getattr__  #在没有找到属性的情况下，才调用__getattr__
+  __call__     #可以对实例直接调用，callable()判断是否可调用
+</code></pre>
+</li>
+<li>
+<p>枚举类</p>
+<pre><code>  from enum import Enum
+  Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+    
+  for name,member in Month.__member__.items():
+      print(name,'==&gt;',member,',',member.value)
+
+  #value属性则是自动赋给成员的int常量，默认从1开始计数。
+</code></pre>
+</li>
+</ul>
+<hr>
+<pre><code>    from enum import Enum, unique
+    
+    @unique                  #检查没有重复值
+    class Weekday(Enum):    #从Enum派生出自定义类
+        Sun = 0 # Sun的value被设定为0
+        Mon = 1
+        Tue = 2
+        Wed = 3
+        Thu = 4
+        Fri = 5
+        Sat = 6
+</code></pre>
+<ul>
+<li>元类 metaclass
+<ul>
+<li>
+<p>type() 既可以返回对象的类型，又可以创建出新的类型</p>
+<pre><code>  def fn(self,name='world'):
+      print('Hello,%s!'%name)
+        
+  Hello = type('Hello',(object,),dict(hello=fn)) # 创建Hello.class
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="错误处理-1">错误处理</h3>
+<pre><code>    try:
+        10 / 0
+    except ZeroDivisionError:
+        raise ValueError('input error!')
+</code></pre>
+<ul>
+<li>
+<p>断言</p>
+<pre><code>  def foo(s):
+      n = int(s)
+      assert n != 0, 'n is zero!'
+      return 10 / n
+	
+  def main():
+      foo('0')	
+</code></pre>
+<ul>
+<li>
+<p>用-O参数来关闭assert:</p>
+<pre><code>  python3 -O err.py	
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>logging</p>
+<pre><code>  import logging
+  logging.basicConfig(level=logging.INFO)
+	
+  s = '0'
+  n = int(s)
+  logging.info('n = %d' % n)
+  print(10 / n)
+</code></pre>
+</li>
+</ul>
+<p>###读写文件</p>
+<ul>
+<li>
+<p>读</p>
+<pre><code>  with open('path','rb') as f :
+      print(f.read())
+		
+  #二进制 编码 编码错误
+   f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')
+</code></pre>
+</li>
+<li>
+<p>写</p>
+</li>
+</ul>
+<blockquote>
+</blockquote>
+<pre><code>    with open('/Users/michael/test.txt', 'w') as f:
+        f.write('Hello, world!')		
+</code></pre>
+<ul>
+<li>
+<p>IO流</p>
+<ul>
+<li>StringIO</li>
+<li>BytesIO</li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>参考：
+<a href="http://www.liaoxuefeng.com/">http://www.liaoxuefeng.com/</a></p>
+</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>git常用规范</title>
+      <link>https://justinbetter.github.io/2019/07/15/git%E5%B8%B8%E7%94%A8%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Mon, 15 Jul 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/07/15/git%E5%B8%B8%E7%94%A8%E8%A7%84%E8%8C%83/</guid>
+      <description>分支规范 - 分支规范 1. 分支命名规范： - master: 主线分支 - feature/xxxx: 功能需求开发分支 - hotfix/xxxx: bug 修复分支 - refactor/xxxx: 重构分支 2. 默认从主线分支 checkout 出功能需求 or bug 修复分支 3. 分支合</description>
+      <content:encoded><![CDATA[<h1 id="分支规范">分支规范</h1>
+<pre><code>- 分支规范
+    1. 分支命名规范：
+        - master: 主线分支
+        - feature/xxxx: 功能需求开发分支
+        - hotfix/xxxx: bug 修复分支
+        - refactor/xxxx: 重构分支
+    2. 默认从主线分支 checkout 出功能需求 or bug 修复分支
+    3. 分支合并需要写清本次开发的内容点
+- Commit Message 规范
+    1. 命名规则：func[(main)]: done something
+        - 其中 `[ ]` 中的内容可以省略
+    2. func 规则：
+        1. feat: 新功能开发
+        2. fix: bug 修复
+        3. refactor: 不影响现有功能的重构
+        4. test: 添加测试
+        5. chore: 构建工具改动
+        6. style: 格式改动
+    3. 冒号（英文冒号，并空一格）后面写上这次 commit 提交的内容，最好一个小功能点一次提交
+    4. 禁止类似 `update` 这样无意义的提交！
+
+
+查看当前url
+git remote -v
+git remote set-url origin [url]
+
+git remote rm origin
+git remote add origin [url]
+
+
+
+
+git config user.name &quot;xxx&quot;
+
+git push origin --tags 推送tag
+
+回退版本
+git reset --hard 版本号  
+git push -f -u origin master
+
+查看项目的分支们(包括本地和远程) 
+命令行 : $ git branch -a     例如，$ git branch -a 
+
+删除本地分支 
+命令行 : $ git branch -d &lt;BranchName&gt;
+
+ssh
+ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot; 
+</code></pre>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Linux笔记</title>
+      <link>https://justinbetter.github.io/2019/06/15/linux%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 15 Jun 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/06/15/linux%E7%AC%94%E8%AE%B0/</guid>
+      <description>帮助手册命令 man man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。 ##Linux 下修改 root 密码方法 passwd root 权限 chgrp ：改变文件所属群组 chown -R</description>
+      <content:encoded><![CDATA[<h2 id="帮助手册命令-man">帮助手册命令 man</h2>
+<pre><code>man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。
+</code></pre>
+<p>##Linux 下修改 root 密码方法
+passwd root</p>
+<h2 id="权限">权限</h2>
+<pre><code>chgrp ：改变文件所属群组
+chown -R：改变文件拥有者
+chmod ：改变文件的权限, SUID, SGID, SBIT等等的特性	
+su - user1  切换身份user1
+</code></pre>
+<h2 id="查看服务">查看服务</h2>
+<pre><code> /etc/services 
+ /etc/init.d/  启动脚本处	
+ /etc/* ：各服务各自的配置文件
+ service --status-all 查看所有服务
+</code></pre>
+<h2 id="常用目录">常用目录</h2>
+<pre><code>/etc                主要配置文件
+/bin                常用执行文件
+/sbin               重要的系统执行文件
+/dev                存放设备文件
+/dev/null           垃圾桶
+/home               用户目录
+/media /mnt         挂载外部装置
+/opt                第三方协议软件 习惯放/usr/local
+/proc               虚拟文件，存放内存数据:系统cpu、网络..
+
+/ (root, 根目录)：   与开机系统有关；
+/usr (unix software resource)：与软件安装/执行有关；
+/usr/local/        自己下载的软件安装目录
+/var (variable)：  与系统运作过程有关的常态性变动的文件：缓存、log等。
+
+/etc/issue         配置开机画面显示
+/etc/motd          配置登录显示
+/etc/ssh/sshd_config ssh配置
+~/.ssh/authorized_keys 加入ssh公钥,免密码登录
+</code></pre>
+<h2 id="英文全称">英文全称</h2>
+<pre><code>df: Disk free  空余硬盘
+du: Disk usage 硬盘使用率
+su：Swith user  切换用户，切换到root用户
+</code></pre>
+<h2 id="常用命令">常用命令</h2>
+<pre><code>du -s * | sort -nr | head 选出排在前面的10个 文件夹大小排序
+ctrl+r 搜索历史记录
+lsb_release -a    系统版本
+双击tab            获取所有可能的命令,极其方便!
+ls -alh           list所有文件包括隐藏文件
+ls -l --sort=time -r 升序展示
+set               获取所有变量,包含bash接口配置相关
+echo $$           当前shell的PID
+echo $?           返回上个命令的执行结果
+env/export        显示所有环境变量
+echo $PATH        显示环境变量中的PATH
+PATH=$PATH:/home/dmtsai/bin  增加目录到变量
+export var1 	  使其变为环境变量,可以让子shell使用
+
+echo $(uname -r)  显示系统版本
+uname -a          显示系统架构
+grub2-editenv list 查看默认内核
+    grub2-set-default &quot;CentOS Linux (3.10.0-327.el7.x86_64) 7 (Core)&quot;
+
+
+设置变量           name=justin
+取消变量           unset name
+命令中使用其他命令   $(command)
+创建目录：          mkdir /tmp/chapter7_1
+修改属性：          chown -R dmtsai:users /tmp/chapter7_1
+修改权限：          chmod -R 755 /tmp/chapter7_1
+//SUID/SGID/SBIT 权限配置--&gt; 要有x权限   
+        4 为 SUID       暂时将具有该程序拥有者 (owner) 的权限；
+        2 为 SGID       暂时获得得该程序群组的支持
+        1 为 SBIT       wx权限下,仅有自己与 root 才有权力删除该文件
+		
+观察文件类型：       file
+搜索命令完整路径：    which
+搜索文件： 
+    whereis       whereis 与 locate 是利用数据库来搜寻数据
+    updatedb      手动更新数据库
+    find          强大的搜寻命令，但时间花用的很大！ 因为 find 是直接搜寻硬盘
+        find / -perm /6000   查询具有suid、sgid的文件
+
+df -h             获取目前挂载的设备，整体磁盘使用量
+du -sh            获取文件所占容量
+    bug 卡住了
+    strace df -h
+    systemctl restart proc-sys-fs-binfmt_misc.automount
+
+
+dumpe2fs          查询每个区段与 superblock 的信息
+ln -s /etc/crontab crontab2 创建符号链接，类似windows 的快捷方式
+
+
+read -p &quot;Please keyin your name: &quot; -t 30 named  读取键盘输入
+declare                   声明变量
+ulimit -a                 显示当前用户的数据限制值
+last                      显示登陆者信息
+alias                     显示当前所有的命令别名,设置别名
+unalias                   取消别名
+history                   使用过的命令历史
+type -a                   获取命令搜寻顺序
+!comand                   运行最近命令开头为command的命令
+source/.                  读入环境配置文件，可以直接在父程序运行脚本
+chattr (配置文件隐藏属性)
+lsattr (显示文件隐藏属性)
+pwd 显示当前目录
+		
+//输入输出
+标准输入　　(stdin) ：代码为 0 ，使用 &lt; 或 &lt;&lt; ；
+标准输出　　(stdout)：代码为 1 ，使用 &gt; 或 &gt;&gt; ；
+标准错误输出(stderr)：代码为 2 ，使用 2&gt; 或 2&gt;&gt; ；
+重定向操作符（&amp;&gt;）将标准输出和错误输出同时送到同一文件
+
+//pipe
+|grep|cut|sort|uniq|wc
+|tee test.txt            双向重导向,分送到文件去与屏幕stdout,可以让下个命令继续使用      
+ - 减号                   可以取用前一个命令的 stdout
+
+    //正则
+find .| xargs grep -ri &quot;18616504954&quot; -l  目录下的所有文件中查找字符串,并且只打印出含有该字符串的文件名
+
+grep '^ha' test.txt -n    单引号中使用正则
+sed                       将数据 standard input 进行取代、删除、新增、撷取特定行等
+                          e.g: nl test.txt |sed '2,3d'
+                               sed 's/要被取代的字串/新的字串/g'
+
+printf                    格式化输出
+awk '条件类型1{动作1} 条件类型2{动作2} ...' filename   处理数据
+	
+        $NF代表：最后一个Field(列)
+
+
+diff/cmp                  比对两个文件
+test                      检查工具, 判断文件属性等
+tail -cf 			      循环读取文件末尾日志   
+
+less test.log  打开文件，按大写实时刷新
+		
+        - F 实时刷新
+        - N 显示行号
+
+dig xxx +short            查看域名                 
+
+//切换
+
+&amp;                       直接将命令丢到背景中『运行』的 &amp;
+[ctrl]+z                 将『目前』的工作丢到背景中『暂停
+jobs                    观察目前的背景工作状态： jobs
+                用jobs查看进程的jobnumber，然后用命令：kill %n 来结束。
+			
+fg                      将背景工作拿到前景来处理：fg
+bg                      让工作在背景下的状态变成运行中： bg
+kill                    管理背景当中的工作： kill
+         killall -9 httpd       强制终止所有以 httpd 启动的程序
+         killall -1 syslogd       给予 syslogd 这个命令启动的 PID 一个 SIGHUP 的讯号
+         killall -i -9 bash      依次询问每个 bash 程序是否需要被终止运行！
+
+//服务管理
+ service --status-all  显示出目前系统上面所有服务的运行状态
+ chkconfig： 管理系统服务默认启动启动与否
+             chkconfig --list [服务名称]
+             chkconfig [--level [0123456]] [服务名称] [on|off]		 
+              *启动 Linux 系统时，可以进入不同的模式喔，这模式我们称为运行等级, 正常的运行等级有两个，一个是具有 X 窗口接口的 run level 5 ，另一个则是纯文本界面的 run level 3。* 
+
+logrotate [-vf] logfile       显示 logrotate 运行过程
+
+tar czvf my.tar.gz dir1 单个目录压缩打包 
+    tar czvf shell30.tar.gz  /usr/local/system/bin
+tar xzvf my.tar.gz 解包至当前目录
+
+ls -l | grep &quot;^-&quot; | wc -l 统计文件个数
+	
+curl -H &quot;Sign:#f93Uc31K24()_@&quot; -d &quot;fatherId=10155&quot; http://dbt.lego.iqiyi.com/api/program/find
+</code></pre>
+<h2 id="文件系统">文件系统</h2>
+<ul>
+<li>
+<p>Linux 的正统文件系统则为 Ext2 (Linux second extended file system, ext2fs)这一个。此外，在默认的情况下，windows 操作系统是不会认识 Linux 的 Ext2 的。</p>
+</li>
+<li>
+<p>inode 表 每个文件都仅会占用一个 inode 而已,记录文件的属性及该文件实际数据是放置在哪几号 block 内；</p>
+</li>
+<li>
+<p>data block是用来放置文件内容数据地方，在 Ext2 文件系统中所支持的 block 大小有 1K, 2K 及 4K 三种而已</p>
+</li>
+<li>
+<p>一般来说，我们将 inode table 与 data block 称为数据存放区域，至于其他例如 superblock、 block bitmap 与 inode bitmap 等区段就被称为 metadata (中介数据) 啰，因为 superblock, inode bitmap 及 block bitmap 的数据是经常变动的，每次新增、移除、编辑时都可能会影响到这三个部分的数据</p>
+</li>
+</ul>
+<h2 id="swap">Swap</h2>
+<ul>
+<li>swap 的功能就是在应付物理内存不足的情况下所造成的内存延伸记录的功能。</li>
+<li>当物理内存不够时，则某些在内存当中所占的程序会暂时被移动到 swap 当中，让物理内存可以被需要的程序来使用。另外，如果你的主机支持电源管理模式， 也就是说，你的 Linux 主机系统可以进入『休眠』模式的话，那么， 运行当中的程序状态则会被纪录到 swap 去，以作为『唤醒』主机的状态依据！ 另外，有某些程序在运行时，本来就会利用 swap 的特性来存放一些数据段， 所以， swap 来是需要创建的！只是不需要太大！</li>
+</ul>
+<h2 id="vi">vi</h2>
+<pre><code>全部复制：按esc键后，先按gg，然后ggyG
+：set number 显示行号
+0/Home 移动到行前
+$/End  移动到行尾
+[Ctrl] + [f] 向下移动一页
+[Ctrl] + [b] 向上移动一页
+G	移动到这个档案的最后一行
+gg/1G  移动到第一行
+
+u 撤销
+o 当前位置下创建一行
+O 当前位置上创建一行
+dd 删除光标所在行
+x 删除光标后字符
+X 删除光标前字符
+yy 复制当前行
+p  粘贴
+J 当前行连接下一行
+
+v 字符选择
+V 行选择
+ctrl+v 区块选择
+y 复制选择
+d 删除选择
+
+/word  搜寻字符串	，光标之上
+?word  搜寻字符串，光标之下
+加入`\c`表示大小写不敏感查找，`\C`表示大小写敏感查找
+搜索A与B /.*A\&amp;.*B
+
+n      继续搜索
+N      反向搜索
+
+多行编辑
+ctrl+v j按多次 esc 
+
+vim 后面同时接好几个档案可同时开启 
+:n	编辑下一个档案
+:N	编辑上一个档案
+:files	列出目前这个 vim 的开启的所有档案
+
+//多窗口
+:sp [filename] 开启一个新窗口
+[ctrl]+w 放开+↓	 移到下方窗口
+[ctrl]+w 放开+↑	 移到上方窗口	
+</code></pre>
+<h2 id="bash">Bash</h2>
+<pre><code>/etc/shells 	查看可用的shell
+/etc/passwd     查看不同用户取得的默认shell
+/.bash_history  这个隐藏目录保存了使用的命令历史
+\+[Enter]       避免命令太长,多行使用
+</code></pre>
+<h2 id="scripts">scripts</h2>
+<ul>
+<li>
+<p>date +%Y%m%d 获取今天日期</p>
+<pre><code>   echo $(date '+%Y-%m-%d %H:%M:%S') &gt;&gt; $LOG_DIR/$LOG_NAME
+</code></pre>
+</li>
+<li>
+<p>script 的运行方式差异 (source, sh script, ./script)</p>
+</li>
+<li>
+<p>善用判断式</p>
+<ul>
+<li>
+<p>test</p>
+</li>
+<li>
+<p>[ &ldquo;VBird Tsai&rdquo; == &ldquo;VBird&rdquo; ]</p>
+<pre><code>  -e	该『档名』是否存在？(常用)
+  -f 该『档名』是否存在且为文件(file)？(常用)
+  -d	该『档名』是否存在且为目录(directory)？(常用)
+  -a	(and)两状况同时成立。
+  -o	(or)两状况任何一个成立。
+  !	反相状态，如 test ! -x file ，当 file 不具有 x 时，回传 true
+		
+  -eq	两数值相等 (equal)
+  -ne	两数值不等 (not equal)
+  -gt	n1 大於 n2 (greater than)
+  -lt	n1 小於 n2 (less than)
+  -ge	n1 大於等於 n2 (greater than or equal)
+  -le	n1 小於等於 n2 (less than or equal)	
+  $# ：代表后接的参数『个数』
+  ll ：代表『 &quot;$1c$2c$3c$4&quot; 』，其中 c 为分隔字节，默认为空白键， 所以本例中代表『 &quot;$1 $2 $3 $4&quot; 』之意。
+  $!  Shell最后运行的后台Process的PID
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Shell script 的默认变量($0, $1&hellip;)</p>
+<pre><code>  运行的脚本档名为 $0 这个变量，第一个接的参数就是 $1 啊
+</code></pre>
+</li>
+<li>
+<p>条件判断式</p>
+<pre><code>  //单条件
+  if [ 条件判断式 ]; then
+      当条件判断式成立时，可以进行的命令工作内容；
+  fi  
+	
+  //多条件
+  if [ 条件判断式一 ]; then
+      当条件判断式一成立时，可以进行的命令工作内容；
+  elif [ 条件判断式二 ]; then
+      当条件判断式二成立时，可以进行的命令工作内容；
+  else
+      当条件判断式一与二均不成立时，可以进行的命令工作内容；
+  fi
+	
+  //case
+  case  $变量名称 in   
+    &quot;第一个变量内容&quot;)   
+      程序段
+      ;;            
+    &quot;第二个变量内容&quot;)
+      程序段
+      ;;
+    *)                  
+      不包含第一个变量内容与第二个变量内容的其他程序运行段
+      exit 1
+      ;;
+  esac     
+</code></pre>
+</li>
+<li>
+<p>循环</p>
+<pre><code>  //满足条件才开始循环
+  while [ condition ] 
+  do            
+      程序段落
+  done          
+	
+  //满足才结束
+  until [ condition ]
+  do
+      程序段落
+  done
+
+  //固定循环
+  for var in con1 con2 con3 ...
+  do
+      程序段
+  done
+
+
+  for (( 初始值; 限制值; 运行步阶 ))
+  do
+      程序段
+  done
+</code></pre>
+</li>
+<li>
+<p>函数</p>
+<pre><code>  function fname() {
+      程序段
+  }
+</code></pre>
+</li>
+<li>
+<p>检查语法错误</p>
+<pre><code>   sh [-nvx] scripts.sh
+</code></pre>
+</li>
+<li>
+<p>sleep 3 #等3秒后执行下一条</p>
+<pre><code>  # 語法：sleep NUMBER[SUFFIX]
+  # SUFFIX 可以是:
+
+  # s for seconds (the default)
+  # m for minutes.
+  # h for hours.
+  # d for days.
+</code></pre>
+</li>
+</ul>
+<h2 id="账号管理">账号管理</h2>
+<ul>
+<li>
+<p>uid和gid</p>
+</li>
+<li>
+<p>涉及目录</p>
+<pre><code>  /etc/passwd
+  /etc/group
+  /etc/shadow
+	
+  groups            查看所有支持的群组
+  newgrp            有效群组的切换
+	
+  w/who             查询已登录的用户
+  useradd           增加用户
+                  参考:
+                      /etc/default/useradd
+                      /etc/login.defs
+                      /etc/skel/*
+
+  passwd  [用户]       修改用户密码
+                   echo &quot;abc543CC&quot; | passwd --stdin vbird2
+  userdel -r home     删除用户
+  id  [username]		            查询uid和gid
+  groupadd
+  groupmod                        group 相关参数的修改
+  groupdel
+  gpasswd                         群组管理员功能
+
+  //acl 权限
+  setfacl 
+  getfacl filename
+	
+  //切换
+  su - username 或 su -l username    切换用户
+  su - -c &quot;命令串&quot;                   只运行一次root命令
+  sudo                               以其他用户的身份运行命令( /etc/sudoers 内的用户才能够运行 sudo 这个命令)
+                                  e.g:
+                                  sudo -u sshd touch /tmp/mysshd
+  visudo                           修改sudo配置
+
+  //使用者对话
+  write 使用者账号 [用户所在终端接口]   指定用户发送信息
+  wall [message]                   对所有系统上面的用户传送简讯
+</code></pre>
+</li>
+<li>
+<p>PAM（Pluggable Authentication Modules 嵌入式授权模块）</p>
+<ul>
+<li>
+<p>用户输入指令，呼叫 PAM 模块进行验证</p>
+</li>
+<li>
+<p>PAM 模块会到 /etc/pam.d/ 找寻与程序 (passwd) 同名的配置文件</p>
+</li>
+<li>
+<p>将验证结果 (成功、失败以及其他信息) 回传给用户指令程序</p>
+</li>
+<li>
+<p>程序会根据 PAM 回传的结果决定下一个动作</p>
+<p><img src="http://cn.linux.vbird.org/linux_basic/0410accountmanager_files/pam-2.gif" alt="控制标准"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>检查工具</p>
+<pre><code>  pwck          检查用户配置信息
+  grpck         检查用户组配置信息
+  pwconv	  用户同步化将 /etc/passwd 内的账号与口令，移动到 /etc/shadow 
+</code></pre>
+</li>
+</ul>
+<h2 id="配额-quota">配额 Quota</h2>
+<ul>
+<li>
+<p>限制 filesystem的 容量等</p>
+</li>
+<li>
+<p>涉及目录,命令</p>
+<pre><code>  /etc/fstab
+  /etc/mtab                   文件系统是否支持配额
+  /etc/warnquota.conf         警告信息设置
+  quotaon -auvg               开启服务
+  quotaoff                    关闭服务
+  edquota                     编辑限制额度
+          -t      宽限时间
+          -u      用户
+          -g      用户组
+			
+  quota -uvs myuser &amp;&amp; quota -gvs myuser   查看配额
+  repquota -auvs                查看整个文件系统的配额
+</code></pre>
+</li>
+</ul>
+<h2 id="raid-磁盘阵列">Raid 磁盘阵列</h2>
+<ul>
+<li>一个磁盘容量不够时,这种机制将多个较小的磁碟整合成为一个较大的磁碟装置, 便于使用</li>
+<li>fdisk 命令</li>
+</ul>
+<h2 id="定时任务">定时任务</h2>
+<ul>
+<li>
+<p>单次任务 at</p>
+<pre><code>  /etc/init.d/atd restart
+  chkconfig atd on           配置自动启动
+  /var/spool/at/            日志记录
+  /etc/at.allow              使用者配置
+  /etc/at.deny               不能使用者配置
+
+  at -c n       查询第n个任务
+  at now + 5 minutes        创建任务
+  batch 23:00 2009-3-17    系统空间时开始任务
+	 
+  atq       查询所有单次任务
+  atrm  n   将第n个任务删除
+</code></pre>
+</li>
+<li>
+<p>循环任务 crontab</p>
+<pre><code>  /etc/crontab               系统任务
+  /usr/bin/crontab         用户任务
+  /etc/cron.allow
+  /etc/cron.deny
+  /var/spool/cron/[user]        任务创建日志记录
+  /var/log/cron                      任务运行日志记录
+
+  crontab -e              编辑任务
+          e.g: 59 23 1 5 * mail kiki &lt; /home/dmtsai/lover.txt
+  crontab -l              查看所有任务
+  run-parts               遍历目录中所有文件运行
+	
+  anacron               运行crontab 关机期间没有运行的任务
+	
+
+  minute   hour   day   month   week   command
+  星号（*）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。
+
+  逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”
+
+  中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
+
+  正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。
+	
+  前面五个*号代表五个数字，数字的取值范围和含义如下：
+
+  分钟　（0-59）  
+  小時　（0-23）  
+  日期　（1-31）  
+  月份　（1-12）  
+  星期　（0-6）//0代表星期天		
+  5 * * * *每小时第5分钟执行  
+  */5 * * * *每5分钟执行  
+  0 2 * * * 每天凌晨2点执行
+</code></pre>
+</li>
+</ul>
+<h2 id="程序管理">程序管理</h2>
+<pre><code> ps aux  &lt;==观察系统所有的程序数据
+ ps -l   仅观察自己的 bash 相关程序：
+ pstree  查看程序树,程序之间的关联性  ⇒ ps axjf
+ 
+ free    观察内存使用情况
+ top     查看程序运行状态 cpu,mem...
+     top -d 5 -p 13639
+     在 top 运行过程当中可以使用的按键命令：
+        ? ：显示在 top 当中可以输入的按键命令；
+        P ：以 CPU 的使用资源排序显示；
+        M ：以 Memory 的使用资源排序显示；
+        N ：以 PID 来排序喔！
+        T ：由该 Process 使用的 CPU 时间累积 (TIME+) 排序。
+        k ：给予某个 PID 一个讯号  (signal)
+        r ：给予某个 PID 重新制订一个 nice 值。
+        q ：离开 top 软件的按键。
+nice  新运行的命令即给予新的 nice 值
+            nice -n -5 vi &amp;
+renice [number] PID  已存在程序的 nice 重新调整
+uname [-asrmpi] 查阅系统与核心相关资讯
+uptime          观察系统启动时间与工作负载
+netstat -tlunp   追踪网络或插槽档
+vmstat          侦测系统资源变化
+fuser -uv [filename]  查看文件使用者
+lsof       读取程序使用的文件
+         lsof -u root -a -U
+         lsof +d /dev
+pidof ：找出某支正在运行的程序的 PID
+
+sestatus /getenforce  获取; 状态
+semanage fcontext -l [file] 查询SELinux安全配置
+		 
+rpm -qa | grep ssh          可以看到系统中ssh安装包
+rpm -ql openssh-3.5p1-6     查看该安装包安装信息(如安装路径,配置文件等)
+ps -e | grep ssh            查看ssh服务有没有运行,如果有,可以看到类似以下内容:
+</code></pre>
+<h2 id="daemon-服务">daemon 服务</h2>
+<ul>
+<li>
+<p>启动 daemon 的程序通常最末会加上一个 d ，例如 sshd, vsftpd, httpd 等</p>
+<pre><code>  /etc/services
+  /etc/init.d/* ：启动脚本放置处
+  /etc/sysconfig/* ：各服务的初始化环境配置文件
+  /etc/xinetd.conf, /etc/xinetd.d/* ：super daemon 配置文件
+  /etc/* ：各服务各自的配置文件
+  /var/lib/* ：各服务产生的数据库
+  /var/run/* ：各服务的程序之 PID 记录处
+
+   service --status-all  显示出目前系统上面所有服务的运行状态
+</code></pre>
+</li>
+<li>
+<p>配置demo</p>
+<pre><code>  # 先针对对内的较为松散的限制来配置：
+  service rsync
+  {
+          disable = no                        &lt;==要启动才行啊！
+          bind            = 127.0.0.1         &lt;==服务绑在这个接口上！
+          only_from       = 127.0.0.0/8       &lt;==只开放这个网域的来源登陆
+          no_access       = 127.0.0.{100,200} &lt;==限制这两个不可登陆
+          instances       = UNLIMITED         &lt;==取代 /etc/xinetd.conf 的配置值
+          socket_type     = stream            &lt;==底下的配置则保留
+          wait            = no
+          user            = root
+          server          = /usr/bin/rsync
+          server_args     = --daemon
+          log_on_failure  += USERID
+  }
+	
+  # 再针对外部的联机来进行限制呢！
+  service rsync
+  {
+          disable = no
+          bind            = 192.168.1.100
+          only_from       = 140.116.0.0/16
+          only_from      += .edu.tw           &lt;==因为累加，所以利用 += 配置
+          access_times    = 01:00-9:00 20:00-23:59 &lt;==时间有两时段，有空格隔开
+          instances       = 10                &lt;==只有 10 条联机
+          socket_type     = stream
+          wait            = no
+          user            = root
+          server          = /usr/bin/rsync
+          server_args     = --daemon
+          log_on_failure  += USERID
+  }		
+</code></pre>
+</li>
+</ul>
+<h2 id="防火墙">防火墙</h2>
+<ul>
+<li>
+<p>涉及</p>
+<pre><code>   /etc/hosts.{allow,deny}   进行类似防火墙的抵挡机制
+</code></pre>
+</li>
+</ul>
+<h2 id="log">log</h2>
+<ul>
+<li>
+<p>设计目录</p>
+<pre><code>  /etc/syslog.conf
+</code></pre>
+</li>
+</ul>
+<h2 id="linux-启动">Linux 启动</h2>
+<ul>
+<li>
+<p>Loader 的最主要功能是要认识操作系统的文件格式并据以加载核心到主内存中去运行</p>
+<pre><code>   /etc/inittab
+   /etc/rc.d/rc.sysinit     init 处理系统初始化流程 
+   /etc/sysconfig/         启动过程中存放的默认配置档
+   /etc/rc.d/rc N           不同的 run level 服务启动的各个 shell script 
+   /etc/rc.d/rc.local 		 自定义启动shell script
+	
+   runlevel                目前的 run level
+        init 3                   将目前的 runlevel 切换成为 3 
+       『 init 0 』就能够关机， 而『 init 6 』就能够重新启动
+</code></pre>
+</li>
+<li>
+<p>核心模块</p>
+<pre><code>  核心： /boot/vmlinuz 或 /boot/vmlinuz-version；
+  核心解压缩所需 RAM Disk： /boot/initrd (/boot/initrd-version)；
+  核心模块： /lib/modules/version/kernel 或 /lib/modules/$(uname -r)/kernel；
+  核心原始码： /usr/src/linux 或 /usr/src/kernels/ (要安装才会有，默认不安装)
+</code></pre>
+</li>
+</ul>
+<h2 id="网络">网络</h2>
+<ul>
+<li>
+<p>涉及</p>
+<pre><code>   /etc/resolv.conf
+   /etc/init.d/network restart
+   /etc/sysconfig/iptables
+</code></pre>
+</li>
+</ul>
+<h2 id="gcc">gcc</h2>
+<pre><code># 会自动的产生 hello.o 这个文件，并且进行最佳化喔！
+gcc -O hello.c -c
+# 进行 binary file 制作时，将连结的函式库与相关的路径填入
+gcc sin.c -lm -L/usr/lib -I/usr/include
+# 在编译的时候，输出较多的信息说明
+gcc -o hello hello.c -Wall
+</code></pre>
+<h2 id="make">make</h2>
+<ul>
+<li>
+<p>makefile</p>
+<pre><code>  最终目标(target): 目标档1 目标档2
+  &lt;tab&gt;   gcc -o 欲创建的运行档 目标档1 目标档2	
+  # vi makefile
+  LIBS = -lm
+  OBJS = main.o haha.o sin_value.o cos_value.o
+  main: ${OBJS}
+          gcc -o main ${OBJS} ${LIBS}
+  clean:
+          rm -f main ${OBJS}		
+</code></pre>
+</li>
+<li>
+<p>使用</p>
+<pre><code>   make clean main
+</code></pre>
+</li>
+</ul>
+<h2 id="软件安装">软件安装</h2>
+<pre><code> /usr/local  自行安装的软件一般放置处
+        /usr/local/xx/etc      配置
+        /usr/local/xx/bin      运行
+        /usr/local/xx/lib      函数库
+        /usr/local/xx/man		说明	
+</code></pre>
+<h2 id="函数库">函数库</h2>
+<pre><code> /etc/ld.so.conf  想要读入高速缓存当中的动态函式库所在的目录
+ ldconfig -p      列出目前有的所有函式库数据内容 (在 /etc/ld.so.cache 内的数据！)
+ ldd /usr/bin/passwd  找出 /usr/bin/passwd 这个文件的函式库数据
+  md5sum CentOS-5.3-i386-netinstall.iso
+  sha1sum CentOS-5.3-i386-netinstall.iso  查看加密码
+</code></pre>
+<h2 id="rpm-管理">rpm 管理</h2>
+<ul>
+<li>
+<p>RPM 全名是『 RedHat Package Manager 』简称则为 RPM 啦！顾名思义，当初这个软件管理的机制是由 Red Hat 这家公司发展出来的。 RPM 是以一种数据库记录的方式来将你所需要的软件安装到你的 Linux 系统的一套管理机制。</p>
+<ul>
+<li>软件文件安装的环境必须与打包时的环境需求一致或相当；</li>
+<li>需要满足软件的相依属性需求；</li>
+<li>反安装时需要特别小心，最底层的软件不可先移除，否则可能造成整个系统的问题！</li>
+</ul>
+</li>
+<li>
+<p>SRPM  Source RPM 的意思，这个 SRPM 所提供的软件内容『并没有经过编译』， 他提供的是原始码</p>
+<ul>
+<li>先将该软件以 RPM 管理的方式编译，此时 SRPM 会被编译成为 RPM 文件；</li>
+<li>然后将编译完成的 RPM 文件安装到 Linux 系统当中</li>
+</ul>
+</li>
+<li>
+<p>涉及目录命令</p>
+<pre><code>  /var/lib/rpm/    软件相关信息的数据库放置处
+  rpm -ivh package_name    安装
+  rpm -Fvh package_name    rpm升级
+	
+  //查询安装
+  rpm -qa                           查询全部已安装软件
+  rpm -q[licdR] 已安装的软件名称       已安装软件
+	
+              -q  ：仅查询，后面接的软件名称是否有安装；
+              -qa ：列出所有的，已经安装在本机 Linux 系统上面的所有软件名称；
+              -qi ：列出该软件的详细资讯 (information)，包含开发商、版本与说明等；
+              -ql ：列出该软件所有的文件与目录所在完整档名 (list)；
+              -qc ：列出该软件的所有配置档 (找出在 /etc/ 底下的档名而已)
+              -qd ：列出该软件的所有说明档 (找出与 man 有关的文件而已)
+              -qR ：列出与该软件有关的相依软件所含的文件 (Required 的意思)
+              -qf ：由后面接的文件名称，找出该文件属於哪一个已安装的软件；				
+
+  rpm -qf 存在於系统上面的某个档名      已安装软件
+  rpm -qp[licdR] 未安装的某个文件名称   查阅RPM文件		
+	
+  //查询修改
+  rpm -Va       
+  rpm -V  已安装的软件名称
+  rpm -Vp 某个 RPM 文件的档名
+  rpm -Vf 在系统上面的某个文件
+	
+  //卸载
+   rpm -e package_name    卸载
+   rpm --rebuilddb        重置rpm数据库
+</code></pre>
+</li>
+</ul>
+<h2 id="yum-管理">yum 管理</h2>
+<ul>
+<li>
+<p>Yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装</p>
+</li>
+<li>
+<p>命令</p>
+<pre><code>  vi /etc/yum.repos.d/CentOS-Base.repo   配置yum
+  yum repolist all
+  yum list updates  	列出目前服务器上可供本机进行升级的软件有哪些
+  yum info mdadm    找出 mdadm 这个软件的功能为何
+  yum search raid       查找相关软件
+	
+  yum [install|update] 软件
+  yum [remove] 软件
+  yum clean
+</code></pre>
+</li>
+</ul>
+<h1 id="服务器">服务器</h1>
+<h2 id="网络-1">网络</h2>
+<ul>
+<li>
+<p>ip</p>
+<pre><code>  Public IP : 公共 IP ，经由 INTERNIC 所统一规划的 IP，有这种 IP 才可以连上 Internet ；
+	
+  Private IP : 私有 IP 或保留 IP，不能直接连上 Internet 的 IP ， 主要用于局域网络内的主机联机规划。
+
+  Netmask, (子网掩码)，达成子网的切分
+  Network/Netmask
+  192.168.0.0/255.255.255.0
+  192.168.0.0/24    &lt;==因为 Net_ID 共有 24 个 bits	
+
+  Class A, B, C 三个等级的 Netmask 表示方式：
+  Class A : 11111111.00000000.00000000.00000000 ==&gt; 255.  0.  0.  0
+  Class B : 11111111.11111111.00000000.00000000 ==&gt; 255.255.  0.  0
+  Class C : 11111111.11111111.11111111.00000000 ==&gt; 255.255.255.  0
+			
+  要是给予 Net_ID 是 26 位时，总共分为几段呢？ 因为 26-24=2 ，所以总共用掉两个位，因此有 2 的 2 次方，得到 4 个网段。再将 256 个 IP 平均分配到 4 个网段去
+
+  网关/路由器的功能就是在负责不同网域之间的封包转递 (IP Forwarding) 如192.168.0.1 、192.168.1.1
+  route  查看路由表 
+</code></pre>
+</li>
+<li>
+<p>cmd</p>
+<pre><code>   MTU (Maximum Transmission Unit, 最大传输单位)
+
+  ifconfig interface {options} 	  	 查看ip网络参数
+          选项与参数：
+          interface：网络卡接口代号，包括 eth0, eth1, ppp0 等等
+          options  ：可以接的参数，包括如下：
+              up, down ：启动 (up) 或关闭 (down) 该网络接口(不涉及任何参数)
+              mtu      ：可以设定不同的 MTU 数值，例如 mtu 1500 (单位为 byte)
+              netmask  ：就是子屏蔽网络；
+              broadcast：就是广播地址啊！
+			
+			
+  /etc/init.d/network restart  重启网络
+  route -n   网络路由状态
+
+  ip link show  显示所有接口信息
+  ip link set [device] [动作与参数]
+  ip address show	  显示所有ip地址
+  ip address [add|del] [IP参数] [dev 装置名] [相关参数]
+  netstat -tlunp   追踪网络或插槽档
+</code></pre>
+</li>
+</ul>
+<h2 id="服务">服务</h2>
+<ul>
+<li>
+<p>共 65536 个 port</p>
+<ul>
+<li>root 身份才能启动小于1024的端口</li>
+<li>大于1024 的端口为client 端的软件激活的 port</li>
+</ul>
+</li>
+<li>
+<p>命令</p>
+<pre><code>  netstat：在本机上面以自己的程序监测自己的 port；	
+      netstat -tlunp 
+  nmap：透过网络的侦测软件辅助，可侦测非本机上的其他网络。
+	
+  /etc/supervisor/conf.d  设置服务处
+  /etc/resolv.conf   DNS 主机 IP 的设定
+</code></pre>
+</li>
+</ul>
+<h2 id="防火墙-1">防火墙</h2>
+<pre><code> iptables-save 观察防火墙规则
+ iptables [-t nat] -P [INPUT,OUTPUT,FORWARD] [ACCEPT,DROP]  定义预设政策 (policy)
+ 
+ iptables [-AI 链名] [-io 网络接口] [-p 协议] [-s 来源IP/网域] [-d 目标IP/网域] -j [ACCEPT|DROP|REJECT|LOG]
+     iptables -A INPUT -i eth1 -s 192.168.100.0/24 -j ACCEPT
+     iptables -A INPUT -i eth0 -p tcp --dport 139 -j ACCEPT
+
+    选项与参数：
+    -AI 链名：针对某的链进行规则的 &quot;插入&quot; 或 &quot;累加&quot;
+        -A ：新增加一条规则，该规则增加在原本规则的最后面。例如原本已经有四条规则，
+             使用 -A 就可以加上第五条规则！
+        -I ：插入一条规则。如果没有指定此规则的顺序，默认是插入变成第一条规则。
+             例如原本有四条规则，使用 -I 则该规则变成第一条，而原本四条变成 2~5 号
+        链 ：有 INPUT, OUTPUT, FORWARD 等，此链名称又与 -io 有关，请看底下。
+	
+    -io 网络接口：设定封包进出的接口规范
+        -i ：封包所进入的那个网络接口，例如 eth0, lo 等接口。需与 INPUT 链配合；
+        -o ：封包所传出的那个网络接口，需与 OUTPUT 链配合；
+	
+    -p 协定：设定此规则适用于哪种封包格式
+       主要的封包格式有： tcp, udp, icmp 及 all 。
+	
+    -s 来源 IP/网域：设定此规则之封包的来源项目，可指定单纯的 IP 或包括网域，例如：
+       IP  ：192.168.0.100
+       网域：192.168.0.0/24, 192.168.0.0/255.255.255.0 均可。
+       若规范为『不许』时，则加上 ! 即可，例如：
+       -s ! 192.168.100.0/24 表示不许 192.168.100.0/24 之封包来源；
+	
+    -d 目标 IP/网域：同 -s ，只不过这里指的是目标的 IP 或网域。
+	
+    -j ：后面接动作，主要的动作有接受(ACCEPT)、丢弃(DROP)、拒绝(REJECT)及记录(LOG)
+    --sport 埠口范围：限制来源的端口号码，端口号码可以是连续的，例如 1024:65535
+    --dport 埠口范围：限制目标的端口号码。
+
+    -m ：一些 iptables 的外挂模块，主要常见的有：
+         state ：状态模块
+         mac   ：网络卡硬件地址 (hardware address)
+    --state ：一些封包的状态，主要有：
+         INVALID    ：无效的封包，例如数据破损的封包状态
+         ESTABLISHED：已经联机成功的联机状态；
+         NEW        ：想要新建立联机的封包状态；
+         RELATED    ：这个最常用！表示这个封包是与我们主机发送出去的封包有关
+</code></pre>
+<h2 id="tmux">tmux</h2>
+<ul>
+<li>
+<p>窗口神器</p>
+<pre><code>  打开新窗格 
+       ctrl+b %   竖直
+       ctrl+b &quot;     水平
+      切换 ctrl+b 方向	 
+  打开新窗口      ctrl+b c
+      切换 ctrl+b 数字
+</code></pre>
+</li>
+</ul>
+<h2 id="ssh">ssh</h2>
+<blockquote>
+<p>目前 SSH 的协议版本有两种，分别是 version 1 与 version 2 ，其中 V2 由于加上了联机检测的机制， 可以避免联机期间被插入恶意的攻击码，因此比 V1 还要更加的安全</p>
+</blockquote>
+<h2 id="dns">DNS</h2>
+<blockquote>
+<p>Domain Name System，域名系统</p>
+</blockquote>
+<p>##参考</p>
+<ul>
+<li>鸟哥的私房菜</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Kafka机制一览</title>
+      <link>https://justinbetter.github.io/2019/06/05/kafka%E6%9C%BA%E5%88%B6%E4%B8%80%E8%A7%88/</link>
+      <pubDate>Wed, 05 Jun 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/06/05/kafka%E6%9C%BA%E5%88%B6%E4%B8%80%E8%A7%88/</guid>
+      <description>Kafka： topic、producer、consumer、broker topic本质就是一个目录,由一些Partition Logs(分区日</description>
+      <content:encoded><![CDATA[<p>Kafka：
+topic、producer、consumer、broker</p>
+<p>topic本质就是一个目录,由一些Partition Logs(分区日志)组成（便于集群拓展、提高并发）
+Kafka需要维持的元数据只有一个–消费消息在Partition中的offset值，Consumer每消费一个消息，offset就会加1。
+其实消息的状态完全是由Consumer控制的，Consumer可以跟踪和重设这个offset值，这样的话Consumer就可以读取任意位置的消息</p>
+<p>允许用户为每个topic设置副本数量，副本数量决定了有几个broker来存放写入的数据；副本都是以partition为单位的，不过只有一个partition的副本会被选举成leader作为读写用</p>
+<p>从Producer端看：Kafka是这么处理的，当一个消息被发送后，Producer会等待broker成功接收到消息的反馈（可通过参数控制等待时间），如果消息在途中丢失或是其中一个broker挂掉，Producer会重新发送（我们知道Kafka有备份机制，可以通过参数控制是否等待所有备份节点都收到消息）。
+从Consumer端看：前面讲到过partition，broker端记录了partition中的一个offset值，这个值指向Consumer下一个即将消费message。当Consumer收到了消息，但却在处理过程中挂掉，此时Consumer可以通过这个offset值重新找到上一个消息再进行处理。Consumer还有权限控制这个offset值，对持久化到broker端的消息做任意处理。</p>
+<p>为什么快？
+顺序读写、分区、零拷贝、批量发送、数据压缩；
+如何提高？生产端调整 batch.size、linger.ms（最多等待时间） 参数，以及主题分区数合理分配等。</p>
+<p>存储？
+在Kafka文件存储中，同一个topic下有多个不同partition，每个partition为一个目录，partiton命名规则为topic名称+有序序号
+partition目录下Segment file组成：由2大部分组成，分别为index file和data file，此2个文件一一对应，成对出现，后缀”.index”和“.log”分别表示为segment索引文件、数据文件。</p>
+<p>生产者机制？
+生产的流程主要就是一个producer线程和一个sender线程，它们之间通过BatchQueue来获取数据，它们的关系是一一对应的，所以kafka的生产过程都是异步过程，
+数据最终是放在BatchQueue，像是将水流入了一个蓄水池的场景，这就是蓄水池机制
+每条消息先从MetaData里面获取分区信息，再申请一段buffer空间形成一个批接收空间，RecordAccumulator 会将收到的每条消息append到这个buffer中，最后将每个批次压入到队列当中，等待Sender线程来获取发送。
+buffer空间 ：
+BufferPool（缓冲池）对象，整个KafkaProducer实例中只有一个BufferPool对象。内存池总大小，它是已使用空间和可使用空间的总和，内存缓冲池的设计，让整个发送过程中的存储空间循环利用，有效减少JVM GC造成的影响
+Sender 是一个发送线程，负责读取记录收集器中缓存的批量消息，经过一些中间转换操作，将要发送的数据准备好，然后交由 Selector 进行网络传输。
+<a href="https://zhuanlan.zhihu.com/p/137811719">https://zhuanlan.zhihu.com/p/137811719</a></p>
+<p>消息是kafka中最基本的数据单元，一条消息由key,value组成，producer往broker中的指定topic中发送一条消息，producer会根据这条消息的key的hashcode值%分区数取模，来确定这个消息分配到那个Partition分区；
+acks参数指定了必须要有多少个分区副本收到消息，生产者才认为该消息是写入成功的
+acks=0，表示生产者在成功写入消息之前不会等待任何来自服务器的响应.
+acks=1，表示只要集群的leader分区副本接收到了消息，就会向生产者发送一个成功响应的ack，
+acks =all,表示只有所有参与复制的节点(ISR列表的副本)全部收到消息时，生产者才会接收到来自服务器的响应；延迟高</p>
+<p>消费者机制？
+Kafka有两种模式消费数据：队列 和发布订阅 ；在队列模式下，一条数据只会发 送给 customer group中的一个 customer 进行消费；在发布订阅模式下，一条数据会发送给多个 customer进行消费。
+消费者组，那自然是由消费者组成的，组内可以有一个或多个消费者实例，而这些消费者实例共享一个id，称为group id
+一个消费者组中，每一个分区只能由组内的一消费者订阅；消费者组大于分区数多的会空闲
+重平衡（Rebalance）其实就是一个协议，它规定了如何让消费者组下的所有消费者来分配topic中的每一个分区；kafka基本处于不可用状态
+Kafka的数据是按照分区进行排序(插入的顺序 )，也就是每个分区中的数据有序的，但是多个分区之间做不到全局有序</p>
+<p>零拷贝原理：
+传统拷贝涉及到用户空间和内核空间的切换，使用DMA可以直接存取内存，不需要CPU调度；
+通过DMA直接网卡访问内存，实现零拷贝；
+操作系统提供 了一个优化的代码路径，页缓存到socket，linux上是通过 sendfile 系统调用来
+Kafka在文件传输的过程中正是使用了零拷贝技术对文件进行拷贝</p>
+<p>选举？
+quorum（法定人数）
+quorum是一种在分布式系统中常用的算法，主要用来通过数据冗余来保证数据一致性的投票算法。在kafka中该算法的实现就是ISR，在ISR中就是可以被选举为leader的法定人数。
+ISR（in-sync replicas）列表。每个分区的 leader 会维护一个 ISR 列表，ISR 列表里面就是 follower 副本的 Borker 编号，只有跟得上 Leader 的 follower 副本才能加入到 ISR 里面
+当 Leader 挂掉了，而且 unclean.leader.election.enable=false 的情况下，Kafka 会从 ISR 列表中选择第一个 follower 作为新的 Leader</p>
+<p>如何保证数据一致性的？
+一致性定义:若某条消息对Consumer可见,那么即使Leader宕机了,在新Leader上数据依然可以被读到
+因为所有的 ISR 都同步了 Message2，只有 High Water Mark 以上的消息才支持 Consumer 读取，而 High Water Mark 取决于 ISR 列表里面偏移量最小的分区，对应于上图的副本2，这个很类似于木桶原理。
+HighWaterMark简称HW: Partition的高水位，取一个partition对应的ISR中最小的LEO作为HW，消费者最多只能消费到HW所在的位置，另外每个replica都有highWatermark，leader和follower各自负责更新自己的highWatermark状态，highWatermark &lt;= leader. LogEndOffset
+对于Leader新写入的msg，Consumer不能立刻消费，Leader会等待该消息被所有ISR中的replica同步后,更新HW,此时该消息才能被Consumer消费，即Consumer最多只能消费到HW位置
+这样就保证了如果Leader Broker失效,该消息仍然可以从新选举的Leader中获取。对于来自内部Broker的读取请求,没有HW的限制。同时,Follower也会维护一份自己的HW,Folloer.HW = min(Leader.HW, Follower.offset)</p>
+<p>HW缺陷？
+消息同步LEO不一致，follower日志截断，异步延迟，
+leader 中保存的 remote LEO 值的更新总是需要额外一轮 fetch RPC 请求才能完成，这意味着在 leader 切换过程中，会存在数据丢失以及数据不一致的问题
+为了解决 HW 更新时机是异步延迟，leader epoch 机制，在每个副本日志目录下都创建一个 leader-epoch-checkpoint 文件用于保存 leader 的 epoch 信息</p>
+<p>副本机制？
+在Kafka集群中，会有一个broker被选举出来作为controller，这个controller负责管理和协调Kafka集群中的所有节点
+controller会在集群启动时为每个节点注册一个监听器，当节点发生改变时可以动态的管理节点，在管理副本时，Kafka通过ISR机制管理副本同步，还会选举出leader来管理整个集群的数据和同步配置信息</p>
+<p>Kafka 分区数越多性能就越好吗？为什么？
+每个分区数都对应一个 log 文件，log 文件是顺序写的，但如果有非常多分区同时刷盘，就会变相成乱序写了
+客户端会为每个分区调用一条线程处理，多线程并发地处理分区消息，分区越多，意味着处理的线程数也就越多
+一个 broker 挂掉后，如果此时分区特别多，Kafka 分区 leader 重新选举的时间大大增加
+客户端在会为每个分区分配一定的缓冲区，如果分区过多，分配的内存也越大</p>
+<p>有序？
+卡夫卡是无法保证全局的消息顺序性的，只能保证主题的某个分区的消息顺序性
+如何保证？需要有序的消息都发往同一个分区，这样就保证了局部有序；</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>读和时间作朋友</title>
+      <link>https://justinbetter.github.io/2019/03/03/%E8%AF%BB%E5%92%8C%E6%97%B6%E9%97%B4%E4%BD%9C%E6%9C%8B%E5%8F%8B/</link>
+      <pubDate>Sun, 03 Mar 2019 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2019/03/03/%E8%AF%BB%E5%92%8C%E6%97%B6%E9%97%B4%E4%BD%9C%E6%9C%8B%E5%8F%8B/</guid>
+      <description>看完一本对自己有价值的书--李笑来先生的《和时间作朋友》，总想说点什么。 一开始其实并没有想写这篇文章的冲动，我自己认为我的文笔不算好（样本数</description>
+      <content:encoded><![CDATA[<pre><code>看完一本对自己有价值的书--李笑来先生的《和时间作朋友》，总想说点什么。
+一开始其实并没有想写这篇文章的冲动，我自己认为我的文笔不算好（样本数量屈指可数的情况下），也没有几个朋友有阅读我文章的冲动，加上主要原因--懒惰，就更没有写的必要了。
+为什么又下笔了呢？实在是有与人诉说的需求没有得到满足，本来嘛，一本书写的好，鸡汤满满，整的你热血沸腾的，出于善意的思维，你总是想分享给你的朋友，他们看了，也热血沸腾的，就完事了。于是当我满心欢喜地安利给我的一些朋友以后，我想当然地认为以我不差的审美，他们总该会翻翻看看，了解个大概，再决定是否有精读的必要。结果却并不如此。
+我开始思考为什么会出现这样的现象？
+是我不了解他们吗？是不明白他们真正的需要吗？还是他们正处在一个非常繁忙的局面，没有闲暇去读你觉得有价值的东西？抑或只是懒惰罢了？
+我思考后的感悟是，人一生的很多时候会选择相信自己，而不会轻易去听别人的。即便是成功如马云、雷军、李笑来那样的一帮人，推荐自己深有感触的价值读物，依然会有很多人质疑。
+下面是我整理的读书笔记。
+
+我们很多人常常面临无法按计划完成任务的困境，生活中的噪音无时无刻不在影响着你的专注力，我们能做的是接受现实，提高心智，相信积累的力量，这是本书的开头。
+首先解释了心智的概念：过往获得的一切知识及经验的总和。
+心智只要开启了，无论正反，都会自我积累，自我过滤，根深蒂固。而我们以往的经验局限，可能会融入心智，造成拒绝学习的判断，所以为了摆脱局限，我们需要正向地提升自己的心智力量。
+如何提高心智？
+开始接受当前现状，在“任务速成”绝无可能的情况下，用自己有的去交换自己要的，如果啥都没有，只能毫不怀疑地相信努力勤奋总会有的。接受现状才是最优策略。
+面临的困难？
+由于侯士达法则：完成任务花费的时间总会超过计划的时间--主要原因在于任务有熟悉和陌生的区别。我们要做的是判断任务熟悉程度，接受一定的未知，立即行动。
+在行动的过程中不要假装很努力，因为真正重要的事情也会面临枯燥无味，学会三思而后行，what why how，在行动过程中可以考虑把一个非机械的任务和机械的任务并行搭配，养成精细拆分任务的习惯，提高效率。
+如果面临焦虑，可以参考柳比歇夫先生的事件时间日志的方式，通过记录自己的时间流量，感知到时间流逝，战胜自己的焦虑。
+执行任务的策略？
+定制良好的计划，计划的目的是为了验收，任务执行结束后，对比自己之前记录的标准，想想。
+如何学习的主要手段：试错、观察、阅读、正确的思考，同时要考虑个体和群体的经验局限；一个人的自学能力依赖于阅读理解、检索能力、写作能力以及实践能力，永远保持开放的心态，不要‘选择性输入’，只看到自己想看的。
+了解一些逻辑常识？
+把权威当作辅助工具。避免一些基础概念不清、因果颠倒、命题关系不分、举证责任、偷换概念等错误，理解双盲测试的概念（病人对药物判断的隔离、工作人员对分发药物的隔离）。
+人类普遍拥有的一个认知偏差就是：把成功揽到自己身上，把失败归咎于别人或者坏运气。（这在心理学上有个术语，叫做“自利性偏差(Self-servingBias)”。与其关注成功者，不如多吸取失败者的经验。
+道理都明白，可就是做不到的？原因是恐惧和懦弱。办法只有克服。
+最好提高一些沟通能力？
+学会倾听，等到对方把话说完再质疑；通过努力、积累成为能说更多话的人，想办法不时做出令人敬佩的事情，就会有人主动找你做朋友；讨论需要双方遵守理性讨论基本原则，真理是独立于个人和群体的，不同变化的只是人们对真理的解释和理解。
+往往并不是有兴趣才能做好，而是做好了才有兴趣？
+如何做好？正确的策略加重复。遇到痛苦怎么办？利用大脑的遗忘机制转移痛苦。重复犯错？这是遗忘机制的副作用，可以用文字、图片的方式记录自己当时的尴尬，提醒自己不要去犯同样的错误。
+最后提了一些感悟：
+浪费时间、虚度年华的人，有一个共同的特征——拼命想控制自己完全不能控制的事物，却在自己真正能掌控的地方彻底失控；不要这样，结果已经在你积累的过程中体现。         
+接受一个关于运气的现实：概率是独立于任何人存在的，因此绝对不会仅因为我的期望就发生任何变化。
+利用鸡尾酒会效应，记录自己可能需要的信息方向，遇到相关信息时注意力就会被潜意识关注。灵巧的勤奋才能迸发灵感。
+永远鼓励身边的人，大多数人是以泼水为乐的，别作大多数。
+努力的过程中不要忘记给自己留有空间。
+选择意味着放弃，选择之前确定自己想要什么。
+找到正确的节奏，凡是值得做的事情，都值得慢慢去做，做很久很久。
+为值得的人提供帮助。不要试图证明自己，结果反而会适得其反。
+    
+大体上来说，这是一本激励人心的书，看完以后倍感热血，对于冷漠太久的内心不算坏事。
+最后想想，为什么一定要别人听我的呢？还是心智力量不足啊。想想我分享了美好的东西，这东西本身就是美好的，又哪里缺少欣赏的人呢。
+如今我已经记录下来这些感想，至少有个地方听到了。
+</code></pre>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>正则</title>
+      <link>https://justinbetter.github.io/2018/07/18/%E6%AD%A3%E5%88%99/</link>
+      <pubDate>Wed, 18 Jul 2018 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2018/07/18/%E6%AD%A3%E5%88%99/</guid>
+      <description>[TOC] 正则 正则表达式(regular expression)描述了一种字符串匹配的模式（pattern） 元字符 一些有特殊含义的字符，帮助建立匹配规</description>
+      <content:encoded><![CDATA[<p>[TOC]</p>
+<h1 id="正则">正则</h1>
+<pre><code>正则表达式(regular expression)描述了一种字符串匹配的模式（pattern）
+</code></pre>
+<h2 id="元字符">元字符</h2>
+<p>一些有特殊含义的字符，帮助建立匹配规则</p>
+<pre><code>\ 转义字符
+^ 匹配开始位置 ps：当在一组方括号里使用^是，它表示&quot;非&quot;或&quot;排除&quot;的意思，常常用来剔除某个字符。
+$ 匹配结束位置	
+    ps：字符^和$同时使用时，表示精确匹配（字符串与模式一样），分开使用，只匹配字符串首或尾
+
++ 一次或多次
+* 0次或多次
+</code></pre>
+<p>ps：</p>
+<pre><code>？0次或1次,也可以将默认的贪婪模式转变为非贪婪，例如，对于字符串 &quot;oooo&quot;，'o+?' 将匹配单个 &quot;o&quot;，而 'o+' 将匹配所有 'o'。
+    （?:pattern) 获取匹配结果，但是不需要存储为分组结果	
+    （?=pattern) 例如，&quot;Windows(?=95|98|NT|2000)&quot;能匹配&quot;Windows2000&quot;中的&quot;Windows&quot;，但不能匹配&quot;Windows3.1&quot;中的&quot;Windows&quot;。
+     (?!pattern) 例如&quot;Windows(?!95|98|NT|2000)&quot;能匹配&quot;Windows3.1&quot;中的&quot;Windows&quot;，但不能匹配&quot;Windows2000&quot;中的&quot;Windows&quot;。
+
+
+{n,m} 限定出现次数
+
+*、+限定符都是贪婪的，因为它们会尽可能多的匹配文字，只有在它们的后面加上一个?就可以实现非贪婪或最小匹配。
+
+[^指定字符串] 指的是除指定字符串以外的其他字符串
+[] 匹配其中之一，可匹配字符组的一个列表，
+（） 可作为子匹配进行分组缓存，分组获取的结果可以通过组编号（从1开始）拿出，
+    **\n访问分组的引用**，可以用来去重
+
+x|y 匹配 x 或 y
+\s 匹配任何空白字符，包括空格、制表符、换页符等
+\S 匹配任何非空白字符
+\n 匹配一个换行符
+\r 匹配一个回车符
+. 匹配除换行符 \n 之外的任何单字符
+\b 匹配一个单词边界，是不是在单词的首尾；\B 相反
+\d 匹配一个数字字符。等价于 [0-9]。
+\D 匹配一个非数字字符。等价于 [^0-9]。
+\w 匹配字母、数字、下划线。等价于'[A-Za-z0-9_]'。
+[a-z]  //匹配所有的小写字母
+[A-Z]  //匹配所有的大写字母
+[a-zA-Z]  //匹配所有的字母
+[0-9]  //匹配所有的数字
+[0-9\.\-]  //匹配所有的数字，句号和减号
+[ \f\r\t\n]  //匹配所有的白字符
+</code></pre>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>记录类型转换引起的索引失效</title>
+      <link>https://justinbetter.github.io/2018/05/05/%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/</link>
+      <pubDate>Sat, 05 May 2018 20:00:22 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2018/05/05/%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/</guid>
+      <description>mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行</description>
+      <content:encoded><![CDATA[<p>mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。
+可以在sql中进行显示转换，或者在执行时自动进行隐式转换（应该避免，效率低且容易出错）。</p>
+<p>比如对于字符的查询，如果传入数字，则不能用索引，用单引号括起来才能用上索引。
+原因是对于数字的1， 字符串‘1’， ‘01’，‘0001’都和它相等。从而就没法使用索引；
+而反过来可以看出对于数字的查询传入字符串和数字都能用上索引；</p>
+<p>string与number的类型进行对比为什么会导致索引失效以至于全表扫描呢。
+原来对于column为string类型的索引，如果有三个值分别为&rdquo; 1&rdquo;,&rdquo; 1&rdquo;,“1a”。
+在进行隐式转换成number后的值都为1。这种情况下索引自然就不可用。
+mysql便不会通过索引进行快速查询，而是将对对应column全部进行类型转换后通过全表扫描来进行查询。</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Den Theme Preview</title>
+      <link>https://justinbetter.github.io/2018/03/06/den-theme-preview/</link>
+      <pubDate>Tue, 06 Mar 2018 16:01:23 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2018/03/06/den-theme-preview/</guid>
+      <description>&lt;p&gt;This is a simple preview for styles in Den.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>This is a simple preview for styles in Den.</p>
+<h2 id="header">Header</h2>
+<p>A paragraph is like this.</p>
+<p>A paragraph might be very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long.</p>
+<h3 id="headers">Headers</h3>
+<h4 id="headers-1">Headers</h4>
+<h2 id="code-blocks">Code blocks</h2>
+<pre><code>text code blocks
+text code blocks
+text code blocks
+text code blocks
+</code></pre>
+<h2 id="highlighted-code-blocks">Highlighted Code Blocks</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</code></pre></div><h2 id="blockquotes">Blockquotes</h2>
+<blockquote>
+<p>This is a blockquote with two paragraphs. This is first paragraph.</p>
+<p>This is second pragraph.</p>
+</blockquote>
+<h2 id="lists">Lists</h2>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<ol>
+<li>Red</li>
+<li>Green</li>
+<li>Blue
+<ul>
+<li>A</li>
+<li>B</li>
+<li>C
+<ol>
+<li>D</li>
+<li>E</li>
+<li>F</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="task-list">Task List</h2>
+<ul>
+<li><input disabled="" type="checkbox"> a task list item</li>
+<li><input disabled="" type="checkbox"> list syntax <del>required</del></li>
+<li><input disabled="" type="checkbox"> normal <strong>formatting</strong></li>
+<li><input disabled="" type="checkbox"> incomplete</li>
+<li><input checked="" disabled="" type="checkbox"> completed</li>
+</ul>
+<h2 id="formatted-texts">Formatted Texts</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Markdown</th>
+<th>HTML tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Emphasis</em></td>
+<td>*Emphasis*</td>
+<td><code>&lt;em&gt;&lt;/em&gt;</code></td>
+</tr>
+<tr>
+<td><strong>Strong</strong></td>
+<td>**Strong**</td>
+<td><code>&lt;strong&gt;&lt;/strong&gt;</code></td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>`code`</td>
+<td><code>&lt;code&gt;&lt;/code&gt;</code></td>
+</tr>
+<tr>
+<td><del>Strikethrough</del></td>
+<td>~~Strikethrough~~</td>
+<td><code>&lt;del&gt;&lt;/del</code></td>
+</tr>
+<tr>
+<td><strong>Underline</strong></td>
+<td>__underline__</td>
+<td><code>&lt;u&gt;&lt;/u&gt;</code></td>
+</tr>
+<tr>
+<td><!-- raw HTML omitted -->Key<!-- raw HTML omitted --></td>
+<td>&lt;kbd&gt;Key&lt;/kbd&gt;</td>
+<td><code>&lt;kbd&gt;&lt;/kbd&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="tables">Tables</h2>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>b</td>
+<td>c</td>
+</tr>
+<tr>
+<td>d</td>
+<td>e</td>
+<td>f</td>
+</tr>
+</tbody>
+</table>
+<h2 id="footnotes">Footnotes</h2>
+<p>You can create footnotes like this<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<h2 id="horizontal-rules">Horizontal Rules</h2>
+<p>A rule.</p>
+<hr>
+<p>A rule.</p>
+<hr>
+<h2 id="links">Links</h2>
+<p>This is <a href="http://example.com/%22Title%22">an example</a> inline link.</p>
+<h2 id="images">Images</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Octicons-globe.svg/240px-Octicons-globe.svg.png" alt="Globe"></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Here is the <em>text</em> of the <strong>footnote</strong>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Header Image</title>
+      <link>https://justinbetter.github.io/2018/03/05/header-image/</link>
+      <pubDate>Mon, 05 Mar 2018 16:01:23 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2018/03/05/header-image/</guid>
+      <description>This is a simple note.</description>
+      <content:encoded><![CDATA[<p>This is a simple note.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Note 2</title>
+      <link>https://justinbetter.github.io/2018/03/04/note-2/</link>
+      <pubDate>Sun, 04 Mar 2018 16:01:23 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2018/03/04/note-2/</guid>
+      <description>This is a simple note.</description>
+      <content:encoded><![CDATA[<p>This is a simple note.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
