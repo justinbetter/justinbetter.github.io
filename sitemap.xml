@@ -295,4 +295,10 @@
     <priority>0.5</priority>
   </url>
   
+  <url>
+    <loc>https://justinbetter.github.io/1/01/01/%E6%97%B6%E9%97%B4%E6%88%B3%E6%B5%8B%E8%AF%952/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
 </urlset>
