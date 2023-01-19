@@ -38,8 +38,47 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
       <pubDate>Wed, 18 Jan 2023 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2023/01/18/%E4%BD%BF%E7%94%A8obsidian%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2/</guid>
-      <description>✍内容</description>
-      <content:encoded><![CDATA[<h2 id="内容">✍内容</h2>
+      <description>使用 github action 发布 name: deploy on: push: workflow_dispatch: schedule: # Runs everyday at 8:00 AM - cron: &amp;#34;0 0 * * *&amp;#34; jobs: build: runs-on: ubuntu-latest steps: - name: Checkout uses: actions/checkout@v2 with: submodules: true fetch-depth: 0 - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: &amp;#34;latest&amp;#34; - name: Build Web run: hugo - name: Deploy Web uses: peaceiris/actions-gh-pages@v3 with: PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }} EXTERNAL_REPOSITORY: justinbetter/justinbetter.github.io PUBLISH_BRANCH: master</description>
+      <content:encoded><![CDATA[<h2 id="使用-github-action-发布">使用 github action 发布</h2>
+<pre tabindex="0"><code>name: deploy  
+  
+on:  
+  push:  
+  workflow_dispatch:  
+  schedule:  
+  # Runs everyday at 8:00 AM  
+  - cron: &#34;0 0 * * *&#34;  
+  
+jobs:  
+  build:  
+    runs-on: ubuntu-latest  
+    steps:  
+    - name: Checkout  
+      uses: actions/checkout@v2  
+      with:  
+        submodules: true  
+        fetch-depth: 0  
+  
+    - name: Setup Hugo  
+      uses: peaceiris/actions-hugo@v2  
+      with:  
+        hugo-version: &#34;latest&#34;  
+  
+    - name: Build Web  
+      run: hugo  
+  
+    - name: Deploy Web  
+      uses: peaceiris/actions-gh-pages@v3  
+      with:  
+        PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}  
+        EXTERNAL_REPOSITORY: justinbetter/justinbetter.github.io  
+        PUBLISH_BRANCH: master  
+        PUBLISH_DIR: ./public  
+        commit_message: ${{ github.event.head_commit.message }}
+</code></pre><h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://www.pseudoyu.com/zh/2022/05/29/deploy_your_blog_using_hugo_and_github_action/">https://www.pseudoyu.com/zh/2022/05/29/deploy_your_blog_using_hugo_and_github_action/</a></li>
+</ul>
 ]]></content:encoded>
     </item>
     
