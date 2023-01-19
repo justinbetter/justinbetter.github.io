@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 <head>
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.110.0" />
   <meta charset="utf-8">
   <title>python基础 · helloj</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,17 +20,13 @@
 <meta property="og:title" content="python基础" />
 <meta property="og:description" content="[TOC] 基础 继承： “定义子类时，必须在括号内指定父类的名称。” class ElectricCar(Car): “类名应采用驼峰命名法 ，即将类名中的每个单词的首字母都大写，而不使用下划线。实例" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://justinbetter.github.io/2019/08/08/python%E5%9F%BA%E7%A1%80/" />
+<meta property="og:url" content="https://justinbetter.github.io/2019/08/08/python%E5%9F%BA%E7%A1%80/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-08-08T20:00:22+08:00" />
 <meta property="article:modified_time" content="2019-08-08T20:00:22+08:00" />
 <meta itemprop="name" content="python基础">
-<meta itemprop="description" content="[TOC] 基础 继承： “定义子类时，必须在括号内指定父类的名称。” class ElectricCar(Car): “类名应采用驼峰命名法 ，即将类名中的每个单词的首字母都大写，而不使用下划线。实例">
-<meta itemprop="datePublished" content="2019-08-08T20:00:22&#43;08:00" />
-<meta itemprop="dateModified" content="2019-08-08T20:00:22&#43;08:00" />
+<meta itemprop="description" content="[TOC] 基础 继承： “定义子类时，必须在括号内指定父类的名称。” class ElectricCar(Car): “类名应采用驼峰命名法 ，即将类名中的每个单词的首字母都大写，而不使用下划线。实例"><meta itemprop="datePublished" content="2019-08-08T20:00:22+08:00" />
+<meta itemprop="dateModified" content="2019-08-08T20:00:22+08:00" />
 <meta itemprop="wordCount" content="5322">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="python基础"/>
 <meta name="twitter:description" content="[TOC] 基础 继承： “定义子类时，必须在括号内指定父类的名称。” class ElectricCar(Car): “类名应采用驼峰命名法 ，即将类名中的每个单词的首字母都大写，而不使用下划线。实例"/>
@@ -273,7 +269,7 @@ class ElectricCar(Car):</p>
 <li>创建list的生成式</li>
 <li>[x*x for x in range(1,11) if x % 2 ==0]</li>
 <li>还可以两层循环 [m + n for m in &lsquo;ABC for n in &lsquo;XYZ&rsquo;]</li>
-<li>也可以使用两个变量 [k +'='+v for k,v in d.items()]</li>
+<li>也可以使用两个变量 [k +&rsquo;=&rsquo;+v for k,v in d.items()]</li>
 </ul>
 </li>
 <li>
@@ -398,7 +394,7 @@ class ElectricCar(Car):</p>
   @log
   def now():
           print('2015-3-25')
-    
+
   把@log放到now()函数的定义处，相当于执行了语句：now = log(now)
 </code></pre>
 </li>
@@ -458,7 +454,7 @@ class ElectricCar(Car):</p>
 <li>
 <p>模块搜索路径 存放在sys模块的path变量中</p>
 <ul>
-<li>一是直接修改sys.path，添加要搜索的目录： sys.path.append('/Users/michael/my_py_scripts&rsquo;)</li>
+<li>一是直接修改sys.path，添加要搜索的目录： sys.path.append(&rsquo;/Users/michael/my_py_scripts&rsquo;)</li>
 <li>第二种方法是设置环境变量PYTHONPATH</li>
 </ul>
 </li>
@@ -513,7 +509,7 @@ class ElectricCar(Car):</p>
 <li>
 <p>为了检查参数使用</p>
 <pre><code>  class Student(Object):
-            
+
       @property
       def score(self):
           return self._score
@@ -552,7 +548,7 @@ class ElectricCar(Car):</p>
 <p>枚举类</p>
 <pre><code>  from enum import Enum
   Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
-    
+
   for name,member in Month.__member__.items():
       print(name,'==&gt;',member,',',member.value)
 
@@ -580,7 +576,7 @@ class ElectricCar(Car):</p>
 <p>type() 既可以返回对象的类型，又可以创建出新的类型</p>
 <pre><code>  def fn(self,name='world'):
       print('Hello,%s!'%name)
-        
+
   Hello = type('Hello',(object,),dict(hello=fn)) # 创建Hello.class
 </code></pre>
 </li>
@@ -588,10 +584,10 @@ class ElectricCar(Car):</p>
 </li>
 </ul>
 <h3 id="错误处理">错误处理</h3>
-<pre><code>    try:
-        10 / 0
-    except ZeroDivisionError:
-        raise ValueError('input error!')
+<pre><code>	try:
+    	10 / 0
+	except ZeroDivisionError:
+    	raise ValueError('input error!')
 </code></pre>
 <ul>
 <li>
@@ -600,7 +596,7 @@ class ElectricCar(Car):</p>
       n = int(s)
       assert n != 0, 'n is zero!'
       return 10 / n
-	
+
   def main():
       foo('0')	
 </code></pre>
@@ -616,7 +612,7 @@ class ElectricCar(Car):</p>
 <p>logging</p>
 <pre><code>  import logging
   logging.basicConfig(level=logging.INFO)
-	
+
   s = '0'
   n = int(s)
   logging.info('n = %d' % n)
@@ -629,8 +625,8 @@ class ElectricCar(Car):</p>
 <li>
 <p>读</p>
 <pre><code>  with open('path','rb') as f :
-      print(f.read())
-		
+  	print(f.read())
+
   #二进制 编码 编码错误
    f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')
 </code></pre>
@@ -641,8 +637,8 @@ class ElectricCar(Car):</p>
 </ul>
 <blockquote>
 </blockquote>
-<pre><code>    with open('/Users/michael/test.txt', 'w') as f:
-        f.write('Hello, world!')		
+<pre><code>	with open('/Users/michael/test.txt', 'w') as f:
+	    f.write('Hello, world!')		
 </code></pre>
 <ul>
 <li>
@@ -822,7 +818,7 @@ class ElectricCar(Car):</p>
 <li>创建list的生成式</li>
 <li>[x*x for x in range(1,11) if x % 2 ==0]</li>
 <li>还可以两层循环 [m + n for m in &lsquo;ABC for n in &lsquo;XYZ&rsquo;]</li>
-<li>也可以使用两个变量 [k +'='+v for k,v in d.items()]</li>
+<li>也可以使用两个变量 [k +&rsquo;=&rsquo;+v for k,v in d.items()]</li>
 </ul>
 </li>
 <li>
@@ -947,7 +943,7 @@ class ElectricCar(Car):</p>
   @log
   def now():
           print('2015-3-25')
-    
+
   把@log放到now()函数的定义处，相当于执行了语句：now = log(now)
 </code></pre>
 </li>
@@ -1007,7 +1003,7 @@ class ElectricCar(Car):</p>
 <li>
 <p>模块搜索路径 存放在sys模块的path变量中</p>
 <ul>
-<li>一是直接修改sys.path，添加要搜索的目录： sys.path.append('/Users/michael/my_py_scripts&rsquo;)</li>
+<li>一是直接修改sys.path，添加要搜索的目录： sys.path.append(&rsquo;/Users/michael/my_py_scripts&rsquo;)</li>
 <li>第二种方法是设置环境变量PYTHONPATH</li>
 </ul>
 </li>
@@ -1062,7 +1058,7 @@ class ElectricCar(Car):</p>
 <li>
 <p>为了检查参数使用</p>
 <pre><code>  class Student(Object):
-            
+
       @property
       def score(self):
           return self._score
@@ -1101,7 +1097,7 @@ class ElectricCar(Car):</p>
 <p>枚举类</p>
 <pre><code>  from enum import Enum
   Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
-    
+
   for name,member in Month.__member__.items():
       print(name,'==&gt;',member,',',member.value)
 
@@ -1129,7 +1125,7 @@ class ElectricCar(Car):</p>
 <p>type() 既可以返回对象的类型，又可以创建出新的类型</p>
 <pre><code>  def fn(self,name='world'):
       print('Hello,%s!'%name)
-        
+
   Hello = type('Hello',(object,),dict(hello=fn)) # 创建Hello.class
 </code></pre>
 </li>
@@ -1137,10 +1133,10 @@ class ElectricCar(Car):</p>
 </li>
 </ul>
 <h3 id="错误处理-1">错误处理</h3>
-<pre><code>    try:
-        10 / 0
-    except ZeroDivisionError:
-        raise ValueError('input error!')
+<pre><code>	try:
+    	10 / 0
+	except ZeroDivisionError:
+    	raise ValueError('input error!')
 </code></pre>
 <ul>
 <li>
@@ -1149,7 +1145,7 @@ class ElectricCar(Car):</p>
       n = int(s)
       assert n != 0, 'n is zero!'
       return 10 / n
-	
+
   def main():
       foo('0')	
 </code></pre>
@@ -1165,7 +1161,7 @@ class ElectricCar(Car):</p>
 <p>logging</p>
 <pre><code>  import logging
   logging.basicConfig(level=logging.INFO)
-	
+
   s = '0'
   n = int(s)
   logging.info('n = %d' % n)
@@ -1178,8 +1174,8 @@ class ElectricCar(Car):</p>
 <li>
 <p>读</p>
 <pre><code>  with open('path','rb') as f :
-      print(f.read())
-		
+  	print(f.read())
+
   #二进制 编码 编码错误
    f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')
 </code></pre>
@@ -1190,8 +1186,8 @@ class ElectricCar(Car):</p>
 </ul>
 <blockquote>
 </blockquote>
-<pre><code>    with open('/Users/michael/test.txt', 'w') as f:
-        f.write('Hello, world!')		
+<pre><code>	with open('/Users/michael/test.txt', 'w') as f:
+	    f.write('Hello, world!')		
 </code></pre>
 <ul>
 <li>

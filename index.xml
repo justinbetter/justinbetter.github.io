@@ -6,7 +6,7 @@
     <description>Recent content on helloj</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jan 2023 20:00:22 +0800</lastBuildDate>
     
     <atom:link href="https://justinbetter.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,7 +19,7 @@
       <guid>https://justinbetter.github.io/about/</guid>
       <description>Hugo is a static site engine written in Go.
 It makes use of a variety of open source projects including:
- Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.</description>
+Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</description>
       <content:encoded><![CDATA[<p>Hugo is a static site engine written in Go.</p>
 <p>It makes use of a variety of open source projects including:</p>
 <ul>
@@ -333,186 +333,185 @@ epoll基于事件驱动，避免了像select和poll对事件的整个轮询操�
       <guid>https://justinbetter.github.io/2020/08/15/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/</guid>
       <description>归并排序 public class MergeSort { public static void merge(int[] a, int low, int mid, int high) { int[] temp = new int[high - low + 1]; int i = low;// 左指针 int j = mid + 1;// 右指针 int k = 0; // 把较小的数先移到新数组中 while (i &amp;lt;= mid &amp;amp;&amp;amp; j &amp;lt;= high)</description>
       <content:encoded><![CDATA[<h2 id="归并排序">归并排序</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MergeSort</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">merge</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">low</span><span class="o">,</span> <span class="kt">int</span> <span class="n">mid</span><span class="o">,</span> <span class="kt">int</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">temp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">high</span> <span class="o">-</span> <span class="n">low</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">low</span><span class="o">;</span><span class="c1">// 左指针
-</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span><span class="c1">// 右指针
-</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-        <span class="c1">// 把较小的数先移到新数组中
-</span><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mid</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
-                <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">++];</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">++];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// 把左边剩余的数移入数组
-</span><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">++];</span>
-        <span class="o">}</span>
-        <span class="c1">// 把右边边剩余的数移入数组
-</span><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">++];</span>
-        <span class="o">}</span>
-        <span class="c1">// 把新数组中的数覆盖nums数组
-</span><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k2</span> <span class="o">&lt;</span> <span class="n">temp</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">k2</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">a</span><span class="o">[</span><span class="n">k2</span> <span class="o">+</span> <span class="n">low</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="n">k2</span><span class="o">];</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">mergeSort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">low</span><span class="o">,</span> <span class="kt">int</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="o">)</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// 左边
-</span><span class="c1"></span>            <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">low</span><span class="o">,</span> <span class="n">mid</span><span class="o">);</span>
-            <span class="c1">// 右边
-</span><span class="c1"></span>            <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="n">1</span><span class="o">,</span> <span class="n">high</span><span class="o">);</span>
-            <span class="c1">// 左右归并
-</span><span class="c1"></span>            <span class="n">merge</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">low</span><span class="o">,</span> <span class="n">mid</span><span class="o">,</span> <span class="n">high</span><span class="o">);</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
-        <span class="o">}</span>
-
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">a</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span> <span class="n">51</span><span class="o">,</span> <span class="n">46</span><span class="o">,</span> <span class="n">20</span><span class="o">,</span> <span class="n">18</span><span class="o">,</span> <span class="n">65</span><span class="o">,</span> <span class="n">97</span><span class="o">,</span> <span class="n">82</span><span class="o">,</span> <span class="n">30</span><span class="o">,</span> <span class="n">77</span><span class="o">,</span> <span class="n">50</span> <span class="o">};</span>
-        <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;排序结果：&#34;</span> <span class="o">+</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><h2 id="快速排序">快速排序</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">QuickSort</span> <span class="o">{</span>
-	
-	<span class="cm">/**
-</span><span class="cm">	 * 将数组的某一段元素进行划分，小的在左边，大的在右边
-</span><span class="cm">	 * @param a
-</span><span class="cm">	 * @param start
-</span><span class="cm">	 * @param end
-</span><span class="cm">	 * @return
-</span><span class="cm">	 */</span>
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">divide</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">){</span>
-		<span class="c1">//每次都以最右边的元素作为基准值
-</span><span class="c1"></span>		<span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
-		<span class="c1">//start一旦等于end，就说明左右两个指针合并到了同一位置，可以结束此轮循环。
-</span><span class="c1"></span>		<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
-			<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">base</span><span class="o">)</span>
-				<span class="c1">//从左边开始遍历，如果比基准值小，就继续向右走
-</span><span class="c1"></span>				<span class="n">start</span><span class="o">++;</span>
-			<span class="c1">//上面的while循环结束时，就说明当前的a[start]的值比基准值大，应与基准值进行交换
-</span><span class="c1"></span>			<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
-				<span class="c1">//交换
-</span><span class="c1"></span>				<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
-				<span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
-				<span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-				<span class="c1">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值右边)，因此右边也要同时向前移动一位
-</span><span class="c1"></span>				<span class="n">end</span><span class="o">--;</span>
-			<span class="o">}</span>	
-			<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">base</span><span class="o">)</span>
-				<span class="c1">//从右边开始遍历，如果比基准值大，就继续向左走
-</span><span class="c1"></span>				<span class="n">end</span><span class="o">--;</span>
-			<span class="c1">//上面的while循环结束时，就说明当前的a[end]的值比基准值小，应与基准值进行交换
-</span><span class="c1"></span>			<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
-				<span class="c1">//交换
-</span><span class="c1"></span>				<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
-				<span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
-				<span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-				<span class="c1">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值左边)，因此左边也要同时向后移动一位
-</span><span class="c1"></span>				<span class="n">start</span><span class="o">++;</span>
-			<span class="o">}</span>	
-			
-		<span class="o">}</span>
-		<span class="c1">//这里返回start或者end皆可，此时的start和end都为基准值所在的位置
-</span><span class="c1"></span>		<span class="k">return</span> <span class="n">end</span><span class="o">;</span>
-	<span class="o">}</span>
- 
-	<span class="cm">/**
-</span><span class="cm">	 * 排序
-</span><span class="cm">	 * @param a
-</span><span class="cm">	 * @param start
-</span><span class="cm">	 * @param end
-</span><span class="cm">	 */</span>
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">){</span>
-		<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="o">){</span>
-			<span class="c1">//如果只有一个元素，就不用再排下去了
-</span><span class="c1"></span>			<span class="k">return</span><span class="o">;</span>
-		<span class="o">}</span> 
-		<span class="k">else</span><span class="o">{</span>
-			<span class="c1">//如果不止一个元素，继续划分两边递归排序下去
-</span><span class="c1"></span>			<span class="kt">int</span> <span class="n">partition</span> <span class="o">=</span> <span class="n">divide</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
-			<span class="n">sort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">partition</span><span class="o">-</span><span class="n">1</span><span class="o">);</span>
-			<span class="n">sort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">partition</span><span class="o">+</span><span class="n">1</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
-		<span class="o">}</span>
-			
-	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><h2 id="链表排序">链表排序</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">sortList</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">//递归归并排序
-</span><span class="c1"></span>        <span class="c1">//找到中点，递归中点分割，归并合并
-</span><span class="c1"></span>        <span class="n">ListNode</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-        <span class="n">ListNode</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="c1">//fast走完 slow就是中点
-</span><span class="c1"></span>        <span class="k">while</span><span class="o">(</span><span class="n">fast</span> <span class="o">!=</span> <span class="kc">null</span>  <span class="o">&amp;&amp;</span>  <span class="n">fast</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="n">ListNode</span> <span class="n">center</span><span class="o">=</span>  <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="n">slow</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-        <span class="n">ListNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">sortList</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
-        <span class="n">ListNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">sortList</span><span class="o">(</span><span class="n">center</span><span class="o">);</span>
-        <span class="n">ListNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
-        <span class="n">ListNode</span> <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">val</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
-                <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">//添加尾点
-</span><span class="c1"></span>        <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">right</span> <span class="o">:</span> <span class="n">left</span><span class="o">;</span>
-        <span class="c1">//返回头部
-</span><span class="c1"></span>        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="c1">//-----
-</span><span class="c1"></span>        <span class="c1">//从底至顶 归并排序
-</span><span class="c1"></span>        <span class="c1">//获取链表长度，根据每一步，循环断链合并，最后合并的链表超越链表长度即返回结果
-</span><span class="c1"></span>    <span class="o">}</span>
-
-</code></pre></div><h2 id="两数相加">两数相加</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"> <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">l1</span><span class="o">,</span> <span class="n">ListNode</span> <span class="n">l2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">//思路：
-</span><span class="c1"></span>        <span class="c1">//新建两个辅助node，保存倒序排列的l1 l2，不需要；因为题目本身就是逆序的
-</span><span class="c1"></span>        <span class="c1">//循环两个node 直到最后一个节点
-</span><span class="c1"></span>        <span class="n">ListNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">l1</span><span class="o">;</span>
-        <span class="n">ListNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">l2</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">carry</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-        <span class="n">ListNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
-        <span class="n">ListNode</span> <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">0</span> <span class="o">:</span> <span class="n">left</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
-            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">0</span> <span class="o">:</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
-            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span><span class="n">carry</span><span class="o">;</span>
-            <span class="n">carry</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">10</span><span class="o">;</span>
-            <span class="n">ListNode</span> <span class="n">now</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">sum</span><span class="o">%</span><span class="n">10</span><span class="o">);</span>
-            <span class="n">res</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">now</span><span class="o">;</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">next</span><span class="o">;}</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">next</span><span class="o">;}</span>
-        <span class="o">}</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">carry</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">res</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">carry</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-    <span class="o">}</span>
-</code></pre></div>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MergeSort</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">merge</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">low</span><span class="o">,</span> <span class="kt">int</span> <span class="n">mid</span><span class="o">,</span> <span class="kt">int</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span><span class="o">[]</span> <span class="n">temp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">high</span> <span class="o">-</span> <span class="n">low</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">low</span><span class="o">;</span><span class="c1">// 左指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span><span class="c1">// 右指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 把较小的数先移到新数组中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mid</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">++];</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">++];</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 把左边剩余的数移入数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">++];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 把右边边剩余的数移入数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">++];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 把新数组中的数覆盖nums数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k2</span> <span class="o">&lt;</span> <span class="n">temp</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">k2</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">a</span><span class="o">[</span><span class="n">k2</span> <span class="o">+</span> <span class="n">low</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="n">k2</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">mergeSort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">low</span><span class="o">,</span> <span class="kt">int</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 左边
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">low</span><span class="o">,</span> <span class="n">mid</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 右边
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">high</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 左右归并
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">merge</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">low</span><span class="o">,</span> <span class="n">mid</span><span class="o">,</span> <span class="n">high</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">a</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">51</span><span class="o">,</span> <span class="mi">46</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">18</span><span class="o">,</span> <span class="mi">65</span><span class="o">,</span> <span class="mi">97</span><span class="o">,</span> <span class="mi">82</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">77</span><span class="o">,</span> <span class="mi">50</span> <span class="o">};</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;排序结果：&#34;</span> <span class="o">+</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="快速排序">快速排序</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">QuickSort</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * 将数组的某一段元素进行划分，小的在左边，大的在右边
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param a
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param start
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param end
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @return
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 */</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">divide</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//每次都以最右边的元素作为基准值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//start一旦等于end，就说明左右两个指针合并到了同一位置，可以结束此轮循环。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">			<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">base</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">//从左边开始遍历，如果比基准值小，就继续向右走
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">start</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">//上面的while循环结束时，就说明当前的a[start]的值比基准值大，应与基准值进行交换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">//交换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">				<span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">				<span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值右边)，因此右边也要同时向前移动一位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">end</span><span class="o">--;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>	
+</span></span><span class="line"><span class="cl">			<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">base</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">//从右边开始遍历，如果比基准值大，就继续向左走
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">end</span><span class="o">--;</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">//上面的while循环结束时，就说明当前的a[end]的值比基准值小，应与基准值进行交换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">//交换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">				<span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">				<span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值左边)，因此左边也要同时向后移动一位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">start</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>	
+</span></span><span class="line"><span class="cl">			
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//这里返回start或者end皆可，此时的start和end都为基准值所在的位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">return</span> <span class="n">end</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">	<span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * 排序
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param a
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param start
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param end
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 */</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">//如果只有一个元素，就不用再排下去了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span> 
+</span></span><span class="line"><span class="cl">		<span class="k">else</span><span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">//如果不止一个元素，继续划分两边递归排序下去
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="kt">int</span> <span class="n">partition</span> <span class="o">=</span> <span class="n">divide</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">			<span class="n">sort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">partition</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">			<span class="n">sort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">partition</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">			
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="链表排序">链表排序</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">sortList</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//递归归并排序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//找到中点，递归中点分割，归并合并
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ListNode</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//fast走完 slow就是中点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span><span class="o">(</span><span class="n">fast</span> <span class="o">!=</span> <span class="kc">null</span>  <span class="o">&amp;&amp;</span>  <span class="n">fast</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">center</span><span class="o">=</span>  <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">slow</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">sortList</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">sortList</span><span class="o">(</span><span class="n">center</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">val</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//添加尾点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">right</span> <span class="o">:</span> <span class="n">left</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//返回头部
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//-----
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//从底至顶 归并排序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//获取链表长度，根据每一步，循环断链合并，最后合并的链表超越链表长度即返回结果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span></code></pre></div><h2 id="两数相加">两数相加</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">l1</span><span class="o">,</span> <span class="n">ListNode</span> <span class="n">l2</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//思路：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//新建两个辅助node，保存倒序排列的l1 l2，不需要；因为题目本身就是逆序的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//循环两个node 直到最后一个节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ListNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">l1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">l2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">left</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span><span class="n">carry</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">carry</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">10</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ListNode</span> <span class="n">now</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">sum</span><span class="o">%</span><span class="mi">10</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">now</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">next</span><span class="o">;}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">next</span><span class="o">;}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">carry</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">carry</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span></code></pre></div>]]></content:encoded>
     </item>
     
     <item>
@@ -792,7 +791,7 @@ epoll基于事件驱动，避免了像select和poll对事件的整个轮询操�
 <ul>
 <li>路径相关</li>
 </ul>
-<pre><code>os.chdir(dst_dir)							#改变当前目录
+<pre tabindex="0"><code>os.chdir(dst_dir)							#改变当前目录
 os.listdir()								#遍历文件夹
 for root, dirs, files in os.walk(rootDir):  #遍历文件夹
 os.path.basename()  						#去掉目录路径, 返回文件名 
@@ -804,11 +803,11 @@ os.path.dirname(os.path.realpath(__file__)) #获取当前目录
 </code></pre><ul>
 <li>文件信息</li>
 </ul>
-<pre><code>json.dumps(mock_config, indent=5)	 	#获取json数据
+<pre tabindex="0"><code>json.dumps(mock_config, indent=5)	 	#获取json数据
 os.path.getsize()  						#获取文件大小
-with open(zip_url,'rb') as f_zip:  		#解压zip
+with open(zip_url,&#39;rb&#39;) as f_zip:  		#解压zip
      zip_file = zipfile.ZipFile(f_zip)
-     zip_file.extractall('./zip')
+     zip_file.extractall(&#39;./zip&#39;)
 ----------------------------------------
 def get_file_md5(f): 					#获取MD5
     m = hashlib.md5()
@@ -822,42 +821,38 @@ def get_file_md5(f): 					#获取MD5
     return m.hexdigest()
 
 
-with open(YOUR_FILE, 'rb')as f:
+with open(YOUR_FILE, &#39;rb&#39;)as f:
     file_md5 = get_file_md5(f)
 --------------------------------------
-
 </code></pre><p>##字符串操作</p>
 <ul>
 <li>命令行</li>
 </ul>
-<pre><code>    p = subprocess.Popen(COMMAND, stdout=subprocess.PIPE, stderr=None, shell=True)
+<pre tabindex="0"><code>    p = subprocess.Popen(COMMAND, stdout=subprocess.PIPE, stderr=None, shell=True)
     p_communicate = p.communicate()   #返回命令行输出
 -----------
-apk_old = raw_input('old_path: ') 	  #获取命令
-os.system(&quot;cd test&quot;)
+apk_old = raw_input(&#39;old_path: &#39;) 	  #获取命令
+os.system(&#34;cd test&#34;)
 
     
 </code></pre><ul>
 <li>字符串包含</li>
 </ul>
-<pre><code>if &quot;123&quot;  in &quot;da123dfd&quot;:
+<pre tabindex="0"><code>if &#34;123&#34;  in &#34;da123dfd&#34;:
 
-s = &quot;This be a string&quot;
-if s.find(&quot;is&quot;) == -1:
-    print &quot;No 'is' here!&quot;
+s = &#34;This be a string&#34;
+if s.find(&#34;is&#34;) == -1:
+    print &#34;No &#39;is&#39; here!&#34;
 else:
-    print &quot;Found 'is' in the string.&quot;
+    print &#34;Found &#39;is&#39; in the string.&#34;
 </code></pre><ul>
 <li>正则匹配</li>
 </ul>
-<pre><code> pattern = re.compile(r'package: name=\'(\S+)\'')
+<pre tabindex="0"><code> pattern = re.compile(r&#39;package: name=\&#39;(\S+)\&#39;&#39;)
  search  = pattern.search(data)
  result  = search.group(1)  
 </code></pre><p>##列表操作</p>
-<pre><code>map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])		#循环操作每一个元素
-
-
-
+<pre tabindex="0"><code>map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])		#循环操作每一个元素
 </code></pre><p>##ps</p>
 <ul>
 <li>json.dumps输出中文指定ensure_ascii参数为False</li>
@@ -1047,7 +1042,7 @@ class ElectricCar(Car):</p>
 <li>创建list的生成式</li>
 <li>[x*x for x in range(1,11) if x % 2 ==0]</li>
 <li>还可以两层循环 [m + n for m in &lsquo;ABC for n in &lsquo;XYZ&rsquo;]</li>
-<li>也可以使用两个变量 [k +'='+v for k,v in d.items()]</li>
+<li>也可以使用两个变量 [k +&rsquo;=&rsquo;+v for k,v in d.items()]</li>
 </ul>
 </li>
 <li>
@@ -1172,7 +1167,7 @@ class ElectricCar(Car):</p>
   @log
   def now():
           print('2015-3-25')
-    
+
   把@log放到now()函数的定义处，相当于执行了语句：now = log(now)
 </code></pre>
 </li>
@@ -1232,7 +1227,7 @@ class ElectricCar(Car):</p>
 <li>
 <p>模块搜索路径 存放在sys模块的path变量中</p>
 <ul>
-<li>一是直接修改sys.path，添加要搜索的目录： sys.path.append('/Users/michael/my_py_scripts&rsquo;)</li>
+<li>一是直接修改sys.path，添加要搜索的目录： sys.path.append(&rsquo;/Users/michael/my_py_scripts&rsquo;)</li>
 <li>第二种方法是设置环境变量PYTHONPATH</li>
 </ul>
 </li>
@@ -1287,7 +1282,7 @@ class ElectricCar(Car):</p>
 <li>
 <p>为了检查参数使用</p>
 <pre><code>  class Student(Object):
-            
+
       @property
       def score(self):
           return self._score
@@ -1326,7 +1321,7 @@ class ElectricCar(Car):</p>
 <p>枚举类</p>
 <pre><code>  from enum import Enum
   Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
-    
+
   for name,member in Month.__member__.items():
       print(name,'==&gt;',member,',',member.value)
 
@@ -1354,7 +1349,7 @@ class ElectricCar(Car):</p>
 <p>type() 既可以返回对象的类型，又可以创建出新的类型</p>
 <pre><code>  def fn(self,name='world'):
       print('Hello,%s!'%name)
-        
+
   Hello = type('Hello',(object,),dict(hello=fn)) # 创建Hello.class
 </code></pre>
 </li>
@@ -1362,10 +1357,10 @@ class ElectricCar(Car):</p>
 </li>
 </ul>
 <h3 id="错误处理">错误处理</h3>
-<pre><code>    try:
-        10 / 0
-    except ZeroDivisionError:
-        raise ValueError('input error!')
+<pre><code>	try:
+    	10 / 0
+	except ZeroDivisionError:
+    	raise ValueError('input error!')
 </code></pre>
 <ul>
 <li>
@@ -1374,7 +1369,7 @@ class ElectricCar(Car):</p>
       n = int(s)
       assert n != 0, 'n is zero!'
       return 10 / n
-	
+
   def main():
       foo('0')	
 </code></pre>
@@ -1390,7 +1385,7 @@ class ElectricCar(Car):</p>
 <p>logging</p>
 <pre><code>  import logging
   logging.basicConfig(level=logging.INFO)
-	
+
   s = '0'
   n = int(s)
   logging.info('n = %d' % n)
@@ -1403,8 +1398,8 @@ class ElectricCar(Car):</p>
 <li>
 <p>读</p>
 <pre><code>  with open('path','rb') as f :
-      print(f.read())
-		
+  	print(f.read())
+
   #二进制 编码 编码错误
    f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')
 </code></pre>
@@ -1415,8 +1410,8 @@ class ElectricCar(Car):</p>
 </ul>
 <blockquote>
 </blockquote>
-<pre><code>    with open('/Users/michael/test.txt', 'w') as f:
-        f.write('Hello, world!')		
+<pre><code>	with open('/Users/michael/test.txt', 'w') as f:
+	    f.write('Hello, world!')		
 </code></pre>
 <ul>
 <li>
@@ -1596,7 +1591,7 @@ class ElectricCar(Car):</p>
 <li>创建list的生成式</li>
 <li>[x*x for x in range(1,11) if x % 2 ==0]</li>
 <li>还可以两层循环 [m + n for m in &lsquo;ABC for n in &lsquo;XYZ&rsquo;]</li>
-<li>也可以使用两个变量 [k +'='+v for k,v in d.items()]</li>
+<li>也可以使用两个变量 [k +&rsquo;=&rsquo;+v for k,v in d.items()]</li>
 </ul>
 </li>
 <li>
@@ -1721,7 +1716,7 @@ class ElectricCar(Car):</p>
   @log
   def now():
           print('2015-3-25')
-    
+
   把@log放到now()函数的定义处，相当于执行了语句：now = log(now)
 </code></pre>
 </li>
@@ -1781,7 +1776,7 @@ class ElectricCar(Car):</p>
 <li>
 <p>模块搜索路径 存放在sys模块的path变量中</p>
 <ul>
-<li>一是直接修改sys.path，添加要搜索的目录： sys.path.append('/Users/michael/my_py_scripts&rsquo;)</li>
+<li>一是直接修改sys.path，添加要搜索的目录： sys.path.append(&rsquo;/Users/michael/my_py_scripts&rsquo;)</li>
 <li>第二种方法是设置环境变量PYTHONPATH</li>
 </ul>
 </li>
@@ -1836,7 +1831,7 @@ class ElectricCar(Car):</p>
 <li>
 <p>为了检查参数使用</p>
 <pre><code>  class Student(Object):
-            
+
       @property
       def score(self):
           return self._score
@@ -1875,7 +1870,7 @@ class ElectricCar(Car):</p>
 <p>枚举类</p>
 <pre><code>  from enum import Enum
   Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
-    
+
   for name,member in Month.__member__.items():
       print(name,'==&gt;',member,',',member.value)
 
@@ -1903,7 +1898,7 @@ class ElectricCar(Car):</p>
 <p>type() 既可以返回对象的类型，又可以创建出新的类型</p>
 <pre><code>  def fn(self,name='world'):
       print('Hello,%s!'%name)
-        
+
   Hello = type('Hello',(object,),dict(hello=fn)) # 创建Hello.class
 </code></pre>
 </li>
@@ -1911,10 +1906,10 @@ class ElectricCar(Car):</p>
 </li>
 </ul>
 <h3 id="错误处理-1">错误处理</h3>
-<pre><code>    try:
-        10 / 0
-    except ZeroDivisionError:
-        raise ValueError('input error!')
+<pre><code>	try:
+    	10 / 0
+	except ZeroDivisionError:
+    	raise ValueError('input error!')
 </code></pre>
 <ul>
 <li>
@@ -1923,7 +1918,7 @@ class ElectricCar(Car):</p>
       n = int(s)
       assert n != 0, 'n is zero!'
       return 10 / n
-	
+
   def main():
       foo('0')	
 </code></pre>
@@ -1939,7 +1934,7 @@ class ElectricCar(Car):</p>
 <p>logging</p>
 <pre><code>  import logging
   logging.basicConfig(level=logging.INFO)
-	
+
   s = '0'
   n = int(s)
   logging.info('n = %d' % n)
@@ -1952,8 +1947,8 @@ class ElectricCar(Car):</p>
 <li>
 <p>读</p>
 <pre><code>  with open('path','rb') as f :
-      print(f.read())
-		
+  	print(f.read())
+
   #二进制 编码 编码错误
    f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')
 </code></pre>
@@ -1964,8 +1959,8 @@ class ElectricCar(Car):</p>
 </ul>
 <blockquote>
 </blockquote>
-<pre><code>    with open('/Users/michael/test.txt', 'w') as f:
-        f.write('Hello, world!')		
+<pre><code>	with open('/Users/michael/test.txt', 'w') as f:
+	    f.write('Hello, world!')		
 </code></pre>
 <ul>
 <li>
@@ -2122,23 +2117,23 @@ grub2-editenv list 查看默认内核
 修改属性：          chown -R dmtsai:users /tmp/chapter7_1
 修改权限：          chmod -R 755 /tmp/chapter7_1
 //SUID/SGID/SBIT 权限配置--&gt; 要有x权限   
-        4 为 SUID       暂时将具有该程序拥有者 (owner) 的权限；
-        2 为 SGID       暂时获得得该程序群组的支持
-        1 为 SBIT       wx权限下,仅有自己与 root 才有权力删除该文件
+		4 为 SUID       暂时将具有该程序拥有者 (owner) 的权限；
+		2 为 SGID       暂时获得得该程序群组的支持
+		1 为 SBIT       wx权限下,仅有自己与 root 才有权力删除该文件
 		
 观察文件类型：       file
 搜索命令完整路径：    which
 搜索文件： 
-    whereis       whereis 与 locate 是利用数据库来搜寻数据
-    updatedb      手动更新数据库
-    find          强大的搜寻命令，但时间花用的很大！ 因为 find 是直接搜寻硬盘
-        find / -perm /6000   查询具有suid、sgid的文件
+	whereis       whereis 与 locate 是利用数据库来搜寻数据
+	updatedb      手动更新数据库
+	find          强大的搜寻命令，但时间花用的很大！ 因为 find 是直接搜寻硬盘
+		find / -perm /6000   查询具有suid、sgid的文件
 
 df -h             获取目前挂载的设备，整体磁盘使用量
 du -sh            获取文件所占容量
-    bug 卡住了
-    strace df -h
-    systemctl restart proc-sys-fs-binfmt_misc.automount
+	bug 卡住了
+	strace df -h
+	systemctl restart proc-sys-fs-binfmt_misc.automount
 
 
 dumpe2fs          查询每个区段与 superblock 的信息
@@ -2170,18 +2165,18 @@ pwd 显示当前目录
 |tee test.txt            双向重导向,分送到文件去与屏幕stdout,可以让下个命令继续使用      
  - 减号                   可以取用前一个命令的 stdout
 
-    //正则
+	//正则
 find .| xargs grep -ri &quot;18616504954&quot; -l  目录下的所有文件中查找字符串,并且只打印出含有该字符串的文件名
 
 grep '^ha' test.txt -n    单引号中使用正则
 sed                       将数据 standard input 进行取代、删除、新增、撷取特定行等
-                          e.g: nl test.txt |sed '2,3d'
-                               sed 's/要被取代的字串/新的字串/g'
+						  e.g: nl test.txt |sed '2,3d'
+						       sed 's/要被取代的字串/新的字串/g'
 
 printf                    格式化输出
 awk '条件类型1{动作1} 条件类型2{动作2} ...' filename   处理数据
 	
-        $NF代表：最后一个Field(列)
+		$NF代表：最后一个Field(列)
 
 
 diff/cmp                  比对两个文件
@@ -2190,8 +2185,8 @@ tail -cf 			      循环读取文件末尾日志
 
 less test.log  打开文件，按大写实时刷新
 		
-        - F 实时刷新
-        - N 显示行号
+		- F 实时刷新
+		- N 显示行号
 
 dig xxx +short            查看域名                 
 
@@ -2200,26 +2195,26 @@ dig xxx +short            查看域名
 &amp;                       直接将命令丢到背景中『运行』的 &amp;
 [ctrl]+z                 将『目前』的工作丢到背景中『暂停
 jobs                    观察目前的背景工作状态： jobs
-                用jobs查看进程的jobnumber，然后用命令：kill %n 来结束。
+				用jobs查看进程的jobnumber，然后用命令：kill %n 来结束。
 			
 fg                      将背景工作拿到前景来处理：fg
 bg                      让工作在背景下的状态变成运行中： bg
 kill                    管理背景当中的工作： kill
-         killall -9 httpd       强制终止所有以 httpd 启动的程序
-         killall -1 syslogd       给予 syslogd 这个命令启动的 PID 一个 SIGHUP 的讯号
-         killall -i -9 bash      依次询问每个 bash 程序是否需要被终止运行！
+		 killall -9 httpd       强制终止所有以 httpd 启动的程序
+		 killall -1 syslogd       给予 syslogd 这个命令启动的 PID 一个 SIGHUP 的讯号
+	     killall -i -9 bash      依次询问每个 bash 程序是否需要被终止运行！
 
 //服务管理
  service --status-all  显示出目前系统上面所有服务的运行状态
  chkconfig： 管理系统服务默认启动启动与否
-             chkconfig --list [服务名称]
-             chkconfig [--level [0123456]] [服务名称] [on|off]		 
-              *启动 Linux 系统时，可以进入不同的模式喔，这模式我们称为运行等级, 正常的运行等级有两个，一个是具有 X 窗口接口的 run level 5 ，另一个则是纯文本界面的 run level 3。* 
+			 chkconfig --list [服务名称]
+			 chkconfig [--level [0123456]] [服务名称] [on|off]		 
+			  *启动 Linux 系统时，可以进入不同的模式喔，这模式我们称为运行等级, 正常的运行等级有两个，一个是具有 X 窗口接口的 run level 5 ，另一个则是纯文本界面的 run level 3。* 
 
 logrotate [-vf] logfile       显示 logrotate 运行过程
 
 tar czvf my.tar.gz dir1 单个目录压缩打包 
-    tar czvf shell30.tar.gz  /usr/local/system/bin
+	tar czvf shell30.tar.gz  /usr/local/system/bin
 tar xzvf my.tar.gz 解包至当前目录
 
 ls -l | grep &quot;^-&quot; | wc -l 统计文件个数
@@ -2323,7 +2318,7 @@ vim 后面同时接好几个档案可同时开启
   -a	(and)两状况同时成立。
   -o	(or)两状况任何一个成立。
   !	反相状态，如 test ! -x file ，当 file 不具有 x 时，回传 true
-		
+
   -eq	两数值相等 (equal)
   -ne	两数值不等 (not equal)
   -gt	n1 大於 n2 (greater than)
@@ -2346,30 +2341,30 @@ vim 后面同时接好几个档案可同时开启
 <p>条件判断式</p>
 <pre><code>  //单条件
   if [ 条件判断式 ]; then
-      当条件判断式成立时，可以进行的命令工作内容；
+  	当条件判断式成立时，可以进行的命令工作内容；
   fi  
-	
+
   //多条件
   if [ 条件判断式一 ]; then
-      当条件判断式一成立时，可以进行的命令工作内容；
+  	当条件判断式一成立时，可以进行的命令工作内容；
   elif [ 条件判断式二 ]; then
-      当条件判断式二成立时，可以进行的命令工作内容；
+  	当条件判断式二成立时，可以进行的命令工作内容；
   else
-      当条件判断式一与二均不成立时，可以进行的命令工作内容；
+  	当条件判断式一与二均不成立时，可以进行的命令工作内容；
   fi
-	
+
   //case
   case  $变量名称 in   
     &quot;第一个变量内容&quot;)   
-      程序段
-      ;;            
+  	程序段
+  	;;            
     &quot;第二个变量内容&quot;)
-      程序段
-      ;;
+  	程序段
+  	;;
     *)                  
-      不包含第一个变量内容与第二个变量内容的其他程序运行段
-      exit 1
-      ;;
+  	不包含第一个变量内容与第二个变量内容的其他程序运行段
+  	exit 1
+  	;;
   esac     
 </code></pre>
 </li>
@@ -2378,32 +2373,32 @@ vim 后面同时接好几个档案可同时开启
 <pre><code>  //满足条件才开始循环
   while [ condition ] 
   do            
-      程序段落
+  	程序段落
   done          
-	
+
   //满足才结束
   until [ condition ]
   do
-      程序段落
+  	程序段落
   done
 
   //固定循环
   for var in con1 con2 con3 ...
   do
-      程序段
+  	程序段
   done
 
 
   for (( 初始值; 限制值; 运行步阶 ))
   do
-      程序段
+  	程序段
   done
 </code></pre>
 </li>
 <li>
 <p>函数</p>
 <pre><code>  function fname() {
-      程序段
+  	程序段
   }
 </code></pre>
 </li>
@@ -2434,19 +2429,19 @@ vim 后面同时接好几个档案可同时开启
 <pre><code>  /etc/passwd
   /etc/group
   /etc/shadow
-	
+
   groups            查看所有支持的群组
   newgrp            有效群组的切换
-	
+
   w/who             查询已登录的用户
   useradd           增加用户
-                  参考:
-                      /etc/default/useradd
-                      /etc/login.defs
-                      /etc/skel/*
+  				参考:
+  					/etc/default/useradd
+  					/etc/login.defs
+  					/etc/skel/*
 
   passwd  [用户]       修改用户密码
-                   echo &quot;abc543CC&quot; | passwd --stdin vbird2
+  				 echo &quot;abc543CC&quot; | passwd --stdin vbird2
   userdel -r home     删除用户
   id  [username]		            查询uid和gid
   groupadd
@@ -2457,13 +2452,13 @@ vim 后面同时接好几个档案可同时开启
   //acl 权限
   setfacl 
   getfacl filename
-	
+
   //切换
   su - username 或 su -l username    切换用户
   su - -c &quot;命令串&quot;                   只运行一次root命令
   sudo                               以其他用户的身份运行命令( /etc/sudoers 内的用户才能够运行 sudo 这个命令)
-                                  e.g:
-                                  sudo -u sshd touch /tmp/mysshd
+  								e.g:
+  								sudo -u sshd touch /tmp/mysshd
   visudo                           修改sudo配置
 
   //使用者对话
@@ -2510,10 +2505,10 @@ vim 后面同时接好几个档案可同时开启
   quotaon -auvg               开启服务
   quotaoff                    关闭服务
   edquota                     编辑限制额度
-          -t      宽限时间
-          -u      用户
-          -g      用户组
-			
+  		-t      宽限时间
+  		-u      用户
+  		-g      用户组
+
   quota -uvs myuser &amp;&amp; quota -gvs myuser   查看配额
   repquota -auvs                查看整个文件系统的配额
 </code></pre>
@@ -2537,7 +2532,7 @@ vim 后面同时接好几个档案可同时开启
   at -c n       查询第n个任务
   at now + 5 minutes        创建任务
   batch 23:00 2009-3-17    系统空间时开始任务
-	 
+
   atq       查询所有单次任务
   atrm  n   将第n个任务删除
 </code></pre>
@@ -2552,12 +2547,12 @@ vim 后面同时接好几个档案可同时开启
   /var/log/cron                      任务运行日志记录
 
   crontab -e              编辑任务
-          e.g: 59 23 1 5 * mail kiki &lt; /home/dmtsai/lover.txt
+  		e.g: 59 23 1 5 * mail kiki &lt; /home/dmtsai/lover.txt
   crontab -l              查看所有任务
   run-parts               遍历目录中所有文件运行
-	
+
   anacron               运行crontab 关机期间没有运行的任务
-	
+
 
   minute   hour   day   month   week   command
   星号（*）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。
@@ -2567,7 +2562,7 @@ vim 后面同时接好几个档案可同时开启
   中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
 
   正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。
-	
+
   前面五个*号代表五个数字，数字的取值范围和含义如下：
 
   分钟　（0-59）  
@@ -2588,18 +2583,18 @@ vim 后面同时接好几个档案可同时开启
  
  free    观察内存使用情况
  top     查看程序运行状态 cpu,mem...
-     top -d 5 -p 13639
-     在 top 运行过程当中可以使用的按键命令：
-        ? ：显示在 top 当中可以输入的按键命令；
-        P ：以 CPU 的使用资源排序显示；
-        M ：以 Memory 的使用资源排序显示；
-        N ：以 PID 来排序喔！
-        T ：由该 Process 使用的 CPU 时间累积 (TIME+) 排序。
-        k ：给予某个 PID 一个讯号  (signal)
-        r ：给予某个 PID 重新制订一个 nice 值。
-        q ：离开 top 软件的按键。
+	 top -d 5 -p 13639
+	 在 top 运行过程当中可以使用的按键命令：
+	 	? ：显示在 top 当中可以输入的按键命令；
+		P ：以 CPU 的使用资源排序显示；
+		M ：以 Memory 的使用资源排序显示；
+		N ：以 PID 来排序喔！
+		T ：由该 Process 使用的 CPU 时间累积 (TIME+) 排序。
+		k ：给予某个 PID 一个讯号  (signal)
+		r ：给予某个 PID 重新制订一个 nice 值。
+		q ：离开 top 软件的按键。
 nice  新运行的命令即给予新的 nice 值
-            nice -n -5 vi &amp;
+			nice -n -5 vi &amp;
 renice [number] PID  已存在程序的 nice 重新调整
 uname [-asrmpi] 查阅系统与核心相关资讯
 uptime          观察系统启动时间与工作负载
@@ -2607,8 +2602,8 @@ netstat -tlunp   追踪网络或插槽档
 vmstat          侦测系统资源变化
 fuser -uv [filename]  查看文件使用者
 lsof       读取程序使用的文件
-         lsof -u root -a -U
-         lsof +d /dev
+		 lsof -u root -a -U
+		 lsof +d /dev
 pidof ：找出某支正在运行的程序的 PID
 
 sestatus /getenforce  获取; 状态
@@ -2650,7 +2645,7 @@ ps -e | grep ssh            查看ssh服务有没有运行,如果有,可以看�
           server_args     = --daemon
           log_on_failure  += USERID
   }
-	
+
   # 再针对外部的联机来进行限制呢！
   service rsync
   {
@@ -2695,10 +2690,10 @@ ps -e | grep ssh            查看ssh服务有没有运行,如果有,可以看�
    /etc/sysconfig/         启动过程中存放的默认配置档
    /etc/rc.d/rc N           不同的 run level 服务启动的各个 shell script 
    /etc/rc.d/rc.local 		 自定义启动shell script
-	
+
    runlevel                目前的 run level
-        init 3                   将目前的 runlevel 切换成为 3 
-       『 init 0 』就能够关机， 而『 init 6 』就能够重新启动
+  	  init 3                   将目前的 runlevel 切换成为 3 
+  	 『 init 0 』就能够关机， 而『 init 6 』就能够重新启动
 </code></pre>
 </li>
 <li>
@@ -2751,10 +2746,10 @@ gcc -o hello hello.c -Wall
 </ul>
 <h2 id="软件安装">软件安装</h2>
 <pre><code> /usr/local  自行安装的软件一般放置处
-        /usr/local/xx/etc      配置
-        /usr/local/xx/bin      运行
-        /usr/local/xx/lib      函数库
-        /usr/local/xx/man		说明	
+		/usr/local/xx/etc      配置
+		/usr/local/xx/bin      运行
+		/usr/local/xx/lib      函数库
+		/usr/local/xx/man		说明	
 </code></pre>
 <h2 id="函数库">函数库</h2>
 <pre><code> /etc/ld.so.conf  想要读入高速缓存当中的动态函式库所在的目录
@@ -2785,29 +2780,29 @@ gcc -o hello hello.c -Wall
 <pre><code>  /var/lib/rpm/    软件相关信息的数据库放置处
   rpm -ivh package_name    安装
   rpm -Fvh package_name    rpm升级
-	
+
   //查询安装
   rpm -qa                           查询全部已安装软件
   rpm -q[licdR] 已安装的软件名称       已安装软件
-	
-              -q  ：仅查询，后面接的软件名称是否有安装；
-              -qa ：列出所有的，已经安装在本机 Linux 系统上面的所有软件名称；
-              -qi ：列出该软件的详细资讯 (information)，包含开发商、版本与说明等；
-              -ql ：列出该软件所有的文件与目录所在完整档名 (list)；
-              -qc ：列出该软件的所有配置档 (找出在 /etc/ 底下的档名而已)
-              -qd ：列出该软件的所有说明档 (找出与 man 有关的文件而已)
-              -qR ：列出与该软件有关的相依软件所含的文件 (Required 的意思)
-              -qf ：由后面接的文件名称，找出该文件属於哪一个已安装的软件；				
+
+  			-q  ：仅查询，后面接的软件名称是否有安装；
+  			-qa ：列出所有的，已经安装在本机 Linux 系统上面的所有软件名称；
+  			-qi ：列出该软件的详细资讯 (information)，包含开发商、版本与说明等；
+  			-ql ：列出该软件所有的文件与目录所在完整档名 (list)；
+  			-qc ：列出该软件的所有配置档 (找出在 /etc/ 底下的档名而已)
+  			-qd ：列出该软件的所有说明档 (找出与 man 有关的文件而已)
+  			-qR ：列出与该软件有关的相依软件所含的文件 (Required 的意思)
+  			-qf ：由后面接的文件名称，找出该文件属於哪一个已安装的软件；				
 
   rpm -qf 存在於系统上面的某个档名      已安装软件
   rpm -qp[licdR] 未安装的某个文件名称   查阅RPM文件		
-	
+
   //查询修改
   rpm -Va       
   rpm -V  已安装的软件名称
   rpm -Vp 某个 RPM 文件的档名
   rpm -Vf 在系统上面的某个文件
-	
+
   //卸载
    rpm -e package_name    卸载
    rpm --rebuilddb        重置rpm数据库
@@ -2826,7 +2821,7 @@ gcc -o hello hello.c -Wall
   yum list updates  	列出目前服务器上可供本机进行升级的软件有哪些
   yum info mdadm    找出 mdadm 这个软件的功能为何
   yum search raid       查找相关软件
-	
+
   yum [install|update] 软件
   yum [remove] 软件
   yum clean
@@ -2839,7 +2834,7 @@ gcc -o hello hello.c -Wall
 <li>
 <p>ip</p>
 <pre><code>  Public IP : 公共 IP ，经由 INTERNIC 所统一规划的 IP，有这种 IP 才可以连上 Internet ；
-	
+
   Private IP : 私有 IP 或保留 IP，不能直接连上 Internet 的 IP ， 主要用于局域网络内的主机联机规划。
 
   Netmask, (子网掩码)，达成子网的切分
@@ -2851,7 +2846,7 @@ gcc -o hello hello.c -Wall
   Class A : 11111111.00000000.00000000.00000000 ==&gt; 255.  0.  0.  0
   Class B : 11111111.11111111.00000000.00000000 ==&gt; 255.255.  0.  0
   Class C : 11111111.11111111.11111111.00000000 ==&gt; 255.255.255.  0
-			
+
   要是给予 Net_ID 是 26 位时，总共分为几段呢？ 因为 26-24=2 ，所以总共用掉两个位，因此有 2 的 2 次方，得到 4 个网段。再将 256 个 IP 平均分配到 4 个网段去
 
   网关/路由器的功能就是在负责不同网域之间的封包转递 (IP Forwarding) 如192.168.0.1 、192.168.1.1
@@ -2863,15 +2858,15 @@ gcc -o hello hello.c -Wall
 <pre><code>   MTU (Maximum Transmission Unit, 最大传输单位)
 
   ifconfig interface {options} 	  	 查看ip网络参数
-          选项与参数：
-          interface：网络卡接口代号，包括 eth0, eth1, ppp0 等等
-          options  ：可以接的参数，包括如下：
-              up, down ：启动 (up) 或关闭 (down) 该网络接口(不涉及任何参数)
-              mtu      ：可以设定不同的 MTU 数值，例如 mtu 1500 (单位为 byte)
-              netmask  ：就是子屏蔽网络；
-              broadcast：就是广播地址啊！
-			
-			
+  		选项与参数：
+  		interface：网络卡接口代号，包括 eth0, eth1, ppp0 等等
+  		options  ：可以接的参数，包括如下：
+  		    up, down ：启动 (up) 或关闭 (down) 该网络接口(不涉及任何参数)
+  		    mtu      ：可以设定不同的 MTU 数值，例如 mtu 1500 (单位为 byte)
+  		    netmask  ：就是子屏蔽网络；
+  		    broadcast：就是广播地址啊！
+
+
   /etc/init.d/network restart  重启网络
   route -n   网络路由状态
 
@@ -2895,9 +2890,9 @@ gcc -o hello hello.c -Wall
 <li>
 <p>命令</p>
 <pre><code>  netstat：在本机上面以自己的程序监测自己的 port；	
-      netstat -tlunp 
+  	netstat -tlunp 
   nmap：透过网络的侦测软件辅助，可侦测非本机上的其他网络。
-	
+
   /etc/supervisor/conf.d  设置服务处
   /etc/resolv.conf   DNS 主机 IP 的设定
 </code></pre>
@@ -2908,55 +2903,55 @@ gcc -o hello hello.c -Wall
  iptables [-t nat] -P [INPUT,OUTPUT,FORWARD] [ACCEPT,DROP]  定义预设政策 (policy)
  
  iptables [-AI 链名] [-io 网络接口] [-p 协议] [-s 来源IP/网域] [-d 目标IP/网域] -j [ACCEPT|DROP|REJECT|LOG]
-     iptables -A INPUT -i eth1 -s 192.168.100.0/24 -j ACCEPT
-     iptables -A INPUT -i eth0 -p tcp --dport 139 -j ACCEPT
+	 iptables -A INPUT -i eth1 -s 192.168.100.0/24 -j ACCEPT
+	 iptables -A INPUT -i eth0 -p tcp --dport 139 -j ACCEPT
 
-    选项与参数：
-    -AI 链名：针对某的链进行规则的 &quot;插入&quot; 或 &quot;累加&quot;
-        -A ：新增加一条规则，该规则增加在原本规则的最后面。例如原本已经有四条规则，
-             使用 -A 就可以加上第五条规则！
-        -I ：插入一条规则。如果没有指定此规则的顺序，默认是插入变成第一条规则。
-             例如原本有四条规则，使用 -I 则该规则变成第一条，而原本四条变成 2~5 号
-        链 ：有 INPUT, OUTPUT, FORWARD 等，此链名称又与 -io 有关，请看底下。
+	选项与参数：
+	-AI 链名：针对某的链进行规则的 &quot;插入&quot; 或 &quot;累加&quot;
+	    -A ：新增加一条规则，该规则增加在原本规则的最后面。例如原本已经有四条规则，
+	         使用 -A 就可以加上第五条规则！
+	    -I ：插入一条规则。如果没有指定此规则的顺序，默认是插入变成第一条规则。
+	         例如原本有四条规则，使用 -I 则该规则变成第一条，而原本四条变成 2~5 号
+	    链 ：有 INPUT, OUTPUT, FORWARD 等，此链名称又与 -io 有关，请看底下。
 	
-    -io 网络接口：设定封包进出的接口规范
-        -i ：封包所进入的那个网络接口，例如 eth0, lo 等接口。需与 INPUT 链配合；
-        -o ：封包所传出的那个网络接口，需与 OUTPUT 链配合；
+	-io 网络接口：设定封包进出的接口规范
+	    -i ：封包所进入的那个网络接口，例如 eth0, lo 等接口。需与 INPUT 链配合；
+	    -o ：封包所传出的那个网络接口，需与 OUTPUT 链配合；
 	
-    -p 协定：设定此规则适用于哪种封包格式
-       主要的封包格式有： tcp, udp, icmp 及 all 。
+	-p 协定：设定此规则适用于哪种封包格式
+	   主要的封包格式有： tcp, udp, icmp 及 all 。
 	
-    -s 来源 IP/网域：设定此规则之封包的来源项目，可指定单纯的 IP 或包括网域，例如：
-       IP  ：192.168.0.100
-       网域：192.168.0.0/24, 192.168.0.0/255.255.255.0 均可。
-       若规范为『不许』时，则加上 ! 即可，例如：
-       -s ! 192.168.100.0/24 表示不许 192.168.100.0/24 之封包来源；
+	-s 来源 IP/网域：设定此规则之封包的来源项目，可指定单纯的 IP 或包括网域，例如：
+	   IP  ：192.168.0.100
+	   网域：192.168.0.0/24, 192.168.0.0/255.255.255.0 均可。
+	   若规范为『不许』时，则加上 ! 即可，例如：
+	   -s ! 192.168.100.0/24 表示不许 192.168.100.0/24 之封包来源；
 	
-    -d 目标 IP/网域：同 -s ，只不过这里指的是目标的 IP 或网域。
+	-d 目标 IP/网域：同 -s ，只不过这里指的是目标的 IP 或网域。
 	
-    -j ：后面接动作，主要的动作有接受(ACCEPT)、丢弃(DROP)、拒绝(REJECT)及记录(LOG)
-    --sport 埠口范围：限制来源的端口号码，端口号码可以是连续的，例如 1024:65535
-    --dport 埠口范围：限制目标的端口号码。
+	-j ：后面接动作，主要的动作有接受(ACCEPT)、丢弃(DROP)、拒绝(REJECT)及记录(LOG)
+	--sport 埠口范围：限制来源的端口号码，端口号码可以是连续的，例如 1024:65535
+	--dport 埠口范围：限制目标的端口号码。
 
-    -m ：一些 iptables 的外挂模块，主要常见的有：
-         state ：状态模块
-         mac   ：网络卡硬件地址 (hardware address)
-    --state ：一些封包的状态，主要有：
-         INVALID    ：无效的封包，例如数据破损的封包状态
-         ESTABLISHED：已经联机成功的联机状态；
-         NEW        ：想要新建立联机的封包状态；
-         RELATED    ：这个最常用！表示这个封包是与我们主机发送出去的封包有关
+	-m ：一些 iptables 的外挂模块，主要常见的有：
+	     state ：状态模块
+	     mac   ：网络卡硬件地址 (hardware address)
+	--state ：一些封包的状态，主要有：
+	     INVALID    ：无效的封包，例如数据破损的封包状态
+	     ESTABLISHED：已经联机成功的联机状态；
+	     NEW        ：想要新建立联机的封包状态；
+	     RELATED    ：这个最常用！表示这个封包是与我们主机发送出去的封包有关
 </code></pre>
 <h2 id="tmux">tmux</h2>
 <ul>
 <li>
 <p>窗口神器</p>
 <pre><code>  打开新窗格 
-       ctrl+b %   竖直
-       ctrl+b &quot;     水平
-      切换 ctrl+b 方向	 
+  	 ctrl+b %   竖直
+  	 ctrl+b &quot;     水平
+  	切换 ctrl+b 方向	 
   打开新窗口      ctrl+b c
-      切换 ctrl+b 数字
+  	切换 ctrl+b 数字
 </code></pre>
 </li>
 </ul>
@@ -3117,15 +3112,15 @@ controller会在集群启动时为每个节点注册一个监听器，当节点�
 <pre><code>\ 转义字符
 ^ 匹配开始位置 ps：当在一组方括号里使用^是，它表示&quot;非&quot;或&quot;排除&quot;的意思，常常用来剔除某个字符。
 $ 匹配结束位置	
-    ps：字符^和$同时使用时，表示精确匹配（字符串与模式一样），分开使用，只匹配字符串首或尾
+	ps：字符^和$同时使用时，表示精确匹配（字符串与模式一样），分开使用，只匹配字符串首或尾
 
 + 一次或多次
 * 0次或多次
 </code></pre>
 <p>ps：</p>
 <pre><code>？0次或1次,也可以将默认的贪婪模式转变为非贪婪，例如，对于字符串 &quot;oooo&quot;，'o+?' 将匹配单个 &quot;o&quot;，而 'o+' 将匹配所有 'o'。
-    （?:pattern) 获取匹配结果，但是不需要存储为分组结果	
-    （?=pattern) 例如，&quot;Windows(?=95|98|NT|2000)&quot;能匹配&quot;Windows2000&quot;中的&quot;Windows&quot;，但不能匹配&quot;Windows3.1&quot;中的&quot;Windows&quot;。
+	（?:pattern) 获取匹配结果，但是不需要存储为分组结果	
+	（?=pattern) 例如，&quot;Windows(?=95|98|NT|2000)&quot;能匹配&quot;Windows2000&quot;中的&quot;Windows&quot;，但不能匹配&quot;Windows3.1&quot;中的&quot;Windows&quot;。
      (?!pattern) 例如&quot;Windows(?!95|98|NT|2000)&quot;能匹配&quot;Windows3.1&quot;中的&quot;Windows&quot;，但不能匹配&quot;Windows2000&quot;中的&quot;Windows&quot;。
 
 
@@ -3136,7 +3131,7 @@ $ 匹配结束位置
 [^指定字符串] 指的是除指定字符串以外的其他字符串
 [] 匹配其中之一，可匹配字符组的一个列表，
 （） 可作为子匹配进行分组缓存，分组获取的结果可以通过组编号（从1开始）拿出，
-    **\n访问分组的引用**，可以用来去重
+	**\n访问分组的引用**，可以用来去重
 
 x|y 匹配 x 或 y
 \s 匹配任何空白字符，包括空格、制表符、换页符等
@@ -3171,7 +3166,7 @@ x|y 匹配 x 或 y
 原因是对于数字的1， 字符串‘1’， ‘01’，‘0001’都和它相等。从而就没法使用索引；
 而反过来可以看出对于数字的查询传入字符串和数字都能用上索引；</p>
 <p>string与number的类型进行对比为什么会导致索引失效以至于全表扫描呢。
-原来对于column为string类型的索引，如果有三个值分别为&rdquo; 1&rdquo;,&rdquo; 1&rdquo;,“1a”。
+原来对于column为string类型的索引，如果有三个值分别为&quot; 1&quot;,&quot; 1&quot;,“1a”。
 在进行隐式转换成number后的值都为1。这种情况下索引自然就不可用。
 mysql便不会通过索引进行快速查询，而是将对对应column全部进行类型转换后通过全表扫描来进行查询。</p>
 ]]></content:encoded>
@@ -3197,8 +3192,8 @@ text code blocks
 text code blocks
 </code></pre>
 <h2 id="highlighted-code-blocks">Highlighted Code Blocks</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
-</code></pre></div><h2 id="blockquotes">Blockquotes</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="blockquotes">Blockquotes</h2>
 <blockquote>
 <p>This is a blockquote with two paragraphs. This is first paragraph.</p>
 <p>This is second pragraph.</p>
@@ -3309,14 +3304,14 @@ text code blocks
 <p>This is <a href="http://example.com/%22Title%22">an example</a> inline link.</p>
 <h2 id="images">Images</h2>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Octicons-globe.svg/240px-Octicons-globe.svg.png" alt="Globe"></p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>Here is the <em>text</em> of the <strong>footnote</strong>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:1">
+<p>Here is the <em>text</em> of the <strong>footnote</strong>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>]]></content:encoded>
+</div>]]></content:encoded>
     </item>
     
     <item>

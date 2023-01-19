@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 <head>
-  <meta name="generator" content="Hugo 0.69.0" />
+  <meta name="generator" content="Hugo 0.110.0" />
   <meta charset="utf-8">
   <title>记录类型转换引起的索引失效 · helloj</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,17 +20,13 @@
 <meta property="og:title" content="记录类型转换引起的索引失效" />
 <meta property="og:description" content="mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://justinbetter.github.io/2018/05/05/%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/" />
+<meta property="og:url" content="https://justinbetter.github.io/2018/05/05/%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-05-05T20:00:22+08:00" />
 <meta property="article:modified_time" content="2018-05-05T20:00:22+08:00" />
 <meta itemprop="name" content="记录类型转换引起的索引失效">
-<meta itemprop="description" content="mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行">
-<meta itemprop="datePublished" content="2018-05-05T20:00:22&#43;08:00" />
-<meta itemprop="dateModified" content="2018-05-05T20:00:22&#43;08:00" />
-<meta itemprop="wordCount" content="382">
-
-
-
+<meta itemprop="description" content="mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行"><meta itemprop="datePublished" content="2018-05-05T20:00:22+08:00" />
+<meta itemprop="dateModified" content="2018-05-05T20:00:22+08:00" />
+<meta itemprop="wordCount" content="380">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="记录类型转换引起的索引失效"/>
 <meta name="twitter:description" content="mysql在进行字段对比时，如果两个参数类型不一致，此时会进行类型转换，让他们可以进行比较。 可以在sql中进行显示转换，或者在执行时自动进行"/>
@@ -110,7 +106,7 @@
 原因是对于数字的1， 字符串‘1’， ‘01’，‘0001’都和它相等。从而就没法使用索引；
 而反过来可以看出对于数字的查询传入字符串和数字都能用上索引；</p>
 <p>string与number的类型进行对比为什么会导致索引失效以至于全表扫描呢。
-原来对于column为string类型的索引，如果有三个值分别为&rdquo; 1&rdquo;,&rdquo; 1&rdquo;,“1a”。
+原来对于column为string类型的索引，如果有三个值分别为&quot; 1&quot;,&quot; 1&quot;,“1a”。
 在进行隐式转换成number后的值都为1。这种情况下索引自然就不可用。
 mysql便不会通过索引进行快速查询，而是将对对应column全部进行类型转换后通过全表扫描来进行查询。</p>
 
