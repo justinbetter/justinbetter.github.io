@@ -6,7 +6,7 @@
     <description>Recent content on helloj</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 18 Jan 2023 20:00:22 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Jan 2023 20:43:37 +0800</lastBuildDate>
     
     <atom:link href="https://justinbetter.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -29,6 +29,17 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
 <li><a href="https://github.com/spf13/cast">Cast</a></li>
 </ul>
 <p>Learn more and contribute on <a href="https://github.com/gohugoio">GitHub</a>.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>阅读时间 《Steal Like an Artist》</title>
+      <link>https://justinbetter.github.io/2023/01/19/%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4-steal-like-an-artist/</link>
+      <pubDate>Thu, 19 Jan 2023 20:43:37 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2023/01/19/%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4-steal-like-an-artist/</guid>
+      <description>内容</description>
+      <content:encoded><![CDATA[<h2 id="内容">内容</h2>
 ]]></content:encoded>
     </item>
     
@@ -3351,17 +3362,6 @@ text code blocks
 </li>
 </ol>
 </div>]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Header Image</title>
-      <link>https://justinbetter.github.io/2018/03/05/header-image/</link>
-      <pubDate>Mon, 05 Mar 2018 16:01:23 +0800</pubDate>
-      
-      <guid>https://justinbetter.github.io/2018/03/05/header-image/</guid>
-      <description>This is a simple note.</description>
-      <content:encoded><![CDATA[<p>This is a simple note.</p>
-]]></content:encoded>
     </item>
     
   </channel>
