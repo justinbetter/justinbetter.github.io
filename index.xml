@@ -38,13 +38,14 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
       <pubDate>Sat, 21 Jan 2023 15:43:37 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2023/01/21/%E9%98%85%E8%AF%BB%E6%AF%94%E7%89%B9%E5%B8%81%E7%99%BD%E7%9A%AE%E4%B9%A6/</guid>
-      <description>翻阅了 9 页的比特币白皮书，总结一波自己的理解。 中英文版本出处如下 https://bitcoin.org/bitcoin.pdf https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf 作者中本聪提出了一种新的方案来替换传统的网络交易。 传统的网络交易机制需要</description>
+      <description>翻阅了 9 页的比特币白皮书，总结一波自己的理解。 中英文版本出处如下 https://bitcoin.org/bitcoin.pdf https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf 概念 作者中本聪提出了一种新的方案来替换传统的网络交易。 传统的网络交易机制</description>
       <content:encoded><![CDATA[<p>翻阅了 9 页的比特币白皮书，总结一波自己的理解。
 中英文版本出处如下</p>
 <ul>
 <li><a href="https://bitcoin.org/bitcoin.pdf">https://bitcoin.org/bitcoin.pdf</a></li>
 <li><a href="https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf">https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf</a></li>
 </ul>
+<h2 id="概念">概念</h2>
 <p>作者中本聪提出了一种新的方案来替换传统的网络交易。
 传统的网络交易机制需要第三方金融机构来保证交易安全，因为依赖第三方则会有不可避免的成本和仲裁问题。</p>
 <p>而作者中本聪提出的新方案比特币是基于密码学原理，通过不能更改的区块记录的链路来保证交易安全。
@@ -53,9 +54,12 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
 <p>白皮书也提出了对于双重支付的解决方法。
 解释下双重支付，就是一笔钱是否能够被支付两次，也是因为存在这条唯一的链路而保证的。
 而比特币的交易就是利用这个原理，比如收款人在每笔交易时，都需要多数节点认同此交易是最先收到的证据，以此来避免双重支付。</p>
+<h2 id="证明">证明</h2>
 <p>白皮书作者通过一些泊松分布等统计学方式给出了为什么多数节点会是正确并且不能被篡改的，具体证明过程可以看白皮书的第 11 节。</p>
+<h2 id="总结">总结</h2>
 <p>白皮书，通过区块链的技术证明了不依赖中心化三方金融机构就能完成一笔可信任的交易，所需要的就是更多的节点、CPU 时间、电力以及最重要的共识。</p>
 <p>而 2023 年的现在，这个共识依然值得思考。</p>
+<h2 id="思考">思考</h2>
 <p>比如交易所的出现？是去中心化的助力还是阻碍呢。
 比如山寨币的出现？是同一种共识吗。
 诸如此类。</p>
