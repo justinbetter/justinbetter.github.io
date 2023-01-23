@@ -3,7 +3,8 @@
 <head>
   <meta name="generator" content="Hugo 0.110.0" />
   <meta charset="utf-8">
-  <title>常用的设计模式 · helloj</title>
+  <title>常用的设计模式 · helloj</title><meta name="referrer" content="no-referrer" />
+<meta data-draft-node="block" data-draft-type="table" data-size="normal" data-row-style="normal">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="@[toc] #设计模式 ##单例模式 Double Check Lock public static Singleton getInstance(){ if(mInstance == null){ synchronized(Singleton.class){ if(mInstance == null){ mInstance = new Singleton(); } } } retuen mInstance; } 静态内部类 public static Singleton getInstance(){ retuen SingletonHolder.sInstance; } private static class SingletonHolder{ private static final Singleton sInstance = new Singleton(); } ​ ##Builde" />
 
