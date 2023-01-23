@@ -24,14 +24,21 @@
   
   <url>
     <loc>https://justinbetter.github.io/</loc>
-    <lastmod>2023-01-21T15:43:37+08:00</lastmod>
+    <lastmod>2023-01-23T14:58:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://justinbetter.github.io/2023/01/23/helloj%E5%B0%8F%E8%AF%B4%E5%91%A8%E5%88%8A%E7%AC%AC1%E6%9C%9F/</loc>
+    <lastmod>2023-01-23T14:58:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://justinbetter.github.io/posts/</loc>
-    <lastmod>2023-01-21T15:43:37+08:00</lastmod>
+    <lastmod>2023-01-23T14:58:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
