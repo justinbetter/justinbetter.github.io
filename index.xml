@@ -99,14 +99,17 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
 </li>
 </ul>
 <h2 id="hello-说">Hello 说</h2>
-<p>最近在使用纳博科夫的方式写作，结合 obsidan 的局部关系图谱，写作速度提高了很多。</p>
+<p>最近在使用纳博科夫的卡片方式写作，结合 obsidan 的局部关系图谱，写作速度提高了很多。</p>
 <p>具体步骤如下：</p>
 <ol>
-<li>随机写一个笔记</li>
-<li>使用[[]]连接小说笔记</li>
-<li>打开小说笔记，使用局部关系图</li>
+<li>写一个小说提纲用的笔记</li>
+<li>随机写一个卡片笔记</li>
+<li>使用[[]]在大纲笔记连接卡片笔记</li>
+<li>打开小说大纲笔记，使用局部关系图插件就可以看到整个小说的脉络了</li>
 </ol>
-<p>之后只要写好每一个局部笔记就可以了。</p>
+<p>之后只要写好每一个卡片笔记就可以了。</p>
+<p>比如我要写一个关于虚拟世界的小说，那么我先写好每一个关联的卡片，最后联想汇总在一起就可以​输出一篇完整的小说了。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/wiaL3bO8WC3pia1eWVJxE9IhvjktI8ClxV8licaic3QGC01TYkCAKn39occEIibkebVticzhh79p3AQSZbFicjaoNAskQ/640?wx_fmt=png" alt=""></p>
 ]]></content:encoded>
     </item>
     
