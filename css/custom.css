@@ -14,8 +14,19 @@
   --border: #e8e8e8;
 }
 
-/* ===== Header / Hero Section - Hide title only, keep nav ===== */
-.header-container .header-wrapper {
+/* ===== Header / Hero Section - Hide homepage title only, keep nav ===== */
+/* Only hide header-wrapper on homepage (it has header-subtitle-homepage) */
+.header-container .header-wrapper:has(.header-subtitle-homepage) {
+  display: none !important;
+}
+
+/* For browsers that don't support :has(), also target the specific homepage structure */
+.header-container .header-wrapper .header-subtitle-homepage {
+  display: none !important;
+}
+
+/* Hide the entire homepage header-wrapper via parent */
+.header-container:has(.header-subtitle-homepage) .header-wrapper {
   display: none !important;
 }
 
@@ -23,6 +34,11 @@
   background: #2c3e50 !important;
   min-height: auto !important;
   padding: 0 !important;
+}
+
+/* Show article detail header properly */
+.header-container .header-wrapper {
+  padding: 30px 0;
 }
 
 /* ===== Navigation Bar ===== */
@@ -435,13 +451,12 @@ html {
     display: block;
   }
   
-  /* ===== Article Detail Page - Fix Header Overlap ===== */
-  
-  /* The header-wrapper in single pages - add margin to clear nav */
+  /* ===== Article Detail Page Header - Show on mobile ===== */
   .header-container .header-wrapper {
-    display: block !important; /* Override the hide */
+    display: block !important;
     padding: 20px 0 !important;
     margin-top: 0 !important;
+    background: rgba(0,0,0,0.2);
   }
   
   .header-container .header-content {
