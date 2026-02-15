@@ -33,11 +33,6 @@
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Fix: Add top padding to main content to avoid fixed header overlap */
-body {
-  padding-top: 110px !important;
-}
-
 .header-nav .nav-menu a.nav-link {
   color: var(--primary) !important;
   font-weight: 500;
@@ -314,29 +309,51 @@ html {
   color: var(--primary);
 }
 
-/* ===== Mobile Responsive - Comprehensive Fixes ===== */
+/* ==========================================================================
+   MOBILE RESPONSIVE - Complete Rewrite
+   ========================================================================== */
+
 @media (max-width: 767px) {
-  /* Header adjustments */
-  .header-wrapper {
-    padding: 60px 0 40px !important;
+  /* 
+   * CRITICAL FIX: Body padding must account for fixed header
+   * Theme's header-nav is ~50-60px, but with logo and menu it can be taller
+   */
+  body {
+    padding-top: 70px !important;
   }
   
-  .header-title {
-    font-size: 1.6em !important;
+  /* ===== Navigation Fixes ===== */
+  .header-nav {
+    padding: 10px 0 !important;
+    height: auto !important;
+    line-height: normal !important;
   }
   
-  /* Navigation menu - horizontal scroll if needed */
+  .header-nav .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  /* Horizontal scrollable menu */
   .header-nav .nav-menu {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding: 0 10px;
+    padding: 5px 0;
   }
   
   .header-nav .nav-menu::-webkit-scrollbar {
     display: none;
+  }
+  
+  .header-nav .nav-menu .navbar-nav {
+    flex-direction: row !important;
+  }
+  
+  .header-nav .nav-menu .nav-item {
+    flex-shrink: 0;
   }
   
   .header-nav .nav-menu a.nav-link {
@@ -345,24 +362,30 @@ html {
     white-space: nowrap;
   }
   
-  /* ===== Article List Page Fixes ===== */
+  /* Collapse button adjustments */
+  .navbar-toggler {
+    padding: 4px 8px;
+    font-size: 0.9em;
+  }
+  
+  /* ===== Article List Page - More Spacious Layout ===== */
   .archive-container {
-    padding: 20px 0;
+    padding: 15px 0;
   }
   
   .archive-container .content {
-    padding: 20px 15px;
-    margin: 0 10px;
-    border-radius: 8px;
+    padding: 25px 20px;
+    margin: 0 12px;
+    border-radius: 12px;
   }
   
   .archive-container h2 {
-    font-size: 1.3em;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
   }
   
-  /* Article list layout - stack date and title vertically */
+  /* Article list - card style items */
   .archive-container dl.row {
     display: block;
     margin: 0;
@@ -379,126 +402,177 @@ html {
   }
   
   .archive-container dt {
-    font-size: 0.75em;
+    font-size: 0.8em;
     color: var(--text-light);
-    margin-top: 15px;
-    margin-bottom: 4px;
-    padding-bottom: 0;
-    border-bottom: none;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    padding: 0;
+  }
+  
+  .archive-container dt:first-of-type {
+    margin-top: 0;
   }
   
   .archive-container dd {
-    font-size: 0.95em;
-    padding-bottom: 12px;
-    margin-bottom: 12px;
+    font-size: 1em;
+    padding: 12px 0 20px 0;
+    margin-bottom: 0;
     border-bottom: 1px solid var(--border);
-    line-height: 1.5;
+    line-height: 1.6;
+  }
+  
+  .archive-container dd:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
   }
   
   .archive-container dd:hover {
     transform: none;
+    background: transparent;
   }
   
-  /* First item spacing */
-  .archive-container dl.row dt:first-of-type {
-    margin-top: 0;
+  .archive-container dd a {
+    display: block;
   }
   
-  /* ===== Article Detail Page Fixes ===== */
-  .container.content {
-    padding: 20px 15px;
+  /* ===== Article Detail Page - Fix Header Overlap ===== */
+  
+  /* The header-wrapper in single pages - add margin to clear nav */
+  .header-container .header-wrapper {
+    display: block !important; /* Override the hide */
+    padding: 20px 0 !important;
+    margin-top: 0 !important;
   }
   
-  .container.content article {
-    font-size: 0.95em;
-    line-height: 1.7;
+  .header-container .header-content {
+    padding: 0 15px;
   }
   
-  /* Article header adjustments */
   .header-content .header-title {
     font-size: 1.5em !important;
-    line-height: 1.3;
+    line-height: 1.4;
     word-wrap: break-word;
+    margin-bottom: 10px;
   }
   
   .header-content .header-date {
-    font-size: 0.8em;
+    font-size: 0.85em;
     line-height: 1.6;
+    color: rgba(255,255,255,0.8);
+  }
+  
+  .header-content .header-date a {
+    color: rgba(255,255,255,0.9) !important;
   }
   
   .header-tags {
     float: none !important;
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 0.8em;
   }
   
-  /* Article content adjustments */
+  .header-tags a {
+    color: rgba(255,255,255,0.9) !important;
+  }
+  
+  /* Main content area */
+  main .container.content {
+    padding: 25px 18px;
+  }
+  
+  main .container.content article {
+    font-size: 1em;
+    line-height: 1.8;
+  }
+  
+  /* Article typography */
   .post-content {
-    font-size: 0.95em;
+    font-size: 1em;
   }
   
   .post-content h1 {
-    font-size: 1.4em;
-    margin-top: 1.5em;
+    font-size: 1.5em;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
   }
   
   .post-content h2 {
-    font-size: 1.25em;
-    margin-top: 1.5em;
+    font-size: 1.3em;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
   }
   
   .post-content h3 {
-    font-size: 1.1em;
-    margin-top: 1.3em;
+    font-size: 1.15em;
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
   }
   
-  /* Code blocks - enable horizontal scroll */
+  .post-content p {
+    margin-bottom: 1.2em;
+  }
+  
+  /* Code blocks */
   .post-content pre {
     padding: 15px;
-    margin: 1em -5px;
-    border-radius: 0;
-    font-size: 0.8em;
+    margin: 1.2em -5px;
+    border-radius: 6px;
+    font-size: 0.85em;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
   
   .post-content code {
-    font-size: 0.85em;
+    font-size: 0.9em;
     word-break: break-word;
   }
   
-  /* Blockquote adjustments */
+  /* Blockquotes */
   .post-content blockquote {
-    padding: 15px 20px;
-    margin: 1em -5px;
-    font-size: 0.9em;
+    padding: 15px 18px;
+    margin: 1.2em -5px;
+    font-size: 0.95em;
   }
   
-  /* Images - ensure full width */
+  /* Images */
   .post-content img {
     max-width: 100%;
     height: auto;
-    margin: 1em 0;
+    margin: 1.2em 0;
+    border-radius: 6px;
   }
   
-  /* Tables - horizontal scroll */
+  /* Tables */
   .post-content table {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    font-size: 0.85em;
+    font-size: 0.9em;
+    border-collapse: collapse;
   }
   
-  /* Lists adjustments */
+  .post-content table th,
+  .post-content table td {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+  }
+  
+  /* Lists */
   .post-content ul,
   .post-content ol {
-    padding-left: 1.5em;
+    padding-left: 1.8em;
+    margin-bottom: 1.2em;
   }
   
-  /* Related articles section */
+  .post-content li {
+    margin-bottom: 0.4em;
+  }
+  
+  /* Related articles */
   .container.content h4 {
-    font-size: 1.1em;
-    margin-top: 2em;
+    font-size: 1.15em;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
   }
   
   .container.content dl.row {
@@ -510,21 +584,22 @@ html {
     display: block;
     width: 100%;
     flex: none;
+    padding: 0;
+    margin: 0;
   }
   
   .container.content dl.row dt {
-    font-size: 0.75em;
+    font-size: 0.8em;
     color: var(--text-light);
-    margin-top: 12px;
+    margin-top: 15px;
   }
   
   .container.content dl.row dd {
-    padding-bottom: 10px;
+    padding: 8px 0 15px 0;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 10px;
   }
   
-  /* ===== Pagination adjustments ===== */
+  /* ===== Pagination ===== */
   .pagination {
     margin-top: 30px;
     padding: 0 10px;
@@ -532,64 +607,80 @@ html {
   
   .pagination a,
   .pagination .page-number {
-    padding: 6px 12px;
+    padding: 8px 14px;
     font-size: 0.9em;
-    margin: 2px;
+    margin: 3px;
+  }
+  
+  /* ===== Footer ===== */
+  .footer {
+    padding: 35px 0 25px;
+    margin-top: 50px;
+  }
+  
+  .footer-container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .footer .row > div {
+    margin-bottom: 25px;
+  }
+  
+  .footer .row > div:last-child {
+    margin-bottom: 0;
   }
   
   /* ===== Back to top button ===== */
   .back-to-top {
     bottom: 20px;
     right: 15px;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     font-size: 1em;
   }
   
-  /* ===== Footer ===== */
-  .footer {
-    padding: 30px 0 20px;
-    text-align: center;
-  }
-  
-  .footer .pull-right {
-    float: none !important;
-    text-align: center !important;
-    margin-top: 15px;
-  }
-  
-  .footer .row > div {
-    margin-bottom: 20px;
-  }
-  
-  /* ===== Gitalk comments adjustments ===== */
+  /* ===== Gitalk comments ===== */
   .gt-container {
-    font-size: 0.9em;
+    font-size: 0.95em;
+    margin-top: 30px;
   }
   
   .gt-container .gt-header-textarea {
-    font-size: 0.9em;
+    font-size: 0.95em;
   }
   
   .gt-container .gt-btn {
     padding: 8px 16px;
-    font-size: 0.85em;
+    font-size: 0.9em;
   }
 }
 
 /* Extra small devices */
 @media (max-width: 375px) {
+  body {
+    padding-top: 65px !important;
+  }
+  
   .archive-container .content {
-    padding: 15px 12px;
-    margin: 0 8px;
+    padding: 20px 15px;
+    margin: 0 10px;
+  }
+  
+  .archive-container h2 {
+    font-size: 1.25em;
   }
   
   .header-content .header-title {
-    font-size: 1.3em !important;
+    font-size: 1.35em !important;
+  }
+  
+  main .container.content {
+    padding: 20px 15px;
   }
   
   .post-content {
-    font-size: 0.9em;
+    font-size: 0.95em;
   }
   
   .header-nav .nav-menu a.nav-link {
