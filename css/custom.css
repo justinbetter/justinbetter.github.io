@@ -33,6 +33,11 @@
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
+/* Fix: Add top padding to main content to avoid fixed header overlap */
+body {
+  padding-top: 60px !important;
+}
+
 .header-nav .nav-menu a.nav-link {
   color: var(--primary) !important;
   font-weight: 500;
