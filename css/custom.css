@@ -14,9 +14,15 @@
   --border: #e8e8e8;
 }
 
-/* ===== Header / Hero Section - Hidden ===== */
-.header-container {
+/* ===== Header / Hero Section - Hide title only, keep nav ===== */
+.header-container .header-wrapper {
   display: none !important;
+}
+
+.header-container {
+  background: #2c3e50 !important;
+  min-height: auto !important;
+  padding: 0 !important;
 }
 
 /* ===== Navigation Bar ===== */
