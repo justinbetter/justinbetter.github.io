@@ -14,44 +14,41 @@
   --border: #e8e8e8;
 }
 
-/* ===== Header / Hero Section - Clean Background ===== */
+/* ===== Header / Hero Section - Compact ===== */
 .header-container {
   background: #2c3e50 !important;
   position: relative;
-  overflow: hidden;
 }
 
 .header-wrapper {
-  padding: 80px 0 60px !important;
+  padding: 40px 0 30px !important;
 }
 
 .header-content {
-  position: relative;
-  z-index: 1;
+  text-align: center;
 }
 
 .header-title {
   color: #fff !important;
   font-weight: 300 !important;
-  font-size: 3em !important;
-  letter-spacing: 0.15em;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  margin-bottom: 15px;
+  font-size: 2.2em !important;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
 }
 
 .header-underline {
-  width: 60px;
-  height: 3px;
-  background: rgba(255,255,255,0.6);
-  margin: 0 auto 20px;
-  border-radius: 2px;
+  width: 40px;
+  height: 2px;
+  background: rgba(255,255,255,0.5);
+  margin: 0 auto 12px;
+  border-radius: 1px;
 }
 
 .header-subtitle {
-  color: rgba(255,255,255,0.9) !important;
+  color: rgba(255,255,255,0.8) !important;
   font-weight: 300;
-  font-size: 1.1em;
-  letter-spacing: 0.05em;
+  font-size: 0.95em;
+  margin: 0;
 }
 
 /* ===== Navigation Bar ===== */
