@@ -14,32 +14,8 @@
   --border: #e8e8e8;
 }
 
-/* ===== Header / Hero Section - Minimal ===== */
+/* ===== Header / Hero Section - Hidden ===== */
 .header-container {
-  background: #2c3e50 !important;
-  min-height: 0 !important;
-  padding: 0 !important;
-}
-
-.header-wrapper {
-  padding: 20px 0 15px !important;
-  min-height: auto !important;
-}
-
-.header-content {
-  text-align: center;
-}
-
-.header-title {
-  color: #fff !important;
-  font-weight: 400 !important;
-  font-size: 1.5em !important;
-  letter-spacing: 0.05em;
-  margin: 0;
-}
-
-.header-underline,
-.header-subtitle {
   display: none !important;
 }
 
