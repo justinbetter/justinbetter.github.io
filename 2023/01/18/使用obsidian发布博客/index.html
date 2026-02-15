@@ -3,7 +3,7 @@
 <head>
   <meta name="generator" content="Hugo 0.155.3" />
   <meta charset="utf-8">
-  <title>使用obsidian发布博客 · helloj</title><meta name="referrer" content="no-referrer" />
+  <title>使用obsidian发布博客 · Helio</title><meta name="referrer" content="no-referrer" />
 <meta data-draft-node="block" data-draft-type="table" data-size="normal" data-row-style="normal">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="使用 github action 发布 name: deploy on: push: workflow_dispatch: schedule: # Runs everyday at 8:00 AM - cron: &#34;0 0 * * *&#34; jobs: build: runs-on: ubuntu-latest steps: - name: Checkout uses: actions/checkout@v2 with: submodules: true fetch-depth: 0 - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: &#34;latest&#34; - name: Build Web run: hugo - name: Deploy Web uses: peaceiris/actions-gh-pages@v3 with: PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }} EXTERNAL_REPOSITORY: justinbetter/justinbetter.github.io PUBLISH_BRANCH: master PUBLISH_DIR: ./public commit_message: ${{ github.event.head_commit.message }} 参考 https://www.pseudoyu.com/zh/2022/05/29/deploy_your_blog_using_hugo_and_github_action/ " />
@@ -34,7 +34,7 @@
       
         
         
-          helloj
+          Helio
          
       </a>
     </div>
