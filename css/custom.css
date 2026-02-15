@@ -338,7 +338,7 @@ html {
     padding-top: 70px !important;
   }
   
-  /* ===== Navigation Fixes ===== */
+  /* ===== Navigation Fixes - Force horizontal menu ===== */
   .header-nav {
     padding: 10px 0 !important;
     height: auto !important;
@@ -348,16 +348,25 @@ html {
   .header-nav .container {
     padding-left: 15px;
     padding-right: 15px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
   }
   
-  /* Horizontal scrollable menu */
-  .header-nav .nav-menu {
-    display: flex;
+  /* Force nav menu to always show horizontally */
+  .header-nav .nav-menu,
+  .header-nav .nav-menu.collapse,
+  .header-nav .nav-menu.collapsing,
+  .header-nav .nav-menu.collapse.show {
+    display: flex !important;
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding: 5px 0;
+    flex: 1;
+    border: none;
+    background: transparent;
   }
   
   .header-nav .nav-menu::-webkit-scrollbar {
@@ -366,6 +375,7 @@ html {
   
   .header-nav .nav-menu .navbar-nav {
     flex-direction: row !important;
+    flex-wrap: nowrap;
   }
   
   .header-nav .nav-menu .nav-item {
@@ -378,10 +388,15 @@ html {
     white-space: nowrap;
   }
   
-  /* Collapse button adjustments */
+  /* Hide the hamburger menu button */
   .navbar-toggler {
-    padding: 4px 8px;
-    font-size: 0.9em;
+    display: none !important;
+  }
+  
+  /* Logo adjustments */
+  .header-logo {
+    flex-shrink: 0;
+    margin-right: 15px;
   }
   
   /* ===== Article List Page - More Spacious Layout ===== */
