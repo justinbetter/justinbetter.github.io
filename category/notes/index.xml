@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Notes on helloj</title>
     <link>https://justinbetter.github.io/category/notes/</link>
     <description>Recent content in Notes on helloj</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Mar 2018 16:01:23 +0800</lastBuildDate><atom:link href="https://justinbetter.github.io/category/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Feb 2026 10:50:00 +0800</lastBuildDate>
+    
+    <atom:link href="https://justinbetter.github.io/category/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>测试 GitHub Actions 自动部署</title>
+      <link>https://justinbetter.github.io/2026/02/15/%E6%B5%8B%E8%AF%95-github-actions-%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sun, 15 Feb 2026 10:50:00 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2026/02/15/%E6%B5%8B%E8%AF%95-github-actions-%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</guid>
+      <description>&lt;p&gt;这是一篇测试文章，用来验证 GitHub Actions 自动部署是否正常工作。&lt;/p&gt;
+&lt;h2 id=&#34;测试内容&#34;&gt;测试内容&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ 新文章已创建&lt;/li&gt;
+&lt;li&gt;⏳ 等待 GitHub Actions 触发&lt;/li&gt;
+&lt;li&gt;⏳ 检查部署结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果这篇文章能正常显示在博客上，说明自动部署流程已经修复！&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>这是一篇测试文章，用来验证 GitHub Actions 自动部署是否正常工作。</p>
+<h2 id="测试内容">测试内容</h2>
+<ul>
+<li>✅ 新文章已创建</li>
+<li>⏳ 等待 GitHub Actions 触发</li>
+<li>⏳ 检查部署结果</li>
+</ul>
+<p>如果这篇文章能正常显示在博客上，说明自动部署流程已经修复！</p>
+<hr>
+<p><em>发布时间: 2026-02-15</em></p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Den Theme Preview</title>
       <link>https://justinbetter.github.io/2018/03/06/den-theme-preview/</link>
@@ -14,6 +45,139 @@
       
       <guid>https://justinbetter.github.io/2018/03/06/den-theme-preview/</guid>
       <description>&lt;p&gt;This is a simple preview for styles in Den.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>This is a simple preview for styles in Den.</p>
+<h2 id="header">Header</h2>
+<p>A paragraph is like this.</p>
+<p>A paragraph might be very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long.</p>
+<h3 id="headers">Headers</h3>
+<h4 id="headers-1">Headers</h4>
+<h2 id="code-blocks">Code blocks</h2>
+<pre><code>text code blocks
+text code blocks
+text code blocks
+text code blocks
+</code></pre>
+<h2 id="highlighted-code-blocks">Highlighted Code Blocks</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;hello world&#39;</span>)
+</span></span></code></pre></div><h2 id="blockquotes">Blockquotes</h2>
+<blockquote>
+<p>This is a blockquote with two paragraphs. This is first paragraph.</p>
+<p>This is second pragraph.</p>
+</blockquote>
+<h2 id="lists">Lists</h2>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<ol>
+<li>Red</li>
+<li>Green</li>
+<li>Blue
+<ul>
+<li>A</li>
+<li>B</li>
+<li>C
+<ol>
+<li>D</li>
+<li>E</li>
+<li>F</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="task-list">Task List</h2>
+<ul>
+<li><input disabled="" type="checkbox"> a task list item</li>
+<li><input disabled="" type="checkbox"> list syntax <del>required</del></li>
+<li><input disabled="" type="checkbox"> normal <strong>formatting</strong></li>
+<li><input disabled="" type="checkbox"> incomplete</li>
+<li><input checked="" disabled="" type="checkbox"> completed</li>
+</ul>
+<h2 id="formatted-texts">Formatted Texts</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Name</th>
+          <th>Markdown</th>
+          <th>HTML tag</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><em>Emphasis</em></td>
+          <td>*Emphasis*</td>
+          <td><code>&lt;em&gt;&lt;/em&gt;</code></td>
+      </tr>
+      <tr>
+          <td><strong>Strong</strong></td>
+          <td>**Strong**</td>
+          <td><code>&lt;strong&gt;&lt;/strong&gt;</code></td>
+      </tr>
+      <tr>
+          <td><code>code</code></td>
+          <td>`code`</td>
+          <td><code>&lt;code&gt;&lt;/code&gt;</code></td>
+      </tr>
+      <tr>
+          <td><del>Strikethrough</del></td>
+          <td>~~Strikethrough~~</td>
+          <td><code>&lt;del&gt;&lt;/del</code></td>
+      </tr>
+      <tr>
+          <td><strong>Underline</strong></td>
+          <td>__underline__</td>
+          <td><code>&lt;u&gt;&lt;/u&gt;</code></td>
+      </tr>
+      <tr>
+          <td><!-- raw HTML omitted -->Key<!-- raw HTML omitted --></td>
+          <td>&lt;kbd&gt;Key&lt;/kbd&gt;</td>
+          <td><code>&lt;kbd&gt;&lt;/kbd&gt;</code></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="tables">Tables</h2>
+<table>
+  <thead>
+      <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>a</td>
+          <td>b</td>
+          <td>c</td>
+      </tr>
+      <tr>
+          <td>d</td>
+          <td>e</td>
+          <td>f</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="footnotes">Footnotes</h2>
+<p>You can create footnotes like this<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<h2 id="horizontal-rules">Horizontal Rules</h2>
+<p>A rule.</p>
+<hr>
+<p>A rule.</p>
+<hr>
+<h2 id="links">Links</h2>
+<p>This is <a href="http://example.com/%22Title%22">an example</a> inline link.</p>
+<h2 id="images">Images</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Octicons-globe.svg/240px-Octicons-globe.svg.png" alt="Globe"></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Here is the <em>text</em> of the <strong>footnote</strong>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>]]></content:encoded>
     </item>
     
     <item>
@@ -22,7 +186,9 @@
       <pubDate>Sun, 04 Mar 2018 16:01:23 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2018/03/04/note-2/</guid>
-      <description>This is a simple note.</description>
+      <description>&lt;p&gt;This is a simple note.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>This is a simple note.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -31,7 +197,11 @@
       <pubDate>Sat, 03 Mar 2018 16:01:23 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2018/03/03/note-1/</guid>
-      <description>This is a simple note. update by justin.</description>
+      <description>&lt;p&gt;This is a simple note.
+update by justin.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>This is a simple note.
+update by justin.</p>
+]]></content:encoded>
     </item>
     
   </channel>

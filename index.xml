@@ -6,7 +6,7 @@
     <description>Recent content on helloj</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Feb 2023 14:58:55 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Feb 2026 10:50:00 +0800</lastBuildDate>
     
     <atom:link href="https://justinbetter.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,9 +17,15 @@
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/about/</guid>
-      <description>Hugo is a static site engine written in Go.
-It makes use of a variety of open source projects including:
-Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</description>
+      <description>&lt;p&gt;Hugo is a static site engine written in Go.&lt;/p&gt;
+&lt;p&gt;It makes use of a variety of open source projects including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;Cobra&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;Viper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/jWalterWeatherman&#34;&gt;J Walter Weatherman&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>Hugo is a static site engine written in Go.</p>
 <p>It makes use of a variety of open source projects including:</p>
 <ul>
@@ -33,12 +39,99 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
     </item>
     
     <item>
+      <title>测试 GitHub Actions 自动部署</title>
+      <link>https://justinbetter.github.io/2026/02/15/%E6%B5%8B%E8%AF%95-github-actions-%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sun, 15 Feb 2026 10:50:00 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2026/02/15/%E6%B5%8B%E8%AF%95-github-actions-%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</guid>
+      <description>&lt;p&gt;这是一篇测试文章，用来验证 GitHub Actions 自动部署是否正常工作。&lt;/p&gt;
+&lt;h2 id=&#34;测试内容&#34;&gt;测试内容&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ 新文章已创建&lt;/li&gt;
+&lt;li&gt;⏳ 等待 GitHub Actions 触发&lt;/li&gt;
+&lt;li&gt;⏳ 检查部署结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果这篇文章能正常显示在博客上，说明自动部署流程已经修复！&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>这是一篇测试文章，用来验证 GitHub Actions 自动部署是否正常工作。</p>
+<h2 id="测试内容">测试内容</h2>
+<ul>
+<li>✅ 新文章已创建</li>
+<li>⏳ 等待 GitHub Actions 触发</li>
+<li>⏳ 检查部署结果</li>
+</ul>
+<p>如果这篇文章能正常显示在博客上，说明自动部署流程已经修复！</p>
+<hr>
+<p><em>发布时间: 2026-02-15</em></p>
+]]></content:encoded>
+    </item>
+    
+    <item>
       <title>HelloJ小说周刊第2期</title>
       <link>https://justinbetter.github.io/2023/02/17/helloj%E5%B0%8F%E8%AF%B4%E5%91%A8%E5%88%8A%E7%AC%AC2%E6%9C%9F/</link>
       <pubDate>Fri, 17 Feb 2023 14:58:55 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2023/02/17/helloj%E5%B0%8F%E8%AF%B4%E5%91%A8%E5%88%8A%E7%AC%AC2%E6%9C%9F/</guid>
-      <description>最新动态 英国著名作家 Hanif Kureishi 瘫痪在病榻上，透过推特与读者交流。 https://www.8world.com/world/chengshihuxi-hanif-kureishi-2037081 B 站与晋江合作进军网文 IP 改编领域，购买多部作品版权。 改编影视 中国奇谭 由八个植根于</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_png/wiaL3bO8WC3oGFd3F7lR95nsCfYZNXEPsId9YNxyibTo3KjQmmj040vRNwoIHibe0uu1wY8Hy55B8tQfloxwSblQQ/0?wx_fmt=png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;最新动态&#34;&gt;最新动态&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;英国著名作家 Hanif Kureishi 瘫痪在病榻上，透过推特与读者交流。
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.8world.com/world/chengshihuxi-hanif-kureishi-2037081&#34;&gt;https://www.8world.com/world/chengshihuxi-hanif-kureishi-2037081&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;B 站与晋江合作进军网文 IP 改编领域，购买多部作品版权。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;改编影视&#34;&gt;改编影视&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;中国奇谭
+&lt;ul&gt;
+&lt;li&gt;由八个植根于中国传统文化的独立的故事组成：其中故事纵览古今、展望未来，从古代故事到科幻想象、从乡土眷恋到唯美爱情、从生命母题到人性思考，展现着中式想象力、承载着中国民族文化与哲学。影片涵盖多种美术风格以及制作手法：既有传统的二维、剪纸、偶定格动画，又有 CG、三渲二的现代技术，还有将素描与中国水墨韵味相结合的创新尝试，是创作者们对中国美学一次多视角的诠释。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文学储备&#34;&gt;文学储备&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;乌托邦和反乌托邦
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;乌托邦&lt;/strong&gt;，本意是“没有的地方”或者“好地方”。延伸为还有理想，不可能完成的好事情，其中文翻译也可以理解为“乌”是没有，“托”是寄托，“邦”是国家，“&lt;strong&gt;乌托邦&lt;/strong&gt;”三个字合起来的意思即为“空想的国家”。&lt;/li&gt;
+&lt;li&gt;反乌托邦是乌托邦的反义语，希腊语字面意思是“不好的地方”，它是一种不得人心、令人恐惧的假想社群或社会，是与理想社会相反的，一种极端恶劣的社会最终形态。
+&lt;ul&gt;
+&lt;li&gt;在这个虚构的社群里，人们过着非人性化的可怕生活。数个世纪来，许多文学作品、政治思想应运而生，人们在向往乌托邦的同时，也在思索：生活在反乌托邦是一种什么样的情景？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;推理小说五大流派
+&lt;ul&gt;
+&lt;li&gt;本格派、社会派、法庭派、悬疑派和硬汉派&lt;/li&gt;
+&lt;li&gt;本格派，最正统的推理小说，内容上面主要以“遭遇谜题”-“寻找线索”-“解开谜题”为梗概，注重的是设定和解谜的逻辑，读者在文中可以和书中的侦探接收到一样的线索，本格派的精神在于谜的破解，注重公平性，需提供线索让读者参与推理，读者阅读的过程也是享受侦破案件的过程，非常过瘾。&lt;/li&gt;
+&lt;li&gt;社会派，创作精神在于社会批判，描写人性和解谜。相较于解谜、逻辑、真相，反映社会现实是更重要的使命，以社会阴暗面为点，着手进行创作，具有深层社会指导价值，引人深思。&lt;/li&gt;
+&lt;li&gt;法庭派，基本精神是法庭上对立式辩证的解谜，重在体现证据的收集和严密的推理，侦探一般是律师或检察官。&lt;/li&gt;
+&lt;li&gt;悬疑派，比较注重谜题的悬疑性，一直保持悬疑感到最后破案的时候，所以就对案子的解决过程相对的描述的很少。悬疑派的创作精神在于迷的设计，大多是美国小说家写的小说。&lt;/li&gt;
+&lt;li&gt;硬汉派，故事的主角必然都处在社会的暗角，践行实践大于理论，必须凭借拳脚与毅力才能生存下去。硬汉派的主人公，在完成任务时非常尽心，和 NPC 互动也是实打实的，情节更具有冲击性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;成为作家&#34;&gt;成为作家&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;如何成为小说家？
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.notion.pet/503.html&#34;&gt;https://www.notion.pet/503.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;新的一年，教你 2 步用空闲时间写篇小小说
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.36kr.com/p/2107112502624642&#34;&gt;https://www.36kr.com/p/2107112502624642&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;纳博科夫的写作秘密：卡片创作法
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sohu.com/a/209088205_257537&#34;&gt;https://www.sohu.com/a/209088205_257537&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hello-说&#34;&gt;Hello 说&lt;/h2&gt;
+&lt;p&gt;最近在使用纳博科夫的卡片方式写作，结合 obsidan 的局部关系图谱，写作速度提高了很多。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p><img src="https://mmbiz.qpic.cn/mmbiz_png/wiaL3bO8WC3oGFd3F7lR95nsCfYZNXEPsId9YNxyibTo3KjQmmj040vRNwoIHibe0uu1wY8Hy55B8tQfloxwSblQQ/0?wx_fmt=png" alt=""></p>
 <h2 id="最新动态">最新动态</h2>
 <ul>
@@ -119,7 +212,53 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
       <pubDate>Mon, 23 Jan 2023 14:58:55 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2023/01/23/helloj%E5%B0%8F%E8%AF%B4%E5%91%A8%E5%88%8A%E7%AC%AC1%E6%9C%9F/</guid>
-      <description>最新动态 香港《亚洲周刊》2022 十大小说最近揭晓。 10 本小说是：马伯庸《大医》、阎真《如何是好》、骆以军《大疫》、葛亮《燕食记》、林白《北流》</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_png/wiaL3bO8WC3oGFd3F7lR95nsCfYZNXEPsId9YNxyibTo3KjQmmj040vRNwoIHibe0uu1wY8Hy55B8tQfloxwSblQQ/0?wx_fmt=png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;最新动态&#34;&gt;最新动态&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;香港《亚洲周刊》2022 十大小说最近揭晓。&lt;br&gt;
+10 本小说是：马伯庸《大医》、阎真《如何是好》、骆以军《大疫》、葛亮《燕食记》、林白《北流》、龚万辉《人工少女》、王梆《假装在西贡》、林棹《潮汐图》、黄山料《那女孩对我说》与朱大可《大桶》&lt;/li&gt;
+&lt;li&gt;第 168 届芥川奖及直木奖得奖作品揭晓，&lt;br&gt;
+芥川奖由书店员兼作家佐藤厚志的作品《荒地的家族》及井户川射子的作品《这世界的喜悦》获奖；
+直木奖由科幻界新锐小川哲的作品《地图与拳》及千早茜的作品《白金之叶》获奖。&lt;/li&gt;
+&lt;li&gt;1 月 16 日，澎湃新闻与阅文集团联合发布《2022 网络文学十大关键词》&lt;br&gt;
+中国故事、科幻、克苏鲁、无限流、重生、龙傲天、女强、斗破苍穹、副业、跨界等热词上榜。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;改编影视&#34;&gt;改编影视&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;刘慈欣的科幻小说《三体》改编电视剧正在热播，作为世界科幻大奖“雨果奖”获奖作品，《三体》以恢弘的笔触描绘了地球人类文明和三体文明在宇宙中的兴衰历程，被誉为中国科幻文学的里程碑。剧版超出预期的好评率，值得一看。&lt;/li&gt;
+&lt;li&gt;第 73 届柏林国际电影节中，《平原上的摩西》入围剧集单元，成为该单元创立九年来首部入围的华语作品。&lt;/li&gt;
+&lt;li&gt;由顽皮狗知名游戏改编的 HBO 真人剧集《最后生还者》第一季高分完结。
+&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz/wiaL3bO8WC3oGFd3F7lR95nsCfYZNXEPsUBuqiaFa9vkQh5Pe1K6NR5XjYl8cRTOCk2jrJFmwdcvR8jpmXx7eJbg/640?wx_fmt=other&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文学储备&#34;&gt;文学储备&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;芥川奖与直木奖
+&lt;ul&gt;
+&lt;li&gt;设立于 1935 年，芥川奖是纯文学奖的代表奖项，以鼓励新人作家为宗旨；直木奖则是大众文学代表奖项，通常颁给已出版作品的大众文学作家。这两个奖项同为每年颁发两次。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;拉美文学大爆炸
+&lt;ul&gt;
+&lt;li&gt;20 世纪 60 至 70 年代，拉丁美洲文学优秀作品大量涌现，因而被称作“拉美文学大爆炸”，一大批拉丁文学作家风行于欧洲并最终流行于全世界，其中的许多作品经受住了时间的考验，如《百年孤独》《阿尔特米奥·克罗斯之死》《酒吧长谈》《跳房子》《污秽的夜鸟》等。马尔克斯、卡洛斯·富恩特斯、马里奥·巴尔加斯·略萨、胡里奥·科塔萨尔、何塞·多诺索等名字，也随着这些作品广为人知。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;成为作家&#34;&gt;成为作家&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;medium 的文章，可以借鉴一下：&lt;a href=&#34;https://medium.com/@joycecheng.meng/%E8%AF%91-%E5%A6%82%E4%BD%95%E5%83%8F%E4%B8%93%E4%B8%9A%E4%BD%9C%E5%AE%B6%E4%B8%80%E6%A0%B7%E5%86%99%E4%BD%9C-how-to-write-like-a-professional-3b454f727af4&#34;&gt;如何像专业作家一样写作&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;征文比赛
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://read.douban.com/competition/all?dcm=original-nav&#34;&gt;豆瓣阅读征文专区&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;最近科幻热，如果你有很好的科幻点子落地，也可以向&lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=MjM5OTAxMzMwMA==&amp;amp;mid=504495350&amp;amp;idx=1&amp;amp;sn=d569ee342dc01184286b5a2333d098c1&amp;amp;scene=19#wechat_redirect&#34;&gt;科幻世界投稿&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;第八届华语青年作家奖开始征稿。2023 年 1 月 16 日，由成都市文联成都文艺发展服务中心（《青年作家》杂志社）、封面新闻、华西都市报主办的“第八届华语青年作家奖”盛大启幕，面向&lt;a href=&#34;http://www.chinawriter.com.cn/n1/2023/0117/c403994-32608209.html&#34;&gt;全球征稿&lt;/a&gt;
+&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_png/wiaL3bO8WC3oGFd3F7lR95nsCfYZNXEPszQ84YEgwdMULuhJMGhXgibaiclULfJphRf5H4yWpE5bWAQMeM4xbjS8Q/640?wx_fmt=png&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hello-说&#34;&gt;Hello 说&lt;/h2&gt;
+&lt;p&gt;HelloJ 小说周刊第一期，希望本周刊能坚持到本人的第一部小说完成。&lt;br&gt;
+本周读了村上春树的《没有女人的男人们》，最近滨口龙介执导的电影《驾驶我的车》就改编自这部短篇集里的首篇，书名就很有意思，情节也一气呵成，很轻松的阅读体验。&lt;br&gt;
+新的一年不妨从这本小说开始你的阅读之旅吧。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p><img src="https://mmbiz.qpic.cn/mmbiz_png/wiaL3bO8WC3oGFd3F7lR95nsCfYZNXEPsId9YNxyibTo3KjQmmj040vRNwoIHibe0uu1wY8Hy55B8tQfloxwSblQQ/0?wx_fmt=png" alt=""></p>
 <h2 id="最新动态">最新动态</h2>
 <ul>
@@ -176,7 +315,15 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
       <pubDate>Sat, 21 Jan 2023 15:43:37 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2023/01/21/%E9%98%85%E8%AF%BB%E6%AF%94%E7%89%B9%E5%B8%81%E7%99%BD%E7%9A%AE%E4%B9%A6/</guid>
-      <description>翻阅了 9 页的比特币白皮书，说说自己的理解。 中英文版本出处如下 https://bitcoin.org/bitcoin.pdf https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf 概念 作者中本聪提出了一种新的方案来替换传统的网络交易。 传统的网络交易机制需要</description>
+      <description>&lt;p&gt;翻阅了 9 页的比特币白皮书，说说自己的理解。
+中英文版本出处如下&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bitcoin.org/bitcoin.pdf&#34;&gt;https://bitcoin.org/bitcoin.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf&#34;&gt;https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;概念&#34;&gt;概念&lt;/h2&gt;
+&lt;p&gt;作者中本聪提出了一种新的方案来替换传统的网络交易。
+传统的网络交易机制需要第三方金融机构来保证交易安全，因为依赖第三方则会有不可避免的成本和仲裁问题。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>翻阅了 9 页的比特币白皮书，说说自己的理解。
 中英文版本出处如下</p>
 <ul>
@@ -211,7 +358,8 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
       <pubDate>Thu, 19 Jan 2023 20:43:37 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2023/01/19/%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4-steal-like-an-artist/</guid>
-      <description>内容 inject some creativity</description>
+      <description>&lt;h2 id=&#34;内容&#34;&gt;内容&lt;/h2&gt;
+&lt;p&gt;inject some creativity&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="内容">内容</h2>
 <p>inject some creativity</p>
 ]]></content:encoded>
@@ -223,7 +371,46 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
       <pubDate>Wed, 18 Jan 2023 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2023/01/18/%E4%BD%BF%E7%94%A8obsidian%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2/</guid>
-      <description>使用 github action 发布 name: deploy on: push: workflow_dispatch: schedule: # Runs everyday at 8:00 AM - cron: &amp;#34;0 0 * * *&amp;#34; jobs: build: runs-on: ubuntu-latest steps: - name: Checkout uses: actions/checkout@v2 with: submodules: true fetch-depth: 0 - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: &amp;#34;latest&amp;#34; - name: Build Web run: hugo - name: Deploy Web uses: peaceiris/actions-gh-pages@v3 with: PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }} EXTERNAL_REPOSITORY: justinbetter/justinbetter.github.io PUBLISH_BRANCH: master</description>
+      <description>&lt;h2 id=&#34;使用-github-action-发布&#34;&gt;使用 github action 发布&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;name: deploy  
+  
+on:  
+  push:  
+  workflow_dispatch:  
+  schedule:  
+  # Runs everyday at 8:00 AM  
+  - cron: &amp;#34;0 0 * * *&amp;#34;  
+  
+jobs:  
+  build:  
+    runs-on: ubuntu-latest  
+    steps:  
+    - name: Checkout  
+      uses: actions/checkout@v2  
+      with:  
+        submodules: true  
+        fetch-depth: 0  
+  
+    - name: Setup Hugo  
+      uses: peaceiris/actions-hugo@v2  
+      with:  
+        hugo-version: &amp;#34;latest&amp;#34;  
+  
+    - name: Build Web  
+      run: hugo  
+  
+    - name: Deploy Web  
+      uses: peaceiris/actions-gh-pages@v3  
+      with:  
+        PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}  
+        EXTERNAL_REPOSITORY: justinbetter/justinbetter.github.io  
+        PUBLISH_BRANCH: master  
+        PUBLISH_DIR: ./public  
+        commit_message: ${{ github.event.head_commit.message }}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.pseudoyu.com/zh/2022/05/29/deploy_your_blog_using_hugo_and_github_action/&#34;&gt;https://www.pseudoyu.com/zh/2022/05/29/deploy_your_blog_using_hugo_and_github_action/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
       <content:encoded><![CDATA[<h2 id="使用-github-action-发布">使用 github action 发布</h2>
 <pre tabindex="0"><code>name: deploy  
   
@@ -273,7 +460,23 @@ jobs:
       <pubDate>Sat, 05 Sep 2020 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2020/09/05/mysql%E8%BF%9E%E6%8B%9B/</guid>
-      <description>[TOC] 关键词 B树，B+树，红黑树，联合索引存储 主从复制，宕机恢复，8.0相比5.0的改进 事务，隔离级别，实现原理，MVCC 在线改表原理，redo</description>
+      <description>&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&#34;关键词&#34;&gt;关键词&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;B树，B+树，红黑树，联合索引存储
+主从复制，宕机恢复，8.0相比5.0的改进
+事务，隔离级别，实现原理，MVCC
+在线改表原理，redolog,undolog,binlog，group commit原理问题解决
+零拷贝的场景，主键自增id而不是uuid
+什么场景使用索引不使用更慢，
+锁的数据结构
+分库分表扩容，当nosql，开发mysql引擎如何接口对接
+死锁，
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;谈谈主从复制&#34;&gt;谈谈主从复制&lt;/h2&gt;
+&lt;p&gt;复制（replication）是MySQL数据库提供的一种高可用高性能的解决方案，一般用来建立大型的应用。
+replication的工作原理分为以下3个步骤：&lt;br&gt;
+1）主服务器（master）把数据更改记录到二进制日志（binlog）中。&lt;br&gt;
+2）从服务器（slave）把主服务器的二进制日志复制到自己的中继日志（relay log）中。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>[TOC]</p>
 <h2 id="关键词">关键词</h2>
 <pre><code>B树，B+树，红黑树，联合索引存储
@@ -463,7 +666,23 @@ full inverted index，其表现形式为{单词，（单词所在文档的ID，�
       <pubDate>Sat, 05 Sep 2020 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2020/09/05/redis%E8%BF%9E%E6%8B%9B/</guid>
-      <description>[TOC] 关键字 单线程，epoll，cluster，sentinel，gossip，raft， 分布式锁，穿透，击穿，雪崩，数据一致性， sds，zip</description>
+      <description>&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&#34;关键字&#34;&gt;关键字&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;单线程，epoll，cluster，sentinel，gossip，raft，  
+分布式锁，穿透，击穿，雪崩，数据一致性，  
+sds，ziplist，skiplist，rehash，hyperloglog，  
+热key，大key，过期清理，淘汰策略，主从复制，rdb，aof，aof rewrite
+string,hash,set,zset的底层数据结构实现，hash的渐进式扩容  
+hyperloglog标准误差多少，原理是啥
+再加上 6.0之后的加入的多线程 工作机制
+缓存过期重置。锁刷新
+一致性哈希算法
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;分布式锁&#34;&gt;分布式锁&lt;/h2&gt;
+&lt;p&gt;setnx讲起，最后慢慢引出set命令的可以加参数， &lt;br&gt;
+setnx 是SET if Not eXists(如果不存在，则 SET)的简写。万一set value 成功 set time失败
+setex是一个原子性(atomic)操作，关联值和设置生存时间两个动作会在同一时间内完成。
+redisson的锁，就实现了可重入，他使用了LUA的Hash数据结构。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>[TOC]</p>
 <h2 id="关键字">关键字</h2>
 <pre><code>单线程，epoll，cluster，sentinel，gossip，raft，  
@@ -555,186 +774,365 @@ epoll基于事件驱动，避免了像select和poll对事件的整个轮询操�
       <pubDate>Sat, 15 Aug 2020 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2020/08/15/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/</guid>
-      <description>归并排序 public class MergeSort { public static void merge(int[] a, int low, int mid, int high) { int[] temp = new int[high - low + 1]; int i = low;// 左指针 int j = mid + 1;// 右指针 int k = 0; // 把较小的数先移到新数组中 while (i &amp;lt;= mid &amp;amp;&amp;amp; j &amp;lt;= high)</description>
+      <description>&lt;h2 id=&#34;归并排序&#34;&gt;归并排序&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MergeSort&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;merge&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; low, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; mid, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; high) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; temp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;high &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; low &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 1&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; low;&lt;span style=&#34;color:#75715e&#34;&gt;// 左指针&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; j &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; mid &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 1;&lt;span style=&#34;color:#75715e&#34;&gt;// 右指针&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; k &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// 把较小的数先移到新数组中&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; mid &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; j &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; high) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;j&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                temp&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;k&lt;span style=&#34;color:#f92672&#34;&gt;++]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;++]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                temp&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;k&lt;span style=&#34;color:#f92672&#34;&gt;++]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;j&lt;span style=&#34;color:#f92672&#34;&gt;++]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// 把左边剩余的数移入数组&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; mid) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            temp&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;k&lt;span style=&#34;color:#f92672&#34;&gt;++]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;++]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// 把右边边剩余的数移入数组&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (j &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; high) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            temp&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;k&lt;span style=&#34;color:#f92672&#34;&gt;++]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;j&lt;span style=&#34;color:#f92672&#34;&gt;++]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// 把新数组中的数覆盖nums数组&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; k2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0; k2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; temp.&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt;; k2&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;k2 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; low&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; temp&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;k2&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;mergeSort&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; low, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; high) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; mid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (low &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; high) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; 2;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (low &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; high) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;// 左边&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            mergeSort(a, low, mid);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;// 右边&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            mergeSort(a, mid &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 1, high);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;// 左右归并&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            merge(a, low, mid, high);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(Arrays.&lt;span style=&#34;color:#a6e22e&#34;&gt;toString&lt;/span&gt;(a));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; args) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; { 51, 46, 20, 18, 65, 97, 82, 30, 77, 50 };
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mergeSort(a, 0, a.&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; 1);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;排序结果：&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; Arrays.&lt;span style=&#34;color:#a6e22e&#34;&gt;toString&lt;/span&gt;(a));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;快速排序&#34;&gt;快速排序&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;QuickSort&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 * 将数组的某一段元素进行划分，小的在左边，大的在右边
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 * @param a
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 * @param start
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 * @param end
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 * @return
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;divide&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; start, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; end){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#75715e&#34;&gt;//每次都以最右边的元素作为基准值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; base &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;end&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#75715e&#34;&gt;//start一旦等于end，就说明左右两个指针合并到了同一位置，可以结束此轮循环。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(start &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; end){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(start &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; end &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;start&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; base)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#75715e&#34;&gt;//从左边开始遍历，如果比基准值小，就继续向右走&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				start&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#75715e&#34;&gt;//上面的while循环结束时，就说明当前的a[start]的值比基准值大，应与基准值进行交换&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(start &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; end){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#75715e&#34;&gt;//交换&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; temp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;start&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;start&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;end&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;end&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; temp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#75715e&#34;&gt;//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值右边)，因此右边也要同时向前移动一位&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				end&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			}	
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(start &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; end &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;end&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; base)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#75715e&#34;&gt;//从右边开始遍历，如果比基准值大，就继续向左走&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				end&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#75715e&#34;&gt;//上面的while循环结束时，就说明当前的a[end]的值比基准值小，应与基准值进行交换&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(start &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; end){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#75715e&#34;&gt;//交换&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; temp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;start&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;start&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;end&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				a&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;end&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; temp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#75715e&#34;&gt;//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值左边)，因此左边也要同时向后移动一位&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				start&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			}	
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#75715e&#34;&gt;//这里返回start或者end皆可，此时的start和end都为基准值所在的位置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; end;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 * 排序
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 * @param a
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 * @param start
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 * @param end
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	 */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sort&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; start, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; end){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(start &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; end){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#75715e&#34;&gt;//如果只有一个元素，就不用再排下去了&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#75715e&#34;&gt;//如果不止一个元素，继续划分两边递归排序下去&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; partition &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; divide(a, start, end);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			sort(a, start, partition&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;1);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			sort(a, partition&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;1, end);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;链表排序&#34;&gt;链表排序&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; ListNode &lt;span style=&#34;color:#a6e22e&#34;&gt;sortList&lt;/span&gt;(ListNode head) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(head &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; head.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; head;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//递归归并排序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//找到中点，递归中点分割，归并合并&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode slow &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; head;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode fast &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; head.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//fast走完 slow就是中点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(fast &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;  fast.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            slow &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; slow.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            fast &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; fast.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode center&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;  slow.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        slow.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode left &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sortList(head);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode right &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sortList(center);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode tmp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ListNode(0);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tmp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(left &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; right &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (left.&lt;span style=&#34;color:#a6e22e&#34;&gt;val&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; right.&lt;span style=&#34;color:#a6e22e&#34;&gt;val&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                tmp.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; left;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                left &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; left.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                tmp.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; right;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                right &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; right.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            tmp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tmp.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//添加尾点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        tmp.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; left &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt; right : left;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//返回头部&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; res.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//-----&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//从底至顶 归并排序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//获取链表长度，根据每一步，循环断链合并，最后合并的链表超越链表长度即返回结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;两数相加&#34;&gt;两数相加&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; ListNode &lt;span style=&#34;color:#a6e22e&#34;&gt;addTwoNumbers&lt;/span&gt;(ListNode l1, ListNode l2) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//思路：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//新建两个辅助node，保存倒序排列的l1 l2，不需要；因为题目本身就是逆序的&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//循环两个node 直到最后一个节点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode left &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; l1;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode right &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; l2;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; carry &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode tmp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ListNode(0);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ListNode res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tmp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(left &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; right &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (left &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt; 0 : left.&lt;span style=&#34;color:#a6e22e&#34;&gt;val&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (right &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt; 0 : right.&lt;span style=&#34;color:#a6e22e&#34;&gt;val&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; sum &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; y &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;carry;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            carry &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sum &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; 10;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ListNode now &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ListNode(sum&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;10);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            res.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; now;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; res.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (left &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;) {left &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; left.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (right &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;) {right &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; right.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (carry &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; 0) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            res.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ListNode(carry);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; tmp.&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
       <content:encoded><![CDATA[<h2 id="归并排序">归并排序</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MergeSort</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">merge</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">low</span><span class="o">,</span> <span class="kt">int</span> <span class="n">mid</span><span class="o">,</span> <span class="kt">int</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span><span class="o">[]</span> <span class="n">temp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">high</span> <span class="o">-</span> <span class="n">low</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">low</span><span class="o">;</span><span class="c1">// 左指针
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span><span class="c1">// 右指针
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 把较小的数先移到新数组中
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mid</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">++];</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">++];</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 把左边剩余的数移入数组
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">++];</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 把右边边剩余的数移入数组
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">temp</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">++];</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 把新数组中的数覆盖nums数组
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k2</span> <span class="o">&lt;</span> <span class="n">temp</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">k2</span><span class="o">++)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">a</span><span class="o">[</span><span class="n">k2</span> <span class="o">+</span> <span class="n">low</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="n">k2</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">mergeSort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">low</span><span class="o">,</span> <span class="kt">int</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 左边
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">low</span><span class="o">,</span> <span class="n">mid</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 右边
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">high</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 左右归并
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">merge</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">low</span><span class="o">,</span> <span class="n">mid</span><span class="o">,</span> <span class="n">high</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">a</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">51</span><span class="o">,</span> <span class="mi">46</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">18</span><span class="o">,</span> <span class="mi">65</span><span class="o">,</span> <span class="mi">97</span><span class="o">,</span> <span class="mi">82</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">77</span><span class="o">,</span> <span class="mi">50</span> <span class="o">};</span>
-</span></span><span class="line"><span class="cl">        <span class="n">mergeSort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;排序结果：&#34;</span> <span class="o">+</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MergeSort</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">merge</span>(<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a, <span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> mid, <span style="color:#66d9ef">int</span> high) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> temp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>high <span style="color:#f92672">-</span> low <span style="color:#f92672">+</span> 1<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> low;<span style="color:#75715e">// 左指针</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> mid <span style="color:#f92672">+</span> 1;<span style="color:#75715e">// 右指针</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 把较小的数先移到新数组中</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (i <span style="color:#f92672">&lt;=</span> mid <span style="color:#f92672">&amp;&amp;</span> j <span style="color:#f92672">&lt;=</span> high) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (a<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> a<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span>) {
+</span></span><span style="display:flex;"><span>                temp<span style="color:#f92672">[</span>k<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>i<span style="color:#f92672">++]</span>;
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                temp<span style="color:#f92672">[</span>k<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>j<span style="color:#f92672">++]</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 把左边剩余的数移入数组</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (i <span style="color:#f92672">&lt;=</span> mid) {
+</span></span><span style="display:flex;"><span>            temp<span style="color:#f92672">[</span>k<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>i<span style="color:#f92672">++]</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 把右边边剩余的数移入数组</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (j <span style="color:#f92672">&lt;=</span> high) {
+</span></span><span style="display:flex;"><span>            temp<span style="color:#f92672">[</span>k<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>j<span style="color:#f92672">++]</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 把新数组中的数覆盖nums数组</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> k2 <span style="color:#f92672">=</span> 0; k2 <span style="color:#f92672">&lt;</span> temp.<span style="color:#a6e22e">length</span>; k2<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            a<span style="color:#f92672">[</span>k2 <span style="color:#f92672">+</span> low<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> temp<span style="color:#f92672">[</span>k2<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mergeSort</span>(<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a, <span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> high) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (low <span style="color:#f92672">+</span> high) <span style="color:#f92672">/</span> 2;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (low <span style="color:#f92672">&lt;</span> high) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 左边</span>
+</span></span><span style="display:flex;"><span>            mergeSort(a, low, mid);
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 右边</span>
+</span></span><span style="display:flex;"><span>            mergeSort(a, mid <span style="color:#f92672">+</span> 1, high);
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 左右归并</span>
+</span></span><span style="display:flex;"><span>            merge(a, low, mid, high);
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(Arrays.<span style="color:#a6e22e">toString</span>(a));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> { 51, 46, 20, 18, 65, 97, 82, 30, 77, 50 };
+</span></span><span style="display:flex;"><span>        mergeSort(a, 0, a.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;排序结果：&#34;</span> <span style="color:#f92672">+</span> Arrays.<span style="color:#a6e22e">toString</span>(a));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="快速排序">快速排序</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">QuickSort</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl">	<span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 * 将数组的某一段元素进行划分，小的在左边，大的在右边
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param a
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param start
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param end
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 */</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">divide</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">		<span class="c1">//每次都以最右边的元素作为基准值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">		<span class="c1">//start一旦等于end，就说明左右两个指针合并到了同一位置，可以结束此轮循环。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">			<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">base</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">				<span class="c1">//从左边开始遍历，如果比基准值小，就继续向右走
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">start</span><span class="o">++;</span>
-</span></span><span class="line"><span class="cl">			<span class="c1">//上面的while循环结束时，就说明当前的a[start]的值比基准值大，应与基准值进行交换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">				<span class="c1">//交换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">				<span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">				<span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">				<span class="c1">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值右边)，因此右边也要同时向前移动一位
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">end</span><span class="o">--;</span>
-</span></span><span class="line"><span class="cl">			<span class="o">}</span>	
-</span></span><span class="line"><span class="cl">			<span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">base</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">				<span class="c1">//从右边开始遍历，如果比基准值大，就继续向左走
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">end</span><span class="o">--;</span>
-</span></span><span class="line"><span class="cl">			<span class="c1">//上面的while循环结束时，就说明当前的a[end]的值比基准值小，应与基准值进行交换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">				<span class="c1">//交换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">				<span class="n">a</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">				<span class="n">a</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">				<span class="c1">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值左边)，因此左边也要同时向后移动一位
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="n">start</span><span class="o">++;</span>
-</span></span><span class="line"><span class="cl">			<span class="o">}</span>	
-</span></span><span class="line"><span class="cl">			
-</span></span><span class="line"><span class="cl">		<span class="o">}</span>
-</span></span><span class="line"><span class="cl">		<span class="c1">//这里返回start或者end皆可，此时的start和end都为基准值所在的位置
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">return</span> <span class="n">end</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">	<span class="o">}</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">	<span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 * 排序
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param a
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param start
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 * @param end
-</span></span></span><span class="line"><span class="cl"><span class="cm">	 */</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">			<span class="c1">//如果只有一个元素，就不用再排下去了
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">return</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">		<span class="o">}</span> 
-</span></span><span class="line"><span class="cl">		<span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">			<span class="c1">//如果不止一个元素，继续划分两边递归排序下去
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="kt">int</span> <span class="n">partition</span> <span class="o">=</span> <span class="n">divide</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">			<span class="n">sort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">partition</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">			<span class="n">sort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">partition</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">		<span class="o">}</span>
-</span></span><span class="line"><span class="cl">			
-</span></span><span class="line"><span class="cl">	<span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">QuickSort</span> {
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 * 将数组的某一段元素进行划分，小的在左边，大的在右边
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 * @param a
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 * @param start
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 * @param end
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 */</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">divide</span>(<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a, <span style="color:#66d9ef">int</span> start, <span style="color:#66d9ef">int</span> end){
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">//每次都以最右边的元素作为基准值</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">int</span> base <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>end<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">//start一旦等于end，就说明左右两个指针合并到了同一位置，可以结束此轮循环。</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">while</span>(start <span style="color:#f92672">&lt;</span> end){
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">while</span>(start <span style="color:#f92672">&lt;</span> end <span style="color:#f92672">&amp;&amp;</span> a<span style="color:#f92672">[</span>start<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> base)
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">//从左边开始遍历，如果比基准值小，就继续向右走</span>
+</span></span><span style="display:flex;"><span>				start<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">//上面的while循环结束时，就说明当前的a[start]的值比基准值大，应与基准值进行交换</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span>(start <span style="color:#f92672">&lt;</span> end){
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">//交换</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">int</span> temp <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>start<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>				a<span style="color:#f92672">[</span>start<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>end<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>				a<span style="color:#f92672">[</span>end<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> temp;
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值右边)，因此右边也要同时向前移动一位</span>
+</span></span><span style="display:flex;"><span>				end<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>			}	
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">while</span>(start <span style="color:#f92672">&lt;</span> end <span style="color:#f92672">&amp;&amp;</span> a<span style="color:#f92672">[</span>end<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;=</span> base)
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">//从右边开始遍历，如果比基准值大，就继续向左走</span>
+</span></span><span style="display:flex;"><span>				end<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">//上面的while循环结束时，就说明当前的a[end]的值比基准值小，应与基准值进行交换</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span>(start <span style="color:#f92672">&lt;</span> end){
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">//交换</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">int</span> temp <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>start<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>				a<span style="color:#f92672">[</span>start<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>end<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>				a<span style="color:#f92672">[</span>end<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> temp;
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">//交换后，此时的那个被调换的值也同时调到了正确的位置(基准值左边)，因此左边也要同时向后移动一位</span>
+</span></span><span style="display:flex;"><span>				start<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>			}	
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">//这里返回start或者end皆可，此时的start和end都为基准值所在的位置</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> end;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 * 排序
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 * @param a
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 * @param start
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 * @param end
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	 */</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sort</span>(<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a, <span style="color:#66d9ef">int</span> start, <span style="color:#66d9ef">int</span> end){
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span>(start <span style="color:#f92672">&gt;</span> end){
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">//如果只有一个元素，就不用再排下去了</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>		} 
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">//如果不止一个元素，继续划分两边递归排序下去</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">int</span> partition <span style="color:#f92672">=</span> divide(a, start, end);
+</span></span><span style="display:flex;"><span>			sort(a, start, partition<span style="color:#f92672">-</span>1);
+</span></span><span style="display:flex;"><span>			sort(a, partition<span style="color:#f92672">+</span>1, end);
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="链表排序">链表排序</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">sortList</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//递归归并排序
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//找到中点，递归中点分割，归并合并
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ListNode</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//fast走完 slow就是中点
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span><span class="o">(</span><span class="n">fast</span> <span class="o">!=</span> <span class="kc">null</span>  <span class="o">&amp;&amp;</span>  <span class="n">fast</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">center</span><span class="o">=</span>  <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">slow</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">sortList</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">sortList</span><span class="o">(</span><span class="n">center</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">val</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">                <span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">                <span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span>
-</span></span><span class="line"><span class="cl">            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//添加尾点
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">right</span> <span class="o">:</span> <span class="n">left</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//返回头部
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//-----
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//从底至顶 归并排序
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//获取链表长度，根据每一步，循环断链合并，最后合并的链表超越链表长度即返回结果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> ListNode <span style="color:#a6e22e">sortList</span>(ListNode head) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(head <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> head.<span style="color:#a6e22e">next</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> head;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//递归归并排序</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//找到中点，递归中点分割，归并合并</span>
+</span></span><span style="display:flex;"><span>        ListNode slow <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span>        ListNode fast <span style="color:#f92672">=</span> head.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//fast走完 slow就是中点</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span>(fast <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>  <span style="color:#f92672">&amp;&amp;</span>  fast.<span style="color:#a6e22e">next</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            slow <span style="color:#f92672">=</span> slow.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>            fast <span style="color:#f92672">=</span> fast.<span style="color:#a6e22e">next</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ListNode center<span style="color:#f92672">=</span>  slow.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>        slow.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>        ListNode left <span style="color:#f92672">=</span> sortList(head);
+</span></span><span style="display:flex;"><span>        ListNode right <span style="color:#f92672">=</span> sortList(center);
+</span></span><span style="display:flex;"><span>        ListNode tmp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ListNode(0);
+</span></span><span style="display:flex;"><span>        ListNode res <span style="color:#f92672">=</span> tmp;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span>(left <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> right <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (left.<span style="color:#a6e22e">val</span> <span style="color:#f92672">&lt;</span> right.<span style="color:#a6e22e">val</span>) {
+</span></span><span style="display:flex;"><span>                tmp.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> left;
+</span></span><span style="display:flex;"><span>                left <span style="color:#f92672">=</span> left.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>            }<span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                tmp.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> right;
+</span></span><span style="display:flex;"><span>                right <span style="color:#f92672">=</span> right.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            tmp <span style="color:#f92672">=</span> tmp.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//添加尾点</span>
+</span></span><span style="display:flex;"><span>        tmp.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> left <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> right : left;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//返回头部</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//-----</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//从底至顶 归并排序</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//获取链表长度，根据每一步，循环断链合并，最后合并的链表超越链表长度即返回结果</span>
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></div><h2 id="两数相加">两数相加</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">l1</span><span class="o">,</span> <span class="n">ListNode</span> <span class="n">l2</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//思路：
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//新建两个辅助node，保存倒序排列的l1 l2，不需要；因为题目本身就是逆序的
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//循环两个node 直到最后一个节点
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ListNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">l1</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">l2</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">left</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span><span class="n">carry</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">carry</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">10</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">ListNode</span> <span class="n">now</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">sum</span><span class="o">%</span><span class="mi">10</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">now</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">next</span><span class="o">;}</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">next</span><span class="o">;}</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">carry</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">carry</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#66d9ef">public</span> ListNode <span style="color:#a6e22e">addTwoNumbers</span>(ListNode l1, ListNode l2) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//思路：</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//新建两个辅助node，保存倒序排列的l1 l2，不需要；因为题目本身就是逆序的</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//循环两个node 直到最后一个节点</span>
+</span></span><span style="display:flex;"><span>        ListNode left <span style="color:#f92672">=</span> l1;
+</span></span><span style="display:flex;"><span>        ListNode right <span style="color:#f92672">=</span> l2;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> carry <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>        ListNode tmp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ListNode(0);
+</span></span><span style="display:flex;"><span>        ListNode res <span style="color:#f92672">=</span> tmp;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span>(left <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> right <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> (left <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) <span style="color:#f92672">?</span> 0 : left.<span style="color:#a6e22e">val</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> y <span style="color:#f92672">=</span> (right <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) <span style="color:#f92672">?</span> 0 : right.<span style="color:#a6e22e">val</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> y <span style="color:#f92672">+</span>carry;
+</span></span><span style="display:flex;"><span>            carry <span style="color:#f92672">=</span> sum <span style="color:#f92672">/</span> 10;
+</span></span><span style="display:flex;"><span>            ListNode now <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ListNode(sum<span style="color:#f92672">%</span>10);
+</span></span><span style="display:flex;"><span>            res.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> now;
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">=</span> res.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (left <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {left <span style="color:#f92672">=</span> left.<span style="color:#a6e22e">next</span>;}
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (right <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {right <span style="color:#f92672">=</span> right.<span style="color:#a6e22e">next</span>;}
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (carry <span style="color:#f92672">&gt;</span> 0) {
+</span></span><span style="display:flex;"><span>            res.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ListNode(carry);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> tmp.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></div>]]></content:encoded>
     </item>
     
@@ -744,7 +1142,10 @@ epoll基于事件驱动，避免了像select和poll对事件的整个轮询操�
       <pubDate>Wed, 01 Jul 2020 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2020/07/01/%E8%87%B3%E5%B0%9120%E4%B8%AA%E5%B0%8F%E6%97%B6/</guid>
-      <description>至少20个小时 20个小时而已。即使你一开始完全不懂。 只要投入20个小时的时间专心学习某件事，就能提升到让你自己惊讶的水准。 20个小时就够了，</description>
+      <description>&lt;h2 id=&#34;至少20个小时&#34;&gt;至少20个小时&lt;/h2&gt;
+&lt;p&gt;20个小时而已。即使你一开始完全不懂。 &lt;br&gt;
+只要投入20个小时的时间专心学习某件事，就能提升到让你自己惊讶的水准。&lt;br&gt;
+20个小时就够了，大约就是每天45分钟，坚持上一个月，就能学会一项技能。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="至少20个小时">至少20个小时</h2>
 <p>20个小时而已。即使你一开始完全不懂。 <br>
 只要投入20个小时的时间专心学习某件事，就能提升到让你自己惊讶的水准。<br>
@@ -764,7 +1165,14 @@ epoll基于事件驱动，避免了像select和poll对事件的整个轮询操�
       <pubDate>Sat, 06 Jun 2020 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2020/06/06/%E6%88%91%E7%9A%84%E5%81%A5%E8%BA%AB%E6%8C%87%E5%8D%97/</guid>
-      <description>大纲： 是什么？健身的概念 为什么？健身的好处 怎么做？ 健身的原则 健身的方式 健身的时间 最近的八个月在我86小时13分钟的健身统计中，我的身体健康有</description>
+      <description>&lt;p&gt;大纲：
+是什么？健身的概念
+为什么？健身的好处
+怎么做？
+健身的原则
+健身的方式
+健身的时间&lt;/p&gt;
+&lt;p&gt;最近的八个月在我86小时13分钟的健身统计中，我的身体健康有了显著的提高，在这里写下一些关于健身的心得。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>大纲：
 是什么？健身的概念
 为什么？健身的好处
@@ -916,7 +1324,20 @@ epoll基于事件驱动，避免了像select和poll对事件的整个轮询操�
       <pubDate>Sun, 10 May 2020 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2020/05/10/%E5%A6%82%E4%BD%95%E8%87%AA%E5%BE%8B/</guid>
-      <description>寻找强大动机 By finding his strong reason why 专注约束自己做好一件事 developing his discipline through singular activities 预先做好对付诱惑的计划 pre-planning for temptations</description>
+      <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;寻找强大动机&lt;/p&gt;
+&lt;p&gt;By finding his strong reason why&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;专注约束自己做好一件事&lt;/p&gt;
+&lt;p&gt;developing his discipline through singular activities&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;预先做好对付诱惑的计划&lt;/p&gt;
+&lt;p&gt;pre-planning for temptations&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
       <content:encoded><![CDATA[<ol>
 <li>
 <p>寻找强大动机</p>
@@ -940,7 +1361,26 @@ epoll基于事件驱动，避免了像select和poll对事件的整个轮询操�
       <pubDate>Thu, 23 Apr 2020 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2020/04/23/%E4%B8%96%E7%95%8C%E8%AF%BB%E4%B9%A6%E6%97%A5/</guid>
-      <description>今天是世界读书日，希望大家象征性地读点书。 我最近发现我的生活里少了很多深度系统的思考，因为我没时间。 我的时间去哪了？ 在王者荣耀、在抖音、在各</description>
+      <description>&lt;pre&gt;&lt;code&gt;今天是世界读书日，希望大家象征性地读点书。
+
+我最近发现我的生活里少了很多深度系统的思考，因为我没时间。
+
+我的时间去哪了？
+
+在王者荣耀、在抖音、在各种新闻论坛里。
+
+这里存在着一种恶性循环：
+
+我越浮躁越看不进书，我就越想放空大脑，将自己投入到无脑的娱乐通俗中；
+越是进行这些娱乐活动，我就越浮躁；
+
+娱乐并不可怕，可怕的是总想着娱乐。
+
+养成好的习惯，趋势很重要。
+
+
+至少在今天这个日子，开卷有益一下。
+&lt;/code&gt;&lt;/pre&gt;</description>
       <content:encoded><![CDATA[<pre><code>今天是世界读书日，希望大家象征性地读点书。
 
 我最近发现我的生活里少了很多深度系统的思考，因为我没时间。
@@ -970,7 +1410,20 @@ epoll基于事件驱动，避免了像select和poll对事件的整个轮询操�
       <pubDate>Fri, 17 Apr 2020 11:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2020/04/17/%E4%BC%98%E5%8C%96%E8%87%AA%E5%B7%B1%E7%9A%84%E5%86%99%E4%BD%9C%E6%96%B9%E5%BC%8F/</guid>
-      <description>发现没有什么动力去记录自己的思考。 纠结的地方有两点： 优雅的输出环境 适量的公众注意 一直以来，我的写作流程是： 在本地的印象笔记完整输出 -&amp;gt; 修正必要</description>
+      <description>&lt;p&gt;发现没有什么动力去记录自己的思考。&lt;/p&gt;
+&lt;p&gt;纠结的地方有两点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;优雅的输出环境&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;适量的公众注意&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;一直以来，我的写作流程是：&lt;/p&gt;
+&lt;p&gt;在本地的印象笔记完整输出 -&amp;gt;&lt;/p&gt;
+&lt;p&gt;修正必要的文字格式-&amp;gt;&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>发现没有什么动力去记录自己的思考。</p>
 <p>纠结的地方有两点：</p>
 <ol>
@@ -1007,7 +1460,47 @@ epoll基于事件驱动，避免了像select和poll对事件的整个轮询操�
       <pubDate>Fri, 09 Aug 2019 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2019/08/09/%E5%86%99python%E8%84%9A%E6%9C%AC%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0/</guid>
-      <description>@[toc] #python 脚本常用函数 这里记录一些脚本常用的函数 ##文件操作 路径相关 os.chdir(dst_dir) #改变当前目录 os.listdir() #遍历文件夹 for root, dirs, files in os.walk(rootDir): #遍历文件夹 os.path.basename() #去掉目录路径, 返回文</description>
+      <description>&lt;p&gt;@[toc]
+#python 脚本常用函数&lt;/p&gt;
+&lt;p&gt;这里记录一些脚本常用的函数&lt;/p&gt;
+&lt;p&gt;##文件操作&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;路径相关&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;os.chdir(dst_dir)							#改变当前目录
+os.listdir()								#遍历文件夹
+for root, dirs, files in os.walk(rootDir):  #遍历文件夹
+os.path.basename()  						#去掉目录路径, 返回文件名 
+os.path.splitext()  						#返回 (filename, extension) 元组 
+os.path.exists()							#文件存在	
+shutil.rmtree(zip_comoress_dir) 			#删除目录
+shutil.copy(source_dir, dst_dir)			#复制文件
+os.path.dirname(os.path.realpath(__file__)) #获取当前目录
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;文件信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;json.dumps(mock_config, indent=5)	 	#获取json数据
+os.path.getsize()  						#获取文件大小
+with open(zip_url,&amp;#39;rb&amp;#39;) as f_zip:  		#解压zip
+     zip_file = zipfile.ZipFile(f_zip)
+     zip_file.extractall(&amp;#39;./zip&amp;#39;)
+----------------------------------------
+def get_file_md5(f): 					#获取MD5
+    m = hashlib.md5()
+
+    while True:
+        data = f.read(10240)
+        if not data:
+            break
+
+        m.update(data)
+    return m.hexdigest()
+
+
+with open(YOUR_FILE, &amp;#39;rb&amp;#39;)as f:
+    file_md5 = get_file_md5(f)
+--------------------------------------
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;##字符串操作&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>@[toc]
 #python 脚本常用函数</p>
 <p>这里记录一些脚本常用的函数</p>
@@ -1096,7 +1589,11 @@ else:
       <pubDate>Thu, 08 Aug 2019 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2019/08/08/python%E5%9F%BA%E7%A1%80/</guid>
-      <description>[TOC] 基础 继承： “定义子类时，必须在括号内指定父类的名称。” class ElectricCar(Car): “类名应采用驼峰命名法 ，即将类名中的每个单词的首字母都大写，而不使用下划线。实例</description>
+      <description>&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&#34;基础&#34;&gt;基础&lt;/h2&gt;
+&lt;p&gt;继承： “定义子类时，必须在括号内指定父类的名称。”
+class ElectricCar(Car):&lt;/p&gt;
+&lt;p&gt;“类名应采用驼峰命名法 ，即将类名中的每个单词的首字母都大写，而不使用下划线。实例名和模块名都采用小写格式，并在单词之间加上下划线。”&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>[TOC]</p>
 <h2 id="基础">基础</h2>
 <p>继承： “定义子类时，必须在括号内指定父类的名称。”
@@ -1648,7 +2145,7 @@ class ElectricCar(Car):</p>
 </li>
 <li>
 <p>参考：
-<a href="http://www.liaoxuefeng.com/##">http://www.liaoxuefeng.com/##</a>基础</p>
+<a href="http://www.liaoxuefeng.com/#%23">http://www.liaoxuefeng.com/##</a>基础</p>
 </li>
 </ul>
 <h3 id="输出输入-1">输出输入</h3>
@@ -2209,7 +2706,56 @@ class ElectricCar(Car):</p>
       <pubDate>Mon, 15 Jul 2019 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2019/07/15/git%E5%B8%B8%E7%94%A8%E8%A7%84%E8%8C%83/</guid>
-      <description>分支规范 - 分支规范 1. 分支命名规范： - master: 主线分支 - feature/xxxx: 功能需求开发分支 - hotfix/xxxx: bug 修复分支 - refactor/xxxx: 重构分支 2. 默认从主线分支 checkout 出功能需求 or bug 修复分支 3. 分支合</description>
+      <description>&lt;h1 id=&#34;分支规范&#34;&gt;分支规范&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;- 分支规范
+    1. 分支命名规范：
+        - master: 主线分支
+        - feature/xxxx: 功能需求开发分支
+        - hotfix/xxxx: bug 修复分支
+        - refactor/xxxx: 重构分支
+    2. 默认从主线分支 checkout 出功能需求 or bug 修复分支
+    3. 分支合并需要写清本次开发的内容点
+- Commit Message 规范
+    1. 命名规则：func[(main)]: done something
+        - 其中 `[ ]` 中的内容可以省略
+    2. func 规则：
+        1. feat: 新功能开发
+        2. fix: bug 修复
+        3. refactor: 不影响现有功能的重构
+        4. test: 添加测试
+        5. chore: 构建工具改动
+        6. style: 格式改动
+    3. 冒号（英文冒号，并空一格）后面写上这次 commit 提交的内容，最好一个小功能点一次提交
+    4. 禁止类似 `update` 这样无意义的提交！
+
+
+查看当前url
+git remote -v
+git remote set-url origin [url]
+
+git remote rm origin
+git remote add origin [url]
+
+
+
+
+git config user.name &amp;quot;xxx&amp;quot;
+
+git push origin --tags 推送tag
+
+回退版本
+git reset --hard 版本号  
+git push -f -u origin master
+
+查看项目的分支们(包括本地和远程) 
+命令行 : $ git branch -a     例如，$ git branch -a 
+
+删除本地分支 
+命令行 : $ git branch -d &amp;lt;BranchName&amp;gt;
+
+ssh
+ssh-keygen -t rsa -C &amp;quot;xxx@xxx.com&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;</description>
       <content:encoded><![CDATA[<h1 id="分支规范">分支规范</h1>
 <pre><code>- 分支规范
     1. 分支命名规范：
@@ -2269,7 +2815,185 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
       <pubDate>Sat, 15 Jun 2019 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2019/06/15/linux%E7%AC%94%E8%AE%B0/</guid>
-      <description>帮助手册命令 man man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。 ##Linux 下修改 root 密码方法 passwd root 权限 chgrp ：改变文件所属群组 chown -R</description>
+      <description>&lt;h2 id=&#34;帮助手册命令-man&#34;&gt;帮助手册命令 man&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;##Linux 下修改 root 密码方法
+passwd root&lt;/p&gt;
+&lt;h2 id=&#34;权限&#34;&gt;权限&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;chgrp ：改变文件所属群组
+chown -R：改变文件拥有者
+chmod ：改变文件的权限, SUID, SGID, SBIT等等的特性	
+su - user1  切换身份user1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;查看服务&#34;&gt;查看服务&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt; /etc/services 
+ /etc/init.d/  启动脚本处	
+ /etc/* ：各服务各自的配置文件
+ service --status-all 查看所有服务
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;常用目录&#34;&gt;常用目录&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;/etc                主要配置文件
+/bin                常用执行文件
+/sbin               重要的系统执行文件
+/dev                存放设备文件
+/dev/null           垃圾桶
+/home               用户目录
+/media /mnt         挂载外部装置
+/opt                第三方协议软件 习惯放/usr/local
+/proc               虚拟文件，存放内存数据:系统cpu、网络..
+
+/ (root, 根目录)：   与开机系统有关；
+/usr (unix software resource)：与软件安装/执行有关；
+/usr/local/        自己下载的软件安装目录
+/var (variable)：  与系统运作过程有关的常态性变动的文件：缓存、log等。
+
+/etc/issue         配置开机画面显示
+/etc/motd          配置登录显示
+/etc/ssh/sshd_config ssh配置
+~/.ssh/authorized_keys 加入ssh公钥,免密码登录
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;英文全称&#34;&gt;英文全称&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;df: Disk free  空余硬盘
+du: Disk usage 硬盘使用率
+su：Swith user  切换用户，切换到root用户
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;常用命令&#34;&gt;常用命令&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;du -s * | sort -nr | head 选出排在前面的10个 文件夹大小排序
+ctrl+r 搜索历史记录
+lsb_release -a    系统版本
+双击tab            获取所有可能的命令,极其方便!
+ls -alh           list所有文件包括隐藏文件
+ls -l --sort=time -r 升序展示
+set               获取所有变量,包含bash接口配置相关
+echo $$           当前shell的PID
+echo $?           返回上个命令的执行结果
+env/export        显示所有环境变量
+echo $PATH        显示环境变量中的PATH
+PATH=$PATH:/home/dmtsai/bin  增加目录到变量
+export var1 	  使其变为环境变量,可以让子shell使用
+
+echo $(uname -r)  显示系统版本
+uname -a          显示系统架构
+grub2-editenv list 查看默认内核
+    grub2-set-default &amp;quot;CentOS Linux (3.10.0-327.el7.x86_64) 7 (Core)&amp;quot;
+
+
+设置变量           name=justin
+取消变量           unset name
+命令中使用其他命令   $(command)
+创建目录：          mkdir /tmp/chapter7_1
+修改属性：          chown -R dmtsai:users /tmp/chapter7_1
+修改权限：          chmod -R 755 /tmp/chapter7_1
+//SUID/SGID/SBIT 权限配置--&amp;gt; 要有x权限   
+		4 为 SUID       暂时将具有该程序拥有者 (owner) 的权限；
+		2 为 SGID       暂时获得得该程序群组的支持
+		1 为 SBIT       wx权限下,仅有自己与 root 才有权力删除该文件
+		
+观察文件类型：       file
+搜索命令完整路径：    which
+搜索文件： 
+	whereis       whereis 与 locate 是利用数据库来搜寻数据
+	updatedb      手动更新数据库
+	find          强大的搜寻命令，但时间花用的很大！ 因为 find 是直接搜寻硬盘
+		find / -perm /6000   查询具有suid、sgid的文件
+
+df -h             获取目前挂载的设备，整体磁盘使用量
+du -sh            获取文件所占容量
+	bug 卡住了
+	strace df -h
+	systemctl restart proc-sys-fs-binfmt_misc.automount
+
+
+dumpe2fs          查询每个区段与 superblock 的信息
+ln -s /etc/crontab crontab2 创建符号链接，类似windows 的快捷方式
+
+
+read -p &amp;quot;Please keyin your name: &amp;quot; -t 30 named  读取键盘输入
+declare                   声明变量
+ulimit -a                 显示当前用户的数据限制值
+last                      显示登陆者信息
+alias                     显示当前所有的命令别名,设置别名
+unalias                   取消别名
+history                   使用过的命令历史
+type -a                   获取命令搜寻顺序
+!comand                   运行最近命令开头为command的命令
+source/.                  读入环境配置文件，可以直接在父程序运行脚本
+chattr (配置文件隐藏属性)
+lsattr (显示文件隐藏属性)
+pwd 显示当前目录
+		
+//输入输出
+标准输入　　(stdin) ：代码为 0 ，使用 &amp;lt; 或 &amp;lt;&amp;lt; ；
+标准输出　　(stdout)：代码为 1 ，使用 &amp;gt; 或 &amp;gt;&amp;gt; ；
+标准错误输出(stderr)：代码为 2 ，使用 2&amp;gt; 或 2&amp;gt;&amp;gt; ；
+重定向操作符（&amp;amp;&amp;gt;）将标准输出和错误输出同时送到同一文件
+
+//pipe
+|grep|cut|sort|uniq|wc
+|tee test.txt            双向重导向,分送到文件去与屏幕stdout,可以让下个命令继续使用      
+ - 减号                   可以取用前一个命令的 stdout
+
+	//正则
+find .| xargs grep -ri &amp;quot;18616504954&amp;quot; -l  目录下的所有文件中查找字符串,并且只打印出含有该字符串的文件名
+
+grep &#39;^ha&#39; test.txt -n    单引号中使用正则
+sed                       将数据 standard input 进行取代、删除、新增、撷取特定行等
+						  e.g: nl test.txt |sed &#39;2,3d&#39;
+						       sed &#39;s/要被取代的字串/新的字串/g&#39;
+
+printf                    格式化输出
+awk &#39;条件类型1{动作1} 条件类型2{动作2} ...&#39; filename   处理数据
+	
+		$NF代表：最后一个Field(列)
+
+
+diff/cmp                  比对两个文件
+test                      检查工具, 判断文件属性等
+tail -cf 			      循环读取文件末尾日志   
+
+less test.log  打开文件，按大写实时刷新
+		
+		- F 实时刷新
+		- N 显示行号
+
+dig xxx +short            查看域名                 
+
+//切换
+
+&amp;amp;                       直接将命令丢到背景中『运行』的 &amp;amp;
+[ctrl]+z                 将『目前』的工作丢到背景中『暂停
+jobs                    观察目前的背景工作状态： jobs
+				用jobs查看进程的jobnumber，然后用命令：kill %n 来结束。
+			
+fg                      将背景工作拿到前景来处理：fg
+bg                      让工作在背景下的状态变成运行中： bg
+kill                    管理背景当中的工作： kill
+		 killall -9 httpd       强制终止所有以 httpd 启动的程序
+		 killall -1 syslogd       给予 syslogd 这个命令启动的 PID 一个 SIGHUP 的讯号
+	     killall -i -9 bash      依次询问每个 bash 程序是否需要被终止运行！
+
+//服务管理
+ service --status-all  显示出目前系统上面所有服务的运行状态
+ chkconfig： 管理系统服务默认启动启动与否
+			 chkconfig --list [服务名称]
+			 chkconfig [--level [0123456]] [服务名称] [on|off]		 
+			  *启动 Linux 系统时，可以进入不同的模式喔，这模式我们称为运行等级, 正常的运行等级有两个，一个是具有 X 窗口接口的 run level 5 ，另一个则是纯文本界面的 run level 3。* 
+
+logrotate [-vf] logfile       显示 logrotate 运行过程
+
+tar czvf my.tar.gz dir1 单个目录压缩打包 
+	tar czvf shell30.tar.gz  /usr/local/system/bin
+tar xzvf my.tar.gz 解包至当前目录
+
+ls -l | grep &amp;quot;^-&amp;quot; | wc -l 统计文件个数
+	
+curl -H &amp;quot;Sign:#f93Uc31K24()_@&amp;quot; -d &amp;quot;fatherId=10155&amp;quot; http://dbt.lego.iqiyi.com/api/program/find
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;文件系统&#34;&gt;文件系统&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Linux 的正统文件系统则为 Ext2 (Linux second extended file system, ext2fs)这一个。此外，在默认的情况下，windows 操作系统是不会认识 Linux 的 Ext2 的。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="帮助手册命令-man">帮助手册命令 man</h2>
 <pre><code>man命令：可以通过一些参数，快速查询linux帮助手册，并且格式化显示。
 </code></pre>
@@ -3200,7 +3924,11 @@ gcc -o hello hello.c -Wall
       <pubDate>Wed, 05 Jun 2019 20:00:22 +0800</pubDate>
       
       <guid>https://justinbetter.github.io/2019/06/05/kafka%E6%9C%BA%E5%88%B6%E4%B8%80%E8%A7%88/</guid>
-      <description>Kafka： topic、producer、consumer、broker topic本质就是一个目录,由一些Partition Logs(分区日</description>
+      <description>&lt;p&gt;Kafka：
+topic、producer、consumer、broker&lt;/p&gt;
+&lt;p&gt;topic本质就是一个目录,由一些Partition Logs(分区日志)组成（便于集群拓展、提高并发）
+Kafka需要维持的元数据只有一个–消费消息在Partition中的offset值，Consumer每消费一个消息，offset就会加1。
+其实消息的状态完全是由Consumer控制的，Consumer可以跟踪和重设这个offset值，这样的话Consumer就可以读取任意位置的消息&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>Kafka：
 topic、producer、consumer、broker</p>
 <p>topic本质就是一个目录,由一些Partition Logs(分区日志)组成（便于集群拓展、提高并发）
@@ -3265,58 +3993,6 @@ controller会在集群启动时为每个节点注册一个监听器，当节点�
 <p>有序？
 卡夫卡是无法保证全局的消息顺序性的，只能保证主题的某个分区的消息顺序性
 如何保证？需要有序的消息都发往同一个分区，这样就保证了局部有序；</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>读和时间作朋友</title>
-      <link>https://justinbetter.github.io/2019/03/03/%E8%AF%BB%E5%92%8C%E6%97%B6%E9%97%B4%E4%BD%9C%E6%9C%8B%E5%8F%8B/</link>
-      <pubDate>Sun, 03 Mar 2019 20:00:22 +0800</pubDate>
-      
-      <guid>https://justinbetter.github.io/2019/03/03/%E8%AF%BB%E5%92%8C%E6%97%B6%E9%97%B4%E4%BD%9C%E6%9C%8B%E5%8F%8B/</guid>
-      <description>看完一本对自己有价值的书--李笑来先生的《和时间作朋友》，总想说点什么。 一开始其实并没有想写这篇文章的冲动，我自己认为我的文笔不算好（样本数</description>
-      <content:encoded><![CDATA[<pre><code>看完一本对自己有价值的书--李笑来先生的《和时间作朋友》，总想说点什么。
-一开始其实并没有想写这篇文章的冲动，我自己认为我的文笔不算好（样本数量屈指可数的情况下），也没有几个朋友有阅读我文章的冲动，加上主要原因--懒惰，就更没有写的必要了。
-为什么又下笔了呢？实在是有与人诉说的需求没有得到满足，本来嘛，一本书写的好，鸡汤满满，整的你热血沸腾的，出于善意的思维，你总是想分享给你的朋友，他们看了，也热血沸腾的，就完事了。于是当我满心欢喜地安利给我的一些朋友以后，我想当然地认为以我不差的审美，他们总该会翻翻看看，了解个大概，再决定是否有精读的必要。结果却并不如此。
-我开始思考为什么会出现这样的现象？
-是我不了解他们吗？是不明白他们真正的需要吗？还是他们正处在一个非常繁忙的局面，没有闲暇去读你觉得有价值的东西？抑或只是懒惰罢了？
-我思考后的感悟是，人一生的很多时候会选择相信自己，而不会轻易去听别人的。即便是成功如马云、雷军、李笑来那样的一帮人，推荐自己深有感触的价值读物，依然会有很多人质疑。
-下面是我整理的读书笔记。
-
-我们很多人常常面临无法按计划完成任务的困境，生活中的噪音无时无刻不在影响着你的专注力，我们能做的是接受现实，提高心智，相信积累的力量，这是本书的开头。
-首先解释了心智的概念：过往获得的一切知识及经验的总和。
-心智只要开启了，无论正反，都会自我积累，自我过滤，根深蒂固。而我们以往的经验局限，可能会融入心智，造成拒绝学习的判断，所以为了摆脱局限，我们需要正向地提升自己的心智力量。
-如何提高心智？
-开始接受当前现状，在“任务速成”绝无可能的情况下，用自己有的去交换自己要的，如果啥都没有，只能毫不怀疑地相信努力勤奋总会有的。接受现状才是最优策略。
-面临的困难？
-由于侯士达法则：完成任务花费的时间总会超过计划的时间--主要原因在于任务有熟悉和陌生的区别。我们要做的是判断任务熟悉程度，接受一定的未知，立即行动。
-在行动的过程中不要假装很努力，因为真正重要的事情也会面临枯燥无味，学会三思而后行，what why how，在行动过程中可以考虑把一个非机械的任务和机械的任务并行搭配，养成精细拆分任务的习惯，提高效率。
-如果面临焦虑，可以参考柳比歇夫先生的事件时间日志的方式，通过记录自己的时间流量，感知到时间流逝，战胜自己的焦虑。
-执行任务的策略？
-定制良好的计划，计划的目的是为了验收，任务执行结束后，对比自己之前记录的标准，想想。
-如何学习的主要手段：试错、观察、阅读、正确的思考，同时要考虑个体和群体的经验局限；一个人的自学能力依赖于阅读理解、检索能力、写作能力以及实践能力，永远保持开放的心态，不要‘选择性输入’，只看到自己想看的。
-了解一些逻辑常识？
-把权威当作辅助工具。避免一些基础概念不清、因果颠倒、命题关系不分、举证责任、偷换概念等错误，理解双盲测试的概念（病人对药物判断的隔离、工作人员对分发药物的隔离）。
-人类普遍拥有的一个认知偏差就是：把成功揽到自己身上，把失败归咎于别人或者坏运气。（这在心理学上有个术语，叫做“自利性偏差(Self-servingBias)”。与其关注成功者，不如多吸取失败者的经验。
-道理都明白，可就是做不到的？原因是恐惧和懦弱。办法只有克服。
-最好提高一些沟通能力？
-学会倾听，等到对方把话说完再质疑；通过努力、积累成为能说更多话的人，想办法不时做出令人敬佩的事情，就会有人主动找你做朋友；讨论需要双方遵守理性讨论基本原则，真理是独立于个人和群体的，不同变化的只是人们对真理的解释和理解。
-往往并不是有兴趣才能做好，而是做好了才有兴趣？
-如何做好？正确的策略加重复。遇到痛苦怎么办？利用大脑的遗忘机制转移痛苦。重复犯错？这是遗忘机制的副作用，可以用文字、图片的方式记录自己当时的尴尬，提醒自己不要去犯同样的错误。
-最后提了一些感悟：
-浪费时间、虚度年华的人，有一个共同的特征——拼命想控制自己完全不能控制的事物，却在自己真正能掌控的地方彻底失控；不要这样，结果已经在你积累的过程中体现。         
-接受一个关于运气的现实：概率是独立于任何人存在的，因此绝对不会仅因为我的期望就发生任何变化。
-利用鸡尾酒会效应，记录自己可能需要的信息方向，遇到相关信息时注意力就会被潜意识关注。灵巧的勤奋才能迸发灵感。
-永远鼓励身边的人，大多数人是以泼水为乐的，别作大多数。
-努力的过程中不要忘记给自己留有空间。
-选择意味着放弃，选择之前确定自己想要什么。
-找到正确的节奏，凡是值得做的事情，都值得慢慢去做，做很久很久。
-为值得的人提供帮助。不要试图证明自己，结果反而会适得其反。
-    
-大体上来说，这是一本激励人心的书，看完以后倍感热血，对于冷漠太久的内心不算坏事。
-最后想想，为什么一定要别人听我的呢？还是心智力量不足啊。想想我分享了美好的东西，这东西本身就是美好的，又哪里缺少欣赏的人呢。
-如今我已经记录下来这些感想，至少有个地方听到了。
-</code></pre>
 ]]></content:encoded>
     </item>
     

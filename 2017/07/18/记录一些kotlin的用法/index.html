@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 <head>
-  <meta name="generator" content="Hugo 0.110.0" />
+  <meta name="generator" content="Hugo 0.155.3" />
   <meta charset="utf-8">
   <title>记录一些kotlin的用法 · helloj</title><meta name="referrer" content="no-referrer" />
 <meta data-draft-node="block" data-draft-type="table" data-size="normal" data-row-style="normal">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="操作符 Elvis 操作符 ?: val a = b?.length ?: -1 安全转换 as？ 转型不成功返回 null null safety var a : String? = null a?.length //a 为null 则pass，不为null 则调用 a!!.length// 抛异常 类型判断符 is 范" />
+  <meta name="description" content="操作符 Elvis 操作符 ?: val a = b?.length ?: -1 安全转换 as？ 转型不成功返回 null null safety var a : String? = null a?.length //a 为null 则pass，不为null 则调用 a!!.length// 抛异常 类型判断符 is 范围操作符 : in for(i in 1..5 step 1){} for (i in 5 downTo 1 step 2){} 多行输入符 &quot;&quot;&quot; 三个双引号之间的内容将被原样保留 扩展函数 run 调用函数块，块内 this指代调用对象 返回值为最后一行 val result = &#34;haha&#34;.run{ println(this) &#34;I&#39;m result&#34; } println(result) apply 同run，函数块内this 指代该对象 返回值为对象自己 let 函数块内 it 指代该对象 返回值最后一行 also 函数块内it 指代该对象 返回值为对象自己 with 将该对象作为函数参数 this 指代该对象 返回值为最后一行 val result = with（&#34;haha&#34;）{ println(this) &#34;result&#34; } println(result) 修饰符 private 只能被自己所在的文件可见，不能在定义这个类之外的文件中使用 protected 可以被成员自己和继承它的成员可见（比如，类和它的子类） internal 对所在的整个module可见 public 最没有限制的修饰符。这是默认的修饰符 委托属性 一个属性具有一些相同的行为，使用lazy或者observable可以被很有趣地实现重用。而不是一次又一次地去声明那些相同的代码
+" />
 
 
 <link rel="canonical" href="https://justinbetter.github.io/2017/07/18/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9Bkotlin%E7%9A%84%E7%94%A8%E6%B3%95/" />
@@ -18,19 +19,9 @@
 
 
 
-<meta property="og:title" content="记录一些kotlin的用法" />
-<meta property="og:description" content="操作符 Elvis 操作符 ?: val a = b?.length ?: -1 安全转换 as？ 转型不成功返回 null null safety var a : String? = null a?.length //a 为null 则pass，不为null 则调用 a!!.length// 抛异常 类型判断符 is 范" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://justinbetter.github.io/2017/07/18/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9Bkotlin%E7%9A%84%E7%94%A8%E6%B3%95/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-07-18T20:00:22+08:00" />
-<meta property="article:modified_time" content="2017-07-18T20:00:22+08:00" />
-<meta itemprop="name" content="记录一些kotlin的用法">
-<meta itemprop="description" content="操作符 Elvis 操作符 ?: val a = b?.length ?: -1 安全转换 as？ 转型不成功返回 null null safety var a : String? = null a?.length //a 为null 则pass，不为null 则调用 a!!.length// 抛异常 类型判断符 is 范"><meta itemprop="datePublished" content="2017-07-18T20:00:22+08:00" />
-<meta itemprop="dateModified" content="2017-07-18T20:00:22+08:00" />
-<meta itemprop="wordCount" content="541">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="记录一些kotlin的用法"/>
-<meta name="twitter:description" content="操作符 Elvis 操作符 ?: val a = b?.length ?: -1 安全转换 as？ 转型不成功返回 null null safety var a : String? = null a?.length //a 为null 则pass，不为null 则调用 a!!.length// 抛异常 类型判断符 is 范"/>
+
+
+
 </head>
 <body>
   
@@ -287,10 +278,10 @@ println(result)
           <small><em>Proudly powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a></em></small><br/>
           <small>
             &copy;
-            HelloJ
+            
             
               2017 -
-            2023
+            2026
           </small>
           
         </p>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 <head>
-  <meta name="generator" content="Hugo 0.110.0" />
+  <meta name="generator" content="Hugo 0.155.3" />
   <meta charset="utf-8">
   <title>redis连招 · helloj</title><meta name="referrer" content="no-referrer" />
 <meta data-draft-node="block" data-draft-type="table" data-size="normal" data-row-style="normal">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="[TOC] 关键字 单线程，epoll，cluster，sentinel，gossip，raft， 分布式锁，穿透，击穿，雪崩，数据一致性， sds，zip" />
+  <meta name="description" content="[TOC]
+关键字 单线程，epoll，cluster，sentinel，gossip，raft， 分布式锁，穿透，击穿，雪崩，数据一致性， sds，ziplist，skiplist，rehash，hyperloglog， 热key，大key，过期清理，淘汰策略，主从复制，rdb，aof，aof rewrite string,hash,set,zset的底层数据结构实现，hash的渐进式扩容 hyperloglog标准误差多少，原理是啥 再加上 6.0之后的加入的多线程 工作机制 缓存过期重置。锁刷新 一致性哈希算法 分布式锁 setnx讲起，最后慢慢引出set命令的可以加参数， setnx 是SET if Not eXists(如果不存在，则 SET)的简写。万一set value 成功 set time失败 setex是一个原子性(atomic)操作，关联值和设置生存时间两个动作会在同一时间内完成。 redisson的锁，就实现了可重入，他使用了LUA的Hash数据结构。
+" />
 
 
 <link rel="canonical" href="https://justinbetter.github.io/2020/09/05/redis%E8%BF%9E%E6%8B%9B/" />
@@ -18,19 +20,9 @@
 
 
 
-<meta property="og:title" content="redis连招" />
-<meta property="og:description" content="[TOC] 关键字 单线程，epoll，cluster，sentinel，gossip，raft， 分布式锁，穿透，击穿，雪崩，数据一致性， sds，zip" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://justinbetter.github.io/2020/09/05/redis%E8%BF%9E%E6%8B%9B/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-09-05T20:00:22+08:00" />
-<meta property="article:modified_time" content="2020-09-05T20:00:22+08:00" />
-<meta itemprop="name" content="redis连招">
-<meta itemprop="description" content="[TOC] 关键字 单线程，epoll，cluster，sentinel，gossip，raft， 分布式锁，穿透，击穿，雪崩，数据一致性， sds，zip"><meta itemprop="datePublished" content="2020-09-05T20:00:22+08:00" />
-<meta itemprop="dateModified" content="2020-09-05T20:00:22+08:00" />
-<meta itemprop="wordCount" content="2662">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="redis连招"/>
-<meta name="twitter:description" content="[TOC] 关键字 单线程，epoll，cluster，sentinel，gossip，raft， 分布式锁，穿透，击穿，雪崩，数据一致性， sds，zip"/>
+
+
+
 </head>
 <body>
   
@@ -262,10 +254,10 @@ epoll基于事件驱动，避免了像select和poll对事件的整个轮询操�
           <small><em>Proudly powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a></em></small><br/>
           <small>
             &copy;
-            HelloJ
+            
             
               2017 -
-            2023
+            2026
           </small>
           
         </p>

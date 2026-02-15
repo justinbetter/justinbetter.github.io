@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ci-Cd on helloj</title>
+    <link>https://justinbetter.github.io/tag/ci-cd/</link>
+    <description>Recent content in Ci-Cd on helloj</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 15 Feb 2026 10:50:00 +0800</lastBuildDate>
+    
+    <atom:link href="https://justinbetter.github.io/tag/ci-cd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>测试 GitHub Actions 自动部署</title>
+      <link>https://justinbetter.github.io/2026/02/15/%E6%B5%8B%E8%AF%95-github-actions-%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sun, 15 Feb 2026 10:50:00 +0800</pubDate>
+      
+      <guid>https://justinbetter.github.io/2026/02/15/%E6%B5%8B%E8%AF%95-github-actions-%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</guid>
+      <description>&lt;p&gt;这是一篇测试文章，用来验证 GitHub Actions 自动部署是否正常工作。&lt;/p&gt;
+&lt;h2 id=&#34;测试内容&#34;&gt;测试内容&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ 新文章已创建&lt;/li&gt;
+&lt;li&gt;⏳ 等待 GitHub Actions 触发&lt;/li&gt;
+&lt;li&gt;⏳ 检查部署结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果这篇文章能正常显示在博客上，说明自动部署流程已经修复！&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>这是一篇测试文章，用来验证 GitHub Actions 自动部署是否正常工作。</p>
+<h2 id="测试内容">测试内容</h2>
+<ul>
+<li>✅ 新文章已创建</li>
+<li>⏳ 等待 GitHub Actions 触发</li>
+<li>⏳ 检查部署结果</li>
+</ul>
+<p>如果这篇文章能正常显示在博客上，说明自动部署流程已经修复！</p>
+<hr>
+<p><em>发布时间: 2026-02-15</em></p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
