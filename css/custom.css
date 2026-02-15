@@ -35,7 +35,7 @@
 
 /* Fix: Add top padding to main content to avoid fixed header overlap */
 body {
-  padding-top: 60px !important;
+  padding-top: 110px !important;
 }
 
 .header-nav .nav-menu a.nav-link {
